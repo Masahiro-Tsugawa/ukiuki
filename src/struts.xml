@@ -4,48 +4,23 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<constant name="struts.devMode" value="true" />
-	<package name="com.internousdev.mongoprototype.action" extends="struts-default">
+    <constant name="struts.devMode" value="true" />
+    <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
 
-<action name="MongoLoginAction"
-         class="com.internousdev.mongoprototype.action.MongoLoginAction"
-         method="execute">
-         <result name="success">index.jsp</result>
-         <result name="error">Login.jsp</result>
-         <result name="input">Login.jsp</result>
+        <!-- ホーム画面 -->
+        <action name="home" class="com.internousdev.ukiukiutopia.action.GoMainAction" method="execute">
+            <result name="success">home.jsp</result>
+        </action>
 
-	</action>
-	
-<action name="MongoSelectAction"
-         class="com.internousdev.mongoprototype.action.MongoSelectAction"
-         method="execute">
-         <result name="success">index.jsp</result>
-         <result name="error">index.jsp</result>
-
-	</action>
-	
-
-<action name="MongoDeleteAction"
-         class="com.internousdev.mongoprototype.action.MongoDeleteAction"
-         method="execute">
-         <result name="success">index.jsp</result>
-		 <result name="error">index.jsp</result>
-	</action>
-
-<action name="MongoInsertAction"
-         class="com.internousdev.mongoprototype.action.MongoInsertAction"
-         method="execute">
-         <result name="success">index.jsp</result>
-		 <result name="error">index.jsp</result>
-	</action>
-
-<action name="MongoUpdateAction"
-         class="com.internousdev.mongoprototype.action.MongoUpdateAction"
-         method="execute">
-         <result name="success">index.jsp</result>
-		 <result name="error">index.jsp</result>
-	</action>
-	
-
-</package>
+        <!-- 新規登録画面  -->
+        <action name="sign_up" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
+            <result name="success">sign_up.jsp</result>
+        </action>
+        
+        <!--チケット購入画面 -->
+        <action name="ticket_buy" class="com.internousdev.ukiukiutopia.action.GoTicketBuyAction" method="execute">
+            <result name="success">tour-detail.jsp</result>
+        </action>
+        
+    </package>
 </struts>
