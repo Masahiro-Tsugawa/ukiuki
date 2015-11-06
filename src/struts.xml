@@ -8,7 +8,7 @@
     <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
 
         <!-- ホーム画面 -->
-        <action name="home" class="com.internousdev.ukiukiutopia.action.GoMainAction" method="execute">
+        <action name="home" class="com.internousdev.ukiukiutopia.action.GoHomeAction" method="execute">
             <result name="success">home.jsp</result>
         </action>
 
@@ -19,7 +19,7 @@
         
         <!--チケット購入画面 -->
         <action name="ticket_buy" class="com.internousdev.ukiukiutopia.action.GoTicketBuyAction" method="execute">
-            <result name="success">tour-detail.jsp</result>
+            <result name="success">ticket_buy.jsp</result>
         </action>
         
     </package>
