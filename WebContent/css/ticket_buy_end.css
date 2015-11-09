@@ -1,0 +1,24 @@
+.form-chiket{
+	text-align: center;
+}
+.form-name{
+	text-align: right;
+}
+.table-test{
+width: 100%;
+border-collapse: collapse;
+}
+.table-test th{
+width: 25%;
+padding: 6px;
+text-align: left;
+vertical-align: top;
+color: #333;
+background-color: #66FF99;
+border: 1px solid #FFD700;
+}
+.table-test td{
+padding: 6px;
+background-color: #fff;
+border: 1px solid #66FF99;
+}
