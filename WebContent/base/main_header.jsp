@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <head>
  <link rel="stylesheet" href="css/main.css" type="text/css">
- <link rel="stylesheet" href="css/home.css" type="text/css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
  
   <title>うきうきUtopia HOME</title>
@@ -16,7 +15,7 @@
   
    <div id="header">
     <div id="header_left">
-	  <a href="MainAction"><img align="left" src="image/logo.png" alt="うきうきUtopia"></img></a>
+	  <a href="MainAction"><img align="left" src="img/logo.png" alt="うきうきUtopia"></img></a>
 		<s:if test="#session.userName != null" >
 		  <div id="header_right" align="right">
 		    <span><s:property value="#session.userName"/>様　　</span>
