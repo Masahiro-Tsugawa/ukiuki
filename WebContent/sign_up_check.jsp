@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/createUser.css" type="text/css">
+<link rel="stylesheet" href="css/signUpCheck.css" type="text/css">
 <title>UkiukiUtopia</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 				<tr>
 					<td>氏名：</td>
 					<td>
-						<!--Actionで返ってきた値を表示させる-->
+						<s:property value="#session.name_key"/>
 					</td>
 				</tr>
 				<tr>
@@ -49,15 +49,21 @@
 				</tr>
 				<tr>
 					<td>電話番号：</td>
-					<td></td>
+					<td>
+						<s:property value="#session.name_key"/>
+					</td>
 				</tr>
 				<tr>
 					<td>メールアドレス：</td>
-					<td></td>
+					<td>
+						<s:property value="#session.name_key"/>
+					</td>
 				</tr>
 				<tr>
 					<td>パスワード：</td>
-					<td></td>
+					<td>
+						<s:property value="#session.name_key"/>
+					</td>
 				</tr>
 
 				<tr class="button">
