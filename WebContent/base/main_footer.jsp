@@ -6,6 +6,3 @@
 Copyright © <a href="index.html" target="_self ">うきうきUtopia</a> All Right Reserved.
 
 </footer>
-
-</body>
-</html>
