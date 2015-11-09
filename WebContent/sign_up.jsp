@@ -21,7 +21,7 @@
 					</tr>
 					<tr>
 						<td colspan="2"><s:textfield label="氏名" name="userName"
-								placeholder="記入例　御茶ノ水　太郎" /></td>
+								placeholder="記入例　加藤　太郎" /></td>
 					</tr>
 					<tr>
 						<td colspan="3">住所の入力をお願いします</td>
