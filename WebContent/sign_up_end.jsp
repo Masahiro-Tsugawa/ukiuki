@@ -17,7 +17,7 @@
 		<div class="create">
   		<h1>登録完了しました。</h1>
   		<s:form action="my_page">
-  		<s:submit value="マイページへ" />
+  			<s:submit value="マイページへ" />
 		</s:form>
 		</div>
 	</div>
