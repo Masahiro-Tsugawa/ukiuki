@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<!DOCTYPE html">
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,13 +35,13 @@
 			   <s:property value="admin_name"/>
 		</div>
 	
-	<div class="container">
+	
 
 <br>
 
 <!--情報入力のダイアログボックスを作る-->
 <div class="admin">
-  <form method="POST" action="">
+  <s:form method="POST" action="">
    チケット購入情報確認
 
    
@@ -50,8 +50,9 @@
        ユーザー情報編集
        
  結果表示スペース
-   
+   </s:form>
 	</div>
+	<div class="container">
     <jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
 </html>
