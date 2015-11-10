@@ -59,9 +59,14 @@
 
         <!-- 新規登録画面  -->
         <action name="sign_up" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
+            <result name="success">sign_up.jsp</result>
+        </action>
+        
+        <!-- 個人情報入力 -->
+        <action name="CreateUserAction" class="com.internousdev.ukiukiutopia.action.CreateUserAction" method="execute">
             <result name="success">sign_up_check.jsp</result>
-			<result name="error">sign_up.jsp</result>
-			<result name="input">sign_up.jsp</result>
+            <result name="error">sign_up.jsp</result>
+            <result name="input">sign_up.jsp</result>
         </action>
         
         <!--チケット購入画面 -->
