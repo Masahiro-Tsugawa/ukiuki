@@ -35,6 +35,10 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 
 		System.out.println("■reguserDAOに突入");
 		count = dao.insert(userEmail, userPassword, userName, userTelNum, userPosCode, userAddress);
+		
+		session.clear();
+		
+		session.put("userName", userName);
 
 		if (count > 0) {
 			action = SUCCESS;
