@@ -4,31 +4,32 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	private String userName;
 	private String userPassword;
+	private String confirmUserPassword;
 	private String userPostalCode;
-	private String userAdress1;
-	private String userAdress2;
-	private String userAdress3;
+	private String userAddress1;
+	private String userAddress2;
+	private String userAddress3;
 	private String userEmail;
+	private String confirmUserEmail;
 	private String userTelNum;
 
-	public String execute() throws Exception {
-		session.put("userName", userName);
-		session.put("userPassword", userPassword);
-		session.put("userPostalCode", userPostalCode);
-		StringBuilder userAdress = new StringBuilder();
-		userAdress.append(userAdress1);
-		userAdress.append(userAdress2);
-		userAdress.append(userAdress3);
-		session.put("userAdress", userAdress);
-		session.put("userEmail", userEmail);
-		session.put("userTelNum", userTelNum);
+	public String execute() throws SQLException {
+		session.put("signUpName", userName);
+		session.put("signUpPassword", userPassword);
+		session.put("signUpPostalCode", userPostalCode);
+		StringBuilder userAddress = new StringBuilder();
+		userAddress.append(userAddress1);
+		userAddress.append(userAddress2);
+		userAddress.append(userAddress3);
+		session.put("signUpAddress", userAddress);
+		session.put("signUpEmail", userEmail);
+		session.put("signUpTelNum", userTelNum);
 		return "success";
 	}
 
@@ -71,33 +72,51 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-
-	public String getUserAdress1() {
-		return userAdress1;
+	
+	public String getConfirmUserPassword() {
+		return confirmUserPassword;
 	}
 
-	public void setUserAdress1(String userAdress1) {
-		this.userAdress1 = userAdress1;
+	public void setConfirmUserPassword(String confirmUserPassword) {
+		this.confirmUserPassword = confirmUserPassword;
 	}
 
-	public String getUserAdress2() {
-		return userAdress2;
+	public String getUserAddress1() {
+		return userAddress1;
 	}
 
-	public void setUserAdress2(String userAdress2) {
-		this.userAdress2 = userAdress2;
+	public void setUserAddress1(String userAddress1) {
+		this.userAddress1 = userAddress1;
 	}
 
-	public String getUserAdress3() {
-		return userAdress3;
+	public String getUserAddress2() {
+		return userAddress2;
 	}
 
-	public void setUserAdress3(String userAdress3) {
-		this.userAdress3 = userAdress3;
+	public void setUserAddress2(String userAddress2) {
+		this.userAddress2 = userAddress2;
+	}
+
+	public String getUserAddress3() {
+		return userAddress3;
+	}
+
+	public void setUserAddress3(String userAddress3) {
+		this.userAddress3 = userAddress3;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session= session;
 	}
+
+	public String getConfirmUserEmail() {
+		return confirmUserEmail;
+	}
+
+	public void setConfirmUserEmail(String confirmUserEmail) {
+		this.confirmUserEmail = confirmUserEmail;
+	}
+
+
 
 }
