@@ -113,9 +113,9 @@
   <table class="table-acc">
     <tr><th colspan="3">合計金額</th></tr>
      <tr>
-       <td><input type="checkbox" value="1">店頭払い
+       <td><input type="radio" name="card" value="1">店頭払い
          <p></p>
-         <input type="checkbox" value="1">クレジットカード払い</td>
+         <input type="radio" name="card" value="1">クレジットカード払い</td>
       <td><div class="form-text">合計:円</div></td>
    </tr>
 
@@ -165,11 +165,12 @@
   <td>セキュリティコード：</td>
   <td><div class="form-text"><input type=text name="cardCo"></div></td>
 </tr>
-
+<tr>
    <td colspan="2">
      <div class="table-kingaku"><a href="chicketkanryou.html"><input type="submit" value="購入"></a>
        <a href="mypage.html"><input type="submit" value="キャンセル"></a></div>
      </td>
+     </tr>
    </table>
 
     <jsp:include page="base/main_footer.jsp" flush="true" />
