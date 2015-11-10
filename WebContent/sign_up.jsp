@@ -48,17 +48,17 @@
 
 
 					<tr>
-						<td colspan="2"><s:textfield label="都道府県" name="userAdress1"
+						<td colspan="2"><s:textfield label="都道府県" name="userAddress1"
 								placeholder="記入例　東京都" /></td>
 					</tr>
 					<tr>
 
 						<td colspan="2"><s:textfield label="市町村区番地"
-								name="userAdress2" placeholder="記入例　千代田区霞ヶ関3-6-15" /></td>
+								name="userAddress2" placeholder="記入例　千代田区霞ヶ関3-6-15" /></td>
 					</tr>
 					<tr>
 						<td colspan="2"><s:textfield label="マンション等"
-								name="userAdress3" placeholder="記入例　なんとかビル" /></td>
+								name="userAddress3" placeholder="記入例　なんとかビル" /></td>
 					</tr>
 
 					<tr>
