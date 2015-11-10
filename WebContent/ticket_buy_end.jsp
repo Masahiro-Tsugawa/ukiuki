@@ -15,11 +15,11 @@
     <jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
 	<div class="form-name">
-    会員名:<s:property value="#session.name_key"></s:property><a href="" target="_self">[ログアウト]</a>
+    会員名:<s:property value="#session.name_key"></s:property><a href="home.jsp" target="_self">[ログアウト]</a>
    </div>
     <div class="form-chiket">チケット購入完了画面
     <p>購入完了しました。</p>
-    <a href="mypage.html"><input type="submit" value="マイページに戻る"></a>
+    <a href="my_page.jsp"><input type="submit" value="マイページに戻る"></a>
   </div>
 	</div>
     <jsp:include page="base/main_footer.jsp" flush="true" />
