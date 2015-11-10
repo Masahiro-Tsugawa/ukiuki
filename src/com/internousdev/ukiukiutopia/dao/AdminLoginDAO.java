@@ -1,18 +1,23 @@
 package com.internousdev.ukiukiutopia.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 
 /**
  * @author internous
  *
  */
 public class AdminLoginDAO {
-	public String admin_name;
-	public String select(String id, String password) {
+
+	private String admin_name;
+
+	private boolean is_login;
+
+	public String select(String name, String password) {
 
 		Connection conn = null;
 		String ret = "error";
@@ -20,16 +25,20 @@ public class AdminLoginDAO {
 		try {
 			conn = (Connection) DBConnector.getConnection();
 			String sql = "SELECT * FROM admin WHERE ";
-			sql += "id = ? AND admin_password = ?";
+			sql += "admin_name = ? AND admin_password = ?";
 			System.out.println(sql);
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, id);
-			ps.setString(2, password);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				id = rs.getString("admin_name");
-				ret = "success";
 
+			ps.setString(1, name);
+			ps.setString(2, password);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				System.out.println("if");
+				admin_name = rs.getString("admin_name");
+				System.out.println(is_login);
+				ret = "success";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,6 +51,7 @@ public class AdminLoginDAO {
 				}
 			}
 		}
+		System.out.println(ret);
 		return ret;
 	}
 
@@ -51,5 +61,13 @@ public class AdminLoginDAO {
 
 	public void setAdmin_name(String admin_name) {
 		this.admin_name = admin_name;
+	}
+
+	public boolean getIs_login() {
+		return is_login;
+	}
+
+	public void setIs_login(boolean is_login) {
+		this.is_login = is_login;
 	}
 }
