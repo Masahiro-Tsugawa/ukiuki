@@ -14,7 +14,9 @@
 
         <!-- 新規登録画面  -->
         <action name="sign_up" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
-            <result name="success">sign_up.jsp</result>
+            <result name="success">sign_up_check.jsp</result>
+			<result name="error">sign_up.jsp</result>
+			<result name="input">sign_up.jsp</result>
         </action>
         
         <!--チケット購入画面 -->
