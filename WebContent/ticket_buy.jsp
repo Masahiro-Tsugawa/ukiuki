@@ -132,7 +132,6 @@
    <td>カード名義:</td>
    <td><input class="billing-address-name form-control"type="text" name="name" placeholder="TARO YAMADA">
    </tr>
-
    <tr>
      <td>有効期限:(月/年)</td>
      <td colspan="2">
