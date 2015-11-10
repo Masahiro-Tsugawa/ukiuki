@@ -24,54 +24,46 @@
 				<tr>
 					<td>氏名：</td>
 					<td>
-						<s:property value="#session.name_key"/>
+						<s:property value="#session.signUpName"/>
 					</td>
 				</tr>
 				<tr>
 					<td>郵便番号：</td>
-					<td></td>
+					<td>
+						<s:property value="#session.signUpPostalCode"/>
+					</td>
 				</tr>
 				<tr>
-					<td>都道府県：</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>市町村区：</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>番地：</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>建物名：</td>
-					<td></td>
+					<td>住所：</td>
+					<td>
+						<s:property value="#session.signUpAddress"/>
+					</td>
 				</tr>
 				<tr>
 					<td>電話番号：</td>
 					<td>
-						<s:property value="#session.name_key"/>
+						<s:property value="#session.signUpTelNum"/>
 					</td>
 				</tr>
 				<tr>
 					<td>メールアドレス：</td>
 					<td>
-						<s:property value="#session.name_key"/>
+						<s:property value="#session.signUpEmail"/>
 					</td>
 				</tr>
 				<tr>
 					<td>パスワード：</td>
 					<td>
-						<s:property value="#session.name_key"/>
+						<s:property value="#session.signUpPassword"/>
 					</td>
 				</tr>
 
 				<tr class="button">
 					<td colspan="2"><input type="button" value=" 内容訂正 "
 						onClick="history.back()"> 
-						<a href="createUserComplete.html" target="_self">
-							<input type=submit value=" 登録完了 ">
-						</a>
+						<s:form action="register_user">
+  							<s:submit value="確認" />
+						</s:form>
 					</td>
 				</tr>
 			</table>
