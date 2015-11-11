@@ -66,7 +66,7 @@
 					</tr>
 
 					<tr>
-						<td><label for="userPostalCode">郵便番号(ハイフン必須) ：</label></td>
+						<td><label for="userPostalCode">郵便番号(「-」必須) ：</label></td>
 						<td><s:fielderror>
 								<s:param value="%{'userPostalCode'}" />
 							</s:fielderror> <s:textfield id="postcode" name="userPostalCode" maxlength="8"
