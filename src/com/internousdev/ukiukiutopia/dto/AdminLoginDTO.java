@@ -16,7 +16,7 @@ public class AdminLoginDTO {
 	private String password;
 
 	// ログイン状態
-	private boolean is_login;
+	private boolean isLogin;
 
 	//管理者のユーザー名を取得するメソッド
 	public String getName() {
@@ -39,13 +39,13 @@ public class AdminLoginDTO {
 	}
 
 	//ログイン状態を取得するメソッド
-	public boolean getIs_login() {
-		return is_login;
+	public boolean getIsLogin() {
+		return isLogin;
 	}
 
 	//ログイン状態を格納するメソッド
-	public void setIs_login(boolean is_login) {
-		this.is_login = is_login;
+	public void setIsLogin(boolean isLogin) {
+		this.isLogin = isLogin;
 	}
 
 }
