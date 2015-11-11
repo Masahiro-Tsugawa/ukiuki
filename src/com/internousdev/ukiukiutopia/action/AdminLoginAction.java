@@ -15,7 +15,7 @@ import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
 public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String name;
 	private String password;
 	private boolean isLogin;
@@ -23,31 +23,29 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		System.out.println("bbbb");
-		if (name == null || name.equals(" ")){
+		if (name == null || name.equals(" ")) {
 			addActionError("ユーザー名を入力してください");
 			return ERROR;
 		}
-		if (password == null || password.equals(" ")){
+		if (password == null || password.equals(" ")) {
 			addActionError("パスワードを入力してください");
 			return ERROR;
 		}
-		
+
 		AdminLoginDAO dao = new AdminLoginDAO();
 		AdminLoginDTO dto = new AdminLoginDTO();
-		String ret = dao.select(name, password,dto);
-		
-		
-		
-		if(ret == "error"){
+		String ret = dao.select(name, password, dto);
+
+		if (ret == "error") {
 			addActionError("ユーザー名もしくはパスワードが違います");
-		}
-		
-		if(dto.getIs_login() == true){
+		}else if (dto.getIs_login() == true) {
 			addActionError("すでにログインしているユーザーです");
-			
+		}else{
+			session.put("name_key", dto.getName());
+			System.out.println(dto.getName());
 		}
-		session.put("name_key", dto.getName());
-		System.out.println(dto.getName());
+
+		
 		return ret;
 
 	}
@@ -67,20 +65,20 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public Map<String, Object> getSession(){
+
+	public Map<String, Object> getSession() {
 		return session;
 	}
-	
+
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-	
-	public boolean getIsLogin(){
+
+	public boolean getIsLogin() {
 		return isLogin;
 	}
-	
-	public void setIsLogin(boolean isLogin){
+
+	public void setIsLogin(boolean isLogin) {
 		this.isLogin = isLogin;
 	}
 }
