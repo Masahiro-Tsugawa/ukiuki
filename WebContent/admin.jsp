@@ -180,10 +180,10 @@
 				</s:fielderror>
 				<s:form action="  ">
 					<p>
-						<input type="text" name="searchGoodsName" value=""
-							placeholder="ユーザー名" /> <input type="text" name="searchGoodsName"
-							value="" placeholder=" ユーザーID" /> <input type="text"
-							name="searchGoodsName" value="" placeholder=" 電話番号 " /> <input
+						<input type="text" name="userName"
+							placeholder="ユーザー名" /> <input type="text" name="email"
+							 placeholder=" ユーザーID" /> <input type="text"
+							name="telNum" placeholder=" 電話番号 " /> <input
 							type="submit" name="searchGoodsNameButton" value="検索" />
 					</p>
 				</s:form>

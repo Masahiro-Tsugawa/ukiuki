@@ -38,7 +38,7 @@ public class AdminLoginDAO {
 			if (rs.next()) {
 				System.out.println("if");
 				dto.setName(rs.getString("admin_name"));
-				dto.setIs_login(rs.getBoolean("is_login"));
+				dto.setIsLogin(rs.getBoolean("is_login"));
 //				System.out.println(dto.getIs_login());
 				
 				sql = "update admin set is_login=? where id=?";
