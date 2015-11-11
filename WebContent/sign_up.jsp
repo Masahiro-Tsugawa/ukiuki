@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -8,6 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+　　　　<link rel="stylesheet" href="css/createUser.css" type="text/css">
     <title>UkiukiUtopia</title>
 </head>
 <body>
@@ -15,12 +15,13 @@
     <div class="container">
 			<div class="create">
 			<s:form action="CreateUserAction">
+			<s:textfield name="userAdress1" label="都道府県" placeholder="記入例　東京都" />
 				<table>
 					<tr>
 						<th colspan="3">新規登録</th>
 					</tr>
 					<tr>
-						<td colspan="2"><s:textfield label="氏名" name="userName"
+						<td><label for="userName">氏名：</label></td><td colspan="2"><s:textfield label="氏名" name="userName"
 								placeholder="記入例　加藤　太郎" /></td>
 					</tr>
 					<tr>
@@ -42,8 +43,8 @@
 
 
 					<tr>
-						<td colspan="2"><s:textfield label="郵便番号"
-								name="userPostalCode" placeholder="記入例 1234567" /></td>
+						<td colspan="2"><s:textfield 
+								name="userPostalCode" label="郵便番号" placeholder="記入例 1234567"  /></td>
 					</tr>
 
 
@@ -73,7 +74,7 @@
 				</table>
 
 			</s:form>
-		</div>
+	 	</div>
 	</div>
     <jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
