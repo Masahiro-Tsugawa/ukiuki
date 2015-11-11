@@ -11,8 +11,8 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class RegisterUserDAO {
 
 	// インサートするメソッド
-	public int insert(String userEmail, String userPassword, String userName,
-			String userTelNum, String userPosCode, String userAddress) throws Exception {
+	public int insert(String email, String password, String name,
+			String telNum, String posCode, String address) throws Exception {
 
 		Connection con = DBConnector.getConnection();
 		
@@ -23,12 +23,12 @@ public class RegisterUserDAO {
 
 		PreparedStatement ps2;
 		ps2 = con.prepareStatement(sql);
-		ps2.setString(1, userEmail);
-		ps2.setString(2, userPassword);
-		ps2.setString(3, userName);
-		ps2.setString(4, userTelNum);
-		ps2.setString(5, userPosCode);
-		ps2.setString(6, userAddress);
+		ps2.setString(1, email);
+		ps2.setString(2, password);
+		ps2.setString(3, name);
+		ps2.setString(4, telNum);
+		ps2.setString(5, posCode);
+		ps2.setString(6, address);
 		ps2.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
 		ps2.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
 

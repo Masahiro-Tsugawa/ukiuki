@@ -12,33 +12,33 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 
 	private Map<String, Object> session;
-	private String userEmail;
-	private String userPassword;
-	private String userName;
-	private String userTelNum;
-	private String userPosCode;
-	private String userAddress;
+	private String email;
+	private String password;
+	private String name;
+	private String telNum;
+	private String posCode;
+	private String address;
 	int count;
 	public String action = ERROR;
 
 	public String execute() throws Exception {
 		System.out.println("■reguserActiont内");
 
-		userEmail = (String) session.get("signUpEmail");
-		userPassword = (String) session.get("signUpPassword");
-		userName = (String) session.get("signUpName");
-		userTelNum = (String) session.get("signUpTelNum");
-		userPosCode = (String) session.get("signUpPostalCode");
-		userAddress = (String) session.get("signUpAddress");
+		email = (String) session.get("signUpEmail");
+		password = (String) session.get("signUpPassword");
+		name = (String) session.get("signUpName");
+		telNum = (String) session.get("signUpTelNum");
+		posCode = (String) session.get("signUpPostalCode");
+		address = (String) session.get("signUpAddress");
 
 		RegisterUserDAO dao = new RegisterUserDAO();
 
 		System.out.println("■reguserDAOに突入");
-		count = dao.insert(userEmail, userPassword, userName, userTelNum, userPosCode, userAddress);
+		count = dao.insert(email, password, name, telNum, posCode, address);
 		
 		session.clear();
 		
-		session.put("userName", userName);
+		session.put("userName",name);
 
 		if (count > 0) {
 			action = SUCCESS;
