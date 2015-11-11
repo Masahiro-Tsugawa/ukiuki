@@ -67,10 +67,10 @@
 
 			<p>チケット購入情報確認</p>
 			<s:form action=" ">
-				<select name="year">
+				<select name="year1">
 					<option value="null">--</option>
 					<option value="2015">2015</option>
-				</select> 年 <select name="month">
+				</select> 年 <select name="month1">
 					<option value="null">--</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -84,7 +84,7 @@
 					<option value="10">10</option>
 					<option value="11">11</option>
 					<option value="12">12</option>
-				</select> 月<select name="date">
+				</select> 月<select name="date1">
 					<option value="null">--</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -117,10 +117,10 @@
 					<option value="29">29</option>
 					<option value="30">30</option>
 					<option value="31">31</option>
-				</select> 日 ～<select name="year">
+				</select> 日 ～<select name="year2">
 					<option value="null">--</option>
 					<option value="2015">2015</option>
-				</select> 年 <select name="month">
+				</select> 年 <select name="month2">
 					<option value="null">--</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -134,7 +134,7 @@
 					<option value="10">10</option>
 					<option value="11">11</option>
 					<option value="12">12</option>
-				</select> 月<select name="date">
+				</select> 月<select name="date2">
 					<option value="null">--</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
