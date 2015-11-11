@@ -18,6 +18,13 @@
    </div>
    <div id="header_right" align="right">
 		   <div class="loginName">
+		   <s:actionerror />
+		<s:fielderror>
+			<s:param value="%{'adminId'}" />
+		</s:fielderror>
+		<s:fielderror>
+			<s:param value="%{'adminPass'}" />
+		</s:fielderror>
 			<s:form id="signin" class="navbar-form navbar-right" role="form"
 				action="AdminLoginAction" method="post">
 				<div class="input-group">
@@ -32,9 +39,10 @@
 						class="glyphicon glyphicon-lock"></i>
 					</span> <input id="password" type="password" class="form-control"
 						name="password" placeholder="パスワード">
+						
 				</div>
 
-				<button type="submit" class="btn btn-primary">Login</button>
+				<button type="submit" class="btn btn-primary">ログイン</button>
 			<s:property value="#session.name_key" />
 			</s:form>
 			
@@ -55,7 +63,7 @@
 		<br>
 
 		<!--情報入力のダイアログボックスを作る-->
-	<%-- 	<div class="admin">
+	<div class="admin">
 
 			<p>チケット購入情報確認</p>
 			<s:form action=" ">
@@ -174,8 +182,8 @@
 					<p>
 						<input type="text" name="searchGoodsName" value=""
 							placeholder="ユーザー名" /> <input type="text" name="searchGoodsName"
-							value=" placeholder=" ユーザーID" /> <input type="text"
-							name="searchGoodsName" value=" placeholder=" 電話番号" /> <input
+							value="" placeholder=" ユーザーID" /> <input type="text"
+							name="searchGoodsName" value="" placeholder=" 電話番号 " /> <input
 							type="submit" name="searchGoodsNameButton" value="検索" />
 					</p>
 				</s:form>
@@ -211,7 +219,7 @@
 				</s:else>
 			</div>
 
-		</div>--%>
+		</div>
 
 </body>
 </html>
