@@ -8,12 +8,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/ticket_buy.css" type="text/css">
 <title>UkiukiUtopia</title>
 </head>
 <body>
 	<jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
-	チケット購入確認画面
+		<p>チケット購入確認画面</p>
+
+		<div class="box1">
+			<table class="table-test">
+				<tr>
+					<th colspan="4"><div class="form-titel">施設利用券</div></th>
+				</tr>
+				<tr>
+					<td>チケット名</td>
+					<td>枚数</td>
+					<td>単価</td>
+					<td>小計</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="box1">
+			<table class="table-test">
+				<tr>
+					<th colspan="4"><div class="form-titel">オプション</div></th>
+				</tr>
+				<tr>
+					<td>チケット名</td>
+					<td>枚数</td>
+					<td>単価</td>
+					<td>小計</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="box1">
+			<table class="table-test">
+				<tr>
+					<th colspan="4"><div class="form-titel">合計</div></th>
+				</tr>
+				<tr>
+					<td>円</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="box1">
+			<table class="table-test">
+				<tr>
+					<th colspan="4"><div class="form-titel">お支払い情報</div></th>
+				</tr>
+				<tr>
+					<td>下四桁</td>
+				</tr>
+			</table>
+		</div>
+		
+		<table >
+			<tr class="button">
+				<td colspan="2"><input type="button" value="キャンセル "
+					onClick="history.back()"> <s:form action="register_user">
+						<s:submit value="完了" />
+					</s:form></td>
+			</tr>
+		</table>
 	</div>
 	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
