@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
@@ -13,11 +14,11 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class AdminLoginDAO {
 
-	private String admin_name;
+//	private String name;
 
-	private boolean is_login;
+//	private boolean is_login;
 
-	public String select(String name, String password) {
+	public String select(String admin_name, String password, AdminLoginDTO dto) {
 
 		Connection conn = null;
 		String ret = "error";
@@ -29,15 +30,33 @@ public class AdminLoginDAO {
 			System.out.println(sql);
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 
-			ps.setString(1, name);
+			ps.setString(1, admin_name);
 			ps.setString(2, password);
 
 			ResultSet rs = ps.executeQuery();
-
+			
 			if (rs.next()) {
 				System.out.println("if");
-				admin_name = rs.getString("admin_name");
-				System.out.println(is_login);
+				dto.setName(rs.getString("admin_name"));
+				dto.setIs_login(rs.getBoolean("is_login"));
+//				System.out.println(dto.getIs_login());
+				
+				sql = "update admin set is_login=? where id=?";
+				ps = conn.prepareStatement(sql);
+				ps.setBoolean(1, true);
+				ps.setInt(2, rs.getInt("id"));
+				
+				
+				System.out.println("update - ps2 -"+ ps);
+
+				int rscount = ps.executeUpdate();
+
+				System.out.println("update - rsCount - 実行");
+				if(rscount > 0){
+				System.out.println("update - rsCount - Update OK");
+				}//if
+				
+				
 				ret = "success";
 			}
 		} catch (SQLException e) {
@@ -53,21 +72,5 @@ public class AdminLoginDAO {
 		}
 		System.out.println(ret);
 		return ret;
-	}
-
-	public String getAdmin_name() {
-		return admin_name;
-	}
-
-	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
-	}
-
-	public boolean getIs_login() {
-		return is_login;
-	}
-
-	public void setIs_login(boolean is_login) {
-		this.is_login = is_login;
 	}
 }

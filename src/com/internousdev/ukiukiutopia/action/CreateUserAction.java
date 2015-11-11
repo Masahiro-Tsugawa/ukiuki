@@ -27,7 +27,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		userAddress.append(userAddress1);
 		userAddress.append(userAddress2);
 		userAddress.append(userAddress3);
-		session.put("signUpAddress", userAddress);
+		session.put("signUpAddress", userAddress.toString());
 		session.put("signUpEmail", userEmail);
 		session.put("signUpTelNum", userTelNum);
 		return "success";
