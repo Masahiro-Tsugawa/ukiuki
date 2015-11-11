@@ -11,7 +11,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 
 
-public class PersonalTelnumberDAO {
+public class PersonalTel_numberDAO {
 
 	Connection con;
 	boolean action;
@@ -63,17 +63,17 @@ public class PersonalTelnumberDAO {
 
 
 //アップデートするメソッド
-	public int update(int updateid, String updatetelnumber)throws Exception{
+	public int update(int updateid, String updatetel_number)throws Exception{
 		System.out.println("update - メソッド実行");
 		con = DBConnector.getConnection();
 		int rscount=0;
 		try{
-		String sql = "update user set telnumber=? where id=?";
+		String sql = "update user set tel_number=? where id=?";
 
 		PreparedStatement ps2;
 
 		ps2=con.prepareStatement(sql);
-		ps2.setString(1, updatetelnumber);
+		ps2.setString(1, updatetel_number);
 		ps2.setInt(2, updateid);
 
 		System.out.println("update - ps2 -"+ ps2);
