@@ -38,7 +38,7 @@
 		</field-validator>
 		<field-validator type="regex">
 			<param name="regex"><![CDATA[([0-9a-z]{8,9})]]></param>
-			<message>パスワードは半角英数小文字8~16桁で入力してください</message>
+			<message>パスワードは半角英数小文字8～16桁で入力してください</message>
 		</field-validator>
 	</field>
 	

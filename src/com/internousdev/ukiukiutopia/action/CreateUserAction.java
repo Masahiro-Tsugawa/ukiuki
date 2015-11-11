@@ -24,10 +24,14 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	private String userEmail;
 	private String confirmUserEmail;
 	private String userTelNum;
+	private String errorMail;
 
 	public String execute() throws SQLException {
 		CreateUserDAO dao = new CreateUserDAO();
 		String ret = dao.select(userEmail);
+		if(ret == "error"){
+			  setErrorMail("すでに登録されてるメールアドレスです");
+			}
 		session.put("signUpName", userName);
 		session.put("signUpPassword", userPassword);
 		session.put("signUpPostalCode", userPostalCode);
@@ -123,6 +127,14 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	public void setConfirmUserEmail(String confirmUserEmail) {
 		this.confirmUserEmail = confirmUserEmail;
+	}
+
+	public String getErrorMail() {
+		return errorMail;
+	}
+
+	public void setErrorMail(String errorMail) {
+		this.errorMail = errorMail;
 	}
 
 

@@ -25,3 +25,9 @@ th{
   color: #FFFFFF;
   background: #0099CC;
 }
+.errorMessage {
+	color: red;
+}
+.errorMail {
+	color: red;
+}

@@ -40,7 +40,8 @@
 
 					<tr>
 						<td><label for="userEmail">メールアドレス ：</label></td>
-						<td><s:fielderror>
+						<td class="errorMail"><s:property value="getErrorMail()"/><br>
+						<s:fielderror>
 								<s:param value="%{'userEmail'}" />
 							</s:fielderror> <s:textfield name="userEmail" placeholder="記入例　abcd@efg.com" /></td>
 					</tr>
@@ -61,7 +62,7 @@
 					<tr>
 						<td><label for="confirmUserEmail">パスワード（確認） ：</label></td>
 						<td><s:fielderror>
-								<s:param value="%{'confirmUserEmail'}" />
+								<s:param value="%{'confirmUserPassword'}" />
 							</s:fielderror> <s:password name="confirmUserPassword" maxlength="16" /></td>
 					</tr>
 
