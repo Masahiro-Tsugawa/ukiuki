@@ -4,9 +4,15 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.ukiukiutopia.dao.CreateUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserAction extends ActionSupport implements SessionAware {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7016065614706474231L;
 	private Map<String, Object> session;
 	private String userName;
 	private String userPassword;
@@ -20,6 +26,8 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	private String userTelNum;
 
 	public String execute() throws SQLException {
+		CreateUserDAO dao = new CreateUserDAO();
+		String ret = dao.select(userEmail);
 		session.put("signUpName", userName);
 		session.put("signUpPassword", userPassword);
 		session.put("signUpPostalCode", userPostalCode);
@@ -30,7 +38,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		session.put("signUpAddress", userAddress.toString());
 		session.put("signUpEmail", userEmail);
 		session.put("signUpTelNum", userTelNum);
-		return "success";
+		return ret;
 	}
 
 	public String getUserEmail() {
