@@ -28,3 +28,9 @@ th{
 .button{
   text-align: center;
 }
+.expPass{
+	font-size: xx-small;
+}
+.userPass{
+	border-bottom: none;
+}
