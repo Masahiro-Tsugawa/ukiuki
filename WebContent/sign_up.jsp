@@ -35,15 +35,17 @@
 						<td><label for="userName">氏名 ：</label></td>
 						<td><s:fielderror>
 								<s:param value="%{'userName'}" />
-							</s:fielderror> <s:textfield name="userName" placeholder="記入例　加藤　太郎" /></td>
+							</s:fielderror>
+							 <s:textfield name="userName" placeholder="記入例　加藤　太郎" maxlength="100" /></td>
 					</tr>
 
 					<tr>
-						<td><label for="userEmail">メールアドレス ：</label></td>
+						<td><label for="userEmail">メールアドレス (ID)：</label></td>
 						<td class="errorMail"><s:property value="getErrorMail()"/><br>
 						<s:fielderror>
 								<s:param value="%{'userEmail'}" />
-							</s:fielderror> <s:textfield name="userEmail" placeholder="記入例　abcd@efg.com" /></td>
+							</s:fielderror>
+							 <s:textfield name="userEmail" placeholder="記入例　abcd@efg.com" maxlength="100" /></td>
 					</tr>
 					<tr>
 						<td><label for="confirmUserEmail">メールアドレス（確認） ：</label></td>
@@ -54,10 +56,10 @@
 
 
 					<tr>
-						<td><label for="userPassword">パスワード（半角英数8～16字） ：</label></td>
+						<td><label for="userPassword">パスワード（半角英数8～32字） ：</label></td>
 						<td><s:fielderror>
 								<s:param value="%{'userPassword'}" />
-							</s:fielderror> <s:password name="userPassword" maxlength="16" /></td>
+							</s:fielderror> <s:password name="userPassword" maxlength="32" /></td>
 					</tr>
 					<tr>
 						<td><label for="confirmUserEmail">パスワード（確認） ：</label></td>
@@ -96,11 +98,11 @@
 
 
 					<tr>
-					<td><label for="userTelNum">電話番号 ：</label></td>
+					<td><label for="userTelNum">電話番号(「-」必須) ：</label></td>
 						<td><s:fielderror>
 								<s:param value="%{'userTelNum'}" />
 							</s:fielderror> <s:textfield name="userTelNum"
-								placeholder="記入例 00-0000-0000" /></td>
+								placeholder="記入例 00-0000-0000" maxlength="12" /></td>
 					</tr>
 
 					<tr>
