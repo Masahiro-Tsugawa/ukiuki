@@ -80,12 +80,23 @@
             <result name="success">my_page.jsp</result>
         </action>
         
-        <action name="AdminLoginAction"
-         class="com.internousdev.ukiukiutopia.action.AdminLoginAction"
-         method="execute">
+        <!--管理者画面ログイン -->
+        <action name="AdminLoginAction" class="com.internousdev.ukiukiutopia.action.AdminLoginAction" method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>
-         </action>
+        </action>
+         
+         <!--管理者画面　ユーザー検索 -->
+        <action name="AdminUserSelectAction" class="com.internousdev.ukiukiutopia.action.AdminUserSelectAction" method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+        </action>
+        
+        <!--管理者画面　ユーザー編集 -->
+        <action name="AdminUserEditAction" class="com.internousdev.ukiukiutopia.action.AdminUserSelectAction" method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+        </action>
          
          <!-- ユーザー情報登録 -->
          <action name="register_user" class="com.internousdev.ukiukiutopia.action.RegisterUserAction" method="execute">

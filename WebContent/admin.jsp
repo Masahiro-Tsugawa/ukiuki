@@ -55,17 +55,13 @@
 	
   </div>
 	<div class="container">
-
-		
-
-	
-
+	<p>管理者画面</p>
 		<br>
 
 		<!--情報入力のダイアログボックスを作る-->
 	<div class="admin">
 
-			<p>チケット購入情報確認</p>
+			<p>チケット購入情報検索</p>
 			<s:form action=" ">
 				<select name="year1">
 					<option value="null">--</option>
@@ -167,35 +163,32 @@
 					<option value="29">29</option>
 					<option value="30">30</option>
 					<option value="31">31</option>
-				</select> 日<input type="submit" value="検索">
+				</select> 日<input type="submit" value=" 検索 ">
 			</s:form>
 
-			<p>チケット情報編集</p>
+			<p>チケット検索<br>編集したいチケット名を入力して下さい</p>
 
 
-			<p>ユーザー情報編集</p>
+			<p>ユーザー検索<br>編集したいユーザーのメールアドレスを入力して下さい</p>
 			<div class="user_info">
 				<s:fielderror>
 					<s:param value="%{'searchGoodsName'}" />
 				</s:fielderror>
-				<s:form action="  ">
+				<s:form action="AdminUserSelectAction">
 					<p>
-						<input type="text" name="userName"
-							placeholder="ユーザー名" /> <input type="text" name="email"
-							 placeholder=" ユーザーID" /> <input type="text"
-							name="telNum" placeholder=" 電話番号 " /> <input
-							type="submit" name="searchGoodsNameButton" value="検索" />
+						<s:textfield name="email" placeholder="ユーザーのメールアドレス" /><s:submit value=" 検索 " />
 					</p>
+					
 				</s:form>
 			</div>
 
 			<div class="result">
-				<p>結果表示スペース</p>
+			　<p>以下に検索結果が表示されます<br>チケット情報とユーザー情報の編集はここで行うことができます</p>
 				<s:if
-					test="%{ salesInformationList == null || salesInformationList.isEmpty()}">
-		ここに検索結果が表示されます
-		</s:if>
-				<s:else>
+					test="%{ salesInformationList == null || salesInformationList.isEmpty()}"></s:if>
+		
+		          <%--チケット売り上げ --%>
+		          <s:else>
 					<table class="table_admin_sales">
 						<tr>
 							<td colspan="4">チケット購入情報</td>
@@ -217,8 +210,88 @@
 					</table>
 
 				</s:else>
+				
+				<%--ユーザー情報検索結果＆編集 --%>
+				<s:form action="AdminUserSelectAction">
+				<s:iterator value="userList">
+				　
+					 <table>
+					   <tr>
+					   <th colspan="2"><s:property value="name" />様の情報</th>
+					   
+					   </tr>
+							<tr>
+							    <td>メールアドレス</td>
+								<td><s:property value="email" /></td>
+						   </tr>
+						   <tr>
+						        <td>パスワード</td>
+								<td><s:property value="password" /></td>
+						   </tr>
+						   <tr>
+						        <td>ユーザー名</td>
+								<td><s:property value="name" /></td>
+						   </tr>
+						   <tr>
+						        <td>電話番号</td>
+								<td><s:property value="telNum" /></td>
+						   </tr>
+						   <tr>
+						        <td>郵便番号</td>
+								<td><s:property value="postalCode" /></td>
+						   </tr>
+						   <tr>
+						        <td>住所</td>
+								<td><s:property value="adress" /></td>
+						   </tr>
+						   <tr>
+						        <td>更新日</td>
+								<td><s:property value="renewDate" /></td>
+						   </tr>
+					 </table>
+						</s:iterator>
+				</s:form>
 			</div>
-
+			<div>
+			 <s:form action="AdminUserEditAction">
+			  <table>
+			   <tr>
+			    <th colspan="2">編集情報を入力</th>
+			   </tr>
+			   <tr>
+			    <td><input id="editemail" type="text" class="form-control" name="editemail" placeholder="メールアドレス"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="editpassword" type="text" class="form-control" name="editpassword" placeholder="パスワード"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="editname" type="text" class="form-control" name="editname" placeholder="ユーザー名"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="edittelnum" type="text" class="form-control" name="edittelnum" placeholder="電話番号"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="editpostalcode" type="text" class="form-control" name="editpostalcode" placeholder="郵便番号"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="editadress" type="text" class="form-control" name="editadress" placeholder="住所"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <td><input id="editrenewdate" type="text" class="form-control" name="editrenewdate" placeholder="更新日"></td>
+                <td><button type="submit"> 編集 </button></td>
+			   </tr>
+			   <tr>
+			    <s:form action="AdminUserDeleteAction"><td colspan="2"><button type="submit"> ユーザーを削除 </button></td></s:form>
+			   </tr>
+			  </table>
+			 </s:form>
+            </div>
 		</div>
 
 </body>
