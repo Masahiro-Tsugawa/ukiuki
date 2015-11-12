@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2015/09/17
  * @version 1.0
  */
-public class HomeGoogleAction extends ActionSupport implements
+public class LoginGoogleAction extends ActionSupport implements
 ServletRequestAware, SessionAware {
 
 	/**

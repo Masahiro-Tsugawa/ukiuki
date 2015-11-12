@@ -29,7 +29,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2015/09/17
  * @version 1.0
  */
-public class HomeFacebookAction extends ActionSupport implements SessionAware,
+public class LoginFacebookAction extends ActionSupport implements SessionAware,
 ServletResponseAware, ServletRequestAware{
 
 	/**
