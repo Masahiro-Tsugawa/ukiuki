@@ -66,6 +66,13 @@
 			<result name="input">sign_up.jsp</result>
         </action>
         
+        <!-- 登録者情報画面 -->
+        <action name="CreateUserAction" class="com.internousdev.ukiukiutopia.action.CreateUserAction" method="execute">
+            <result name="success">sign_up_check.jsp</result>
+			<result name="error">sign_up.jsp</result>
+			<result name="input">sign_up.jsp</result>
+        </action>
+        
         <!--チケット購入画面 -->
         <action name="ticket_buy" class="com.internousdev.ukiukiutopia.action.GoTicketBuyAction" method="execute">
             <result name="success">ticket_buy.jsp</result>
