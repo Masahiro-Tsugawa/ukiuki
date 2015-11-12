@@ -9,23 +9,23 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 public class HomeDAO {
 
-	private String admin_name;
+	private String name;
 
 	public String select(String user, String password) {
-
+		System.out.println("dao");
 		Connection conn = null;
 		String ret = "error";
 		try {
 			conn = (Connection) DBConnector.getConnection();
-			String sql = "SELECT * FROM admin_table WHERE";
-			sql += " admin_id = ? AND admin_pass = ?";
+			String sql = "SELECT * FROM user WHERE";
+			sql += " email = ? AND password = ?";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, user);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				ret = "success";
-				admin_name = rs.getString("admin_name");
+				name = rs.getString("name");
 
 			}
 		} catch (SQLException e) {
@@ -43,10 +43,10 @@ public class HomeDAO {
 	}
 
 	public String getAdmin_name() {
-		return admin_name;
+		return name;
 	}
 
-	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
+	public void setAdmin_name(String name) {
+		this.name = name;
 	}
 }

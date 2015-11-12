@@ -3,7 +3,6 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
-
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
@@ -12,6 +11,7 @@
         <action name="home" class="com.internousdev.ukiukiutopia.action.GoHomeAction" method="execute">
             <result name="success">home.jsp</result>
         </action>
+        
          <!-- Twitter認証のコールバックアクション -->
 		<action name="LoginTwitterAction" class="com.internousdev.ukiukiutopia.action.HomeTwitterAction"
 			method="execute">
@@ -60,14 +60,9 @@
 
         <!-- 新規登録画面  -->
         <action name="sign_up" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
-            <result name="success">sign_up.jsp</result>
-        </action>
-        
-        <!-- 個人情報入力 -->
-        <action name="CreateUserAction" class="com.internousdev.ukiukiutopia.action.CreateUserAction" method="execute">
             <result name="success">sign_up_check.jsp</result>
-            <result name="error">sign_up.jsp</result>
-            <result name="input">sign_up.jsp</result>
+			<result name="error">sign_up.jsp</result>
+			<result name="input">sign_up.jsp</result>
         </action>
         
         <!--チケット購入画面 -->
@@ -80,28 +75,17 @@
             <result name="success">my_page.jsp</result>
         </action>
         
-        <!--管理者画面ログイン -->
-        <action name="AdminLoginAction" class="com.internousdev.ukiukiutopia.action.AdminLoginAction" method="execute">
+        <action name="AdminLoginAction"
+         class="com.internousdev.ukiukiutopia.action.AdminLoginAction"
+         method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>
-        </action>
+         </action>
          
-         <!--管理者画面　ユーザー検索 -->
-        <action name="AdminUserSelectAction" class="com.internousdev.ukiukiutopia.action.AdminUserSelectAction" method="execute">
-         <result name="success">admin.jsp</result>
-         <result name="error">admin.jsp</result>
-        </action>
-        
-        <!--管理者画面　ユーザー編集 -->
-        <action name="AdminUserEditAction" class="com.internousdev.ukiukiutopia.action.AdminUserSelectAction" method="execute">
-         <result name="success">admin.jsp</result>
-         <result name="error">admin.jsp</result>
-        </action>
-         
-         <!-- ユーザー情報登録 -->
-         <action name="register_user" class="com.internousdev.ukiukiutopia.action.RegisterUserAction" method="execute">
-            <result name="success">sign_up_end.jsp</result>
+         <action name="HomeAction" class="com.internousdev.ukiukiutopia.action.HomeAction" method="execute">
+            <result name="success">my_page.jsp</result>
             <result name="error">home.jsp</result>
+            <result name="input">home.jsp</result>
         </action>
         
     </package>
