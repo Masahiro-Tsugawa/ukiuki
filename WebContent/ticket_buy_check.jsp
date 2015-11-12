@@ -16,35 +16,53 @@
 	<div class="container">
 		<p>チケット購入確認画面</p>
 
-<s:if test="true">
-		<div class="box1">
-			<table class="table-test">
-				<tr>
-					<th colspan="4"><div class="form-titel">施設利用券</div></th>
-				</tr>
-				<tr>
-					<td>チケット名</td>
-					<td>枚数</td>
-					<td>単価</td>
-					<td>小計</td>
-				</tr>
-			</table>
-		</div>
-</s:if>
+		<s:if test="true">
+			<div class="box1">
+				<table class="table-test">
+					<tr>
+						<th colspan="4"><div class="form-titel">施設利用券</div></th>
+					</tr>
+					<tr>
+						<td>チケット名</td>
+						<td>枚数</td>
+						<td>単価</td>
+						<td>小計</td>
+					</tr>
+					<s:iterator value="useList">
+						<tr>
+							<td><s:property value="ticketName" /></td>
+							<td><s:property value="sheets" /></td>
+							<td><s:property value="price" /></td>
+							<td><s:property value="subtotal" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
+		</s:if>
 
-		<div class="box1">
-			<table class="table-test">
-				<tr>
-					<th colspan="4"><div class="form-titel">オプション</div></th>
-				</tr>
-				<tr>
-					<td>チケット名</td>
-					<td>枚数</td>
-					<td>単価</td>
-					<td>小計</td>
-				</tr>
-			</table>
-		</div>
+		<s:if test="true">
+			<div class="box1">
+				<table class="table-test">
+					<tr>
+						<th colspan="4"><div class="form-titel">オプション</div></th>
+					</tr>
+					<tr>
+						<td>チケット名</td>
+						<td>枚数</td>
+						<td>単価</td>
+						<td>小計</td>
+					</tr>
+					<s:iterator value="optionList">
+						<tr>
+							<td><s:property value="ticketName" /></td>
+							<td><s:property value="sheets" /></td>
+							<td><s:property value="price" /></td>
+							<td><s:property value="subtotal" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
+		</s:if>
 
 		<div class="box1">
 			<table class="table-test2">
@@ -52,7 +70,7 @@
 					<th colspan="4"><div class="form-titel">合計</div></th>
 				</tr>
 				<tr>
-					<td>円</td>
+					<td><s:property value="#session.buyTotal" />円</td>
 				</tr>
 			</table>
 		</div>
@@ -63,6 +81,7 @@
 					<th colspan="4"><div class="form-titel">お支払い情報</div></th>
 				</tr>
 				<tr>
+					<td><s:property value="#session.buyPayInfo" /></td>
 					<td>下四桁</td>
 				</tr>
 			</table>
