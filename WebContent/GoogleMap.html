@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>GoogleMap</title>
+
+<script type="text/javascript"
+	src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="gmaps.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
+
+
+<script type="text/javascript">
+	var map;
+	$(document).ready(function() { 
+		map = new GMaps({
+			div : '#map',
+			lat : 35.671971,
+			lng : 139.745790,
+			zoom : 16
+		});
+		map.addMarker({
+			lat : 35.671971,
+			lng : 139.745790,
+			title : "インターノウス",
+			infoWindow : {
+				content : "<p>ますいーー！！</p>"
+			}
+		});
+	});
+</script>
+
+
+</head>
+
+<body>
+
+	<div id="map" style="width: 250px; height: 300px;"></div>
+</body>
+</html>

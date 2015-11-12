@@ -1,4 +1,4 @@
-
+<!-- 川東 --> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -113,9 +113,9 @@
   <table class="table-acc">
     <tr><th colspan="3">合計金額</th></tr>
      <tr>
-       <td><input type="checkbox" value="1">店頭払い
-         <p></p>
-         <input type="checkbox" value="1">クレジットカード払い</td>
+      <tr>
+       <td><input type="radio" name="card" value="1" checked>店頭払い<br>
+         <input type="radio" name="card" value="2" >クレジットカード払い</td>
       <td><div class="form-text">合計:円</div></td>
    </tr>
 
@@ -125,14 +125,19 @@
 
    <tr>
      <td>カード番号：</td>
-     <td><div class="form-text"><input type="text" name="name"></div></td>
+     <td><div class="form-text"><input type="text" name="name" placeholder="1234-1234-1234"></div></td>
+   </tr>
+
+   <tr>
+   <td>カード名義:</td>
+   <td><input class="billing-address-name form-control"type="text" name="name" placeholder="TARO YAMADA">
    </tr>
    <tr>
      <td>有効期限:(月/年)</td>
      <td colspan="2">
      (月)
       <select name="cardMo">
-        <option value="0">選択してください</option>
+        <option value="0">--</option>
         <option value="1">1月</option>
         <option value="2">2月</option>
         <option value="3">3月</option>
@@ -148,7 +153,7 @@
       </select>
       (年)
     <select name="cardYe">
-      <option value="0000">選択してください</option>
+      <option value="0000">--</option>
       <option value="2015">15年</option>
       <option value="2016">16年</option>
       <option value="2017">17年</option>
@@ -162,14 +167,20 @@
 </tr>
 
 <tr>
+  <td>セキュリティコード：</td>  
+
+<td><div class="form-text"><input type=password name="cardCo" size="15" maxlength="4" placeholder="****"></div></td>
+      
+<tr>
   <td>セキュリティコード：</td>
   <td><div class="form-text"><input type=text name="cardCo"></div></td>
 </tr>
-
+<tr>
    <td colspan="2">
      <div class="table-kingaku"><a href="chicketkanryou.html"><input type="submit" value="購入"></a>
        <a href="mypage.html"><input type="submit" value="キャンセル"></a></div>
      </td>
+     </tr>
    </table>
 
     <jsp:include page="base/main_footer.jsp" flush="true" />
