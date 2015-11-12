@@ -1,5 +1,6 @@
 package com.internousdev.ukiukiutopia.dto;
 
+
 public class AdminHomeDTO {
 
 	public int id;

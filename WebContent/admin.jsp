@@ -213,8 +213,8 @@
 				
 				<%--ユーザー情報検索結果＆編集 --%>
 				<s:form action="AdminUserSelectAction">
-				<s:iterator value="userList">
-				　
+				<s:iterator value="userList" begin="0" end="0" step="1">
+
 					 <table>
 					   <tr>
 					   <th colspan="2"><s:property value="name" />様の情報</th>
@@ -242,7 +242,7 @@
 						   </tr>
 						   <tr>
 						        <td>住所</td>
-								<td><s:property value="adress" /></td>
+								<td><s:property value="address" /></td>
 						   </tr>
 						   <tr>
 						        <td>更新日</td>
@@ -252,46 +252,46 @@
 						</s:iterator>
 				</s:form>
 			</div>
-			<div>
-			 <s:form action="AdminUserEditAction">
+			
+<%-- 			<div class="update">
+			 <s:form action="AdminUserUpdateAction">
 			  <table>
 			   <tr>
 			    <th colspan="2">編集情報を入力</th>
 			   </tr>
 			   <tr>
-			    <td><input id="editemail" type="text" class="form-control" name="editemail" placeholder="メールアドレス"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updateemail" type="text" class="form-control" name="updateemail" placeholder="メールアドレス"></td>       
 			   </tr>
 			   <tr>
-			    <td><input id="editpassword" type="text" class="form-control" name="editpassword" placeholder="パスワード"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updatepassword" type="text" class="form-control" name="updatepassword" placeholder="パスワード"></td>
 			   </tr>
 			   <tr>
-			    <td><input id="editname" type="text" class="form-control" name="editname" placeholder="ユーザー名"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updatename" type="text" class="form-control" name="updatename" placeholder="ユーザー名"></td>
 			   </tr>
 			   <tr>
-			    <td><input id="edittelnum" type="text" class="form-control" name="edittelnum" placeholder="電話番号"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updatetelnum" type="text" class="form-control" name="updatetelnum" placeholder="電話番号"></td>
 			   </tr>
 			   <tr>
-			    <td><input id="editpostalcode" type="text" class="form-control" name="editpostalcode" placeholder="郵便番号"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updatepostalcode" type="text" class="form-control" name="updatepostalcode" placeholder="郵便番号"></td>
 			   </tr>
 			   <tr>
-			    <td><input id="editadress" type="text" class="form-control" name="editadress" placeholder="住所"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updateaddress" type="text" class="form-control" name="updateaddress" placeholder="住所"></td>
 			   </tr>
 			   <tr>
-			    <td><input id="editrenewdate" type="text" class="form-control" name="editrenewdate" placeholder="更新日"></td>
-                <td><button type="submit"> 編集 </button></td>
+			    <td colspan="2"><input id="updaterenewdate" type="text" class="form-control" name="updaterenewdate" placeholder="更新日"></td>
 			   </tr>
 			   <tr>
-			    <s:form action="AdminUserDeleteAction"><td colspan="2"><button type="submit"> ユーザーを削除 </button></td></s:form>
+ 			    <td><button type="submit"> 編集 </button></td>
+			    
 			   </tr>
 			  </table>
 			 </s:form>
+			 --%>
+			<s:form action="AdminUserDeleteAction">
+			    <s:submit value="ユーザーを削除 "></s:submit>
+		    </s:form>
             </div>
+		</div>
 		</div>
 
 </body>
