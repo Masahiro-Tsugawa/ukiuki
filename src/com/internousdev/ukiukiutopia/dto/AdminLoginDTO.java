@@ -1,7 +1,8 @@
+package com.internousdev.ukiukiutopia.dto;
 /**
  * 
  */
-package com.internousdev.ukiukiutopia.dto;
+
 
 /**
  * @author internous

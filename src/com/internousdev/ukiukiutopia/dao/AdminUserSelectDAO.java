@@ -1,7 +1,8 @@
+package com.internousdev.ukiukiutopia.dao;
 /**
  * 
  */
-package com.internousdev.ukiukiutopia.dao;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +22,6 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class AdminUserSelectDAO {
 	Connection con;
 	boolean action;
-
 
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 
@@ -46,13 +46,13 @@ public class AdminUserSelectDAO {
 			action = true;
 
 			AdminUserSelectDTO dto =new AdminUserSelectDTO();
-			dto.setEmail(rs.getString(1));
-			dto.setPassword(rs.getString(2));
-			dto.setName(rs.getString(3));
-			dto.setTelNum(rs.getString(4));
-			dto.setPostalCode(rs.getString(5));
-			dto.setAdress(rs.getString(6));
-			dto.setRenewDate(rs.getString(7));
+			dto.setEmail(rs.getString(2));
+			dto.setPassword(rs.getString(3));
+			dto.setName(rs.getString(4));
+			dto.setTelNum(rs.getString(5));
+			dto.setPostalCode(rs.getString(6));
+			dto.setAddress(rs.getString(7));
+			dto.setRenewDate(rs.getString(8));
 	
 			
 
@@ -72,5 +72,6 @@ public class AdminUserSelectDAO {
 	public List<AdminUserSelectDTO> getUserList(){
 		return userList;
 	}
+	
 
 }

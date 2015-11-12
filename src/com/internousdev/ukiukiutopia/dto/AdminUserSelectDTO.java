@@ -1,7 +1,8 @@
+package com.internousdev.ukiukiutopia.dto;
 /**
  * 
  */
-package com.internousdev.ukiukiutopia.dto;
+
 
 /**
  * @author internous
@@ -9,13 +10,13 @@ package com.internousdev.ukiukiutopia.dto;
  */
 public class AdminUserSelectDTO {
 	
-	public String email;
-	public String password;
-	public String name;
-	public String telNum;
-	public String postalCode;
-	public String adress;
-	public String renewDate;
+	private String email;
+	private String password;
+	private String name;
+	private String telNum;
+	private String postalCode;
+	private String address;
+	private String renewDate;
 	
 
 	public void setEmail(String email){
@@ -51,15 +52,15 @@ public class AdminUserSelectDTO {
 		this.postalCode = postalCode;
 	}
 
-	public String getPosralCode(){
+	public String getPostalCode(){
 		return postalCode;
 	}
-	public void setAdress(String adress){
-		this.adress = adress;
+	public void setAddress(String address){
+		this.address = address;
 	}
 
-	public String getAdress(){
-		return adress;
+	public String getAddress(){
+		return address;
 	}
 	public void setRenewDate(String renewDate){
 		this.renewDate = renewDate;
@@ -68,4 +69,5 @@ public class AdminUserSelectDTO {
 	public String getRenewDate(){
 		return renewDate;
 	}
+
 }

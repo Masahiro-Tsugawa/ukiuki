@@ -64,8 +64,9 @@ drop table if exists `order`;
 
 create table if not exists `order`(
   id int not null auto_increment,
-  user_id int not null,
-  foreign key(user_id) references user(id),
+  user_id int,
+  foreign key(user_id) references user(id)
+  on dekete set null,
   registered_date datetime not null,
   primary key (id)
 );

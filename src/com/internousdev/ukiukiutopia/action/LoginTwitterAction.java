@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 2015/08/10
  * @version 1.0
  */
-public class HomeTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
+public class LoginTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
 
 	/**
 	 * シリアルバージョンIDの生成
