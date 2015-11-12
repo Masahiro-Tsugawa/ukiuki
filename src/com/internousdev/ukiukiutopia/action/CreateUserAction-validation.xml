@@ -7,12 +7,18 @@
 
 <validators>
 	<!-- 氏名 -->
-	<field name="userName">
+	<field name="userName1">
 		<field-validator type="requiredstring">
-			<message>氏名が入力されていません</message>
+			<message>性が入力されていません</message>
 		</field-validator>
 	</field>
 
+<field name="userName2">
+		<field-validator type="requiredstring">
+			<message>名が入力されていません</message>
+		</field-validator>
+	</field>
+	
 	<!-- メアド -->
 	<field name="userEmail">
 		<field-validator type="requiredstring">

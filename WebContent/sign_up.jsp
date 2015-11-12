@@ -9,13 +9,7 @@
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/createUser.css" type="text/css">
 <title>UkiukiUtopia</title>
-<style type="text/css">
-<!--
-.errorMessage {
-	color: red;
-}
--->
-</style>
+
 </head>
 <body>
 	<jsp:include page="base/main_header.jsp" flush="true" />
@@ -32,20 +26,27 @@
 					</tr>
 
 					<tr>
-						<td><label for="userName">氏名 ：</label></td>
+						<td><label for="userName1">性 ：</label></td>
 						<td><s:fielderror>
-								<s:param value="%{'userName'}" />
-							</s:fielderror>
-							 <s:textfield name="userName" placeholder="記入例　加藤　太郎" maxlength="100" /></td>
+								<s:param value="%{'userName1'}" />
+							</s:fielderror> <s:textfield name="userName1" placeholder="記入例　加藤"
+								maxlength="50" /></td>
+					</tr>
+					<tr>
+						<td><label for="userName2">名 ：</label></td>
+						<td><s:fielderror>
+								<s:param value="%{'userName2'}" />
+							</s:fielderror> <s:textfield name="userName2" placeholder="記入例　太郎"
+								maxlength="50" /></td>
 					</tr>
 
 					<tr>
 						<td><label for="userEmail">メールアドレス (ID)：</label></td>
-						<td class="errorMail"><s:property value="getErrorMail()"/><br>
-						<s:fielderror>
+						<td class="errorMail"><s:property value="getErrorMail()" /><br>
+							<s:fielderror>
 								<s:param value="%{'userEmail'}" />
-							</s:fielderror>
-							 <s:textfield name="userEmail" placeholder="記入例　abcd@efg.com" maxlength="100" /></td>
+							</s:fielderror> <s:textfield name="userEmail" placeholder="記入例　abcd@efg.com"
+								maxlength="100" /></td>
 					</tr>
 					<tr>
 						<td><label for="confirmUserEmail">メールアドレス（確認） ：</label></td>
@@ -91,22 +92,22 @@
 								placeholder="記入例　千代田区霞ヶ関3-6-15" /></td>
 					</tr>
 					<tr>
-					<td><label for="userAddress3">マンション等 ：</label></td>
-						<td><s:textfield label="マンション等"
-								name="userAddress3" placeholder="記入例　霞ヶ関MH タワーズ7F" /></td>
+						<td><label for="userAddress3">マンション等 ：</label></td>
+						<td><s:textfield label="マンション等" name="userAddress3"
+								placeholder="記入例　霞ヶ関MH タワーズ7F" /></td>
 					</tr>
 
 
 					<tr>
-					<td><label for="userTelNum">電話番号(「-」必須) ：</label></td>
+						<td><label for="userTelNum">電話番号(「-」必須) ：</label></td>
 						<td><s:fielderror>
 								<s:param value="%{'userTelNum'}" />
-							</s:fielderror> <s:textfield name="userTelNum"
-								placeholder="記入例 00-0000-0000" maxlength="12" /></td>
+							</s:fielderror> <s:textfield name="userTelNum" placeholder="記入例 00-0000-0000"
+								maxlength="13" /></td>
 					</tr>
 
 					<tr>
-						<td colspan="2"><s:submit value="確認" /></td>
+						<td colspan="2" class="button"><s:submit value="確認" /></td>
 					</tr>
 				</table>
 			</s:form>

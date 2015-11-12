@@ -4,7 +4,7 @@
 .create table{
   margin-left:auto;
   margin-right: auto;
-  text-align: center;
+
 }
 
 table{
@@ -17,7 +17,7 @@ th,td{
   border-bottom: 1px solid #0099CC;
   border-right: 1px solid #0099CC;
   padding: 3px;
-  text-align: center;
+
   width: 20%;
   white-space: nowrap;
 }
@@ -25,9 +25,6 @@ th{
   color: #FFFFFF;
   background: #0099CC;
 }
-.errorMessage {
-	color: red;
-}
-.errorMail {
-	color: red;
+.button{
+  text-align: center;
 }

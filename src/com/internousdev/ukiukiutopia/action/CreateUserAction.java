@@ -14,7 +14,8 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	 */
 	private static final long serialVersionUID = -7016065614706474231L;
 	private Map<String, Object> session;
-	private String userName;
+	private String userName1;
+	private String userName2;
 	private String userPassword;
 	private String confirmUserPassword;
 	private String userPostalCode;
@@ -32,7 +33,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		if(ret == "error"){
 			  setErrorMail("すでに登録されてるメールアドレスです");
 			}
-		session.put("signUpName", userName);
+		StringBuilder userName = new StringBuilder();
+		userName.append(userName1);
+		userName.append(userName2);
+		session.put("signUpName", userName.toString());
 		session.put("signUpPassword", userPassword);
 		session.put("signUpPostalCode", userPostalCode);
 		StringBuilder userAddress = new StringBuilder();
@@ -67,14 +71,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	public void setUserPostalCode(String userPostalCode) {
 		this.userPostalCode = userPostalCode;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getUserPassword() {
@@ -135,6 +131,22 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	public void setErrorMail(String errorMail) {
 		this.errorMail = errorMail;
+	}
+
+	public String getUserName1() {
+		return userName1;
+	}
+
+	public void setUserName1(String userName1) {
+		this.userName1 = userName1;
+	}
+
+	public String getUserName2() {
+		return userName2;
+	}
+
+	public void setUserName2(String userName2) {
+		this.userName2 = userName2;
 	}
 
 
