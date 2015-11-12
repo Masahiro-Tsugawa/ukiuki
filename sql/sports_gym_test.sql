@@ -44,8 +44,20 @@ create table if not exists ticket(
 
 insert into ticket(id,name,price,ticket_type,is_sale,is_show,
   registered_date,renew_date)
-  values(1,"test",100.0,"test",true,true,
+  values(1,"test",100.0,"test",false,false,
     "0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(2,"フル",1600.0,"use",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(3,"マシン",700.0,"use",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(4,"プール",700.0,"use",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(5,"風呂",700.0,"use",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(6,"レンタル",500.0,"option",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
+insert into ticket values(7,"パーソナルトレーナー",5000.0,"option",true,true,
+"0000/01/01 00:00:00","0001/01/01 00:00:00");
 
 /* order */
 drop table if exists `order`;
@@ -53,7 +65,7 @@ drop table if exists `order`;
 create table if not exists `order`(
   id int not null auto_increment,
   user_id int not null,
-  foreign key(user_id) references user(id) on update cascade,
+  foreign key(user_id) references user(id),
   registered_date datetime not null,
   primary key (id)
 );
@@ -67,10 +79,10 @@ drop table if exists order_ticket;
 create table if not exists order_ticket(
   order_id int not null,
   foreign key(order_id) references `order`(id)
-  on update cascade on delete cascade,
+  on update cascade,
   ticket_id int not null,
   foreign key(ticket_id) references ticket(id)
-  on update cascade on delete cascade,
+  on update cascade,
   sheets int not null,
   total_amount float not null,
   registered_date datetime not null
