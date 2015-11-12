@@ -38,6 +38,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 			System.out.println("if文");
 			result = SUCCESS;
 		}
+		session.remove(delmail);
 		return result;
 		}
 		

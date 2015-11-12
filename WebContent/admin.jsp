@@ -166,13 +166,24 @@
 				</select> 日<input type="submit" value=" 検索 ">
 			</s:form>
 
-			<p>チケット検索<br>編集したいチケット名を入力して下さい</p>
-
-
-			<p>ユーザー検索<br>編集したいユーザーのメールアドレスを入力して下さい</p>
-			<div class="user_info">
+			<p>チケット編集<br>まずボタンを押して下のスペースに表示される一覧を確認してください</p>
+			 <div class="ticket_info">
 				<s:fielderror>
-					<s:param value="%{'searchGoodsName'}" />
+					<s:param value="%{''}" />
+				</s:fielderror>
+				<s:form action="AdminTicketSelectAction">
+					<p>
+						<s:submit value=" チケット一覧表示　 " />
+					</p>
+					
+				</s:form>
+			</div>
+
+
+			<p>ユーザー編集<br>編集したいユーザーのメールアドレスを入力して下さい</p>
+			 <div class="user_info">
+				<s:fielderror>
+					<s:param value="%{''}" />
 				</s:fielderror>
 				<s:form action="AdminUserSelectAction">
 					<p>
@@ -180,7 +191,7 @@
 					</p>
 					
 				</s:form>
-			</div>
+			 </div>
 
 			<div class="result">
 			　<p>以下に検索結果が表示されます<br>チケット情報とユーザー情報の編集はここで行うことができます</p>
@@ -210,6 +221,80 @@
 					</table>
 
 				</s:else>
+				
+				<%--チケット情報検索結果＆編集 --%>
+				<s:form action="AdminTicketSelectAction">
+				<s:iterator value="ticketList" begin="0" end="0" step="1">
+
+					 <table>
+					   <tr>
+					   <th colspan="2"><s:property value="ticketname" /> の情報 </th>
+					   
+					   </tr>
+							<tr>
+							    <td>チケットID</td>
+								<td><s:property value="id" /></td>
+						   </tr>
+						   <tr>
+						        <td>チケット名</td>
+								<td><s:property value="name" /></td>
+						   </tr>
+						   <tr>
+						        <td>値段</td>
+								<td><s:property value="price" /></td>
+						   </tr>
+						   <tr>
+						        <td>チケット種類</td>
+								<td><s:property value="tickettype" /></td>
+						   </tr>
+						   <tr>
+						        <td>販売確認</td>
+								<td><s:property value="issale" /></td>
+						   </tr>
+						   <tr>
+						        <td>更新日</td>
+								<td><s:property value="renewdate" /></td>
+						   </tr>
+					 </table>
+						</s:iterator>
+				</s:form>
+			</div>
+			
+ 			<div class="updateticket">
+			 <s:form action="AdminTicketUpdateAction">
+			  <table>
+			   <tr>
+			    <th colspan="2">編集情報を入力</th>
+			   </tr>
+			   <tr>
+			    <td>IDは編集できません</td>
+			   </tr>
+			   <tr>
+			    <td colspan="2"><input id="updatename" type="text" class="form-control" name="updatename" placeholder="チケット名"></td>       
+			   </tr>
+			   <tr>
+			    <td colspan="2"><input id="updateprice" type="text" class="form-control" name="updateprice" placeholder="値段"></td>
+			   </tr>
+			   <tr>
+			    <td colspan="2"><input id="updatetickettype" type="text" class="form-control" name="updatetickettype" placeholder="チケット種類"></td>
+			   </tr>
+			   <tr>
+			    <td colspan="2"><input id="updateissale" type="text" class="form-control" name="updateissale" placeholder="販売確認"></td>
+			   </tr>
+			   <tr>
+			    <td colspan="2"><input id="updaterenewdate" type="text" class="form-control" name="updaterenewdate" placeholder="更新日"></td>
+			   </tr>
+			   <tr>
+ 			    <td><button type="submit"> 編集 </button></td>
+			    
+			   </tr>
+			  </table>
+			 </s:form>
+			 
+			<s:form action="AdminTicketDeleteAction">
+			    <s:submit value="チケットを削除 "></s:submit>
+		    </s:form>
+            </div>
 				
 				<%--ユーザー情報検索結果＆編集 --%>
 				<s:form action="AdminUserSelectAction">
@@ -253,7 +338,7 @@
 				</s:form>
 			</div>
 			
-<%-- 			<div class="update">
+ 			<div class="update">
 			 <s:form action="AdminUserUpdateAction">
 			  <table>
 			   <tr>
@@ -286,7 +371,7 @@
 			   </tr>
 			  </table>
 			 </s:form>
-			 --%>
+			 
 			<s:form action="AdminUserDeleteAction">
 			    <s:submit value="ユーザーを削除 "></s:submit>
 		    </s:form>
