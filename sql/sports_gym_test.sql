@@ -11,7 +11,7 @@ create table if not exists user(
   email varchar(100) not null unique,
   password varchar(32) not null,
   name varchar(100) not null,
-  tel_num varchar(12) not null,
+  tel_num varchar(13) not null,
   postal_code varchar(8) not null,
   address varchar(255) not null,
   unique_id varchar(50),
@@ -24,7 +24,7 @@ create table if not exists user(
 
 insert into user(id,email,password,name,tel_num,postal_code,address,
   unique_id,credit_token,credit_num,registered_date,renew_date)
-  values(1,"test@test.test","testtest","test","00-0000-0000","000-0000",
+  values(1,"test@test.com","testtest","test","00-0000-0000","000-0000",
   "test","test","test","0000","0000/01/01 00:00:00","0001/01/01 00:00:00");
 
 /* ticket */
