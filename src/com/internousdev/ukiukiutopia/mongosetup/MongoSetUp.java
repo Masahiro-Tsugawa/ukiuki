@@ -15,22 +15,22 @@ public class MongoSetUp {
 			coll.drop();
 
 			BasicDBObject doc;
-			doc = new BasicDBObject("ticket_id", "2")
+			doc = new BasicDBObject("ticket_id", 2)
 					.append("ticket_info", "フルセットチケット");
 			coll.insert(doc);
-			doc = new BasicDBObject("ticket_id", "3")
+			doc = new BasicDBObject("ticket_id", 3)
 				 	.append("ticket_info", "マシンチケット");
 			coll.insert(doc);
-			doc = new BasicDBObject("ticket_id", "4")
+			doc = new BasicDBObject("ticket_id", 4)
 					.append("ticket_info", "プールチケット");
 			coll.insert(doc);
-			doc = new BasicDBObject("ticket_id", "5")
+			doc = new BasicDBObject("ticket_id", 5)
 					.append("ticket_info", "風呂チケット");
 			coll.insert(doc);
-			doc = new BasicDBObject("ticket_id", "6")
+			doc = new BasicDBObject("ticket_id", 6)
 					.append("ticket_info", "レンタルチケット");
 			coll.insert(doc);
-			doc = new BasicDBObject("ticket_id", "7")
+			doc = new BasicDBObject("ticket_id", 7)
 					.append("ticket_info", "パーソナルトレーナーチケット");
 			coll.insert(doc);
 			
