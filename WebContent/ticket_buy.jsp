@@ -1,4 +1,4 @@
-<!-- 川東 --> 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -40,6 +40,7 @@
        <div style="text-align:left;float:left;"><input type="checkbox" value="2">マシン利用チケット:</div>
        <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
        <p>説明:</p>
+       </div>
      </td>
      <td>
        <div class="form-text">
@@ -54,6 +55,7 @@
        <div style="text-align:left;float:left;"><input type="checkbox" value="3">プール利用チケット:</div>
        <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
        <p>説明:</p>
+       </div>
      </td>
      <td>
        <div class="form-text">
@@ -68,6 +70,7 @@
        <div style="text-align:left;float:left;"><input type="checkbox" value="4">風呂利用チケット:</div>
        <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
        <p>説明:</p>
+       </div>
      </td>
      <td>
        <div class="form-text">
@@ -87,6 +90,7 @@
          <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価:500円</p></div>
        <p>説明:</p>
        <form><input type="checkbox" value="1">使用しない</form>
+       </div>
      </td>
      <td>
        <div class="form-text">
@@ -167,10 +171,10 @@
 </tr>
 
 <tr>
-  <td>セキュリティコード：</td>  
+  <td>セキュリティコード：</td>
 
 <td><div class="form-text"><input type=password name="cardCo" size="15" maxlength="4" placeholder="****"></div></td>
-      
+
 <tr>
   <td>セキュリティコード：</td>
   <td><div class="form-text"><input type=text name="cardCo"></div></td>
@@ -182,7 +186,7 @@
      </td>
      </tr>
    </table>
-
+</div>
     <jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
 </html>

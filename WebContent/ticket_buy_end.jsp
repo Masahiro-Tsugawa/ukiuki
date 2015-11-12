@@ -17,7 +17,7 @@
 		<br></br><br></br><br></br>
 		<br></br><div>購入完了しました。</div>
 		<br></br>
-		
+
 	    <p>ご購入ありがとうございました。</p>
     <s:form action="my_page">
    		 <input type="submit" value="マイページに戻る">
