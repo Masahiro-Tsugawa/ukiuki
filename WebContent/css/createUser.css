@@ -34,3 +34,6 @@ th{
 .userPass{
 	border-bottom: none;
 }
+.errorMessage{
+	color : red;
+}
