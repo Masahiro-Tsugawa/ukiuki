@@ -15,9 +15,33 @@
 
 .table-test td {
 	padding: 6px;
+	text-align: center;
 	background-color: #fff;
 	border: 1px solid #66FF99;
 }
+
+.table-test2 {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table-test2 th {
+	width: 25%;
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	color: #333;
+	background-color: #66FF99;
+	border: 1px solid #FFD700;
+}
+
+.table-test2 td {
+	padding: 6px;
+	text-align: right;
+	background-color: #fff;
+	border: 1px solid #66FF99;
+}
+
 
 .table-add {
 	width: 100%;

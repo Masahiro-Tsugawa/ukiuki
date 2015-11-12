@@ -16,6 +16,7 @@
 	<div class="container">
 		<p>チケット購入確認画面</p>
 
+<s:if test="true">
 		<div class="box1">
 			<table class="table-test">
 				<tr>
@@ -29,6 +30,7 @@
 				</tr>
 			</table>
 		</div>
+</s:if>
 
 		<div class="box1">
 			<table class="table-test">
@@ -45,7 +47,7 @@
 		</div>
 
 		<div class="box1">
-			<table class="table-test">
+			<table class="table-test2">
 				<tr>
 					<th colspan="4"><div class="form-titel">合計</div></th>
 				</tr>
@@ -56,7 +58,7 @@
 		</div>
 
 		<div class="box1">
-			<table class="table-test">
+			<table class="table-test2">
 				<tr>
 					<th colspan="4"><div class="form-titel">お支払い情報</div></th>
 				</tr>
@@ -65,15 +67,14 @@
 				</tr>
 			</table>
 		</div>
-		
-		<table >
-			<tr class="button">
-				<td colspan="2"><input type="button" value="キャンセル "
-					onClick="history.back()"> <s:form action="register_user">
-						<s:submit value="完了" />
-					</s:form></td>
-			</tr>
-		</table>
+
+
+		<div align="center">
+			<input type="button" value="キャンセル " onClick="history.back()">
+			<s:form action="register_user">
+				<s:submit value="完了" />
+			</s:form>
+		</div>
 	</div>
 	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
