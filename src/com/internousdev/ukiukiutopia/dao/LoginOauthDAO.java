@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
-import com.internousdev.ukiukiutopia.dto.HomeOauthDTO;
+import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 
 /**
  * LoginOauthDAO SNSでログインに必要な情報を取得する為のクラス
@@ -14,7 +14,7 @@ import com.internousdev.ukiukiutopia.dto.HomeOauthDTO;
  * @since 2015/09/14
  * @version 1.0
  */
-public class HomeOauthDAO {
+public class LoginOauthDAO {
 
 	/**
 	 * コネクションクラス
@@ -44,7 +44,7 @@ public class HomeOauthDAO {
 	/**
 	 * OauthのDTO
 	 */
-	private HomeOauthDTO oauthDto;
+	private LoginOauthDTO oauthDto;
 
 	/**
 	 * DBconnector
@@ -111,7 +111,7 @@ public class HomeOauthDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				oauthDto = new HomeOauthDTO();
+				oauthDto = new LoginOauthDTO();
 				result = true;
 				oauthDto.setUserId(rs.getInt(1));
 				oauthDto.setName(rs.getString(2));
@@ -137,7 +137,7 @@ public class HomeOauthDAO {
 	 * @since 2015/09/14
 	 * @return oauthDto
 	 */
-	public HomeOauthDTO getLoginOauthDTO() {
+	public LoginOauthDTO getLoginOauthDTO() {
 		return oauthDto;
 	}
 
@@ -147,7 +147,7 @@ public class HomeOauthDAO {
 	 * @since 2015/09/14
 	 * @param LoginOauthDto OauthのDTO
 	 */
-	public void setLoginOauthDto(HomeOauthDTO LoginOauthDto) {
+	public void setLoginOauthDto(LoginOauthDTO LoginOauthDto) {
 		this.oauthDto = LoginOauthDto;
 	}
 }

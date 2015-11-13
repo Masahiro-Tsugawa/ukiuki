@@ -17,8 +17,8 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.json.simple.JSONValue;
 
-import com.internousdev.ukiukiutopia.dao.HomeUserDAO;
-import com.internousdev.ukiukiutopia.dto.HomeUserDTO;
+import com.internousdev.ukiukiutopia.dao.LoginUserDAO;
+import com.internousdev.ukiukiutopia.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -93,8 +93,8 @@ public class CallbackServlet extends ActionSupport implements SessionAware,
 		if(code == null){
 			 response.sendRedirect(request.getContextPath()+ "/Main.jsp");
 			 }
-		final String appId = "1086463238045499";
-		final String appSecret = "332f0801b4196095a7b473680b6c6c45";
+		final String appId = "433419566868372";
+		final String appSecret = "e0b2de4f10d8f4ebcbeb69984a68452d";
 		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id="
 				+ appId
 				+ "&redirect_uri="
@@ -128,8 +128,8 @@ public class CallbackServlet extends ActionSupport implements SessionAware,
 
 
 
-		HomeUserDAO dao = new HomeUserDAO();
-		HomeUserDTO dto;
+		LoginUserDAO dao = new LoginUserDAO();
+		LoginUserDTO dto;
 		if(dao.selectByUserUniqueId(userUniqueId)){
 			dto = dao.getLoginUserDTO();
 

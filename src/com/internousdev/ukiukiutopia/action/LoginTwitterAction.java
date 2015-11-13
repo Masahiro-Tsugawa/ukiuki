@@ -10,8 +10,8 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.Token.TwitterAccessToken;
-import com.internousdev.ukiukiutopia.dao.HomeUserDAO;
-import com.internousdev.ukiukiutopia.dto.HomeUserDTO;
+import com.internousdev.ukiukiutopia.dao.LoginUserDAO;
+import com.internousdev.ukiukiutopia.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -75,8 +75,8 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
 			userLoginId = userData[1];
 
-			HomeUserDAO dao = new HomeUserDAO();
-			HomeUserDTO dto;
+			LoginUserDAO dao = new LoginUserDAO();
+			LoginUserDTO dto;
 			if(dao.selectByUserUniqueId(userLoginId)){
 				dto = dao.getLoginUserDTO();
 

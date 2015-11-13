@@ -8,7 +8,7 @@ import java.util.Map;
  * @since 2015/09/17
  * @version 1.0
  */
-public class HomeOauthDTO {
+public class LoginOauthDTO {
 
 
 	/**
