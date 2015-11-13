@@ -19,7 +19,7 @@
 
 			<table>
 				<tr>
-					<th colspan="2">登録確認</th>
+					<th colspan="2">登録情報確認</th>
 				</tr>
 				<tr>
 					<td>氏名：</td>

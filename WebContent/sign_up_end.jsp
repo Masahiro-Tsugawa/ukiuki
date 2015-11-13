@@ -15,7 +15,7 @@
     <jsp:include page="base/main_header.jsp" flush="true" />
     <div class="container">
 		<div class="create">
-  		<h1>登録完了しました。</h1>
+  		<h1><s:text name="signUpEnd.registeredCompleted" /></h1>
   		<s:form action="my_page">
   			<s:submit value="マイページへ" />
 		</s:form>
