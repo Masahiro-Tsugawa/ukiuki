@@ -21,17 +21,17 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	private String token;
 	private String number;
 	private String registeredDate;
-//	private String ticketName;
-//	private int price;
-//	private int subtotal;
+	// private String ticketName;
+	// private int price;
+	// private int subtotal;
 
 	public String execute() throws Exception {
 
 		BuyCompleteDAO daoUpdate = new BuyCompleteDAO();
 
-		session.put("userEmail", email);
-		session.put("buyCordToken", token);
-		session.put("buyCordNumber", number);
+		email = (String) session.get("userEmail");
+		token = (String) session.get("buyCordToken");
+		number = (String) session.get("buyCordNumber");
 		daoUpdate.updateToUser(token, number, email);
 
 		BuyCompleteDAO daoSelectUserId = new BuyCompleteDAO();
@@ -46,7 +46,7 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 		orderId = daoSelectOrderId.selectOrderId(userId, registeredDate);
 
 		BuyCompleteDAO daoInsertToOrderTicket = new BuyCompleteDAO();
-		session.put("buyTotal", buyTotal);
+		buyTotal = (int) session.get("buyTotal");
 		daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buyTotal, registeredDate);
 
 		return "success";
