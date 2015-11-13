@@ -49,6 +49,7 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	 * @throws Exception 例外処理
 	 */
 	public String execute()  throws Exception{
+		System.out.println("てすとたなか");
 		GoGoogleOAuth googleOauth = new GoGoogleOAuth();
 		if(!googleOauth.RequestToken(request,response)) {
 			return ERROR;

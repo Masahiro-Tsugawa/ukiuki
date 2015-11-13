@@ -36,13 +36,11 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();
 		AdminUserSelectDTO dto = new AdminUserSelectDTO();
 		boolean resultDAO = dao.select();
-		System.out.println("resultDAO="+resultDAO);
 
 		if(resultDAO){
-			System.out.println("if文に入ってる");
 			userList = dao.getUserList();
+			
 			dto = userList.get(0);
-			System.out.println(dto.getEmail());
 			session.put("email", dto.getEmail());
 			
 			userList.addAll(dao.getUserList());

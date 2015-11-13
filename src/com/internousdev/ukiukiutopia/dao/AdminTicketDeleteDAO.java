@@ -25,7 +25,7 @@ public class AdminTicketDeleteDAO {
 		int rscount=0;
 		
 		try{
-		String sql = "delete from user where email=?";
+		String sql = "delete from ticket where email=?";
 
 		PreparedStatement ps;
 		ps = con.prepareStatement(sql);

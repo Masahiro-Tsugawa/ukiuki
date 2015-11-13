@@ -57,8 +57,8 @@ public class SignInServlet extends ActionSupport implements ServletResponseAware
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Facebook facebook = new FacebookFactory().getInstance();
         request.getSession().setAttribute("facebook", facebook);
-        facebook.setOAuthAppId("1086463238045499", "332f0801b4196095a7b473680b6c6c45");
-        String accessTokenString ="1086463238045499 |2a95e5aaee86e5436aa11b03c1277479";
+        facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
+        String accessTokenString ="433419566868372 |85cdfc1daf8850ada0f20ac9961aef38";
         AccessToken at = new AccessToken(accessTokenString);
         facebook.setOAuthAccessToken(at);
         StringBuffer callbackURL = request.getRequestURL();

@@ -18,8 +18,8 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.json.simple.JSONValue;
 
-import com.internousdev.ukiukiutopia.dao.HomeOauthDAO;
-import com.internousdev.ukiukiutopia.dto.HomeOauthDTO;
+import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
+import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -87,7 +87,7 @@ ServletResponseAware, ServletRequestAware{
 			}
 			uniqueId = id;
 			session.put("uniqueId", uniqueId);
-			HomeOauthDAO loginFacebookDao = new HomeOauthDAO();
+			LoginOauthDAO loginFacebookDao = new LoginOauthDAO();
 			boolean res = loginFacebookDao.existUniqueId(uniqueId);
 			if (!res) {
 
@@ -95,7 +95,7 @@ ServletResponseAware, ServletRequestAware{
 			}
 			res = loginFacebookDao.selectUniqueId(uniqueId);
 			if (res) {
-				HomeOauthDTO dto = loginFacebookDao.getLoginOauthDTO();
+				LoginOauthDTO dto = loginFacebookDao.getLoginOauthDTO();
 				session.put("userId",dto.getUserId());
 				session.put("userName",dto.getName());
 				session.put("userMailAddress",dto.getMailAddress());
@@ -127,8 +127,8 @@ ServletResponseAware, ServletRequestAware{
 		if (code == null) {
 			response.sendRedirect(request.getContextPath() + "/Login.jsp");
 		}
-		final String appId = "1086463238045499";
-		final String appSecret = "332f0801b4196095a7b473680b6c6c45";
+		final String appId = "433419566868372";
+		final String appSecret = "e0b2de4f10d8f4ebcbeb69984a68452d";
 		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id="
 				+ appId
 				+ "&redirect_uri="

@@ -17,105 +17,119 @@ public class AdminUserUpdateDAO {
 	Connection con;
 	int rscount = 0;
 
-	public int update(String purposeEmail, String updateemail, String updatepassword, String updatename,
-			String updatetelnum, String updatepostalcode, String updateaddress, String updaterenewdate)
+	/**
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updatePassword
+	 * @param updateName
+	 * @param updateTelNum
+	 * @param updatePostalCode
+	 * @param updateAddress
+	 * @param updateRenewDate
+	 * @return
+	 * @throws Exception
+	 */
+	public int update(String purposeEmail, String updateEmail, String updatePassword, String updateName,
+			String updateTelNum, String updatePostalCode, String updateAddress, String updateRenewDate)
 					throws Exception {
 
 		con = DBConnector.getConnection();
 
 		try {
+
 			if (purposeEmail != null) {
 
-			 if (updateemail != null) {
+				System.out.println("updatePassword" + updatePassword);
+
+				if (updateEmail != " ") {
 					String sql = "update user set email=? where email=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
-					ps.setString(1, updateemail);
+					ps.setString(1, updateEmail);
 					ps.setString(2, purposeEmail);
 
 					System.out.println("update - ps -" + ps);
 
 					rscount = ps.executeUpdate();
 				}
-			 if(updatepassword != null){
-				 String sql = "update user set password=? where email=?";
+				if (updatePassword != null) {
+					String sql = "update user set password=? where email=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
-					ps.setString(1, updatepassword);
+					ps.setString(1, updatePassword);
 					ps.setString(2, purposeEmail);
 
 					System.out.println("update - ps -" + ps);
 
 					rscount = ps.executeUpdate();
-			 }
-			 if(updatename != null){
-				 String sql = "update user set name=? where email=?";
-					PreparedStatement ps;
+				}
+//				if (updateName != null) {
+//					String sql = "update user set name=? where email=?";
+//					PreparedStatement ps;
+//
+//					ps = con.prepareStatement(sql);
+//					ps.setString(1, updateName);
+//					ps.setString(2, purposeEmail);
+//
+//					System.out.println("update - ps -" + ps);
+//
+//					rscount = ps.executeUpdate();
+//				}
+//				if (updateTelNum != null) {
+//					String sql = "update user set tel_num=? where email=?";
+//					PreparedStatement ps;
+//
+//					ps = con.prepareStatement(sql);
+//					ps.setString(1, updateTelNum);
+//					ps.setString(2, purposeEmail);
+//
+//					System.out.println("update - ps -" + ps);
+//
+//					rscount = ps.executeUpdate();
+//				}
+//				if (updatePostalCode != null) {
+//					String sql = "update user set postal_code=? where email=?";
+//					PreparedStatement ps;
+//
+//					ps = con.prepareStatement(sql);
+//					ps.setString(1, updatePostalCode);
+//					ps.setString(2, purposeEmail);
+//
+//					System.out.println("update - ps -" + ps);
+//
+//					rscount = ps.executeUpdate();
+//				}
+//				if (updateAddress != null) {
+//					String sql = "update user set Address=? where email=?";
+//					PreparedStatement ps;
+//
+//					ps = con.prepareStatement(sql);
+//					ps.setString(1, updateAddress);
+//					ps.setString(2, purposeEmail);
+//
+//					System.out.println("update - ps -" + ps);
+//
+//					rscount = ps.executeUpdate();
+//				}
 
-					ps = con.prepareStatement(sql);
-					ps.setString(1, updatename);
-					ps.setString(2, purposeEmail);
+				String sql = "update user set renew_date=? where email=?";
+				PreparedStatement ps;
 
-					System.out.println("update - ps -" + ps);
+				ps = con.prepareStatement(sql);
+				ps.setString(1, updateRenewDate);
+				ps.setString(2, purposeEmail);
 
-					rscount = ps.executeUpdate();
-			 }
-			 if(updatetelnum != null){
-				 String sql = "update user set tel_num=? where email=?";
-					PreparedStatement ps;
+				System.out.println("update - ps -" + ps);
 
-					ps = con.prepareStatement(sql);
-					ps.setString(1, updatetelnum);
-					ps.setString(2, purposeEmail);
+				rscount = ps.executeUpdate();
 
-					System.out.println("update - ps -" + ps);
-
-					rscount = ps.executeUpdate();
-			 }
-			 if(updatepostalcode != null){
-				 String sql = "update user set postal_code=? where email=?";
-					PreparedStatement ps;
-
-					ps = con.prepareStatement(sql);
-					ps.setString(1, updatepostalcode);
-					ps.setString(2, purposeEmail);
-
-					System.out.println("update - ps -" + ps);
-
-					rscount = ps.executeUpdate();
-			 }
-			 if(updateaddress != null){
-				 String sql = "update user set address=? where email=?";
-					PreparedStatement ps;
-
-					ps = con.prepareStatement(sql);
-					ps.setString(1, updateaddress);
-					ps.setString(2, purposeEmail);
-
-					System.out.println("update - ps -" + ps);
-
-					rscount = ps.executeUpdate();
-			 }
-			 if(updaterenewdate != null){
-				 String sql = "update user set renew_date=? where email=?";
-					PreparedStatement ps;
-
-					ps = con.prepareStatement(sql);
-					ps.setString(1, updaterenewdate);
-					ps.setString(2, purposeEmail);
-
-					System.out.println("update - ps -" + ps);
-
-					rscount = ps.executeUpdate();
-			 }
-			 
 			}
-			if(rscount > 0){
+			if (rscount > 0) {
 				System.out.println("update - rsCount - Update OK");
-				}//if rs
-			
+			} // if rs
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -124,4 +138,5 @@ public class AdminUserUpdateDAO {
 		System.out.println("update - return -" + rscount);
 		return rscount;
 	}// update
+
 }

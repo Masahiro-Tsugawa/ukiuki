@@ -1,23 +1,23 @@
-ï»¿/*TOPç”»é¢ç”¨ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³ã®è¨­å®š*/
+/*TOP‰æ–Ê—pƒiƒrƒQ[ƒVƒ‡ƒ“‚Ìİ’è*/
 .navi{
  padding: 0;
  margin: 0;
  background-color: #FFA07A;
- display: table;ã€€/*ãƒŠãƒ“ã‚’tableå½¢å¼ã§è¡¨ç¤º*/
- text-align: center; /*æ–‡å­—ã‚’ä¸­å¤®ã«è¡¨ç¤º*/
- width: 100%;ã€€/*contenorã¨å¤§ãã•ã‚’åˆã‚ã›ã¦è¡¨ç¤º*/
+ display: table;@/*ƒiƒr‚ğtableŒ`®‚Å•\¦*/
+ text-align: center; /*•¶š‚ğ’†‰›‚É•\¦*/
+ width: 100%;@/*contenor‚Æ‘å‚«‚³‚ğ‡‚í‚¹‚Ä•\¦*/
 }
-/*ã‚»ãƒ«ã®å³å´ã«ãƒœãƒ¼ãƒ€ãƒ¼ã‚’è¡¨ç¤ºã•ã›ã‚‹*/
+/*ƒZƒ‹‚Ì‰E‘¤‚Éƒ{[ƒ_[‚ğ•\¦‚³‚¹‚é*/
 .navi li{
  border-right: 1px solid #fff;
  display: table-cell;
  vertical-align: middle;
 }
-/*æœ€å¾Œã®ãƒœãƒ¼ãƒ€ãƒ¼ã‚’æ¶ˆã™ã‚‰ã—ã„ãŒåˆ©ã„ã¦ãªã„*/
+/*ÅŒã‚Ìƒ{[ƒ_[‚ğÁ‚·‚ç‚µ‚¢‚ª—˜‚¢‚Ä‚È‚¢*/
 .navi li:last-child{
  border-right: 0;
 }
-/*ãƒªã‚¹ãƒˆã®ä¸­èº«ã®è¨­å®š*/
+/*ƒŠƒXƒg‚Ì’†g‚Ìİ’è*/
 .navi li a {
  text-align: center;
  color: #fff;
@@ -31,9 +31,9 @@
   display: block;
 }
 
-/*æ–°è¦ç™»éŒ²ãƒ»ãƒ­ã‚°ã‚¤ãƒ³ã®ãƒœã‚¿ãƒ³*/
+/*V‹K“o˜^EƒƒOƒCƒ“‚Ìƒ{ƒ^ƒ“*/
 .createUser{
-  height:auto;
+  height:300px;
   font-weight:bold;
   border:5px solid #008000;
   margin-top: 10px;
@@ -42,16 +42,16 @@
   padding: 5px;
 }
 .loginUser{
-  height:auto;
+  height:300px;
   font-weight:bold;
   border:5px solid #008000;
   margin-top: 10px;
   margin-left: 8px;
   border-radius:5px;
-  padding: 5px;ã€€
+  padding: 5px;@
 }
 .oauthUser{
-  height:auto;
+  height:300px;
   font-weight:bold;
   border:5px solid #008000;
   margin-top: 10px;
@@ -65,7 +65,7 @@
 }
 
 
-/*æ–°è¦ç™»éŒ²ãƒœã‚¿ãƒ³*/
+/*V‹K“o˜^ƒ{ƒ^ƒ“*/
 .new{
   width:180px;
   color:#ffffff;
@@ -75,18 +75,18 @@
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #D2691E;ã€€
+  border:1px solid #D2691E;@
   padding:12px 0 8px 0;
-  border-radius:5px;ã€€
+  border-radius:5px;@
   }
 
-/*ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«æ¥ãŸéš›ã®è‰²å¤‰åŒ–*/
+/*ƒJ[ƒ\ƒ‹‚ªã‚É—ˆ‚½Û‚ÌF•Ï‰»*/
 a.new:hover {
   background: #FFD700;
 }
 
 
-/*ãƒ­ã‚°ã‚¤ãƒ³ãƒœã‚¿ãƒ³*/
+/*ƒƒOƒCƒ“ƒ{ƒ^ƒ“*/
 .login{
   width:180px;
   color:#ffffff;
@@ -96,17 +96,17 @@ a.new:hover {
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #228B22;ã€€
+  border:1px solid #228B22;@
   padding:12px 0 8px 0;
-  border-radius:5px;ã€€
+  border-radius:5px;@
   }
 
-/*ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«æ¥ãŸéš›ã®è‰²å¤‰åŒ–*/
+/*ƒJ[ƒ\ƒ‹‚ªã‚É—ˆ‚½Û‚ÌF•Ï‰»*/
 a.login:hover {
   background:#ADFF2F;
 }
 
-/*SNSã‚¢ã‚¤ã‚³ãƒ³ã®å¤§ãã•è¨­å®š*/
+/*SNSƒAƒCƒRƒ“‚Ì‘å‚«‚³İ’è*/
 img.tw{
   width: 50px;
   height: auto;
@@ -134,7 +134,7 @@ img.gg{
 
 }
 
-/*åŸ‹ã‚è¾¼ã‚“ã Googleãƒãƒƒãƒ—ã®å¤§ãã•ã‚’æŒ‡å®š*/
+/*–„‚ß‚ñ‚¾Googleƒ}ƒbƒv‚Ì‘å‚«‚³‚ğw’è*/
  .map{
  width: 300px;
  height: 300px;

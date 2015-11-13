@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/main.css" type="text/css"> 
     <script type="text/javascript"
 	src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
 
 <script type="text/javascript">
@@ -63,10 +63,17 @@
  		<h3><s:text name="login" /></h3>
 	<s:form action="HomeAction">
 	<s:property value = "getIdError()"/><br>
-		<s:textfield label="ユーザー名" name="id" />
-		
-        <s:password label="パスワード" name="password"/>
-        <s:submit value="%{getText('login')}" /><s:submit value="ログイン"></s:submit>
+	<table>
+	<tr>
+	<td><label for ="id">ID：</label></td>
+		<td><s:textfield label="ID" name="id" placeholder="%{getText('id')}"/></td>
+		</tr>
+		<tr>
+		<td><label for ="password">PASSWORD：</label></td>
+        <td><s:password label="パスワード" name="password" placeholder="%{getText('pass')}"/></td></tr>
+        
+        <tr><td><s:submit value="%{getText('login')}" /></td></tr>
+        </table>
     </s:form>
         <p class="login-comment"><h4><s:text name="mouMember" /></h4><br></p>
 　	
@@ -97,7 +104,7 @@
 		<h3><s:text name="jyusyo" /></h3>
   		<h4><p><s:text name="jyusyoS" /><br></p></h4>
 	<h3>GoogleMap</h3>
-	<s:submit value="%{getText('map')}" /><input id="button01" type="button" value="Googleマップ表示" />
+	<input id="button01" type="button" value="GoogleMAP" />
 	<div id="googleMap"></div>
 	
 	</div>

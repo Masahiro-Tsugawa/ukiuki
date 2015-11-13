@@ -19,50 +19,50 @@
 
 			<table>
 				<tr>
-					<th colspan="2">登録情報確認</th>
+					<th colspan="2"><s:text name="signUpCheck.registrationContents" /></th>
 				</tr>
 				<tr>
-					<td>氏名：</td>
+					<td><s:text name="signUpCheck.name" />：</td>
 					<td>
 						<s:property value="#session.signUpName"/>
 					</td>
 				</tr>
 				<tr>
-					<td>郵便番号：</td>
-					<td>
-						<s:property value="#session.signUpPostalCode"/>
-					</td>
-				</tr>
-				<tr>
-					<td>住所：</td>
-					<td>
-						<s:property value="#session.signUpAddress"/>
-					</td>
-				</tr>
-				<tr>
-					<td>電話番号：</td>
-					<td>
-						<s:property value="#session.signUpTelNum"/>
-					</td>
-				</tr>
-				<tr>
-					<td>メールアドレス：</td>
+					<td><s:text name="signUpCheck.email" />：</td>
 					<td>
 						<s:property value="#session.signUpEmail"/>
 					</td>
 				</tr>
 				<tr>
-					<td>パスワード：</td>
+					<td><s:text name="signUpCheck.password" />：</td>
 					<td>
 						<s:property value="#session.signUpPassword"/>
 					</td>
 				</tr>
+				<tr>
+					<td><s:text name="signUpCheck.posCode" />：</td>
+					<td>
+						<s:property value="#session.signUpPostalCode"/>
+					</td>
+				</tr>
+				<tr>
+					<td><s:text name="signUpCheck.address" />：</td>
+					<td>
+						<s:property value="#session.signUpAddress"/>
+					</td>
+				</tr>
+				<tr>
+					<td><s:text name="signUpCheck.phoneNumber" />：</td>
+					<td>
+						<s:property value="#session.signUpTelNum"/>
+					</td>
+				</tr>
 
 				<tr class="button">
-					<td colspan="2"><input type="button" value=" 内容訂正 "
+					<td colspan="2"><input type="button" value=<s:text name="signUpCheck.correction" />
 						onClick="history.back()"> 
 						<s:form action="register_user">
-  							<s:submit value="確認" />
+  							<s:submit value="%{getText('signUpCheck.completion')}" />
 						</s:form>
 					</td>
 				</tr>
