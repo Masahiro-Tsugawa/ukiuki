@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internousdev.ukiukiutopia.dto.HomeUserDTO;
+import com.internousdev.ukiukiutopia.dto.LoginUserDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
@@ -16,12 +16,12 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @version 1.0
  *
  */
-public class HomeUserDAO{
+public class LoginUserDAO{
 
 	/**
 	 * 取得した情報を格納する為のDTO
 	 */
-	private HomeUserDTO dto=new HomeUserDTO();
+	private LoginUserDTO dto=new LoginUserDTO();
 
 	/**
 	 * selectByUserLoginId
@@ -118,7 +118,7 @@ public class HomeUserDAO{
 	 * DTO取得メソッド
 	 * @return dto
 	 */
-	public HomeUserDTO getLoginUserDTO() {
+	public LoginUserDTO getLoginUserDTO() {
 		return dto;
 	}
 
@@ -126,7 +126,7 @@ public class HomeUserDAO{
 	 * DTO格納メソッド
 	 * @param dto ログインユーザDTO
 	 */
-	public void setLoginUserDTO(HomeUserDTO dto) {
+	public void setLoginUserDTO(LoginUserDTO dto) {
 		this.dto = dto;
 	}
 

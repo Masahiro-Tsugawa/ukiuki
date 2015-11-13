@@ -8,7 +8,7 @@ package com.internousdev.ukiukiutopia.dto;
  * @version 1.0
  *
  */
-public class HomeUserDTO{
+public class LoginUserDTO{
 
 	/**
 	 * 名前

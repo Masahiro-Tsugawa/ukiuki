@@ -25,13 +25,15 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		System.out.println("b");
 		String ret = dao.select(id, password);
 		System.out.println("c");
-		session.put("name_key", dao.getAdmin_name());
+		session.put("loginName", dao.getAdmin_name());
 		System.out.println("d");
 		session.put("userEmail", id);
 		System.out.println("e");
 		if(ret == "error"){
 			setIdError("IDまたはパスワードが間違っています");
 		}
+		System.out.println(id);
+		System.out.println(password);
 		return ret;
 	}
 

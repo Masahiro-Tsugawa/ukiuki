@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.ukiukiutopia.dao.HomeOauthDAO;
-import com.internousdev.ukiukiutopia.dto.HomeOauthDTO;
+import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
+import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.google.LoginGoogleOAuth;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -49,10 +49,12 @@ ServletRequestAware, SessionAware {
 	 * @return result
 	 */
 	public String execute() throws Exception{
+		System.out.println("testtesrsetfadsg");
 		result = ERROR;
 
 			LoginGoogleOAuth googleOauth = new LoginGoogleOAuth();
 			Map<String, String> userMap = googleOauth.AccessToken(request);
+			System.out.println(userMap);
 			if (userMap == null) {
 				return result;
 			}
@@ -60,12 +62,12 @@ ServletRequestAware, SessionAware {
 			session.put("uniqueId", uniqueId);
 			String customerName = userMap.get("name");
 			session.put("customerName", customerName);
-			HomeOauthDAO loginGoogleDao = new HomeOauthDAO();
+			LoginOauthDAO loginGoogleDao = new LoginOauthDAO();
 			if (!loginGoogleDao.existUniqueId(uniqueId)) {
 				return result;
 			}
 			if (loginGoogleDao.selectUniqueId(uniqueId)) {
-				HomeOauthDTO dto = loginGoogleDao.getLoginOauthDTO();
+				LoginOauthDTO dto = loginGoogleDao.getLoginOauthDTO();
 				session.put("userId",dto.getUserId());
 				session.put("userName",dto.getName());
 				session.put("userMailAddress",dto.getMailAddress());

@@ -80,17 +80,23 @@
 				<tr>
 					<th colspan="4"><div class="form-titel">お支払い情報</div></th>
 				</tr>
-				<tr>
-					<td><s:property value="#session.buyPayInfo" /></td>
-					<td>下四桁</td>
+				<tr><s:property value="#session.buyCardNumber" />
+					<s:if test="%{#session.buyCardNumber!=null}">
+						<td>クレジットカード</td>
+						<td>下四桁<s:property value="#session.buyCordToken"/></td>
+					</s:if>
+					<s:else>
+					 <td colspan="4">げんちな</td>
+					</s:else>
 				</tr>
 			</table>
 		</div>
-
-
+		<s:form action="test">
+		  <s:submit value="てｓｔ" />
+		</s:form>
 		<div align="center">
 			<input type="button" value="キャンセル " onClick="history.back()">
-			<s:form action="register_user">
+			<s:form action="ticket_buy_check">
 				<s:submit value="完了" />
 			</s:form>
 		</div>

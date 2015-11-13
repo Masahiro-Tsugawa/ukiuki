@@ -5,6 +5,8 @@ package com.internousdev.ukiukiutopia.action;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 import com.internousdev.ukiukiutopia.dao.AdminTicketUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,12 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminTicketUpdateAction extends ActionSupport implements SessionAware{
 
-	private int updateid;
-	private String updatename;
-	private float updateprice;
-	private String updatetickettype;
-	private boolean updateissale;
-	private String updaterenewdate;
+	private int updateId;
+	private String updateName;
+	private float updatePrice;
+	private String updateTicketType;
+	private boolean updateIsSale;
+	private String updateRenewDate;
 	
 	String up=null;
 	public String result=ERROR;
@@ -29,14 +31,15 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 	private static final long serialVersionUID = 1L;
 
 		public String execute() throws Exception {
-
+		
+		DateTime dt = new DateTime();
+		updateRenewDate = dt.toString(DateTimeFormat.mediumDateTime());
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
-		int updateid =  (int)session.get("id");
-		System.out.println(updateid);
+		int updateId =  (int)session.get("id");
 		
-		int up = dao.update(updateid,updatename,updateprice,updatetickettype,updateissale,updaterenewdate);
+		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,updateRenewDate);
 
 		if(up > 0){
 			result = SUCCESS;
@@ -44,12 +47,44 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		return result;
 		}
 
-		public int getUpdateid() {
-			return updateid;
+		public int getUpdateId() {
+			return updateId;
 		}
 
-		public void setUpdateid(int updateid) {
-			this.updateid = updateid;
+		public void setUpdateId(int updateId) {
+			this.updateId = updateId;
+		}
+		public String getUpdateName() {
+			return updateName;
+		}
+
+		public void setUpdateName(String updateName) {
+			this.updateName = updateName;
+		}
+		public float getUpdatePrice() {
+			return updatePrice;
+		}
+
+		public void setUpdatePrice(int updatePrice) {
+			this.updatePrice = updatePrice;
+		}
+		public String getUpdateTicketType() {
+			return updateTicketType;
+		}
+
+		public void setUpdateTicketType(String updateTicketType) {
+			this.updateTicketType = updateTicketType;
+		}
+		public boolean getUpdateIsSale() {
+			return updateIsSale;
+		}
+
+		public void setUpdateIsSale(boolean updateIsSale) {
+			if(updateIsSale=false)
+				updateIsSale=false;
+			else
+				updateIsSale=true;
+			this.updateIsSale = updateIsSale;
 		}
 
 		public void setSession(Map<String, Object> session) {

@@ -8,28 +8,27 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.ukiukiutopia.dto.AdminTicketSelectDTO;
+import com.internousdev.ukiukiutopia.dto.AdminBoughtDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
  * @author internous
  *
  */
-public class AdminTicketSelectDAO {
-
+public class AdminBoughtDAO {
 	Connection con;
 	boolean action;
 
-	public List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
+	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
 
 //検索するメソッド
-	public boolean select()throws Exception{
+	public boolean select(String selectdate1,String selectdate2,AdminBoughtDTO dto)throws Exception{
 		System.out.println("select - メソッド実行");
 		action=false;
 		con = DBConnector.getConnection();
 
 		try{
-		String sql = "select * from ticket";
+		String sql = "select * from order_ticket";
 
 		PreparedStatement ps2;
 		ps2 = con.prepareStatement(sql);
@@ -42,14 +41,16 @@ public class AdminTicketSelectDAO {
 		while(rs.next()){
 			action = true;
 
-			AdminTicketSelectDTO dto =new AdminTicketSelectDTO();
-			dto.setId(rs.getInt(1));
-			dto.setName(rs.getString(2));
-			dto.setPrice(rs.getFloat(3));
-			dto.setTicketType(rs.getString(4));
-			dto.setIsSale(rs.getBoolean(5));
+			dto.setOrderid(rs.getInt(1));
+			dto.setTicketid(rs.getInt(2));
+			dto.setSheets(rs.getInt(3));
+			dto.setTotalamount(rs.getFloat(4));
+			dto.setRegistereddate(rs.getString(5));
+	
+			
 
-			ticketList.add(dto);
+
+			boughtList.add(dto);
 		}//while
 
 	}catch(Exception e){
@@ -61,10 +62,9 @@ public class AdminTicketSelectDAO {
 		return action;
 
 	}//select
-	public List<AdminTicketSelectDTO> getTicketList(){
-		return ticketList;
+	public List<AdminBoughtDTO> getBoughtList(){
+		return boughtList;
 	}
 	
 
 }
-

@@ -44,9 +44,9 @@ public class GoGoogleOAuth extends ActionSupport{
 	public boolean RequestToken(HttpServletRequest request,HttpServletResponse response){
 
 		try{
-			String apiKey = "448641126893-o2ehfgo0p0uvvufinaepfq19i9hs5c04.apps.googleusercontent.com";
-			String apiSecret = "2qaa6SS_atArr4cu8yXnAxq8";
-			String callbackUrl = "http://localhost:8080/internous.10.b/LoginGoogleAction";
+			String apiKey = "42056507966-0pf52q6nrt5l30eqijjm30h1jm8l19vh.apps.googleusercontent.com";
+			String apiSecret = "IcSSbPEavOsH8H2WcACPpNeB";
+			String callbackUrl = "http://localhost:8080/ukiukiutopia/LoginGoogoleAction.action";
 
 			OAuthService service = new ServiceBuilder()
 			.provider(GoogleApi.class)
@@ -61,7 +61,7 @@ public class GoGoogleOAuth extends ActionSupport{
 			String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
 			HttpSession session = request.getSession();
 			session.setAttribute("SERVICE", service);
-			response.sendRedirect(authorizationUrl);
+			response.sendRedirect(authorizationUrl); 
 		}catch(Exception e){
 			return false;
 		}
