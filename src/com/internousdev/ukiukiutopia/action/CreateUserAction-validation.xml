@@ -9,7 +9,7 @@
 	<!-- 氏名 -->
 	<field name="userName1">
 		<field-validator type="requiredstring">
-			<message>性が入力されていません</message>
+			<message>%{getText('validUserNameRS')}</message>
 		</field-validator>
 	</field>
 
