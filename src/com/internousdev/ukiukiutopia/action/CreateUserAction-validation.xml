@@ -9,23 +9,23 @@
 	<!-- 氏名 -->
 	<field name="userName1">
 		<field-validator type="requiredstring">
-			<message>%{getText('validUserNameRS')}</message>
+			<message>%{getText('signUp.validSurNameRS')}</message>
 		</field-validator>
 	</field>
 
-<field name="userName2">
+	<field name="userName2">
 		<field-validator type="requiredstring">
-			<message>名が入力されていません</message>
+			<message>%{getText('signUp.validFirstNameRS')}</message>
 		</field-validator>
 	</field>
-	
+
 	<!-- メアド -->
 	<field name="userEmail">
 		<field-validator type="requiredstring">
-			<message>メールアドレスが入力されていません</message>
+			<message>%{getText('signUp.validEmailRS')}</message>
 		</field-validator>
 		<field-validator type="email">
-			<message>メールアドレスの形式が間違っています</message>
+			<message>%{getText('signUp.validEmailEmail')}</message>
 		</field-validator>
 	</field>
 
@@ -33,18 +33,18 @@
 	<field name="confirmUserEmail">
 		<field-validator type="fieldexpression">
 			<param name="expression"><![CDATA[confirmUserEmail == userEmail]]></param>
-			<message>メールアドレスが一致しません</message>
+			<message>%{getText('signUp.validConfirmEmailFE')}</message>
 		</field-validator>
 	</field>
 
 	<!-- パスワード -->
 	<field name="userPassword">
 		<field-validator type="requiredstring">
-			<message>パスワードが入力されていません</message>
+			<message>%{getText('signUp.validPasswordRS')}</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="regex"><![CDATA[([0-9a-z]{8,32})]]></param>
-			<message>半角英数小文字8～32字で入力してください</message>
+			<message>%{getText('signUp.validPasswordRG')}</message>
 		</field-validator>
 	</field>
 
@@ -52,40 +52,43 @@
 	<field name="confirmUserPassword">
 		<field-validator type="fieldexpression">
 			<param name="expression"><![CDATA[confirmUserPassword == userPassword]]></param>
-			<message>パスワードが一致しません</message>
+			<message>%{getText('signUp.validConfirmPasswordFE')}</message>
 		</field-validator>
 	</field>
 
 	<!-- 郵便番号 -->
 	<field name="userPostalCode">
+		<field-validator type="requiredstring">
+			<message>%{getText('signUp.validPostalCodeRS')}</message>
+		</field-validator>
 		<field-validator type="regex">
 			<param name="regex"><![CDATA[([0-9]{3}-[0-9]{4})]]></param>
-			<message>半角数字と「-」を使って入力してください</message>
+			<message>%{getText('signUp.validPostalCodeRG')}</message>
 		</field-validator>
 	</field>
 
 	<!-- 住所1 -->
 	<field name="userAddress1">
 		<field-validator type="requiredstring">
-			<message>都道府県が入力されていません</message>
+			<message>%{getText('signUp.validAddress1RS')}</message>
 		</field-validator>
 	</field>
 
 	<!-- 住所2 -->
 	<field name="userAddress2">
 		<field-validator type="requiredstring">
-			<message>市町村区が入力されていません</message>
+			<message>%{getText('signUp.validAddress2RS')}</message>
 		</field-validator>
 	</field>
 
 	<!-- 電話番号 -->
 	<field name="userTelNum">
 		<field-validator type="requiredstring">
-			<message>電話番号が入力されていません</message>
+			<message>%{getText('signUp.validTelNumRS')}</message>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="regex"><![CDATA[(\d{2,4}-\d{2,4}-\d{3,4})]]></param>
-			<message>記入例のとおりに入力してください</message>
+			<message>%{getText('signUp.validTelNumRG')}</message>
 		</field-validator>
 	</field>
 

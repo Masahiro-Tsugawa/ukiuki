@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.dao.CreateUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.xml.internal.security.utils.Signature11ElementProxy;
 
 public class CreateUserAction extends ActionSupport implements SessionAware {
 	/**
@@ -31,7 +32,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		CreateUserDAO dao = new CreateUserDAO();
 		String ret = dao.select(userEmail);
 		if(ret == "error"){
-			  setErrorMail("すでに登録されてるメールアドレスです");
+			  setErrorMail(getText("signUp.errorMail"));
 			}
 		StringBuilder userName = new StringBuilder();
 		userName.append(userName1);
