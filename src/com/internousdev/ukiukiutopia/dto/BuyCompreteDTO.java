@@ -6,8 +6,9 @@ public class BuyCompreteDTO {
 	private int sheets;
 	private int price;
 	private int subtotal;
-	private String ticketType;
 	private int ticketId;
+//	private String ticketType;
+//	private String email;
 
 	public String getTicketName() {
 		return ticketName;
@@ -41,13 +42,13 @@ public class BuyCompreteDTO {
 		this.subtotal = subtotal;
 	}
 
-	public String getTicketType() {
-		return ticketType;
-	}
-
-	public void setTicketType(String ticketType) {
-		this.ticketType = ticketType;
-	}
+//	public String getTicketType() {
+//		return ticketType;
+//	}
+//
+//	public void setTicketType(String ticketType) {
+//		this.ticketType = ticketType;
+//	}
 
 	public int getTicketId() {
 		return ticketId;
@@ -56,5 +57,13 @@ public class BuyCompreteDTO {
 	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
 	}
+
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
 
 }
