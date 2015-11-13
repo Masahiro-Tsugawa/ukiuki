@@ -145,5 +145,10 @@
             <result name="input">home.jsp</result>
         </action>
         
+         <!-- ユーザー情報登録 -->
+        <action name="register_user" class="com.internousdev.ukiukiutopia.action.RegisterUserAction" method="execute">
+            <result name="success">sign_up_end.jsp</result>
+        </action>
+        
     </package>
 </struts>
