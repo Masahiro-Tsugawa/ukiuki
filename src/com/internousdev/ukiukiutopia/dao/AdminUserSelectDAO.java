@@ -27,7 +27,6 @@ public class AdminUserSelectDAO {
 
 //検索するメソッド
 	public boolean select()throws Exception{
-		System.out.println("select - メソッド実行");
 		action=false;
 		con = DBConnector.getConnection();
 
@@ -37,10 +36,7 @@ public class AdminUserSelectDAO {
 		PreparedStatement ps2;
 		ps2 = con.prepareStatement(sql);
 
-		System.out.println("select - ps2 - "+ ps2);
-
 		ResultSet rs = ps2.executeQuery();
-		System.out.println("select - sql実行");
 
 		while(rs.next()){
 			action = true;

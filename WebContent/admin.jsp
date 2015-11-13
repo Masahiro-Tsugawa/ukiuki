@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
 <title>UkiukiUtopia 管理者画面</title>
 </head>
@@ -28,16 +29,12 @@
 			<s:form id="signin" class="navbar-form navbar-right" role="form"
 				action="AdminLoginAction" method="post">
 				<div class="input-group">
-					<span class="input-group-addon"> <i
-						class="glyphicon glyphicon-user"></i>
-					</span> <s:textfield id="name" type="text" class="form-control" name="name"
+					<s:textfield id="name" type="text" class="form-control" name="Name"
 						placeholder="ユーザー名" />
                  </div>
 
 				<div class="input-group">
-					<span class="input-group-addon"> <i
-						class="glyphicon glyphicon-lock"></i>
-					</span> <s:textfield id="password" type="password" class="form-control"
+					<s:textfield id="password" type="password" class="form-control"
 						name="password" placeholder="パスワード" />
 						
 				</div>
@@ -45,16 +42,14 @@
 				<s:submit class="btn btn-primary" value=" ログイン " />
 			<s:property value="#session.name_key" />
 			</s:form>
-			
+		   
 		</div>
-		    
-		    
-		    <a href="LogoutAction">ログアウト</a>
 		  </div>
 		
 	
   </div>
 	<div class="container">
+	 <s:a class="logout" href="%{LogoutAction}">ログアウト</s:a>
 	<p>管理者画面</p>
 		<br>
 
@@ -79,9 +74,7 @@
 
 			<p>チケット編集<br>まずボタンを押して下のスペースに表示される一覧を確認してください</p>
 			 <div class="ticket_info">
-				<s:fielderror>
-					<s:param value="%{''}" />
-				</s:fielderror>
+				
 				<s:form action="AdminTicketSelectAction">
 					<p>
 						<s:submit value=" チケット一覧表示　 " />
@@ -107,22 +100,25 @@
 			<div class="result">
 			　<p>以下に検索結果が表示されます<br>チケット情報とユーザー情報の編集はここで行うことができます</p>
 				<s:if
-					test="%{ salesInformationList == null || salesInformationList.isEmpty()}"></s:if>
+					test="%{ boughtList == null || boughtList.isEmpty()}"></s:if>
 		
 		          <%--チケット売り上げ --%>
 		          <s:else>
+		          <s:form action="AdminBoughtAction">
 					<table class="table_admin_sales">
 						<tr>
-							<td colspan="4">チケット購入情報</td>
+							<th colspan="4">チケット購入情報</th>
 						</tr>
 						<tr>
+						    <td>期間</td>
 							<td>注文ID</td>
 							<td>チケットID</td>
 							<td>枚数</td>
 							<td>チケット合計金額</td>
 						</tr>
-						<s:iterator value="salesInformationList">
+						<s:iterator value="boughtList">
 							<tr>
+							　　　  <td><s:property value="selectdate1"/>～<s:property value="selectdate2"/></td>
 								<td><s:property value="order_id" /></td>
 								<td><s:property value="ticket_id" /></td>
 								<td><s:property value="sheets" /> 枚</td>
@@ -130,6 +126,7 @@
 							</tr>
 						</s:iterator>
 					</table>
+				</s:form>
 
 				</s:else>
 				
@@ -142,7 +139,6 @@
 					   <th>値段</th>
 					   <th>チケット種類</th>
 					   <th>販売確認</th>
-					   <th>更新日</th>
 					   </tr>
 					   <s:form action="AdminTicketSelectAction">
 				        <s:iterator value="ticketList" begin="0" end="0" step="1">
@@ -150,9 +146,8 @@
 								<td><s:property value="id" /></td>
 								<td><s:property value="name" /></td>
 								<td><s:property value="price" /></td>
-								<td><s:property value="tickettype" /></td>
-								<td><s:property value="issale" /></td>
-								<td><s:property value="renewdate" /></td>
+								<td><s:property value="ticketType" /></td>
+								<td><s:property value="isSale" /></td>
 							</tr>
 						</s:iterator>
 				       </s:form>
@@ -174,7 +169,7 @@
 			    <td><s:textfield id="updateid" type="text" class="form-control" name="updateid" placeholder="変更したいIDを入力して下さい" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatename" type="text" class="form-control" name="updatename" placeholder="チケット名" /></td>       
+			    <td colspan="2"><s:textfield id="updateName" type="text" class="form-control" name="updateName" placeholder="チケット名" /></td>       
 			   </tr>
 			   <tr>
 			    <td colspan="2"><s:textfield id="updateprice" type="text" class="form-control" name="updateprice" placeholder="値段"/></td>
@@ -183,10 +178,7 @@
 			    <td colspan="2"><s:textfield id="updatetickettype" type="text" class="form-control" name="updatetickettype" placeholder="チケット種類" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateissale" type="text" class="form-control" name="updateissale" placeholder="販売確認" /></td>
-			   </tr>
-			   <tr>
-			    <td colspan="2"><s:textfield id="updaterenewdate" type="text" class="form-control" name="updaterenewdate" placeholder="更新日" /></td>
+			    <td colspan="2"><s:radio list="#{false:'販売継続', true:'販売終了'}" name="isSale" value="0"></s:radio></td>
 			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
@@ -249,25 +241,25 @@
 			    <th colspan="2">編集情報を入力</th>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateemail" type="text" class="form-control" name="updateemail" placeholder="メールアドレス" /></td>       
+			    <td colspan="2"><s:textfield id="updateEmail" type="text" class="form-control" name="updateEmail" placeholder="メールアドレス" /></td>       
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatepassword" type="text" class="form-control" name="updatepassword" placeholder="パスワード" /></td>
+			    <td colspan="2"><s:textfield id="updatePassword" type="text" class="form-control" name="updatePassword" placeholder="パスワード" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatename" type="text" class="form-control" name="updatename" placeholder="ユーザー名" /></td>
+			    <td colspan="2"><s:textfield id="updateName" type="text" class="form-control" name="updateName" placeholder="ユーザー名" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatetelnum" type="text" class="form-control" name="updatetelnum" placeholder="電話番号" /></td>
+			    <td colspan="2"><s:textfield id="updateTelNum" type="text" class="form-control" name="updateTelnum" placeholder="電話番号" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatepostalcode" type="text" class="form-control" name="updatepostalcode" placeholder="郵便番号" /></td>
+			    <td colspan="2"><s:textfield id="updatepostalcode" type="text" class="form-control" name="updatePostalCode" placeholder="郵便番号" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateaddress" type="text" class="form-control" name="updateaddress" placeholder="住所" /></td>
+			    <td colspan="2"><s:textfield id="updateaddress" type="text" class="form-control" name="updateAddress" placeholder="住所" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updaterenewdate" type="text" class="form-control" name="updaterenewdate" placeholder="更新日" /></td>
+			    <td colspan="2"><s:textfield id="updaterenewdate" type="text" class="form-control" name="updateRenewdate" placeholder="更新日" /></td>
 			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>

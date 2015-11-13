@@ -11,9 +11,8 @@ public class AdminTicketSelectDTO {
 	private int id;
 	private String name;
 	private float price;
-	private String tickettype;
-	private boolean issale;
-	private String renewdate;
+	private String ticketType;
+	private boolean isSale;
 	
 	public int getId() {
 		return id;
@@ -33,25 +32,16 @@ public class AdminTicketSelectDTO {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public String getTickettype() {
-		return tickettype;
+	public String getTicketType() {
+		return ticketType;
 	}
-	public void setTickettype(String tickettype) {
-		this.tickettype = tickettype;
+	public void setTicketType(String ticketType) {
+		this.ticketType = ticketType;
 	}
-	public boolean isIssale() {
-		return issale;
+	public boolean isIsSale() {
+		return isSale;
 	}
-	public void setIssale(boolean issale) {
-		this.issale = issale;
+	public void setIsSale(boolean isSale) {
+		this.isSale = isSale;
 	}
-	public String getRenewdate() {
-		return renewdate;
-	}
-	public void setRenewdate(String renewdate) {
-		this.renewdate = renewdate;
-	}
-	
-	
-
 }
