@@ -62,7 +62,7 @@
 	<div class="admin">
 
 			<p>チケット購入情報検索</p>
-			<s:form action="AdminTicket">
+			<s:form action="AdminBoughtAction">
 			　<s:select list="#{0:'--',2015:'2015',2016:'2016'}" name="year1"></s:select>年
 			
 			 <s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12'}" name="month1"></s:select>月

@@ -83,8 +83,57 @@
             <result name="success">my_page.jsp</result>
         </action>
         
+        <!-- 管理者ログイン -->
         <action name="AdminLoginAction"
          class="com.internousdev.ukiukiutopia.action.AdminLoginAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者ユーザー検索 -->
+        <action name="AdminUserSelectAction"
+         class="com.internousdev.ukiukiutopia.action.AdminUserSelectAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者ユーザー削除 -->
+        <action name="AdminUserDeleteAction"
+         class="com.internousdev.ukiukiutopia.action.AdminUserDeleteAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者ユーザー編集 -->
+        <action name="AdminUserUpdateAction"
+         class="com.internousdev.ukiukiutopia.action.AdminUserUpdateAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者チケット一覧表示 -->
+        <action name="AdminTicketSelectAction"
+         class="com.internousdev.ukiukiutopia.action.AdminTicketSelectAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者チケット削除 -->
+        <action name="AdminTicketDeleteAction"
+         class="com.internousdev.ukiukiutopia.action.AdminTicketDeleteAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者チケット削除 -->
+        <action name="AdminBoughtAction"
+         class="com.internousdev.ukiukiutopia.action.AdminTicketDeleteAction"
          method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>
