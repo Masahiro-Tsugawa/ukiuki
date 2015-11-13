@@ -66,7 +66,7 @@ create table if not exists `order`(
   id int not null auto_increment,
   user_id int,
   foreign key(user_id) references user(id)
-  on dekete set null,
+  on delete set null,
   registered_date datetime not null,
   primary key (id)
 );
