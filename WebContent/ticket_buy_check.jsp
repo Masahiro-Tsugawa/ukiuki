@@ -16,7 +16,7 @@
 	<div class="container">
 		<p>チケット購入確認画面</p>
 
-		<s:if test="true">
+		<s:if test="%{#session.buyUseTicket!=null}">
 			<div class="box1">
 				<table class="table-test">
 					<tr>
@@ -40,7 +40,7 @@
 			</div>
 		</s:if>
 
-		<s:if test="true">
+		<s:if test="%{#session.buyOptionTicket!=null}">
 			<div class="box1">
 				<table class="table-test">
 					<tr>
@@ -76,25 +76,26 @@
 		</div>
 
 		<div class="box1">
-			<table class="table-test2">
+			<table class="table-test">
 				<tr>
-					<th colspan="4"><div class="form-titel">お支払い情報</div></th>
+				<th colspan="4"><div class="form-titel">お支払い情報</div></th>
 				</tr>
-				<tr><s:property value="#session.buyCardNumber" />
-					<s:if test="%{#session.buyCardNumber!=null}">
-						<td>クレジットカード</td>
-						<td>下四桁<s:property value="#session.buyCordToken"/></td>
-					</s:if>
-					<s:else>
-					 <td colspan="4">げんちな</td>
-					</s:else>
+				<tr>
+				<s:if test="%{#session.buyCardNumber!=null}">
+					<td colspan="2">クレジットカードにてお支払いとなります。</td>
+		　			<td colspan="2">下四桁 <s:property value="#session.buyCardNumber" /></td>
+				</s:if>
+				<s:else>
+					 <td colspan="４">店頭窓口でのお支払をお願いいたします。</td>
+				</s:else>
 				</tr>
 			</table>
 		</div>
 		<s:form action="test">
 		  <s:submit value="てｓｔ" />
 		</s:form>
-		<div align="center">
+	
+		 <div align="center">
 			<input type="button" value="キャンセル " onClick="history.back()">
 			<s:form action="ticket_buy_check">
 				<s:submit value="完了" />

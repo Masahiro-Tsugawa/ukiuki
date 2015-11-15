@@ -12,15 +12,15 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 
 	private Map<String, Object> session;
-	private int userId;
+	private int userId;//
 	private int ticketId;
 	private int sheets;
 	private int orderId;
-	private int buyTotal;
-	private String email;
-	private String token;
-	private String number;
-	private String registeredDate;
+	private int buyTotal;//
+	private String email;//
+	private String token;//
+	private String number;//
+	private String registeredDate;//
 	// private String ticketName;
 	// private int price;
 	// private int subtotal;
