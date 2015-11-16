@@ -23,6 +23,7 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 	private String updateTicketType;
 	private boolean updateIsSale;
 	private String updateRenewDate;
+	private String updateTicketInfo;
 	
 	String up=null;
 	public String result=ERROR;
@@ -39,7 +40,7 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		
 		int updateId =  (int)session.get("id");
 		
-		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,updateRenewDate);
+		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,updateRenewDate,updateTicketInfo);
 
 		if(up > 0){
 			result = SUCCESS;
@@ -90,5 +91,13 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		public void setSession(Map<String, Object> session) {
 			this.session = session;
 			
+		}
+
+		public String getUpdateTicketInfo() {
+			return updateTicketInfo;
+		}
+
+		public void setUpdateTicketInfo(String updateTicketInfo) {
+			this.updateTicketInfo = updateTicketInfo;
 		}
 }

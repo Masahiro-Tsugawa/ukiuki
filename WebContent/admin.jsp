@@ -188,6 +188,9 @@
 			   <tr>
 			    <td colspan="2"><s:radio list="#{true:'販売継続', false:'販売終了'}" name="isSale" value="0"></s:radio></td>
 			   </tr>
+			    <tr>
+			    <td colspan="2"><s:textfield id="updateticketinfo" type="text" class="form-control" name="updateticketinfo" placeholder="チケット種類" /></td>
+			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
 			    

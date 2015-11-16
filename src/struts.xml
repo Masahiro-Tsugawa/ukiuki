@@ -149,9 +149,17 @@
          <result name="error">admin.jsp</result>
          </action>
          
-         <!-- 管理者チケット削除 -->
+         <!-- 管理者チケット編集 -->
+        <action name="AdminTicketUpdateAction"
+         class="com.internousdev.ukiukiutopia.action.AdminTicketUpdateAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者チケット売り上げ -->
         <action name="AdminBoughtAction"
-         class="com.internousdev.ukiukiutopia.action.AdminTicketDeleteAction"
+         class="com.internousdev.ukiukiutopia.action.AdminBoughtAction"
          method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>

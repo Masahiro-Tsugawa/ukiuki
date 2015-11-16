@@ -15,6 +15,9 @@ public class MongoSetUp {
 			coll.drop();
 
 			BasicDBObject doc;
+			doc = new BasicDBObject("ticket_id", 1)
+					.append("ticket_info", "testtesttest");
+			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 2)
 					.append("ticket_info", "フルセットチケット");
 			coll.insert(doc);
