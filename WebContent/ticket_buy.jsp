@@ -6,116 +6,129 @@
 <!DOCTYPE html">
 <html lang="ja">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="css/ticket_buy.css" type="text/css">
-    <title>UkiukiUtopia</title>
-    <s:property value="#session.name_key"></s:property>
+ <title>TAG index Webサイト</title>
+
+<style type="text/css">
+<!--
+
+table {
+border-collapse: collapse;
+}
+
+table, th, td {
+border: 1px #808080 solid;
+}
+
+th, td {
+padding: 3px 10px;
+}
+
+th {
+background-color: #d3e9fa;
+}
+
+td {
+background-color: #ffffff;
+}
+
+td strong {
+color: #ff0000;
+}
+
+-->
+</style>
+
+<script type="text/javascript">
+<!--
+
+function keisan(){
+
+	// 設定開始
+
+	// 商品1
+	var price1 = document.form1.goods1.selectedIndex * 500; // 単価を設定
+	document.form1.field1.value = price1; // 小計を表示
+
+	// 商品2
+	var price2 = document.form1.goods2.selectedIndex * 1000; // 単価を設定
+	document.form1.field2.value = price2; // 小計を表示
+
+	// 商品3
+	var price3 = document.form1.goods3.selectedIndex * 3000; // 単価を設定
+	document.form1.field3.value = price3; // 小計を表示
+
+	// 合計を計算
+	var total = price1 + price2 + price3;
+
+	// 設定終了
+
+
+	document.form1.field_total.value = total; // 合計を表示
+
+}
+
+// --> 
+</script> 
+
 </head>
 <body>
-    <jsp:include page="base/main_header.jsp" flush="true" />
-    <div class="container">
-  <table class="table-test">
-    <tr><th colspan="3"><div class="form-titel">チケット購入画面</div></th></tr>
-    <tr><th colspan="3">施設利用権</th></tr>
-    <tr>
-     <td>
-       <div class="table-bar">
-       <div style="text-align:left;float:left;"><input type="checkbox" value="1">フルセット:</div>
-         <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価1600円</p></div>
-     </div>
-       <p>説明:</p>
-     </td>
 
-     <td>
-       <div class="form-text">
-       小計:円
-     </div>
-     </td>
-   </tr>
+<form action="#" name="form1">
 
-   <tr>
-     <td>
-       <div class="table-bar">
-       <div style="text-align:left;float:left;"><input type="checkbox" value="2">マシン利用チケット:</div>
-       <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
-       <p>説明:</p>
-       </div>
-     </td>
-     <td>
-       <div class="form-text">
-       小計:円
-     </div>
-     </td>
-   </tr>
+<table>
+<tr>
+<th>商品名</th>
+<th>単価</th>
+<th>数量</th>
+<th>金額</th>
+</tr>
+<tr>
+<tr><th colspan="4"><div class="form-titel">チケット購入画面</div></th></tr>
+<td>商品サンプル1</td>
+<td align="right">500円</td>
+<td><select name="goods1" onChange="keisan()">
+<option>0</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select></td>
+<td><input type="text" name="field1" size="8" value="0"> 円</td>
+</tr>
+<tr>
+<td>商品サンプル2</td>
+<td align="right">1,000円</td>
+<td><select name="goods2" onChange="keisan()">
+<option>0</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select></td>
+<td><input type="text" name="field2" size="8" value="0"> 円</td>
+</tr>
+<tr>
+<td>商品サンプル3</td>
+<td align="right">3,000円</td>
+<td><select name="goods3" onChange="keisan()">
+<option>0</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+</select></td>
+<td><input type="text" name="field3" size="8" value="0"> 円</td>
+</tr>
+<tr>
+<td align="right" colspan="3"><strong>合計</strong></td>
+<td><input type="text" name="field_total" size="8" value="0"> 円</td>
+</tr>
+</table>
 
-   <tr>
-     <td>
-       <div class="table-bar">
-       <div style="text-align:left;float:left;"><input type="checkbox" value="3">プール利用チケット:</div>
-       <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
-       <p>説明:</p>
-       </div>
-     </td>
-     <td>
-       <div class="form-text">
-       小計:円
-     </div>
-     </td>
-   </tr>
-
-   <tr>
-     <td>
-       <div class="table-bar">
-       <div style="text-align:left;float:left;"><input type="checkbox" value="4">風呂利用チケット:</div>
-       <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価700円</p></div>
-       <p>説明:</p>
-       </div>
-     </td>
-     <td>
-       <div class="form-text">
-       小計:円
-     </div>
-     </td>
-  </tr>
-
-  </table>
-
-  <table class="table-add">
-    <tr><th colspan="3">オプション</th></tr>
-     <tr>
-       <td>
-         <div class="table-bar">
-         <div style="text-align:left;float:left;">レンタル:</div>
-         <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価:500円</p></div>
-       <p>説明:</p>
-       <form><input type="checkbox" value="1">使用しない</form>
-       </div>
-     </td>
-     <td>
-       <div class="form-text">
-       小計:円
-     </div>
-     </td>
-   </tr>
-
-   <tr>
-     <td>
-       <div style="text-align:left;float:left;">パーソナルトレーナー:</div>
-       <div style="text-align:right;"><input type="number" value="0" min="0" max="99">枚<p>単価:5000円</p></div>
-      <p>説明:</p>
-      <form><input type="checkbox" value="1">付けない</form>
-   </td>
-   <td>
-     <div class="form-text">
-     小計:円
-   </div>
-   </td>
- </tr>
-   </table>
-
-  <table class="table-acc">
-    <tr><th colspan="3">合計金額</th></tr>
+</form>
      <tr>
       <tr>
        <td><input type="radio" name="card" value="1" checked>店頭払い<br>
@@ -181,8 +194,13 @@
 </tr>
 <tr>
    <td colspan="2">
-     <div class="table-kingaku"><a href="chicketkanryou.html"><input type="submit" value="購入"></a>
+   <p>購入完了しました。</p>
+    <s:form action="ticket_buy_check.jsp">
+     <div class="table-kingaku"><input type="submit" value="購入"></a>
+    </s:form>
+    <s:form action="my_page.jsp">
        <a href="mypage.html"><input type="submit" value="キャンセル"></a></div>
+      </s:form>
      </td>
      </tr>
    </table>
