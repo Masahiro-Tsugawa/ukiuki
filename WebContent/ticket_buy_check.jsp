@@ -14,8 +14,7 @@
 <body>
 	<jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
-		<p>チケット購入確認画面</p>
-
+		<p align="center">チケット購入確認画面</p>
 		<s:if test="%{#session.buyUseTicket!=null}">
 			<div class="box1">
 				<table class="table-test">

@@ -11,14 +11,18 @@ import com.opensymphony.xwork2.ActionSupport;
 public class TestAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	private ArrayList<BuyCompreteDTO> use = new ArrayList<BuyCompreteDTO>();
+	private ArrayList<BuyCompreteDTO> option = new ArrayList<BuyCompreteDTO>();
 
 	public String execute() {
 		String test = "7547";
 		//String test = null;
 		String total = "8000";
 		use.add(null);
-		session.put("buyCardNumber", test);
+		option.add(null);
+		//option.add(int, "テストチケット");
 		session.put("buyUseTicket", use);
+		session.put("buyOptionTicket", option);
+		session.put("buyCardNumber", test);
 		session.put("buyTotal", total);
 
 		return SUCCESS;
