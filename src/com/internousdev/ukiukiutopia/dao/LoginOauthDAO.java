@@ -4,150 +4,138 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-import com.internousdev.ukiukiutopia.util.DBConnector;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
+import com.internousdev.ukiukiutopia.util.DBConnector;
 
-/**
- * LoginOauthDAO SNSでログインに必要な情報を取得する為のクラス
- * @author Nagata Shigeru
- * @since 2015/09/14
- * @version 1.0
- */
-public class LoginOauthDAO {
+public class LoginOauthDAO{
 
 	/**
-	 * コネクションクラス
+	 * 取得した情報を格納する為のDTO
 	 */
-	private Connection con;
+	private LoginOauthDTO dto=new LoginOauthDTO();
+	Connection con = null;
+	
+	/**
+	 * selectByUserLoginId
+	 * 入力されたログインIDとパスワードをDBと照合するメソッド
+	 * @param loginId ログインID
+	 * @param password パスワード
+	 * @return result
+	 */
+//	public boolean selectByUserLoginId(String loginId, String password){
+//		boolean result=false;
+//		con = db.getConnection();
+//		try{
+//			String sql="select userName,userId,loginId,password,eMail,telNumber,postal,address,uniqueId from userInfo where loginId=? and password=?";
+//			PreparedStatement ps =con.prepareStatement(sql);
+//			ps.setString(1,loginId);
+//			ps.setString(2, password);
+//			ResultSet rs=ps.executeQuery();
+//
+//			if(rs.next()){
+//
+//				dto.setUserName(rs.getString(4));
+//				dto.setUserId(rs.getInt(1));
+//
+//				result=true;
+//			}
+//
+//		}catch(SQLException e){
+//			e.printStackTrace();
+//
+//		}finally{
+//			try{
+//				con.close();
+//			}catch(Exception e){
+//				e.printStackTrace();
+//			}
+//		}
+//		return result;
+//
+//	}
 
 	/**
-	 * sql文1
+	 * 取得したユニークIDを照合するためのメソッド
+	 * @param userUniqueId ユニークID
+	 * @return result
 	 */
-	private String sql;
+	public boolean select(String userUniqueId, String oauthName){
+		boolean result=false;
+		con = DBConnector.getConnection();
+		try{
+			String sql="SELECT id, name FROM user WHERE unique_id = ? AND oauth_name = ?";
+			PreparedStatement stmt =con.prepareStatement(sql);
+			stmt.setString(1,userUniqueId);
+			stmt.setString(2,oauthName);
+			ResultSet rs=stmt.executeQuery();
 
-	/**
-	 * PrepareStatement
-	 */
-	private PreparedStatement ps;
-
-	/**
-	 * 結果
-	 */
-	private boolean result;
-
-	/**
-	 * sql文実行の結果
-	 */
-	private ResultSet rs;
-
-	/**
-	 * OauthのDTO
-	 */
-	private LoginOauthDTO oauthDto;
-
-	/**
-	 * DBconnector
-	 */
-	private DBConnector db;
-
-
-	/**
-	 * ユニークIDが一致するユーザーを取得するメソッド
-	 * @author Nagata Shigeru
-	 * @since 2015/08/17
-	 * @param uniqueId ユニークID
-	 * @return result 結果
-	 * @throws Exception 例外処理
-	 */
-	public boolean existUniqueId(String uniqueId) throws Exception {
-
-		result = false;
-
-		try {
-			db = new DBConnector();
-			//db.setDB("aquarium");
-			con = DBConnector.getConnection();
-
-			sql = "SELECT * from user where unique_id=?";
-
-			ps = con.prepareStatement(sql);
-			ps.setString(1, uniqueId);
-			rs = ps.executeQuery();
-
-			if (rs.next()) {
-				result = true;
+			if(rs.next()){
+				dto.setUserId(rs.getInt(1));
+				dto.setUserName(rs.getString(2));
+				result=true;
 			}
 
-		} catch (SQLException e) {
+		}catch(SQLException e){
 			e.printStackTrace();
-
 		}finally{
-			con.close();
+			try{
+				con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
-
-	/**
-	 * ユニークIDが一致した顧客情報を取得するメソッド
-	 * @author Nagata Shigeru
-	 * @since 2015/09/14
-	 * @param unique ユニークID
-	 * @return result 結果
-	 * @throws SQLException 例外処理
-	 */
-	public boolean selectUniqueId(String unique) throws SQLException {
-
+	
+	public boolean insert(String uniqueId, String userName, String oauthName) {
 		boolean result = false;
-
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String now = sdf.format(cal.getTime());
+		con = DBConnector.getConnection();
+		String sql="INSERT INTO user(name, unique_id, oauth_name, created_at, updated_at) values (?,?,?,?,?)";
 		try {
-			db = new DBConnector();
-			//db.setDB("aquarium");
-			con = DBConnector.getConnection();
-
-			sql = "SELECT * from user where unique_id=? ";
-			ps = con.prepareStatement(sql);
-			ps.setString(1, unique);
-			ResultSet rs = ps.executeQuery();
-
-			while (rs.next()) {
-				oauthDto = new LoginOauthDTO();
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, userName);
+			stmt.setString(2, uniqueId);
+			stmt.setString(3, oauthName);
+			stmt.setString(4, now);
+			stmt.setString(5, now);
+			
+			int insertCount = stmt.executeUpdate();
+			if (insertCount > 0) {
 				result = true;
-				oauthDto.setUserId(rs.getInt(1));
-				oauthDto.setName(rs.getString(2));
-				oauthDto.setMailAddress(rs.getString(4));
-				oauthDto.setTellNumber(rs.getString(5));
-				oauthDto.setPostal(rs.getString(6));
-				oauthDto.setAddress(rs.getString(7));
-				oauthDto.setPassword(rs.getString(3));
-				oauthDto.setUniqueId(rs.getInt(8));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-
-		}finally{
-			con.close();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
 
 	/**
-	 * LoginOauthDTOを取得するメソッド
-	 * @author Nagata Shigeru
-	 * @since 2015/09/14
-	 * @return oauthDto
+	 * DTO取得メソッド
+	 * @return dto
 	 */
 	public LoginOauthDTO getLoginOauthDTO() {
-		return oauthDto;
+		return dto;
 	}
 
 	/**
-	 * LoginOauthDTOを格納するメソッド
-	 * @author Nagata Shigeru
-	 * @since 2015/09/14
-	 * @param LoginOauthDto OauthのDTO
+	 * DTO格納メソッド
+	 * @param dto ログインユーザDTO
 	 */
-	public void setLoginOauthDto(LoginOauthDTO LoginOauthDto) {
-		this.oauthDto = LoginOauthDto;
+	public void setLoginOauthDTO(LoginOauthDTO dto) {
+		this.dto = dto;
 	}
+
 }

@@ -9,19 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
+import com.internousdev.ukiukiutopia.util.FacebookOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 
-
-/**
- * GoFacebookAction Facebookでログインする為のクラス
- * @author Nagata Shigeru
- * @since 2015/09/17
- * @version 1.0
- */
 public class GoFacebookAction  extends ActionSupport implements ServletResponseAware,ServletRequestAware  {
 
 	/**
@@ -39,57 +33,29 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 	 */
 	private HttpServletResponse response;
 
-
-	/**
-	 * ユーザー情報取得用トークン取得メソッド
-     * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @return SUCCESS 成功
-	 * @throws Exception 例外処理
-	 */
     public String execute() throws Exception {
-    	getToken(request, response);
+    	FacebookOauth oauth = new com.internousdev.ukiukiutopia.util.FacebookOauth();
+    	oauth.getRequestToken(request, response);
 		return SUCCESS;
 	}
 
-    /**
-     * Facebook認証画面へ遷移する為のメソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-     * @param request リクエスト
-     * @param response レスポンス
-     * @throws ServletException 例外処理
-     * @throws IOException 例外処理
-     */
     public void getToken(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Facebook facebook = new FacebookFactory().getInstance();
         request.getSession().setAttribute("facebook", facebook);
         facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
-        String accessTokenString = "433419566868372|85cdfc1daf8850ada0f20ac9961aef38";
+        String accessTokenString = "433419566868372|e0b2de4f10d8f4ebcbeb69984a68452d";
         AccessToken at = new AccessToken(accessTokenString);
         facebook.setOAuthAccessToken(at);
         StringBuffer callbackURL = request.getRequestURL();
         int index = callbackURL.lastIndexOf("/");
-        callbackURL.replace(index, callbackURL.length(), "").append("/LoginFacebookAction");
+        callbackURL.replace(index, callbackURL.length(), "").append("/login-facebook-action");
         response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
     }
 
-	/**
-	 * リクエスト格納メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param request リクエスト
-	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request=request;
 	}
 
-	/**
-	 * レスポンス格納メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param response レスポンス
-	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response=response;
 	}

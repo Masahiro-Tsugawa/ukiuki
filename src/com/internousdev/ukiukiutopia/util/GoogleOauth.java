@@ -1,11 +1,13 @@
-package com.internousdev.ukiukiutopia.google;
+package com.internousdev.ukiukiutopia.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.scribe.builder.ServiceBuilder;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Response;
 import org.scribe.model.Token;
@@ -17,18 +19,17 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
 
-/**
- * LoginGoogleOAuth Googleでログインする為のクラス
- * @author Nagata Shigeru
- * @since 2015/09/17
- * @version 1.0
- */
-public class LoginGoogleOAuth extends ActionSupport {
+public class GoogleOauth extends ActionSupport {
 
 	/**
 	 * 生成されたシリアルナンバー
 	 */
 	private static final long serialVersionUID = -564268116563098912L;
+
+	/**
+	 * スコープのURL
+	 */
+	private static final String SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
 
 	/**
 	 * レスポンスURL
@@ -39,15 +40,35 @@ public class LoginGoogleOAuth extends ActionSupport {
 	 * 空のトークン
 	 */
 	private static final Token EMPTY_TOKEN = null;
+	
+	public boolean getRequestToken(HttpServletRequest request,HttpServletResponse response){
 
-	/**
-	 * ユーザー情報のMAPを取得するメソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param request リクエスト
-	 * @return map
-	 */
-	public Map<String,String> AccessToken(HttpServletRequest request){
+		try{
+			String apiKey = "42056507966-0pf52q6nrt5l30eqijjm30h1jm8l19vh.apps.googleusercontent.com";
+			String apiSecret = "IcSSbPEavOsH8H2WcACPpNeB";
+			String callbackUrl = "http://localhost:8080/ukiukiutopia/my_page.jsp";
+
+			OAuthService service = new ServiceBuilder()
+			.provider(GoogleApi.class)
+			.apiKey(apiKey)
+			.apiSecret(apiSecret)
+			.callback(callbackUrl)
+			.scope(SCOPE)
+			.build();
+
+			@SuppressWarnings("unused")
+			Token accessToken = new Token("ACCESS_TOKEN", "REFRESH_TOKEN");
+			String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
+			HttpSession session = request.getSession();
+			session.setAttribute("SERVICE", service);
+			response.sendRedirect(authorizationUrl);
+		}catch(Exception e){
+			return false;
+		}
+		return true;
+	}
+
+	public Map<String,String> getAccessToken(HttpServletRequest request){
 		Map<String,String> map;
 		try {
 			String verifier1 = request.getParameter("code");

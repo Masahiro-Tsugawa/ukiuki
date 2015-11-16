@@ -1,4 +1,4 @@
-package com.internousdev.ukiukiutopia.google;
+package com.internousdev.ukiukiutopia.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,5 +1,4 @@
 package com.internousdev.ukiukiutopia.action;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,22 +19,21 @@ import org.json.simple.JSONValue;
 
 import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
+import com.internousdev.ukiukiutopia.util.FacebookOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-/**
- * LoginFacebookAction Facebookでログインする為のクラス
- * @author Nagata Shigeru
- * @since 2015/09/17
- * @version 1.0
- */
 public class LoginFacebookAction extends ActionSupport implements SessionAware,
-ServletResponseAware, ServletRequestAware{
+		ServletResponseAware, ServletRequestAware {
 
 	/**
-	 *生成されたシリアルナンバー
+	 * シリアルバージョンIDの生成
 	 */
-	private static final long serialVersionUID = 2731955946962434760L;
+	private static final long serialVersionUID = 7463433040601990718L;
+
+	/**
+	 * ネットワークネーム
+	 */
+	static final String NETWORK_NAME = "Facebook";
 
 	/**
 	 * レスポンス
@@ -48,140 +46,49 @@ ServletResponseAware, ServletRequestAware{
 	private HttpServletResponse response;
 
 	/**
-	 * 名前
-	 */
-	private String name;
-
-	/**
-	 * FacebookのユニークID
-	 */
-	private String uniqueId;
-
-	/**
-	 * ユーザーID
-	 */
-	private String id;
-
-	/**
-	 * 結果
-	 */
-	private String result;
-
-	/**
 	 * セッション
 	 */
-	public Map<String, Object> session;
+	private Map<String, Object> session;
 
-	/**
-	 * 実行メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @return result 結果
-	 * @throws Exception 例外処理
-	 */
 	public String execute() throws Exception {
-		result = ERROR;
-			getToken(request, response);
-			if (id == null) {
-				return result;
-			}
-			uniqueId = id;
-			session.put("uniqueId", uniqueId);
-			LoginOauthDAO loginFacebookDao = new LoginOauthDAO();
-			boolean res = loginFacebookDao.existUniqueId(uniqueId);
-			if (!res) {
+		String rtn = ERROR;
+		FacebookOauth oauth = new FacebookOauth();
+		Map<String, String> userMap = oauth.getAccessToken(request, response);
+		
+		if (userMap == null) {
+			return rtn;
+		}
+		
+		String uniqueId = userMap.get("id");
+		String userName = userMap.get("name");
+		LoginOauthDAO dao = new LoginOauthDAO();
+		if (dao.select(uniqueId, NETWORK_NAME)) {
+			LoginOauthDTO dto = dao.getLoginOauthDTO();
+			session.put("loginId", dto.getUserId());
+			session.put("loginName", dto.getUserName());
+			rtn = SUCCESS;
+			return rtn;
+		}
+		
 
-				return result;
-			}
-			res = loginFacebookDao.selectUniqueId(uniqueId);
-			if (res) {
-				LoginOauthDTO dto = loginFacebookDao.getLoginOauthDTO();
-				session.put("userId",dto.getUserId());
-				session.put("userName",dto.getName());
-				session.put("userMailAddress",dto.getMailAddress());
-				session.put("userTellNumber",dto.getTellNumber());
-				session.put("userPostal",dto.getPostal());
-				session.put("userAddress",dto.getAddress());
-				session.put("userPassword",dto.getPassword());
-				session.put("userUniquId",dto.getUniqueId());
-				result = SUCCESS;
-			} else {
-				return result;
-			}
-			return result;
+		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
+		if (!result) {
+			return rtn;
 		}
-
-	/**
-	 * ユーザー情報取得用トークン取得メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param request リクエスト
-	 * @param response レスポンス
-	 * @throws ServletException 例外処理
-	 * @throws Exception 例外処理
-	 */
-	public void getToken(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, Exception {
-		final String callbackURL = request.getRequestURL().toString();
-		final String code = request.getParameter("code");
-		if (code == null) {
-			response.sendRedirect(request.getContextPath() + "/Login.jsp");
-		}
-		final String appId = "433419566868372";
-		final String appSecret = "e0b2de4f10d8f4ebcbeb69984a68452d";
-		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id="
-				+ appId
-				+ "&redirect_uri="
-				+ URLEncoder.encode(callbackURL, "UTF-8")
-				+ "&client_secret="
-				+ appSecret + "&code=" + URLEncoder.encode(code, "UTF-8");
-		final String accessTokenResult = httpRequest(new URL(accessTokenURL));
-		String accessToken = null;
-		String[] pairs = accessTokenResult.split("&");
-		for (String pair : pairs) {
-			String[] kv = pair.split("=");
-			if (kv.length != 2) {
-				throw new RuntimeException("Unexpected auth response");
-			} else {
-				if (kv[0].equals("access_token")) {
-					accessToken = kv[1];
-				}
-			}
-		}
-		final String apiURL = "https://graph.facebook.com/me?access_token="
-				+ URLEncoder.encode(accessToken, "UTF-8");
-		final String apiResult = httpRequest(new URL(apiURL));
-		Map<?, ?> me = (Map<?, ?>) JSONValue.parse(apiResult);
-		Map<?, ?> map = new HashMap<Object, Object>();
-		name = String.valueOf(me.get("name"));
-		id = String.valueOf(me.get("id"));
-		session.put("familyname", name);
-		session.put("id", id);
-		session.put("accessToken", accessToken);
-		request.getSession().setAttribute("loginUser", map);
-	}
-
-	String httpRequest(URL url) throws IOException {
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setDoOutput(true);
-		conn.setUseCaches(false);
-		conn.setRequestMethod("GET");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				conn.getInputStream()));
-		String line = null;
-		String response = "";
-		while ((line = reader.readLine()) != null) {
-			response += line;
-		}
-		reader.close();
-		conn.disconnect();
-		return response;
+		
+		dao.select(uniqueId, NETWORK_NAME);
+		LoginOauthDTO dto = dao.getLoginOauthDTO();
+		session.put("loginId", dto.getUserId());
+		session.put("loginName", dto.getUserName());
+		
+		
+		rtn = SUCCESS;
+		
+		return rtn;
 	}
 
 	/**
 	 * リクエスト格納メソッド
-     * @author Nagata Shigeru
-     * @since 2015/09/17
 	 * @param request リクエスト
 	 */
 	public void setServletRequest(HttpServletRequest request) {
@@ -190,8 +97,6 @@ ServletResponseAware, ServletRequestAware{
 
 	/**
 	 * レスポンス格納メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
 	 * @param response レスポンス
 	 */
 	public void setServletResponse(HttpServletResponse response) {
@@ -200,9 +105,7 @@ ServletResponseAware, ServletRequestAware{
 
 	/**
 	 * セッション取得メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @return session セッション
+	 * @return sessionMap セッションマップ
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -210,9 +113,7 @@ ServletResponseAware, ServletRequestAware{
 
 	/**
 	 * セッション格納メソッド
-     * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param session セッション
+	 * @param sessionMap セッションマップ
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

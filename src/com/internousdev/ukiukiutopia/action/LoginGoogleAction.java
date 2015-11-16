@@ -9,16 +9,9 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
-import com.internousdev.ukiukiutopia.google.LoginGoogleOAuth;
+import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-/**
- * LoginGoogleAction Googleでログインする為のクラス
- * @author Nagata Shigeru
- * @since 2015/09/17
- * @version 1.0
- */
 public class LoginGoogleAction extends ActionSupport implements
 ServletRequestAware, SessionAware {
 
@@ -26,6 +19,11 @@ ServletRequestAware, SessionAware {
 	 * 生成されたシリアルナンバー
 	 */
 	private static final long serialVersionUID = 4405462117636579678L;
+	
+	/**
+	 * ネットワークネーム
+	 */
+	static final String NETWORK_NAME = "google";
 
 	/**
 	 * セッション
@@ -37,78 +35,48 @@ ServletRequestAware, SessionAware {
 	 */
 	private HttpServletRequest request;
 
-	/**
-	 * 結果
-	 */
-	private String result;
-
-	/**
-	 * グーグル認証の実行メソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @return result
-	 */
 	public String execute() throws Exception{
-		System.out.println("testtesrsetfadsg");
-		result = ERROR;
-
-			LoginGoogleOAuth googleOauth = new LoginGoogleOAuth();
-			Map<String, String> userMap = googleOauth.AccessToken(request);
-			System.out.println(userMap);
-			if (userMap == null) {
-				return result;
-			}
-			String uniqueId = userMap.get("id");
-			session.put("uniqueId", uniqueId);
-			String customerName = userMap.get("name");
-			session.put("customerName", customerName);
-			LoginOauthDAO loginGoogleDao = new LoginOauthDAO();
-			if (!loginGoogleDao.existUniqueId(uniqueId)) {
-				return result;
-			}
-			if (loginGoogleDao.selectUniqueId(uniqueId)) {
-				LoginOauthDTO dto = loginGoogleDao.getLoginOauthDTO();
-				session.put("userId",dto.getUserId());
-				session.put("userName",dto.getName());
-				session.put("userMailAddress",dto.getMailAddress());
-				session.put("userTellNumber",dto.getTellNumber());
-				session.put("userPostal",dto.getPostal());
-				session.put("userAddress",dto.getAddress());
-				session.put("userPassword",dto.getPassword());
-				session.put("userUniquId",dto.getUniqueId());
-			} else {
-				return result;
-			}
-		result = SUCCESS;
-		return result;
+		String rtn = ERROR;
+		
+		GoogleOauth googleOauth = new GoogleOauth();
+		Map<String, String> userMap = googleOauth.getAccessToken(request);
+		
+		if (userMap == null) {
+			return rtn;
+		}
+		
+		String uniqueId = userMap.get("id");
+		String userName = userMap.get("name");
+		LoginOauthDAO dao = new LoginOauthDAO();
+		if (dao.select(uniqueId, NETWORK_NAME)) {
+			LoginOauthDTO dto = dao.getLoginOauthDTO();
+			session.put("loginId", dto.getUserId());
+			session.put("loginName", dto.getUserName());
+			rtn = SUCCESS;
+			return rtn;
+		}
+		
+		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
+		if (!result) {
+			return rtn;
+		}
+		
+		dao.select(uniqueId, NETWORK_NAME);
+		LoginOauthDTO dto = dao.getLoginOauthDTO();
+		session.put("loginId", dto.getUserId());
+		session.put("loginName", dto.getUserName());
+		rtn = SUCCESS;
+		return rtn;
 	}
 
-	/**
-	 * セッションを格納するためのメソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param session セッション
-	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
-	/**
-	 * セッションを取得するためのメソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @return session
-	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	/**
-	 * レスポンスを格納するためのメソッド
-	 * @author Nagata Shigeru
-     * @since 2015/09/17
-	 * @param request リクエスト
-	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
