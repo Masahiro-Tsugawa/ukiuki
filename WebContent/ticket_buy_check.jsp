@@ -27,14 +27,14 @@
 					<td>単価</td>
 					<td>小計</td>
 				</tr>
-				<s:iterator value="useList">
+			<s:iterator value="useList">
 				<tr>
 				<td><s:property value="name" /></td>
 				<td><s:property value="sheets" /></td>
 				<td><s:property value="price" /></td>
 				<td><s:property value="subTotal" /></td>
 				</tr>
-		</s:iterator>
+			</s:iterator>
 			</table>
 			</div>
 		</s:if>
@@ -97,10 +97,10 @@
 				<s:submit value="完了" />
 			</s:form>
 
-			<!--　  
+			<!--　  -->
 			<s:form action="test">
 		  	<s:submit value="てｓｔ" />
-			</s:form>　-->
+			</s:form>　
 			
 		</div>
 	</div>

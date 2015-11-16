@@ -7,11 +7,20 @@
   font-family: sans-serif;
 }
 
+.header{
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+  background-color:#FFA500;
+}
+
 #header{
   margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
   padding: 0px;
+  background-color:#FFA500;
 }
 
 .container{
