@@ -25,12 +25,12 @@
 			<br></br>
 			<br></br> <br></br>
 			<div>
-				<s:text name="Purchase.kawahigashi" />
+				<s:text name="Purchase.ticket_buy_end" />
 			</div>
 			<br></br>
 
 			<s:form action="my_page">
-				<s:submit value="%{getText('Transmission.kawahigashi')}" />
+				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
 			</s:form>
 			<jsp:include page="base/main_footer.jsp" flush="true" />
 		</div>

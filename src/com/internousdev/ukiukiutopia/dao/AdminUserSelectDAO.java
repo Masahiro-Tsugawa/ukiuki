@@ -26,17 +26,18 @@ public class AdminUserSelectDAO {
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 
 //検索するメソッド
-	public boolean select()throws Exception{
+	public boolean select(String selectEmail)throws Exception{
 		action=false;
 		con = DBConnector.getConnection();
 
 		try{
-		String sql = "select * from user";
+		String sql = "select * from user where email=?";
 
-		PreparedStatement ps2;
-		ps2 = con.prepareStatement(sql);
+		PreparedStatement ps;
+		ps = con.prepareStatement(sql);
+		ps.setString(1, selectEmail);
 
-		ResultSet rs = ps2.executeQuery();
+		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
 			action = true;
@@ -48,7 +49,7 @@ public class AdminUserSelectDAO {
 			dto.setTelNum(rs.getString(5));
 			dto.setPostalCode(rs.getString(6));
 			dto.setAddress(rs.getString(7));
-			dto.setRenewDate(rs.getString(8));
+			dto.setRenewDate(rs.getString(12));
 	
 			
 

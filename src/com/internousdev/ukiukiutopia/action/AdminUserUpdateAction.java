@@ -18,14 +18,14 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminUserUpdateAction extends ActionSupport implements SessionAware {
 
-	private String purposeEmail = null;
-	private String updateEmail = null;
-	private String updatePassword = null;
-	private String updateName = null;
-	private String updateTelNum = null;
-	private String updatePostalCode = null;
-	private String updateAddress = null;
-	private String updateRenewDate = null;
+	private String purposeEmail;
+	private String updateEmail;
+	private String updatePassword;
+	private String updateName;
+	private String updateTelNum;
+	private String updatePostalCode;
+	private String updateAddress;
+	private String updateRenewDate;
 
 	String up = null;
 	public String result = ERROR;
@@ -35,7 +35,7 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 	public String execute() throws Exception {
 
-		purposeEmail = (String) session.get("email");
+		purposeEmail = (String) session.get("sessionEmail");
 
 		DateTime dt = new DateTime();
 		updateRenewDate = dt.toString(DateTimeFormat.mediumDateTime());
@@ -46,6 +46,8 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				updateAddress, updateRenewDate);
 
 		if (up > 0) {
+			System.out.println(purposeEmail);
+			session.remove(purposeEmail);
 			result = SUCCESS;
 		}
 		return result;

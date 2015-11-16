@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
@@ -28,6 +29,7 @@ public class TicketDataDAO {
 	 * 
 	 */
 	public List<TicketDataDTO> useTicketList = new ArrayList<TicketDataDTO>();
+	public List<TicketDataDTO> optionTicketList = new ArrayList<TicketDataDTO>();
 
 	/**
 	 * @return
@@ -88,6 +90,11 @@ public class TicketDataDAO {
 	 */
 	public List<TicketDataDTO> getUseTicketList() {
 		return useTicketList;
+	}
+
+	public List<TicketDataDTO> getOptionTicketList() {
+
+		return optionTicketList;
 	}
 
 }

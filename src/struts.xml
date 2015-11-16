@@ -94,12 +94,12 @@
 	       <result name="success">ticket_buy_end.jsp</result>
 	    </action>
 	    
-	     <!-- 検証用　ナマタメ   最後に消します。
+	     <!-- 検証用　ナマタメ   最後に消します。--> 
 	    <action name="test" class="com.internousdev.ukiukiutopia.action.TestAction" method="execute" >
 	       <result name="success">ticket_buy_check.jsp</result>
 	       <result name="errar">ticket_buy_check.jsp</result>
 	      
-	    </action> --> 
+	    </action> 
 	    
         <!-- 管理者ログイン -->
         <action name="AdminLoginAction"
@@ -149,9 +149,17 @@
          <result name="error">admin.jsp</result>
          </action>
          
-         <!-- 管理者チケット削除 -->
+         <!-- 管理者チケット編集 -->
+        <action name="AdminTicketUpdateAction"
+         class="com.internousdev.ukiukiutopia.action.AdminTicketUpdateAction"
+         method="execute">
+         <result name="success">admin.jsp</result>
+         <result name="error">admin.jsp</result>
+         </action>
+         
+         <!-- 管理者チケット売り上げ -->
         <action name="AdminBoughtAction"
-         class="com.internousdev.ukiukiutopia.action.AdminTicketDeleteAction"
+         class="com.internousdev.ukiukiutopia.action.AdminBoughtAction"
          method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>

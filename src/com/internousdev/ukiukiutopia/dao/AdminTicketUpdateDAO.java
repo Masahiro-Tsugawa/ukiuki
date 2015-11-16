@@ -7,6 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
+import com.internousdev.ukiukiutopia.util.MongoDBConnector;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 /**
  * @author internous
  *
@@ -26,7 +32,7 @@ public class AdminTicketUpdateDAO {
 	 * @return
 	 * @throws Exception
 	 */
-	public int update(int updateId,String updateName,float updatePrice,String updateTicketType,boolean updateIsSale,String updateRenewDate)
+	public int update(int updateId,String updateName,float updatePrice,String updateTicketType,boolean updateIsSale,String updateRenewDate,String updateTicketInfo)
 					throws Exception {
 
 		con = DBConnector.getConnection();
@@ -34,7 +40,7 @@ public class AdminTicketUpdateDAO {
 		try {
 			if (updateId > 0) {
 
-			 if (updateName != null) {
+			 if (("".equals(updateName) == false)) {
 					String sql = "update ticket set name=? where id=?";
 					PreparedStatement ps;
 
@@ -46,7 +52,7 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 				}
-			 if(updatePrice >0){
+			 if(("".equals(updatePrice) == false)){
 				 String sql = "update user set price=? where id=?";
 					PreparedStatement ps;
 
@@ -58,7 +64,7 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 			 }
-			 if(updateTicketType != null){
+			 if(("".equals(updateTicketType) == false)){
 				 String sql = "update user set ticket_type=? where id=?";
 					PreparedStatement ps;
 
@@ -70,7 +76,7 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 			 }
-			 if(updateIsSale != false){
+			 if(("".equals(updateIsSale) == false)){
 				 String sql = "update user set is_sale=? where id=?";
 					PreparedStatement ps;
 
@@ -82,7 +88,14 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 			 }
+			 if(("".equals(updateTicketInfo) == false)){
 			 
+				DB db = MongoDBConnector.getConnection();
+			    DBCollection coll = db.getCollection("ticket_detail");
+			    BasicDBObject base = new BasicDBObject("ticket_id", updateId);
+				base.put("ticket_detail", updateTicketInfo);
+			 
+			 }
 			 
 				 String sql = "update user set renew_date=? where id=?";
 					PreparedStatement ps;

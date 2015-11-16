@@ -29,21 +29,23 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 		public String result = ERROR;
 		private Map<String, Object> session;
+		private String selectEmail;
 
 		public String execute() throws Exception {
 
 
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();
 		AdminUserSelectDTO dto = new AdminUserSelectDTO();
-		boolean resultDAO = dao.select();
+		boolean resultDAO = dao.select(selectEmail);
 
 		if(resultDAO){
 			userList = dao.getUserList();
 			
-			dto = userList.get(0);
-			session.put("email", dto.getEmail());
-			
-			userList.addAll(dao.getUserList());
+     		dto = userList.get(0);
+			session.put("sessionEmail", selectEmail);
+			System.out.println("sessionEmail");
+//			
+//			userList.addAll(dao.getUserList());
 			result = SUCCESS;
 		}
 		return result;
@@ -53,5 +55,14 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		public void setSession(Map<String, Object> session) {
 			this.session = session;
 		}
+
+		public String getSelectEmail() {
+			return selectEmail;
+		}
+
+		public void setSelectEmail(String selectEmail) {
+			this.selectEmail = selectEmail;
+		}
+
 
 	}

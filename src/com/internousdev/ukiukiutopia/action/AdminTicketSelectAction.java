@@ -37,10 +37,10 @@ public class AdminTicketSelectAction extends ActionSupport implements SessionAwa
 		System.out.println("if文");
 		ticketList = dao.getTicketList();
 		dto = ticketList.get(0);
-		System.out.println(dto.getId());
-		session.put("email", dto.getId());
 		
-		ticketList.addAll(dao.getTicketList());
+		System.out.println(dto.getId());
+		
+//		ticketList.addAll(dao.getTicketList());
 		result = SUCCESS;
 	}
 	return result;
