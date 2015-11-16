@@ -38,6 +38,9 @@ th{
 .errorMessage{
 	color : red;
 }
+ul{
+	list-style: none;
+}
 .errorMail{
 	color : red;
 	font-size: small;
