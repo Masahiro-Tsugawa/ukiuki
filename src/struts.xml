@@ -85,7 +85,7 @@
         </action>
         
         <!-- チケット購入画面から確認画面へ -->
-	    <action name="check_start" class="com.internousdev.ukiukiutopia.action.BuyIntomationAction" method="execute" >
+	    <action name="check_start" class="com.internousdev.ukiukiutopia.action.BuyInformationAction" method="execute" >
 	       <result name="success">ticket_buy_check.jsp</result>
 	    </action>
 	    

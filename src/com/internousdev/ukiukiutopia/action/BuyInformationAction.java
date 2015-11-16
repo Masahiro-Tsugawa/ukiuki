@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.internousdev.ukiukiutopia.dto.BuyCompreteDTO;
 
-public class BuyInfomationAction {
+public class BuyInformationAction {
 
 	private Map<String, Object> session;
 	private ArrayList<BuyCompreteDTO> use = new ArrayList<BuyCompreteDTO>();
