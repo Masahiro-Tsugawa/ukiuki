@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/admin.css" type="text/css">
 
 <title>UkiukiUtopia 管理者画面</title>
 </head>
@@ -15,9 +16,13 @@
  <div id="header">
    <div id="header_left">
 	  <a href="MainAction"><img align="left" src="img/logo.png" alt="うきうきUtopia"></img></a>
-		<s:if test="#session.userName != null" ></s:if>
+		
    </div>
+   
    <div id="header_right" align="right">
+   
+ <%--  <s:if test="#session.userName == null" >
+ --%>   
 		   <div class="loginName">
 		   <s:actionerror />
 		<s:fielderror>
@@ -42,12 +47,15 @@
 				<s:submit class="btn btn-primary" value=" ログイン " />
 			<s:property value="#session.name_key" />
 			</s:form>
-		   
+		  
 		</div>
-		  </div>
 		
+		<%-- 	 </s:if>--%>
+	</div>
 	
   </div>
+  
+ <%-- <s:else>  --%>
 	<div class="container">
 	 <s:a class="logout" href="%{LogoutAction}">ログアウト</s:a>
 	<p>管理者画面</p>
@@ -86,12 +94,10 @@
 
 			<p>ユーザー編集<br>編集したいユーザーのメールアドレスを入力して下さい</p>
 			 <div class="user_info">
-				<s:fielderror>
-					<s:param value="%{''}" />
-				</s:fielderror>
+				
 				<s:form action="AdminUserSelectAction">
 					<p>
-						<s:textfield name="email" placeholder="ユーザーのメールアドレス" /><s:submit value=" 検索 " />
+						<s:textfield name="selectEmail" placeholder="ユーザーのメールアドレス" /><s:submit value=" 検索 " />
 					</p>
 					
 				</s:form>
@@ -138,15 +144,17 @@
 					   <th>チケット名</th>
 					   <th>値段</th>
 					   <th>チケット種類</th>
+					   <th>チケット詳細</th>
 					   <th>販売確認</th>
 					   </tr>
 					   <s:form action="AdminTicketSelectAction">
-				        <s:iterator value="ticketList" begin="0" end="0" step="1">
+				        <s:iterator value="ticketList">
 							<tr>
 								<td><s:property value="id" /></td>
 								<td><s:property value="name" /></td>
 								<td><s:property value="price" /></td>
 								<td><s:property value="ticketType" /></td>
+								<td><s:property value="ticketInfo" /></td>
 								<td><s:property value="isSale" /></td>
 							</tr>
 						</s:iterator>
@@ -178,7 +186,7 @@
 			    <td colspan="2"><s:textfield id="updatetickettype" type="text" class="form-control" name="updatetickettype" placeholder="チケット種類" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:radio list="#{false:'販売継続', true:'販売終了'}" name="isSale" value="0"></s:radio></td>
+			    <td colspan="2"><s:radio list="#{true:'販売継続', false:'販売終了'}" name="isSale" value="0"></s:radio></td>
 			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
@@ -194,7 +202,7 @@
 				
 				<%--ユーザー情報検索結果＆編集 --%>
 				<s:form action="AdminUserSelectAction">
-				<s:iterator value="userList" begin="0" end="0" step="1">
+				<s:iterator value="userList">
 
 					 <table>
 					   <tr>
@@ -203,7 +211,7 @@
 					   </tr>
 							<tr>
 							    <td>メールアドレス</td>
-								<td><s:property value="email" /></td>
+								<td><s:property value="#session.sessionEmail" /></td>
 						   </tr>
 						   <tr>
 						        <td>パスワード</td>
@@ -259,9 +267,6 @@
 			    <td colspan="2"><s:textfield id="updateaddress" type="text" class="form-control" name="updateAddress" placeholder="住所" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updaterenewdate" type="text" class="form-control" name="updateRenewdate" placeholder="更新日" /></td>
-			   </tr>
-			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
 			    
 			   </tr>
@@ -272,7 +277,9 @@
 			    <s:submit value="ユーザーを削除 "></s:submit>
 		    </s:form>
             </div>
-		</div>
+            </div>
+         <%--   </s:else> --%>
+		
 
 
 </body>

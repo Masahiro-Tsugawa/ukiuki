@@ -39,9 +39,11 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 		if (ret == "error") {
 			addActionError("ユーザー名もしくはパスワードが違います");
-		}else if (dto.getIsLogin() == true) {
-			addActionError("すでにログインしているユーザーです");
-		}else{
+		}
+//		else if (dto.getIsLogin() == true) {
+//			addActionError("すでにログインしているユーザーです");
+//		}
+	else{
 			session.put("name_key", dto.getName());
 			System.out.println(dto.getName());
 		}

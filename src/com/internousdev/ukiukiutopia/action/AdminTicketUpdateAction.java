@@ -80,10 +80,10 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		}
 
 		public void setUpdateIsSale(boolean updateIsSale) {
-			if(updateIsSale=false)
-				updateIsSale=false;
-			else
+			if(updateIsSale=true)
 				updateIsSale=true;
+			else
+				updateIsSale=false;
 			this.updateIsSale = updateIsSale;
 		}
 

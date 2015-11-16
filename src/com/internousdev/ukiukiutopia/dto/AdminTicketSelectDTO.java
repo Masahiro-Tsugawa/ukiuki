@@ -13,6 +13,7 @@ public class AdminTicketSelectDTO {
 	private float price;
 	private String ticketType;
 	private boolean isSale;
+	private String ticketInfo;
 	
 	public int getId() {
 		return id;
@@ -38,10 +39,16 @@ public class AdminTicketSelectDTO {
 	public void setTicketType(String ticketType) {
 		this.ticketType = ticketType;
 	}
-	public boolean isIsSale() {
+	public boolean getIsSale() {
 		return isSale;
 	}
 	public void setIsSale(boolean isSale) {
 		this.isSale = isSale;
+	}
+	public String getTicketInfo() {
+		return ticketInfo;
+	}
+	public void setTicketInfo(String ticketInfo) {
+		this.ticketInfo = ticketInfo;
 	}
 }

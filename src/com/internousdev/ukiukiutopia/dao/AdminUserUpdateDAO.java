@@ -37,23 +37,26 @@ public class AdminUserUpdateDAO {
 
 		try {
 
-			if (purposeEmail != null) {
+			if (("".equals(purposeEmail)) == false) {
 
-				System.out.println("updatePassword" + updatePassword);
+				System.out.println(purposeEmail);
+				System.out.println("updateEmail" + updateEmail);
 
-				if (updateEmail != " ") {
+				if (("".equals(updateEmail)) == false) {
 					String sql = "update user set email=? where email=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
 					ps.setString(1, updateEmail);
 					ps.setString(2, purposeEmail);
+					
+					purposeEmail = updateEmail;
 
 					System.out.println("update - ps -" + ps);
 
 					rscount = ps.executeUpdate();
 				}
-				if (updatePassword != null) {
+				if (("".equals(updatePassword)) == false) {
 					String sql = "update user set password=? where email=?";
 					PreparedStatement ps;
 
@@ -65,54 +68,54 @@ public class AdminUserUpdateDAO {
 
 					rscount = ps.executeUpdate();
 				}
-//				if (updateName != null) {
-//					String sql = "update user set name=? where email=?";
-//					PreparedStatement ps;
-//
-//					ps = con.prepareStatement(sql);
-//					ps.setString(1, updateName);
-//					ps.setString(2, purposeEmail);
-//
-//					System.out.println("update - ps -" + ps);
-//
-//					rscount = ps.executeUpdate();
-//				}
-//				if (updateTelNum != null) {
-//					String sql = "update user set tel_num=? where email=?";
-//					PreparedStatement ps;
-//
-//					ps = con.prepareStatement(sql);
-//					ps.setString(1, updateTelNum);
-//					ps.setString(2, purposeEmail);
-//
-//					System.out.println("update - ps -" + ps);
-//
-//					rscount = ps.executeUpdate();
-//				}
-//				if (updatePostalCode != null) {
-//					String sql = "update user set postal_code=? where email=?";
-//					PreparedStatement ps;
-//
-//					ps = con.prepareStatement(sql);
-//					ps.setString(1, updatePostalCode);
-//					ps.setString(2, purposeEmail);
-//
-//					System.out.println("update - ps -" + ps);
-//
-//					rscount = ps.executeUpdate();
-//				}
-//				if (updateAddress != null) {
-//					String sql = "update user set Address=? where email=?";
-//					PreparedStatement ps;
-//
-//					ps = con.prepareStatement(sql);
-//					ps.setString(1, updateAddress);
-//					ps.setString(2, purposeEmail);
-//
-//					System.out.println("update - ps -" + ps);
-//
-//					rscount = ps.executeUpdate();
-//				}
+				if (("".equals(updateName)) == false) {
+					String sql = "update user set name=? where email=?";
+					PreparedStatement ps;
+
+					ps = con.prepareStatement(sql);
+					ps.setString(1, updateName);
+					ps.setString(2, purposeEmail);
+
+					System.out.println("update - ps -" + ps);
+
+					rscount = ps.executeUpdate();
+				}
+				if (("".equals(updateTelNum)) == false) {
+					String sql = "update user set tel_num=? where email=?";
+					PreparedStatement ps;
+
+					ps = con.prepareStatement(sql);
+					ps.setString(1, updateTelNum);
+					ps.setString(2, purposeEmail);
+
+					System.out.println("update - ps -" + ps);
+
+					rscount = ps.executeUpdate();
+				}
+				if (("".equals(updatePostalCode)) == false) {
+					String sql = "update user set postal_code=? where email=?";
+					PreparedStatement ps;
+
+					ps = con.prepareStatement(sql);
+					ps.setString(1, updatePostalCode);
+					ps.setString(2, purposeEmail);
+
+					System.out.println("update - ps -" + ps);
+
+					rscount = ps.executeUpdate();
+				}
+				if (("".equals(updateAddress)) == false) {
+					String sql = "update user set Address=? where email=?";
+					PreparedStatement ps;
+
+					ps = con.prepareStatement(sql);
+					ps.setString(1, updateAddress);
+					ps.setString(2, purposeEmail);
+
+					System.out.println("update - ps -" + ps);
+
+					rscount = ps.executeUpdate();
+				}
 
 				String sql = "update user set renew_date=? where email=?";
 				PreparedStatement ps;
