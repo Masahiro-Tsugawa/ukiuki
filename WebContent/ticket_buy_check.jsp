@@ -29,10 +29,10 @@
 				</tr>
 				<s:iterator value="useList">
 				<tr>
-				<td><s:property value="ticketName" /></td>
+				<td><s:property value="name" /></td>
 				<td><s:property value="sheets" /></td>
 				<td><s:property value="price" /></td>
-				<td><s:property value="subtotal" /></td>
+				<td><s:property value="subTotal" /></td>
 				</tr>
 		</s:iterator>
 			</table>
@@ -53,10 +53,10 @@
 				</tr>
 			<s:iterator value="optionList">
 				<tr>
-					<td><s:property value="ticketName" /></td>
-					<td><s:property value="sheets" /></td>
-					<td><s:property value="price" /></td>
-					<td><s:property value="subtotal" /></td>
+				<td><s:property value="name" /></td>
+				<td><s:property value="sheets" /></td>
+				<td><s:property value="price" /></td>
+				<td><s:property value="subTotal" /></td>				
 				</tr>
 			</s:iterator>
 			</table>
@@ -96,11 +96,15 @@
 			<s:form action="check_end">
 				<s:submit value="完了" />
 			</s:form>
+
+			<!--　  
+			<s:form action="test">
+		  	<s:submit value="てｓｔ" />
+			</s:form>　-->
+			
 		</div>
 	</div>
 	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
 </html>
-		<!--<s:form action="test">
-		  <s:submit value="てｓｔ" />
-		</s:form>-->
+		
