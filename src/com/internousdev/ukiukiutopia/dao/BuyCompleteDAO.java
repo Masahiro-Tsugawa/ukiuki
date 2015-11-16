@@ -2,6 +2,7 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
@@ -10,7 +11,7 @@ public class BuyCompleteDAO {
 
 		Connection con = DBConnector.getConnection();
 
-		String sql = "update user set credit_token=? AND credit_num=？　where　email=?;";
+		String sql = "update user set credit_token=?,credit_num=? where email=?;";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, token);
@@ -24,27 +25,34 @@ public class BuyCompleteDAO {
 	public int selectUserId(String email) throws Exception {
 		Connection con = DBConnector.getConnection();
 
-		String sql = "select id from user where email=?;";
+		String sql = "select * from user where email=?;";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, email);
 
-		int userId = ps.executeUpdate();
+		ResultSet rs = ps.executeQuery();
+		rs.next();
 
-		return userId;
+		System.out.println("useid=" + rs.getInt(1));
+
+		return rs.getInt(1);
 	}
 
-	public int selectOrderId(int userID, String date) throws Exception {
+	public int selectOrderId(int userId, String date) throws Exception {
 		Connection con = DBConnector.getConnection();
 
-		String sql = "select id from `order` where user_id=? and registered_date=?;";
+		String sql = "select * from `order` where user_id=? and registered_date=?;";
 
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, userID);
+		ps.setInt(1, userId);
 		ps.setString(2, date);
-		int orderId = ps.executeUpdate();
 
-		return orderId;
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+
+		System.out.println("orderid=" + rs.getInt(1));
+
+		return rs.getInt(1);
 	}
 
 	public int insertToOrder(int userId, String date) throws Exception {

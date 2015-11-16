@@ -1,10 +1,12 @@
 package com.internousdev.ukiukiutopia.action;
 
+import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import com.internousdev.ukiukiutopia.dao.BuyCompleteDAO;
+import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyInsertAction extends ActionSupport implements SessionAware {
@@ -17,6 +19,7 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	private int sheets;
 	private int orderId;
 	private int buyTotal;//
+	private int buySubTotal;//
 	private String email;//
 	private String token;//
 	private String number;//
@@ -46,9 +49,28 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 		orderId = daoSelectOrderId.selectOrderId(userId, registeredDate);
 
 		BuyCompleteDAO daoInsertToOrderTicket = new BuyCompleteDAO();
-		buyTotal = (int) session.get("buyTotal");
-		daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buyTotal, registeredDate);
 
+		List<TicketDataDTO> useList = (List<TicketDataDTO>) session.get("buyUseTicket");
+		List<TicketDataDTO> optionList = (List<TicketDataDTO>) session.get("buyOptionTicket");
+
+		for (int i = 0; i < useList.size(); i++) {
+			TicketDataDTO dto = useList.get(i);
+			ticketId = dto.getId();
+			sheets = dto.getSheets();
+			buySubTotal = dto.getSubTotal();
+			daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
+
+		}
+		
+		for (int i = 0; i < optionList.size(); i++) {
+			TicketDataDTO dto = optionList.get(i);
+			ticketId = dto.getId();
+			sheets = dto.getSheets();
+			buySubTotal = dto.getSubTotal();
+			daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
+
+		}
+		
 		return "success";
 
 	}

@@ -17,56 +17,56 @@
 		<p align="center">チケット購入確認画面</p>
 		<s:if test="%{#session.buyUseTicket!=null}">
 			<div class="box1">
-				<table class="table-test">
-					<tr>
-						<th colspan="4"><div class="form-titel">施設利用券</div></th>
-					</tr>
-					<tr>
-						<td>チケット名</td>
-						<td>枚数</td>
-						<td>単価</td>
-						<td>小計</td>
-					</tr>
-					<s:iterator value="useList">
-						<tr>
-							<td><s:property value="ticketName" /></td>
-							<td><s:property value="sheets" /></td>
-							<td><s:property value="price" /></td>
-							<td><s:property value="subtotal" /></td>
-						</tr>
-					</s:iterator>
-				</table>
+			<table class="table-test">
+				<tr>
+				<th colspan="4"><div class="form-titel">施設利用券</div></th>
+				</tr>
+				<tr>
+					<td>チケット名</td>
+					<td>枚数</td>
+					<td>単価</td>
+					<td>小計</td>
+				</tr>
+				<s:iterator value="useList">
+				<tr>
+				<td><s:property value="ticketName" /></td>
+				<td><s:property value="sheets" /></td>
+				<td><s:property value="price" /></td>
+				<td><s:property value="subtotal" /></td>
+				</tr>
+		</s:iterator>
+			</table>
 			</div>
 		</s:if>
 
 		<s:if test="%{#session.buyOptionTicket!=null}">
 			<div class="box1">
-				<table class="table-test">
-					<tr>
-						<th colspan="4"><div class="form-titel">オプション</div></th>
-					</tr>
-					<tr>
-						<td>チケット名</td>
-						<td>枚数</td>
-						<td>単価</td>
-						<td>小計</td>
-					</tr>
-					<s:iterator value="optionList">
-						<tr>
-							<td><s:property value="ticketName" /></td>
-							<td><s:property value="sheets" /></td>
-							<td><s:property value="price" /></td>
-							<td><s:property value="subtotal" /></td>
-						</tr>
-					</s:iterator>
-				</table>
+			<table class="table-test">
+				<tr>
+				<th colspan="4"><div class="form-titel">オプション</div></th>
+				</tr>
+				<tr>
+					<td>チケット名</td>
+					<td>枚数</td>
+					<td>単価</td>
+					<td>小計</td>
+				</tr>
+			<s:iterator value="optionList">
+				<tr>
+					<td><s:property value="ticketName" /></td>
+					<td><s:property value="sheets" /></td>
+					<td><s:property value="price" /></td>
+					<td><s:property value="subtotal" /></td>
+				</tr>
+			</s:iterator>
+			</table>
 			</div>
 		</s:if>
 
 		<div class="box1">
 			<table class="table-test2">
 				<tr>
-					<th colspan="4"><div class="form-titel">合計</div></th>
+				<th colspan="4"><div class="form-titel">合計</div></th>
 				</tr>
 				<tr>
 					<td><s:property value="#session.buyTotal" />円</td>
@@ -90,13 +90,10 @@
 				</tr>
 			</table>
 		</div>
-		<s:form action="test">
-		  <s:submit value="てｓｔ" />
-		</s:form>
 	
 		 <div align="center">
 			<input type="button" value="キャンセル " onClick="history.back()">
-			<s:form action="ticket_buy_check">
+			<s:form action="check_end">
 				<s:submit value="完了" />
 			</s:form>
 		</div>
@@ -104,3 +101,6 @@
 	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
 </html>
+		<!--<s:form action="test">
+		  <s:submit value="てｓｔ" />
+		</s:form>-->
