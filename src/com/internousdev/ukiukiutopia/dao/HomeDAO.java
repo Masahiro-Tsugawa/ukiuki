@@ -42,11 +42,11 @@ public class HomeDAO {
 		return ret;
 	}
 
-	public String getAdmin_name() {
+	public String getName() {
 		return name;
 	}
 
-	public void setAdmin_name(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 }

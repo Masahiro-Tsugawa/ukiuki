@@ -20,26 +20,21 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	private String idError;
 
 	public String execute() throws SQLException {
-		System.out.println("a");
 		HomeDAO dao = new HomeDAO();
-		System.out.println("b");
 		String ret = dao.select(id, password);
-		System.out.println("c");
-		session.put("loginName", dao.getAdmin_name());
-		System.out.println("d");
+		session.put("loginName", dao.getName());
 		session.put("userEmail", id);
-		System.out.println("e");
+		
 		if(ret == "error"){
 			setIdError("IDまたはパスワードが間違っています");
 		}
-		System.out.println(id);
+		System.out.println(session.get("loginName"));
 		System.out.println(password);
 		return ret;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
-		System.out.println("f");
 	}	
 
 	public String getId() {
@@ -48,7 +43,6 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 	public void setId(String id) {
 		this.id = id;
-		System.out.println("g");
 	}
 
 	public String getPassword() {
@@ -57,7 +51,6 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 	public void setPassword(String password) {
 		this.password = password;
-		System.out.println("h");
 	}
 
 	public String getIdError() {

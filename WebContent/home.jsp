@@ -83,7 +83,7 @@
  	<div class="col-md-4">
 	<div class="oauthUser">
 	 	<h3><s:text name="snsAcount" /></h3>
- 		<a href="TwitterLogin" target="_self "><img src="img/Twitter.png" alt="twitterアカウントでログイン" class="tw"></a>
+ 		<!-- <a href="TwitterLogin" target="_self "><img src="img/Twitter.png" alt="twitterアカウントでログイン" class="tw"></a> -->
  		<a href="FacebookLogin" target="_self "><img src="img/FB.png" alt="facebookアカウントでログイン" class="fb"></a>
  		<a href="GoGoogleAction" target="_self "><img src="img/Google.png" alt="Google+アカウントでログイン" class="gg"></a>
  		<p  class="-comment"><h4><s:text name="aikon" /></h4><br></p>

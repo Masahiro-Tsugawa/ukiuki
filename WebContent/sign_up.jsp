@@ -16,7 +16,7 @@
 		<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="//jpostal.googlecode.com/svn/trunk/jquery.jpostal.js"
 			type="text/javascript"></script>
-		<script src="postCode.js" type="text/javascript"></script>
+		<script src="js/postCode.js" type="text/javascript"></script>
 		<div class="create">
 			<s:form action="CreateUserAction">
 				<table>

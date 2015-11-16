@@ -6,8 +6,9 @@ public class PersonalInformationDTO {
 	private String name;
     private String tel_num;
     private String email;
-    private String postal;
+    private String postal_code;
     private String address;
+    
     
 	//ID
 	public void setId(int id){
@@ -40,21 +41,22 @@ public class PersonalInformationDTO {
 		this.email=email;
 	}
 	
-	public String getEMail(){
+	public String getEmail(){
 		return email;
 	}
 	
 	//郵便番号
-	public void setPostal(String postal){
-		this.postal=postal;
+	public void setPostal_code(String postal_code){
+		this.postal_code=postal_code;
 	}
 	
-	public String getPostal(){
-		return postal;
+	public String getPostal_code(){
+		return postal_code;
 	}
 	
 	//住所
 	public void setAddress(String address){
+		this.address = address;
 	}
 	
 	public String getAddress(){

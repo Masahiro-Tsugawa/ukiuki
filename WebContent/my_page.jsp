@@ -16,32 +16,57 @@
 		<div class="form-title">
 
 			<p class="p">マイページ画面</p>
-			<p>こんにちは、 <s:property value="#session.name_key"/> さん。</p>
-			
-			<s:property value="PersonalList" />
-			
-			
+			<p>こんにちは、 <s:property value="#session_loginName"/> さん。</p>
 			<table class="table-test">
-				<tr><th>購入履歴</th><th colspan="3">個人情報一覧</th></tr>
+				<tr>
+					<th colspan="2">個人情報一覧</th>
+				</tr>
 				<s:iterator value="PersonalList">
 				<tr>
-					<td><p></p></td>
-					<td>名前:</td><td><s:property value="name" /></td>
+					<td>名前：</td>
+					<td><s:property value="name" /></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>電話番号:</td><td><s:property value="tel_num" /></td>
 					<td></td>
 				</tr>
 
+				<tr>
+					<td></td>
+					<td>メールアドレス:</td>
+					<td><s:property value="email" /></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>郵便番号:</td>
+					<td><s:property value="postal_code" /></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>住所:</td>
+					<td><s:property value="address" /></td>
+					<td></td>
+				</tr>
 				</s:iterator>
 				<tr>
 					<td></td>
 					<td></td>
-					<td><p></p></td>
+					<td></td>
 				</tr>
+
+				<s:form action = "ticket_buy"><td colspan="3">
+						 <s:submit value="チケット新規購入画面へ"/></td></s:form>
+
 			</table>
-				<!-- <td colspan="3"> -->
-				<a href="chicketkounyu.html" target="_self "><input
-						type="submit" value="チケット新規購入画面へ"></a><!-- </td> -->
-
-
+			<table>
+			    <th>購入履歴</th>
+			</table>
 		</div>
 	</div>
 	<jsp:include page="base/main_footer.jsp" flush="true" />
