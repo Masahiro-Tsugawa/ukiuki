@@ -7,6 +7,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html">
 <html lang="ja">
+
 <head>
 <fmt:setLocale value="${pageContext.request.locale.language}" />
 <fmt:setBundle
@@ -21,17 +22,20 @@
 	<jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
 		<div class="form-chiket">
-			<br></br>
-			<br></br>
-			<br></br> <br></br>
+			<br>
+			<br>
+			<br> 
+			<br>
 			<div>
 				<s:text name="Purchase.ticket_buy_end" />
 			</div>
-			<br></br>
-
+			<br>
+			<br>
 			<s:form action="my_page">
 				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
 			</s:form>
-			<jsp:include page="base/main_footer.jsp" flush="true" />
 		</div>
+	</div>
+</body>
+		<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>

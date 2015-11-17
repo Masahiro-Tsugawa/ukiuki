@@ -14,6 +14,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String email;
 	private String password;
 	private Map<String, Object> session;
@@ -21,28 +22,39 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		HomeDAO dao = new HomeDAO();
-		String ret = dao.select(email, password);
+		String ret = dao.select(id,email, password);
+		session.put("userId", id);
 		session.put("loginName", dao.getName());
 		session.put("userEmail", email);
 		
 		if(ret == "error"){
-			setIdError("IDまたはパスワードが間違っています");
+			getText("mistaken");
 		}
+		System.out.println(session.get("userId"));
 		System.out.println(session.get("loginName"));
-		System.out.println(password);
+		System.out.println(session.get("userEmail"));
 		return ret;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}	
+	
+	public int getId() {
+		return id;
+	}
 
-	public String getId() {
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getEmail() {
 		return email;
 	}
 
-	public void setId(String id) {
-		this.email = id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
