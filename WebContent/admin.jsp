@@ -21,8 +21,7 @@
    
    <div id="header_right" align="right">
    
- <%--  <s:if test="#session.name_key == null" >
- --%>   
+   <s:if test="#session.name_key == null" > 
 		   <div class="loginName">
 		   <s:actionerror />
 		<s:fielderror>
@@ -42,23 +41,22 @@
 				<div class="input-group">
 					<s:textfield id="password" type="password" class="form-control"
 						name="password" placeholder="パスワード" />
-						
 				</div>
 
-				<s:submit class="btn btn-primary" value=" ログイン " />
+			  <s:submit class="btn btn-primary" value=" ログイン " />
 			<s:property value="#session.name_key" />
 		</s:form>
 		  
 		</div>
 		
-		<%-- 	 </s:if>--%>
+	  </s:if>
 	</div>
 	
   </div>
   
- <%-- <s:else>  --%>
+<s:else>
 	<div class="container">
-	 <s:a class="logout" href="%{LogoutAction}">ログアウト</s:a>
+	 <s:a class="logout" href="AdminLogoutAction">ログアウト</s:a>
 	<p>管理者画面</p>
 		<br>
 
@@ -138,6 +136,7 @@
 				</s:else>
 				
 				<%--チケット情報検索結果＆編集 --%>
+			<s:if test="#session.name_key == null" >
 				<p>チケット一覧</p>
 					 <table>
 					   <tr>
@@ -166,7 +165,9 @@
 				       </tr>
 				       
 					 </table>
+					 </s:if>
 			　</div>
+			
 			
  			<div class="updateticket">
 			 <s:form action="AdminTicketUpdateAction">
@@ -282,7 +283,7 @@
 		    </s:form>
             </div>
             </div>
-         <%--   </s:else> --%>
+        </s:else>
 		
 
 
