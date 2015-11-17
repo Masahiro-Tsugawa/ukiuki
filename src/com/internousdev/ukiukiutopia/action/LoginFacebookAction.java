@@ -51,6 +51,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 	private Map<String, Object> session;
 
 	public String execute() throws Exception {
+		System.out.println("tet");
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
@@ -61,6 +62,8 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		
 		String uniqueId = userMap.get("id");
 		String userName = userMap.get("name");
+		System.out.println("id = " + uniqueId);
+		System.out.println("name = " + userName);
 		LoginOauthDAO dao = new LoginOauthDAO();
 		if (dao.select(uniqueId, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
@@ -80,12 +83,14 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("loginId", dto.getUserId());
 		session.put("loginName", dto.getUserName());
-		
-		
+		System.out.println(session.get("loginId"));
+		System.out.println(session.get("loginName"));
 		rtn = SUCCESS;
-		
 		return rtn;
+		
 	}
+	
+	/**
 
 	/**
 	 * リクエスト格納メソッド
