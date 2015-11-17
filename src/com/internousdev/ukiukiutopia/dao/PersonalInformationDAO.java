@@ -95,7 +95,7 @@ public class PersonalInformationDAO {
 					        + "LEFT OUTER JOIN `order` o ON u.id = o.user_id "
 					        + "LEFT OUTER JOIN order_ticket ot ON o.id = ot.order_id "
 					        + "LEFT OUTER JOIN ticket t ON ot.ticket_id = t.id "
-					   + "WHERE u.id = ?";
+					   + "WHERE u.id = ? order by o.id desc limit 5";
 
 			PreparedStatement ps2;
 			ps2 = con.prepareStatement(sql);
