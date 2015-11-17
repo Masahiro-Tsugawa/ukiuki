@@ -21,7 +21,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	private Map<String, Object> session;
 	
-	private List<PurchaseHistoryDTO> HistorylList = new ArrayList<PurchaseHistoryDTO>();
+	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
 	private String result = ERROR;
 	
 	private String name;
@@ -32,11 +32,15 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 
 	public String execute() throws Exception{
+		System.out.println("test");
 		System.out.println(session.put("userId", 1));
 		String emailAddress = (String)session.get("userEmail");
 		if (emailAddress == null) {
+			System.out.println("あれ？？？");
+			System.out.println(emailAddress);
 			return ERROR;
 		}
+		System.out.println("PersonalI始");
 		PersonalInformationDAO pd = new PersonalInformationDAO();
 		System.out.println("PersonalInformationDAOの検索開始");
 		boolean resultDAO = pd.select(emailAddress);
@@ -59,11 +63,12 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		
 		PersonalInformationDAO hd = new PersonalInformationDAO();
 		boolean historyDAO = hd.selectHistory(id);
-		if (!resultDAO) {
+		if (!historyDAO) {
 			return ERROR;
 		}
 		
-		HistorylList.addAll(hd.getHistorylList());
+		historylList.addAll(hd.getHistorylList());
+		System.out.println(historylList);
 		System.out.println("kato");
 		result = SUCCESS;
 		return result;
@@ -113,4 +118,13 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public List<PurchaseHistoryDTO> getHistorylList() {
+		return historylList;
+	}
+
+	public void setHistorylList(List<PurchaseHistoryDTO> historylList) {
+		this.historylList = historylList;
+	}
+	
 }

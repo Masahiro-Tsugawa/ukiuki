@@ -46,7 +46,7 @@ public class PersonalInformationDTO {
 	}
 	
 	//郵便番号
-	public void setPostalCode(String postal_code){
+	public void setPostalCode(String postalCode){
 		this.postalCode=postalCode;
 	}
 	

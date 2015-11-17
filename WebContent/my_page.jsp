@@ -69,8 +69,8 @@
 				    <td align="center">合計金額</td>
 				    
 				</tr>
-				<s:if test="%{HistorylList!=null}">
-					<s:iterator value="HistorylList">
+				<s:if test="%{historylList!=null}">
+					<s:iterator value="historylList">
 					<tr>
 					    <td align="center"><s:property value="name" /></td>
 					    <td align="center"><s:property value="sheets" />枚</td>
