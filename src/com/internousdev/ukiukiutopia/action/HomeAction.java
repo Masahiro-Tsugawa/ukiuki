@@ -14,16 +14,16 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private String email;
 	private String password;
 	private Map<String, Object> session;
 	private String idError;
 
 	public String execute() throws SQLException {
 		HomeDAO dao = new HomeDAO();
-		String ret = dao.select(id, password);
+		String ret = dao.select(email, password);
 		session.put("loginName", dao.getName());
-		session.put("userEmail", id);
+		session.put("userEmail", email);
 		
 		if(ret == "error"){
 			setIdError("IDまたはパスワードが間違っています");
@@ -38,11 +38,11 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	}	
 
 	public String getId() {
-		return id;
+		return email;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.email = id;
 	}
 
 	public String getPassword() {
