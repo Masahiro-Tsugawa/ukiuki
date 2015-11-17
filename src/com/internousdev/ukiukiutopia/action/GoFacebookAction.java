@@ -48,7 +48,7 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
         facebook.setOAuthAccessToken(at);
         StringBuffer callbackURL = request.getRequestURL();
         int index = callbackURL.lastIndexOf("/");
-        callbackURL.replace(index, callbackURL.length(), "").append("/login-facebook-action");
+        callbackURL.replace(index, callbackURL.length(), "").append("/my_page.jsp");
         response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
     }
 
