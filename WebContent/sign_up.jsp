@@ -66,12 +66,14 @@
 						<tr>
 							<td><label for="userPassword"><s:text
 										name="signUp.password" /> ：</label><br>
-										<div class="expPass"><s:text name="signUp.explorePassword" /></div></td>
+								<div class="expPass">
+									<s:text name="signUp.explorePassword" />
+								</div></td>
 							<td><s:fielderror>
 									<s:param value="%{'userPassword'}" />
 								</s:fielderror> <s:password name="userPassword" maxlength="32" /></td>
 						</tr>
-						
+
 
 						<tr>
 							<td><label for="confirmUserEmail"><s:text
@@ -132,6 +134,6 @@
 			</s:form>
 		</div>
 	</div>
-	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
