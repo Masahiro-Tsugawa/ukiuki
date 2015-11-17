@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -22,17 +21,17 @@
 				<th colspan="4"><div class="form-titel">施設利用券</div></th>
 				</tr>
 				<tr>
-					<td>チケット名</td>
-					<td>枚数</td>
-					<td>単価</td>
-					<td>小計</td>
+					<td align="center">チケット名</td>
+					<td align="center">枚数</td>
+					<td align="center">単価</td>
+					<td align="center">小計</td>
 				</tr>
 			<s:iterator value="useList">
 				<tr>
-				<td><s:property value="name" /></td>
-				<td><s:property value="sheets" /></td>
-				<td><s:property value="price" /></td>
-				<td><s:property value="subTotal" /></td>
+				<td align="center"><s:property value="name" /></td>
+				<td align="right"><s:property value="sheets" />枚</td>
+				<td align="right"><s:property value="price" />円</td>
+				<td align="right"><s:property value="subTotal" />円</td>
 				</tr>
 			</s:iterator>
 			</table>
@@ -46,17 +45,17 @@
 				<th colspan="4"><div class="form-titel">オプション</div></th>
 				</tr>
 				<tr>
-					<td>チケット名</td>
-					<td>枚数</td>
-					<td>単価</td>
-					<td>小計</td>
+					<td align="center">チケット名</td>
+					<td align="center">枚数</td>
+					<td align="center">単価</td>
+					<td align="center">小計</td>
 				</tr>
 			<s:iterator value="optionList">
 				<tr>
-				<td><s:property value="name" /></td>
-				<td><s:property value="sheets" /></td>
-				<td><s:property value="price" /></td>
-				<td><s:property value="subTotal" /></td>				
+				<td align="center"><s:property value="name" /></td>
+				<td align="right"><s:property value="sheets" />枚</td>
+				<td align="right"><s:property value="price" />円</td>
+				<td align="right"><s:property value="subTotal" />円</td>				
 				</tr>
 			</s:iterator>
 			</table>
