@@ -5,7 +5,7 @@ public class PurchaseHistoryDTO {
 	private String name;
 	private int sheets;
     private float price;
-    private float total_amount;
+    private float totalAmount;
     //チケット名
     public void setName(String name){
 		this.name=name;
@@ -34,12 +34,12 @@ public class PurchaseHistoryDTO {
 	}
 	
 	//合計金額
-	public void setTotal_amount(float total_amount){
-		this.total_amount = total_amount;
+	public void setTotalAmount(float totalAmount){
+		this.totalAmount = totalAmount;
 	}
 
-	public float getTotal_amount(){
-		return total_amount;
+	public float getTotalAmount(){
+		return totalAmount;
 	}
 
 }

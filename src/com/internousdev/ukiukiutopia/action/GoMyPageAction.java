@@ -10,6 +10,7 @@ import com.internousdev.ukiukiutopia.dao.PersonalInformationDAO;
 import com.internousdev.ukiukiutopia.dto.PersonalInformationDTO;
 import com.internousdev.ukiukiutopia.dto.PurchaseHistoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 public class GoMyPageAction extends ActionSupport implements SessionAware{
 
@@ -19,38 +20,51 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 5755890205879217612L;
 	
 	private Map<String, Object> session;
-	public List<PersonalInformationDTO> PersonalList = new ArrayList<PersonalInformationDTO>();
-	public List<PurchaseHistoryDTO> HistorylList = new ArrayList<PurchaseHistoryDTO>();
-	public String result = ERROR;
+	
+	private List<PurchaseHistoryDTO> HistorylList = new ArrayList<PurchaseHistoryDTO>();
+	private String result = ERROR;
+	
+	private String name;
+	private String telNum;
+	private String email;
+	private String postalCode;
+	private String address;
+	
 
 	public String execute() throws Exception{
-		int userId = (int) session.get("userId");
+		System.out.println(session.put("userId", 1));
 		String emailAddress = (String)session.get("userEmail");
 		if (emailAddress == null) {
 			return ERROR;
 		}
-		PersonalInformationDAO dao = new PersonalInformationDAO();
+		PersonalInformationDAO pd = new PersonalInformationDAO();
 		System.out.println("PersonalInformationDAOの検索開始");
-		boolean resultDAO = dao.select(emailAddress);
+		boolean resultDAO = pd.select(emailAddress);
 		System.out.println("resultDAO="+resultDAO);
 		System.out.println("PersonalNameDAO.selectからPersonalActionに復帰");
+		System.out.println(resultDAO);
 		if (!resultDAO) {
 			return ERROR;
 		}
 		
+		PersonalInformationDTO personal = pd.getPersonal();
+		name = personal.getName();
+		telNum = personal.getTelNum();
+		email = personal.getEmail();
+		postalCode = personal.getPostalCode();
+		address = personal.getAddress();
 		
-		System.out.println("if文に入ってる");
-		PersonalList.addAll(dao.getPersonalList());
+		session.put("userID", 1);
+		int id = (int)session.get("userID");
 		
-		System.out.println("PersonalList"+PersonalList);
-		
-		userId = 1;
-		resultDAO = dao.selectHistory(userId);
-		if (!resultDAO){
+		PersonalInformationDAO hd = new PersonalInformationDAO();
+		boolean historyDAO = hd.selectHistory(id);
+		if (!resultDAO) {
 			return ERROR;
 		}
 		
-		HistorylList.addAll(dao.getHistorylList());
+		HistorylList.addAll(hd.getHistorylList());
+		System.out.println("kato");
 		result = SUCCESS;
 		return result;
 	}
@@ -58,5 +72,45 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getTelNum() {
+		return telNum;
+	}
+
+	public void setTelNum(String telNum) {
+		this.telNum = telNum;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

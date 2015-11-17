@@ -4,9 +4,9 @@ public class PersonalInformationDTO {
 
 	private int id;
 	private String name;
-    private String tel_num;
+    private String telNum;
     private String email;
-    private String postal_code;
+    private String postalCode;
     private String address;
     
     
@@ -28,12 +28,12 @@ public class PersonalInformationDTO {
 	}
 	
 	//電話番号
-	public void setTel_num(String tel_num){
-		this.tel_num=tel_num;
+	public void setTelNum(String telNum){
+		this.telNum=telNum;
 	}
 
-	public String getTel_num(){
-		return tel_num;
+	public String getTelNum(){
+		return telNum;
 	}
 	
 	//メールアドレス
@@ -46,12 +46,12 @@ public class PersonalInformationDTO {
 	}
 	
 	//郵便番号
-	public void setPostal_code(String postal_code){
-		this.postal_code=postal_code;
+	public void setPostalCode(String postal_code){
+		this.postalCode=postalCode;
 	}
 	
-	public String getPostal_code(){
-		return postal_code;
+	public String getPostalCode(){
+		return postalCode;
 	}
 	
 	//住所
