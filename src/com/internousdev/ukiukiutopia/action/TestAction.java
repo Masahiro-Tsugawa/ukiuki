@@ -15,7 +15,7 @@ public class TestAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	private ArrayList<BuyCompreteDTO> use = new ArrayList<BuyCompreteDTO>();
 	private ArrayList<BuyCompreteDTO> option = new ArrayList<BuyCompreteDTO>();
-	
+
 	public List<TicketDataDTO> useList = new ArrayList<TicketDataDTO>();
 
 	public String execute() throws Exception {
@@ -24,7 +24,9 @@ public class TestAction extends ActionSupport implements SessionAware {
 		String total = "8000";
 		use.add(null);
 		option.add(null);
+		
 		//option.add(int, "テストチケット");
+		
 		session.put("buyUseTicket", use);
 		session.put("buyOptionTicket", option);
 		session.put("buyCardNumber", test);
@@ -32,6 +34,7 @@ public class TestAction extends ActionSupport implements SessionAware {
 		session.put("userEmail", "test@test.com");
 		session.put("buyCordToken", "aaaaaaaaa");
 		session.put("buyCordNumber", "aaaa");
+		session.put("userName","ナマタメ　マサヒロ");
 		
 		int sheets = 10;
 		int subTotal = 16000;

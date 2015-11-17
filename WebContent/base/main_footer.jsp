@@ -3,6 +3,6 @@
 
 <footer class ="footer">
 
-Copyright © <a href="index.html" target="_self ">うきうきUtopia</a> All Right Reserved.
+Copyright © ukiukiUtopia All Right Reserved.
 
 </footer>
