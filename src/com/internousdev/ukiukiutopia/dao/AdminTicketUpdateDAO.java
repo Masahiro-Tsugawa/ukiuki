@@ -52,7 +52,7 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 				}
-			 if(("".equals(updatePrice) == false)){
+			 if(updatePrice > 0){
 				 String sql = "update ticket set price=? where id=?";
 					PreparedStatement ps;
 

@@ -17,13 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class AdminTicketSelectAction extends ActionSupport implements SessionAware{
+public class AdminTicketSelectAction extends ActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	
 	public List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
 	public String result = ERROR;
-	private Map<String, Object> session;
 
 	public String execute() throws Exception {
 
@@ -44,10 +43,6 @@ public class AdminTicketSelectAction extends ActionSupport implements SessionAwa
 		result = SUCCESS;
 	}
 	return result;
-	}
-
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
 	}
 
 }

@@ -12,30 +12,77 @@ public class AdminBoughtDTO {
 	private int year1;
 	private int month1;
 	private int date1;
-	private String selectdate1;
+	private String selectDate1;
 	
 	private int year2;
 	private int month2;
 	private int date2;
-	private String selectdate2;
+	private String selectDate2;
 	
-	private int orderid;
-	private int ticketid;
+	private int orderId;
+	private int ticketId;
 	private int sheets;
-	private float totalamount;
-	private String registereddate;
-	
-	public int getOrderid() {
-		return orderid;
+	private float totalAmount;
+
+	public int getYear1() {
+		return year1;
 	}
-	public void setOrderid(int orderid) {
-		this.orderid = orderid;
+	public void setYear1(int year1) {
+		this.year1 = year1;
 	}
-	public int getTicketid() {
-		return ticketid;
+	public int getMonth1() {
+		return month1;
 	}
-	public void setTicketid(int ticketid) {
-		this.ticketid = ticketid;
+	public void setMonth1(int month1) {
+		this.month1 = month1;
+	}
+	public int getDate1() {
+		return date1;
+	}
+	public void setDate1(int date1) {
+		this.date1 = date1;
+	}
+	public String getSelectDate1() {
+		return selectDate1;
+	}
+	public void setSelectDate1(String selectDate1) {
+		this.selectDate1 = selectDate1;
+	}
+	public int getYear2() {
+		return year2;
+	}
+	public void setYear2(int year2) {
+		this.year2 = year2;
+	}
+	public int getMonth2() {
+		return month2;
+	}
+	public void setMonth2(int month2) {
+		this.month2 = month2;
+	}
+	public int getDate2() {
+		return date2;
+	}
+	public void setDate2(int date2) {
+		this.date2 = date2;
+	}
+	public String getSelectDate2() {
+		return selectDate2;
+	}
+	public void setSelectDate2(String selectDate2) {
+		this.selectDate2 = selectDate2;
+	}
+	public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	public int getTicketId() {
+		return ticketId;
+	}
+	public void setTicketId(int ticketId) {
+		this.ticketId = ticketId;
 	}
 	public int getSheets() {
 		return sheets;
@@ -43,29 +90,11 @@ public class AdminBoughtDTO {
 	public void setSheets(int sheets) {
 		this.sheets = sheets;
 	}
-	public float getTotalamount() {
-		return totalamount;
+	public float getTotalAmount() {
+		return totalAmount;
 	}
-	public void setTotalamount(float totalamount) {
-		this.totalamount = totalamount;
-	}
-	public String getRegistereddate() {
-		return registereddate;
-	}
-	public void setRegistereddate(String registereddate) {
-		this.registereddate = registereddate;
-	}
-	public String getSelectdate1() {
-		return selectdate1;
-	}
-	public void setSelectdate1(String selectdate1) {
-		this.selectdate1 = year1 + "/" + month1 + "/" + date1;
-	}
-	public String getSelectdate2() {
-		return selectdate2;
-	}
-	public void setSelectdate2(String selectdate2) {
-		this.selectdate2 = year2 + "/" + month2 + "/" + date2;
+	public void setTotalAmount(float totalAmount) {
+		this.totalAmount = totalAmount;
 	}
 
 }

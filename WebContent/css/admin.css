@@ -1,3 +1,24 @@
+.title{
+	background-color:#FF8C00;
+	color:#fff;
+}
 .logout{
-	float:right;
+	text-align:right;
+	font-size:20px;
+	font-weight: bold;
+}
+
+.userdelete{
+	text-align:center;
+}
+
+.container{
+	margin-bottom:20px;
+}
+#deleteId{
+	width:100px;
+}
+
+h4{
+	font-weight: bold;
 }

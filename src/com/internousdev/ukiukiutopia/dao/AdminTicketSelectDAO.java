@@ -44,7 +44,7 @@ public class AdminTicketSelectDAO {
 		try {
 			
 			//mysql
-			String sql = "select * from ticket";
+			String sql = "select * from ticket where is_show=true";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);

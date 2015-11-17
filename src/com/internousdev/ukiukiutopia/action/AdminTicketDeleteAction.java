@@ -3,9 +3,6 @@
  */
 package com.internousdev.ukiukiutopia.action;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.dao.AdminTicketDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,25 +11,24 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class AdminTicketDeleteAction extends ActionSupport implements SessionAware {
+public class AdminTicketDeleteAction extends ActionSupport {
 
 		/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String delid;
+	private int deleteId;
 	int count;
 	public String result=ERROR;
-	private Map<String, Object> session;
 
 		public String execute() throws Exception {
 
 		AdminTicketDeleteDAO dao = new AdminTicketDeleteDAO();
 		
-		int delid = (int) session.get("id");
-		System.out.println(session.get("id"));
-		count = dao.delete(delid);
+		deleteId = getDeleteId();
+		
+		count = dao.delete(deleteId);
 		
 		System.out.println(count);
 
@@ -40,24 +36,15 @@ public class AdminTicketDeleteAction extends ActionSupport implements SessionAwa
 			System.out.println("if文");
 			result = SUCCESS;
 		}
-		session.remove(delid);
 		return result;
 		}
 		
-		public String getDelid() {
-			return delid;
+		public int getDeleteId() {
+			return deleteId;
 		}
 
-		public void setDelid(String delid) {
-			this.delid = delid;
-		}
-		
-		public Map<String, Object> getSession() {
-			return session;
-		}
-
-		public void setSession(Map<String, Object> session) {
-			this.session = session;
+		public void setDeleteId(int deleteId) {
+			this.deleteId = deleteId;
 		}
 
 	}
