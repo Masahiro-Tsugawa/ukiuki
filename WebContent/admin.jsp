@@ -21,7 +21,7 @@
    
    <div id="header_right" align="right">
    
- <%--  <s:if test="#session.userName == null" >
+ <%--  <s:if test="#session.name_key == null" >
  --%>   
 		   <div class="loginName">
 		   <s:actionerror />
@@ -31,7 +31,8 @@
 		<s:fielderror>
 			<s:param value="%{'adminPass'}" />
 		</s:fielderror>
-			<s:form id="signin" class="navbar-form navbar-right" role="form"
+		
+		<s:form id="signin" class="navbar-form navbar-right" role="form"
 				action="AdminLoginAction" method="post">
 				<div class="input-group">
 					<s:textfield id="name" type="text" class="form-control" name="Name"
@@ -46,7 +47,7 @@
 
 				<s:submit class="btn btn-primary" value=" ログイン " />
 			<s:property value="#session.name_key" />
-			</s:form>
+		</s:form>
 		  
 		</div>
 		

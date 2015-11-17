@@ -53,7 +53,7 @@ public class AdminTicketUpdateDAO {
 					rscount = ps.executeUpdate();
 				}
 			 if(("".equals(updatePrice) == false)){
-				 String sql = "update user set price=? where id=?";
+				 String sql = "update ticket set price=? where id=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
@@ -65,7 +65,7 @@ public class AdminTicketUpdateDAO {
 					rscount = ps.executeUpdate();
 			 }
 			 if(("".equals(updateTicketType) == false)){
-				 String sql = "update user set ticket_type=? where id=?";
+				 String sql = "update ticket set ticket_type=? where id=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class AdminTicketUpdateDAO {
 					rscount = ps.executeUpdate();
 			 }
 			 if(("".equals(updateIsSale) == false)){
-				 String sql = "update user set is_sale=? where id=?";
+				 String sql = "update ticket set is_sale=? where id=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
@@ -97,7 +97,7 @@ public class AdminTicketUpdateDAO {
 			 
 			 }
 			 
-				 String sql = "update user set renew_date=? where id=?";
+				 String sql = "update ticket set renew_date=? where id=?";
 					PreparedStatement ps;
 
 					ps = con.prepareStatement(sql);
