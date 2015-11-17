@@ -16,7 +16,7 @@ import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 
-public class GoFacebookAction  extends ActionSupport implements ServletResponseAware,ServletRequestAware  {
+public class GoFacebookAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
 
 	/**
 	 * 生成されたシリアルナンバー
@@ -33,33 +33,32 @@ public class GoFacebookAction  extends ActionSupport implements ServletResponseA
 	 */
 	private HttpServletResponse response;
 
-    public String execute() throws Exception {
-    	FacebookOauth oauth = new com.internousdev.ukiukiutopia.util.FacebookOauth();
-    	oauth.getRequestToken(request, response);
+	public String execute() throws Exception {
+		FacebookOauth oauth = new com.internousdev.ukiukiutopia.util.FacebookOauth();
+		oauth.getRequestToken(request, response);
 		return SUCCESS;
 	}
 
-    public void getToken(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Facebook facebook = new FacebookFactory().getInstance();
-        request.getSession().setAttribute("facebook", facebook);
-        facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
-        String accessTokenString = "433419566868372|e0b2de4f10d8f4ebcbeb69984a68452d";
-        AccessToken at = new AccessToken(accessTokenString);
-        facebook.setOAuthAccessToken(at);
-        StringBuffer callbackURL = request.getRequestURL();
-        int index = callbackURL.lastIndexOf("/");
-        callbackURL.replace(index, callbackURL.length(), "").append("/my_page.jsp");
-        response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
-    }
+	public void getToken(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Facebook facebook = new FacebookFactory().getInstance();
+		request.getSession().setAttribute("facebook", facebook);
+		facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
+		String accessTokenString = "433419566868372|e0b2de4f10d8f4ebcbeb69984a68452d";
+		AccessToken at = new AccessToken(accessTokenString);
+		facebook.setOAuthAccessToken(at);
+		StringBuffer callbackURL = request.getRequestURL();
+		int index = callbackURL.lastIndexOf("/");
+		callbackURL.replace(index, callbackURL.length(), "").append("/my_page.jsp");
+		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+	}
 
 	public void setServletRequest(HttpServletRequest request) {
-		this.request=request;
+		this.request = request;
 	}
 
 	public void setServletResponse(HttpServletResponse response) {
-		this.response=response;
+		this.response = response;
 	}
-
-
 
 }

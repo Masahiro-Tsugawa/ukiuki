@@ -1,6 +1,6 @@
 package com.internousdev.ukiukiutopia.dto;
 
-public class LoginOauthDTO{
+public class LoginOauthDTO {
 
 	/**
 	 * 名前
@@ -14,15 +14,18 @@ public class LoginOauthDTO{
 
 	/**
 	 * 顧客名取得メソッド
+	 * 
 	 * @return userName
 	 */
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	/**
 	 * 顧客名格納メソッド
-	 * @param userName 名前
+	 * 
+	 * @param userName
+	 *            名前
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -30,6 +33,7 @@ public class LoginOauthDTO{
 
 	/**
 	 * ユーザーID取得メソッド
+	 * 
 	 * @return userId
 	 */
 	public int getUserId() {
@@ -38,7 +42,9 @@ public class LoginOauthDTO{
 
 	/**
 	 * ユーザーID格納メソッド
-	 * @param userId ユーザーID
+	 * 
+	 * @param userId
+	 *            ユーザーID
 	 */
 	public void setUserId(int userId) {
 		this.userId = userId;

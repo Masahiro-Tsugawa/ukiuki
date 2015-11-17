@@ -22,13 +22,13 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 		HomeDAO dao = new HomeDAO();
-		String ret = dao.select(id,email, password);
-		session.put("userId", id);
+		String ret = dao.select(email,password);
+		session.put("userId", dao.getId());
 		session.put("loginName", dao.getName());
 		session.put("userEmail", email);
 		
 		if(ret == "error"){
-			getText("mistaken");
+			setIdError(getText("mistaken"));
 		}
 		System.out.println(session.get("userId"));
 		System.out.println(session.get("loginName"));
@@ -40,14 +40,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}	
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 
 	public String getEmail() {
 		return email;
