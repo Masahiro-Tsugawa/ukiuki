@@ -25,8 +25,7 @@ public class TestAction extends ActionSupport implements SessionAware {
 		use.add(null);
 		option.add(null);
 		
-		//option.add(int, "テストチケット");
-		
+
 		session.put("buyUseTicket", use);
 		session.put("buyOptionTicket", option);
 		session.put("buyCardNumber", test);

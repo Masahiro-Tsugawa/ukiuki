@@ -1,43 +1,50 @@
- body{
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  /*font-size: 100%;*/
-  color: #000;
-  font-family: sans-serif;
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/*font-size: 100%;*/
+	color: #000;
+	font-family: sans-serif;
 }
 
-.header{
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px;
-  background-color:#FFA500;
+.header {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	background-image: url(../img/beadbanaer.png);
+	background-position: center center;
+	background-size: cover;
+	height: 220px;
+}
+.header img{
+	margin-top:50px;
+	margin-left: 50px;
 }
 
-#header{
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px;
-  background-color:#FFA500;
+#header {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	background-color: #FFA500
 }
 
-.container{
-  clear:both;
-  width:80%;
-  min-height: 100%;
-  margin-left:auto;
-  margin-right: auto;
+.container {
+	clear: both;
+	width: 80%;
+	min-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
- body,html{
- height: 100%;
+body, html {
+	height: 100%;
 }
 
-.footer{
-  margin-top: 10px;
-  text-align:center;
-  background:#000;
-  color:#FFF;
+.footer {
+	margin-top: 10px;
+	text-align: center;
+	background: #000;
+	color: #FFF;
 }
