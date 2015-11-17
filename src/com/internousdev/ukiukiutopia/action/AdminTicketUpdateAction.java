@@ -38,7 +38,6 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
-		int updateId =  (int)session.get("id");
 		
 		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,updateRenewDate,updateTicketInfo);
 
