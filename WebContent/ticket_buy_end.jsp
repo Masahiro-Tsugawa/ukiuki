@@ -1,4 +1,12 @@
 
+
+
+<!--  
+ * @author  Y.kawahigashi　
+ * @version 1.1　　
+ * @since 1.0　
+ -->
+ <!-- 文字コードの指定-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -9,7 +17,7 @@
 <html lang="ja">
 
 <head>
-
+<!--プロパティを取得-->
 <fmt:setBundle
 	basename="com.internousdev.ukiukiutopia.ticket.property.Ticket"
 	var="lang" />
@@ -26,13 +34,13 @@
 			<br>
 			<br> 
 			<br>
-			<div>
-				<s:text name="Purchase.ticket_buy_end" />
+			<div><!-- ご購入ありがとうございました。-->
+				<s:text name="Purchase.kawahigashi" />
 			</div>
 			<br>
 			<br>
-			<s:form action="my_page">
-				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
+			<s:form action="pesonal"> <!-- myページに戻る -->
+				<s:submit value="%{getText('Transmission.kawahigshi')}" />
 			</s:form>
 		</div>
 	</div>
