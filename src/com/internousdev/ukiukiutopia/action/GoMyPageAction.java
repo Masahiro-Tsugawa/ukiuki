@@ -33,10 +33,11 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * 登録者情報をDAOから取得し、登録者情報を格納するメソッド
-     * @return 
+     * @return result
      */
 	public String execute() throws Exception{
 		String emailAddress = (String)session.get("userEmail");
+		System.out.println(session.get("userEmail"));
 		if (emailAddress == null) {
 			return ERROR;
 		}
@@ -48,6 +49,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 			return ERROR;
 		}
 		
+		
 		PersonalInformationDTO personal = pd.getPersonal();
 		name = personal.getName();
 		telNum = personal.getTelNum();
@@ -55,9 +57,8 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		postalCode = personal.getPostalCode();
 		address = personal.getAddress();
 		
-		
-		int id = (int)session.get("userID");
-		
+	    System.out.println(session.get("userId"));
+		int id = (int)session.get("userId");
 		PersonalInformationDAO hd = new PersonalInformationDAO();
 		boolean historyDAO = hd.selectHistory(id);
 		if (!historyDAO) {
@@ -73,6 +74,8 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	
+	
 
 	public String getName() {
 		return name;

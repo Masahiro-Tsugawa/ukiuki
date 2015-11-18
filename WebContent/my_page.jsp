@@ -52,7 +52,7 @@
 				</tr>
 
 				<s:form action="ticket_buy">
-					<td colspan="2"><s:submit value="チケット新規購入画面へ" /></td>
+					<td colspan="2"><s:submit value="%{getText('MyPage.newPurchaseScreen')}" /></td>
 				</s:form>
 
 			</table>
