@@ -10,10 +10,13 @@ import com.mongodb.MongoClient;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class MongoDBConnector {
 
+	/**
+     * 指定したデータベースへの接続情報を取得するメソッド
+     * @return db 指定したデータベースへの接続情報
+     */
 	public static DB getConnection() {
 		DB db = null;
 		try {

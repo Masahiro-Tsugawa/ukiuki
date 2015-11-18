@@ -14,19 +14,33 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class BuyTicketDataDAO {
 
-	private Connection con;
-	private boolean action = false;
+	/**
+	 * 購入するチケットの合計金額
+	 */
 	private int totalAmount=0;
-
+	/**
+	 * 購入する施設利用チケット情報のリスト
+	 */
 	private List<TicketDataDTO> buyUseTicketList = new ArrayList<TicketDataDTO>();
+	/**
+	 * 購入するオプションチケット情報のリスト
+	 */
 	private List<TicketDataDTO> buyOptionTicketList = new ArrayList<TicketDataDTO>();
+	
 
-	public boolean setBuyUseTicketList(int id, int sheets) throws Exception {
-		con = DBConnector.getConnection();
+	/**
+	 * 購入する施設利用チケット情報のリストを作成するメソッド
+	 * @param id 購入する施設利用チケットのID
+	 * @param sheets 購入する施設利用チケットの枚数
+	 * @return result 
+	 * @throws Exception
+	 */
+	public boolean createBuyUseTicketList(int id, int sheets) throws Exception {
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 		try {
 			String sql = "select * from ticket where ticket_type='use' and id=?";
 
@@ -34,13 +48,8 @@ public class BuyTicketDataDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 
-			System.out.println("select - ps - " + ps);
-
 			ResultSet rs = ps.executeQuery();
-			System.out.println("select - sql実行");
-
 			rs.next();
-
 			TicketDataDTO dto = new TicketDataDTO();
 
 			dto.setId(rs.getInt(1));
@@ -52,19 +61,28 @@ public class BuyTicketDataDAO {
 			totalAmount+=dto.getSubTotal();
 			
 			buyUseTicketList.add(dto);
-			action = true;
+			result = true;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 
-		return action;
+		return result;
 	}
 	
-	public boolean setBuyOptionTicketList(int id, int sheets) throws Exception {
-		con = DBConnector.getConnection();
+	
+	/**
+	 * 購入する施設利用チケット情報のリストを作成するメソッド
+	 * @param id
+	 * @param sheets
+	 * @return result
+	 * @throws Exception
+	 */
+	public boolean createBuyOptionTicketList(int id, int sheets) throws Exception {
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 		try {
 			String sql = "select * from ticket where ticket_type='option' and id=?";
 
@@ -72,10 +90,7 @@ public class BuyTicketDataDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 
-			System.out.println("select - ps - " + ps);
-
 			ResultSet rs = ps.executeQuery();
-			System.out.println("select - sql実行");
 
 			rs.next();
 
@@ -90,15 +105,15 @@ public class BuyTicketDataDAO {
 			totalAmount+=dto.getSubTotal();
 
 			buyOptionTicketList.add(dto);
-			action = true;
+			result = true;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 
-		return action;
+		return result;
 	}
 
 	public List<TicketDataDTO> getBuyUseTicketList() {

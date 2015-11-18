@@ -17,12 +17,11 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class CreateOrderAction extends ActionSupport implements SessionAware {
-
-	private static final long serialVersionUID = 1L;
-
+	
+	private static final long serialVersionUID = -6618589045944198322L;
+	
 	private Map<String, Object> session;
 	private String result = "error";
 
@@ -48,13 +47,13 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 
 		for (int i = 0; i < (int) session.get("useListSize"); i++) {
 			if (useSheets.get(i) != 0) {
-				resultDAO = dao.setBuyUseTicketList(useId.get(i), useSheets.get(i));
+				resultDAO = dao.createBuyUseTicketList(useId.get(i), useSheets.get(i));
 			}
 		}
 
 		for (int i = 0; i < (int) session.get("optionListSize"); i++) {
 			if (optionSheets.get(i) != 0) {
-				resultDAO = dao.setBuyOptionTicketList(optionId.get(i), optionSheets.get(i));
+				resultDAO = dao.createBuyOptionTicketList(optionId.get(i), optionSheets.get(i));
 			}
 		}
 
