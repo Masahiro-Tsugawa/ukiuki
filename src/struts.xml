@@ -17,7 +17,7 @@
          <!-- Twitter認証のコールバックアクション -->
 		<action name="LoginTwitterAction" class="com.internousdev.ukiukiutopia.action.LoginTwitterAction"
 			method="execute">
-			<result name="success">my_page.jsp</result>
+			<result name="success" type="redirectAction">Personal</result>
 			<result name="error">home.jsp</result>
                 </action>
 
@@ -28,7 +28,7 @@
 		<action name="GoGoogleAction"
 			class="com.internousdev.ukiukiutopia.action.GoGoogleAction"
                 method="execute">
-			<result name="success">my_page.jsp</result>
+			<result name="success" type="redirectAction">Personal</result>
 			<result name="error">home.jsp</result>
 		</action>
 
@@ -36,7 +36,7 @@
 		<action name="LoginGoogleAction"
 			class="com.internousdev.ukiukiutopia.action.LoginGoogleAction"
                 method="execute">
-			<result name="success">my_page.jsp</result>
+			<result name="success" type="redirectAction">Personal</result>
 			<result name="error">home.jsp</result>
 		</action>
 
@@ -45,14 +45,14 @@
 
 		<action name="FacebookLogin" class="com.internousdev.ukiukiutopia.action.GoFacebookAction"
 		method="execute">
-		        <result name="success">my_page.jsp</result>
+		        <result name="success" type="redirectAction">Personal</result>
 			<result name="error">home.jsp</result>
                 </action>
 
 		<!-- Facebook認証のコールバックアクション -->
 		<action name="CallbackServlet" class="com.internousdev.ukiukiutopia.action.LoginFacebookAction"
 		method="execute">
-			<result name="success">my_page.jsp</result>
+			<result name="success" type="redirectAction">Personal</result>
 			<result name="error">home.jsp</result>
 		</action>
 
@@ -178,7 +178,7 @@
          </action>
          
          <action name="HomeAction" class="com.internousdev.ukiukiutopia.action.HomeAction" method="execute">
-            <result name="success">my_page.jsp</result>
+            <result name="success" type="redirectAction">Personal</result>
             <result name="error">home.jsp</result>
             <result name="input">home.jsp</result>
         </action>
