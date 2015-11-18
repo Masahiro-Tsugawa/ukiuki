@@ -4,7 +4,8 @@
 
 <link rel="stylesheet" href="css/main.css" />
 <div class="header">
-	<a href="MainAction"><img src="img/ukiukilogo.png" alt="うきうきUtopia"></a>
+	<s:url id="home" action="home" />
+	<s:a href="%{home}"><img src="img/ukiukilogo.png" alt="ukiukiUTOPIA"></s:a>
 	<s:if test="#session.userName != null">
 		<div align="right">
 			<span><s:property value="#session.userName" />様 </span> 
