@@ -38,14 +38,14 @@ public class TestAction extends ActionSupport implements SessionAware {
 		int sheets = 10;
 		int subTotal = 16000;
 		
-		TicketDataDAO dao = new TicketDataDAO();
-		boolean resultDAO = dao.select(sheets,subTotal);
-		System.out.println("resultDAO="+resultDAO);
-		System.out.println("SelectActionに復帰");
-		if(resultDAO){
-			useList.addAll(dao.getUseTicketList());
-			
-		}
+//		TicketDataDAO dao = new TicketDataDAO();
+//		boolean resultDAO = dao.select(sheets,subTotal);
+//		System.out.println("resultDAO="+resultDAO);
+//		System.out.println("SelectActionに復帰");
+//		if(resultDAO){
+//			useList.addAll(dao.getUseTicketList());
+//			
+//		}
 		
 		session.put("buyUseTicket", useList);
 

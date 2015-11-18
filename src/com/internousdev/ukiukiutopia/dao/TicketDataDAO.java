@@ -4,10 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
+import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 import com.internousdev.ukiukiutopia.util.MongoDBConnector;
 import com.mongodb.BasicDBObject;
@@ -22,20 +21,17 @@ import com.mongodb.DBObject;
  */
 public class TicketDataDAO {
 
-	Connection con;
-	boolean action;
+	private Connection con;
+	private boolean action;
 
-	/**
-	 * 
-	 */
-	public List<TicketDataDTO> useTicketList = new ArrayList<TicketDataDTO>();
-	public List<TicketDataDTO> optionTicketList = new ArrayList<TicketDataDTO>();
+	private List<BuyTicketDataDTO> useTicketList = new ArrayList<BuyTicketDataDTO>();
+	private List<BuyTicketDataDTO> optionTicketList = new ArrayList<BuyTicketDataDTO>();
 
 	/**
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean select(int sheets,int subTotal) throws Exception {
+	public boolean setTicketList() throws Exception {
 		System.out.println("select - メソッド実行");
 		action = false;
 		con = DBConnector.getConnection();
@@ -44,7 +40,7 @@ public class TicketDataDAO {
 		DBCollection coll = db.getCollection("ticket_detail");
 
 		try {
-			String sql = "select * from ticket where is_sale=true";
+			String sql = "select * from ticket where is_sale=true and ticket_type='use'";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -56,7 +52,7 @@ public class TicketDataDAO {
 
 			while (rs.next()) {
 				action = true;
-				TicketDataDTO dto = new TicketDataDTO();
+				BuyTicketDataDTO dto = new BuyTicketDataDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
@@ -66,13 +62,41 @@ public class TicketDataDAO {
 				dto.setPrice(rs.getInt(3));
 				dto.setType(rs.getString(4));
 				dto.setInfo((String) doc.get("ticket_info"));
-				
-				dto.setSheets(sheets);
-				dto.setSubTotal(subTotal);
-				
+			
 				useTicketList.add(dto);
 
-				System.out.println("select - itemList - OK");
+				System.out.println("select - useList - OK");
+				
+			} // while
+			
+			
+			String sql2 = "select * from ticket where is_sale=true and ticket_type='option'";
+
+			PreparedStatement ps2;
+			ps2 = con.prepareStatement(sql2);
+
+			System.out.println("select - ps2 - " + ps2);
+
+			ResultSet rs2 = ps2.executeQuery();
+			System.out.println("select - sql2実行");
+			
+			while (rs2.next()) {
+				action = true;
+				BuyTicketDataDTO dto = new BuyTicketDataDTO();
+				BasicDBObject query = new BasicDBObject("ticket_id", rs2.getInt(1));
+				DBCursor cursor = coll.find(query);
+				DBObject doc = cursor.next();
+
+				dto.setId(rs2.getInt(1));
+				dto.setName(rs2.getString(2));
+				dto.setPrice(rs2.getInt(3));
+				dto.setType(rs2.getString(4));
+				dto.setInfo((String) doc.get("ticket_info"));
+				
+				optionTicketList.add(dto);
+
+				System.out.println("select - optionList - OK");
+				
 			} // while
 
 		} catch (Exception e) {
@@ -88,12 +112,11 @@ public class TicketDataDAO {
 	/**
 	 * @return
 	 */
-	public List<TicketDataDTO> getUseTicketList() {
+	public List<BuyTicketDataDTO> getUseTicketList() {
 		return useTicketList;
 	}
-
-	public List<TicketDataDTO> getOptionTicketList() {
-
+	
+	public List<BuyTicketDataDTO> getOptionTicketList() {
 		return optionTicketList;
 	}
 
