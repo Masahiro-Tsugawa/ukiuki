@@ -14,11 +14,12 @@ import com.opensymphony.xwork2.ActionSupport;
 import twitter4j.TwitterException;
 
 /**
-* GoTwitterAction
+* @author A.Masui
+* @version 1.1　
+* @since 1.0　
+* 
 * ログイン画面からTwitter認証画面へ遷移する為のアクションクラス
-* @author 根井 孝裕
-* @since 2015/08/07
-* @version 1.0
+* @author 
 */
 public class GoTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware{
 
@@ -44,7 +45,6 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 
 	/**
 	* 実行メソッド
-	* @since 2015/08/07
 	* @return result
 	*/
 	public String execute(){

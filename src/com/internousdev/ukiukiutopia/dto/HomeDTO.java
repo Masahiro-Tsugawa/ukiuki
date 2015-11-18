@@ -1,14 +1,12 @@
 package com.internousdev.ukiukiutopia.dto;
 
 /**
- * LoginUserDTO
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  * 顧客情報を格納する為のDTOクラス
- * @author 大嶋 里奈
- * @since 2015/08/10
- * @version 1.0
- *
  */
-public class LoginUserDTO{
+public class HomeDTO{
 
 	/**
 	 * 名前

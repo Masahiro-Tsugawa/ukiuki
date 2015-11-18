@@ -12,11 +12,10 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.RequestToken;
 
 /**
- * TwitterRequestToken
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  * Twitterのリクエストトークンを取得する為のクラス
- * @author 根井 孝裕
- * @since 2015/08/07
- * @version 1.0
  */
 public class TwitterRequestToken {
 

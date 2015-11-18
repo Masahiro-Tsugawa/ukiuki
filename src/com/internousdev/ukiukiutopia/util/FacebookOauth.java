@@ -19,6 +19,12 @@ import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *
+ */
 public class FacebookOauth extends ActionSupport {
 
 	/**
@@ -41,6 +47,12 @@ public class FacebookOauth extends ActionSupport {
 	 */
 	private static final String CALLBACK_PATH = "/my_page.jsp";
 
+	/**
+	 * @param request リクエスト
+	 * @param response レスポンス
+	 * @throws ServletException　　
+	 * @throws IOException　例外
+	 */
 	public void getRequestToken(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Facebook facebook = new FacebookFactory().getInstance();
@@ -55,6 +67,13 @@ public class FacebookOauth extends ActionSupport {
 		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
 	}
 
+	/**
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws ServletException
+	 * @throws Exception
+	 */
 	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, Exception {
 		final String callbackURL = request.getRequestURL().toString();

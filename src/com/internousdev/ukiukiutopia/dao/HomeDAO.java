@@ -7,13 +7,26 @@ import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
+/**
+ * 
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *　DBからemailとpasswordを検索する為のクラス
+ */
 public class HomeDAO {
 
 	private String name;
 	private int id;
 
-	public String select(String user, String password) {
-		System.out.println("dao");
+	/**
+	 * DB検索メソッド
+	 * @param email DB内のemail
+	 * @param password DB内のpassword
+	 * @return　検索の結果の成否
+	 */
+	public String select(String email, String password) {
+		System.out.println(email);
 		Connection conn = null;
 		String ret = "error";
 		try {
@@ -21,7 +34,7 @@ public class HomeDAO {
 			String sql = "SELECT * FROM user WHERE ";
 			sql += "email = ? AND password = ?";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, user);
+			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -44,19 +57,35 @@ public class HomeDAO {
 		return ret;
 	}
 	
+	/**
+	 * ユーザーID取得メソッド
+	 * @return　ユーザーID
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 *  ユーザーID格納メソッド
+	 * @param id ユーザーID
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 
+	/**
+	 *  ユーザー名取得メソッド
+	 * @return　ユーザー名
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 *  ユーザー名格納メソッド
+	 * @param name ユーザー名
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

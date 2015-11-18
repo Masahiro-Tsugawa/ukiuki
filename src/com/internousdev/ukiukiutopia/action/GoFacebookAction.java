@@ -16,6 +16,12 @@ import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ * FaceBookの認証画面へ遷移する為のクラス
+ */
 public class GoFacebookAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
 
 	/**
@@ -39,8 +45,15 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 		return SUCCESS;
 	}
 
-	public void getToken(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	/**
+	 * FaceBookの情報の照合メソッド
+	 * @param request リクエスト
+	 * @param response レスポンス
+	 * @throws ServletException　実装されているインターフェイス
+	 * @throws IOException　例外
+	 * 
+	 */
+	public void getToken(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		Facebook facebook = new FacebookFactory().getInstance();
 		request.getSession().setAttribute("facebook", facebook);
 		facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
@@ -49,7 +62,7 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 		facebook.setOAuthAccessToken(at);
 		StringBuffer callbackURL = request.getRequestURL();
 		int index = callbackURL.lastIndexOf("/");
-		callbackURL.replace(index, callbackURL.length(), "").append("/my_page.jsp");
+		callbackURL.replace(index, callbackURL.length(), "").append("/personal.action");
 		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
 	}
 

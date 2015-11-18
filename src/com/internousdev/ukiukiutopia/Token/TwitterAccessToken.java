@@ -13,11 +13,11 @@ import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
 /**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  * TwitterAccessToken
  * Twitterのアクセストークンを取得する為のクラス
- * @author 根井 孝裕
- * @since 2015/8/07
- * @version 1.0
  */
 public class TwitterAccessToken {
 

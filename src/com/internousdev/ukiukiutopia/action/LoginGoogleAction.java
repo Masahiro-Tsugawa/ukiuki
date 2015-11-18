@@ -12,6 +12,12 @@ import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *FaceBookから情報を取得し、sessionに格納する為のクラス
+ */
 public class LoginGoogleAction extends ActionSupport implements
 ServletRequestAware, SessionAware {
 
@@ -68,15 +74,25 @@ ServletRequestAware, SessionAware {
 		rtn = SUCCESS;
 		return rtn;
 	}
-
+	/**
+	 * セッション格納メソッド
+	 * @param sessionMap セッションマップ
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
+	/**
+	 * セッション取得メソッド
+	 * @return sessionMap セッションマップ
+	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
+	/**
+	 * リクエスト格納メソッド
+	 * @param request リクエスト
+	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}

@@ -8,11 +8,17 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.ukiukiutopia.dao.HomeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ * @author DBからid,name,emailを取得、
+   * 　　　　　　　　sessionに格納する為のクラス
+ * 
+ */
 public class HomeAction extends ActionSupport implements SessionAware {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private String email;
 	private String password;
@@ -27,11 +33,8 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		session.put("userEmail", email);
 		
 		if(ret == "error"){
-			setIdError(getText("mistaken"));
+			setIdError(getText("home.mistaken"));
 		}
-		System.out.println(session.get("userId"));
-		System.out.println(session.get("loginName"));
-		System.out.println(session.get("userEmail"));
 		return ret;
 	}
 
@@ -41,26 +44,51 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	
 	
 
+	
+	/**
+	 *  ユーザーemail取得メソッド
+	 * @return ユーザーemail
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 *  ユーザーemail取得メソッド
+	 * @param email ユーザーemail
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 *  ユーザーpassword取得メソッド
+	 * @return ユーザーpassword
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 *  ユーザーpassword取得メソッド
+	 * @param password ユーザーpassword
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 *  ユーザーidError取得メソッド
+	 * @return ユーザーidError
+	 */
 	public String getIdError() {
 		return idError;
 	}
 
+	/**
+	 *  ユーザーidError取得メソッド
+	 * @param idError ユーザーidError
+	 */
 	public void setIdError(String idError) {
 		this.idError = idError;
 	}

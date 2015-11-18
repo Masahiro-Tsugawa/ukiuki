@@ -1,5 +1,11 @@
 package com.internousdev.ukiukiutopia.dto;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ * DBの情報を取得、格納する為のクラス
+ */
 public class LoginOauthDTO {
 
 	/**

@@ -1,27 +1,23 @@
 package com.internousdev.ukiukiutopia.action;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
-import org.json.simple.JSONValue;
-
 import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.FacebookOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *FaceBookから情報を取得し、sessionに格納する為のクラス
+ */
 public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		ServletResponseAware, ServletRequestAware {
 
@@ -69,6 +65,8 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
 			session.put("loginId", dto.getUserId());
 			session.put("loginName", dto.getUserName());
+			System.out.println(session.get("loginId"));
+			System.out.println(session.get("loginName"));
 			rtn = SUCCESS;
 			return rtn;
 		}

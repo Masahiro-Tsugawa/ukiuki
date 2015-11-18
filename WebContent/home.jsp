@@ -28,44 +28,43 @@
 				<div class="col-md-4">
 					<div class="createUser">
 						<h3>
-							<s:text name="newSign" />
+							<s:text name="home.newSign" />
 						</h3>
-						<s:form action="home">
-						<s:submit  class= "signUpButton"   value="%{getText('sign')}" />
+						<s:form action="GoCreateUser">
+						<s:submit  class= "signUpButton"   value="%{getText('home.sign')}" />
 						</s:form>
 						<p class="new-comment">
 						<h4>
-							<s:text name="free" />
+							<s:text name="home.free" />
 						</h4>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="loginUser">
 						<h3>
-							<s:text name="login" />
+							<s:text name="home.login" />
 						</h3>
 						<s:form action="HomeAction">
 							<s:property value="getIdError()" />
 							<br>
 							<table>
 								<tr>
-									<td><label for="email">ID：</label></td>
-									<td><s:textfield label="ID" name="email" placeholder="%{getText('id')}" /></td>
+									<td><label for="email">ID：</label><br><s:textfield label="ID" name="email" placeholder="%{getText('home.id')}" /></td>
 								</tr>
 								<tr>
-									<td><label for="password">PASSWORD：</label></td>
-									<td><s:password label="パスワード" name="password" placeholder="%{getText('pass')}" /></td>
+									
+									<td><label for="password">PASSWORD：</label><br><s:password label="パスワード" name="password" placeholder="%{getText('home.pass')}" /></td>
 								</tr>
 								<tr>
 									<td>
-										<s:submit class = "loginButton" value="%{getText('login')}" />
+										<s:submit class = "loginButton" value="%{getText('home.login')}" />
 									</td>
 								</tr>
 							</table>
 						</s:form>
 						<p class="login-comment">
 						<h4>
-							<s:text name="mouMember" />
+							<s:text name="home.already.member" />
 						</h4>
 						<br>
 						</p>
@@ -75,7 +74,7 @@
 				<div class="col-md-4">
 					<div class="oauthUser">
 						<h3>
-							<s:text name="snsAcount" />
+							<s:text name="home.snsAcount" />
 						</h3>
 						<!-- <a href="TwitterLogin" target="_self "><img src="img/Twitter.png" alt="twitterアカウントでログイン" class="tw"></a> -->
 						<a href="FacebookLogin" target="_self "><img src="img/FB.png"
@@ -84,7 +83,7 @@
 							src="img/Google.png" alt="Google+アカウントでログイン" class="gg"></a>
 						<p class="-comment">
 						<h4>
-							<s:text name="aikon" />
+							<s:text name="home.aikon" />
 						</h4>
 						<br>
 						</p>
@@ -95,11 +94,11 @@
 
 			<div id="howto">
 				<h3>
-					<s:text name="howTo" />
+					<s:text name="home.howTo" />
 				</h3>
 				<h4>
 					<p>
-						<s:text name="howToUse" />
+						<s:text name="home.howToUse" />
 					</p>
 				</h4>
 			</div>
@@ -107,11 +106,11 @@
 
 			<div id="access">
 				<h3>
-					<s:text name="jyusyo" />
+					<s:text name="home.address" />
 				</h3>
 				<h4>
 					<p>
-						<s:text name="jyusyoS" />
+						<s:text name="home.adress.description" />
 						<br>
 					</p>
 				</h4>

@@ -6,11 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *　取得した情報を格納、照合、insertする為のクラス
+ */
 public class LoginOauthDAO {
 
 	/**
@@ -18,22 +23,12 @@ public class LoginOauthDAO {
 	 */
 	private LoginOauthDTO dto = new LoginOauthDTO();
 	Connection con = null;
-
-	/**
-	 * selectByUserLoginId 入力されたログインIDとパスワードをDBと照合するメソッド
-	 * 
-	 * @param loginId
-	 *            ログインID
-	 * @param password
-	 *            パスワード
-	 * @return result
-	 */
 	
 	/**
-	 * 取得したユニークIDを照合するためのメソッド
+	 * 取得したユニークIDの照合メソッド
 	 * 
 	 * @param userUniqueId
-	 *            ユニークID
+	 * @param oauthName 
 	 * @return result
 	 */
 	public boolean select(String userUniqueId, String oauthName) {
@@ -64,6 +59,14 @@ public class LoginOauthDAO {
 		return result;
 	}
 
+	/**
+	 * ユーザー情報登録メソッド
+	 * @param uniqueId
+	 * @param userName
+	 * @param oauthName
+	 * @return
+	 */@SuppressWarnings("javadoc")
+	
 	public boolean insert(String uniqueId, String userName, String oauthName) {
 		boolean result = false;
 		Calendar cal = Calendar.getInstance();

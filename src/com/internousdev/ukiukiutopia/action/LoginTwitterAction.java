@@ -11,15 +11,15 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.Token.TwitterAccessToken;
 import com.internousdev.ukiukiutopia.dao.LoginUserDAO;
-import com.internousdev.ukiukiutopia.dto.LoginUserDTO;
+import com.internousdev.ukiukiutopia.dto.HomeDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  * LoginTwitterAction
  * Twitter認証画面からユーザーページか新規登録画面へ遷移する為のアクションクラス
- * @author 佐島 和至
- * @since 2015/08/10
- * @version 1.0
  */
 public class LoginTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
 
@@ -56,7 +56,6 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
 	/**
 	 * 実行メソッド
-	 * @since 2015/08/10
 	 * @return result
 	 * @see TwitterAccessToken
 	 */
@@ -76,7 +75,7 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 			userLoginId = userData[1];
 
 			LoginUserDAO dao = new LoginUserDAO();
-			LoginUserDTO dto;
+			HomeDTO dto;
 			if(dao.selectByUserUniqueId(userLoginId)){
 				dto = dao.getLoginUserDTO();
 
