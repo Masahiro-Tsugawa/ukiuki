@@ -50,13 +50,11 @@
 							<table>
 								<tr>
 									<td><label for="email">ID：</label></td>
-									<td><s:textfield label="ID" name="email"
-											placeholder="%{getText('id')}" /></td>
+									<td><s:textfield label="ID" name="email" placeholder="%{getText('id')}" /></td>
 								</tr>
 								<tr>
 									<td><label for="password">PASSWORD：</label></td>
-									<td><s:password label="パスワード" name="password"
-											placeholder="%{getText('pass')}" /></td>
+									<td><s:password label="パスワード" name="password" placeholder="%{getText('pass')}" /></td>
 								</tr>
 								<tr>
 									<td>
