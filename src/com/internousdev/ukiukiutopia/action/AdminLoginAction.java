@@ -10,20 +10,43 @@ import com.internousdev.ukiukiutopia.dao.AdminLoginDAO;
 import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
 
 /**
- * @author internous
- *
+ * 管理ページにてログインする為のアクション
+ * @author Mizukoshi Shizuka
+ * @since 2015/11/18
+ * @version 1.0
  */
 public class AdminLoginAction extends ActionSupport implements SessionAware {
 
+	/***
+	 * 生成したシリアルID
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/***
+	 * 管理者名
+	 */
 	private String name;
+	/***
+	 * 管理者パスワード
+	 */
 	private String password;
+	/***
+	 * ログイン状態
+	 */
 	private boolean isLogin;
+	/***
+	 * 管理者名を保持してブラウザに表示するためにセッションを用意
+	 */
 	private Map<String, Object> session;
+	
+	/**
+	 * 管理者ページにログインするメソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @return SUCCESS
+	 */
 
 	public String execute() throws SQLException {
-		System.out.println("bbbb");
 		if (name == null || name.equals(" ")) {
 			addActionError("ユーザー名を入力してください");
 			return ERROR;
@@ -53,34 +76,79 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	}
 
+	/**
+	 * 管理者名取得メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/**
+	 * 管理者名格納メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @param name 管理者名
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	/**
+	 * 管理者パスワード取得メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @return password
+	 */
 	public String getPassword() {
 		return password;
 	}
-
+	/**
+	 * 管理者パスワード格納メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @param password 管理者パスワード
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * セッション取得メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @return session
+	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
+	/**
+	 * セッション格納メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @param session セッション
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
+	/**
+	 * ログイン状態取得メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @return isLogin
+	 */
 	public boolean getIsLogin() {
 		return isLogin;
 	}
-
+	/**
+	 * ログイン状態格納メソッド
+	 * @author Mizukoshi Shizuka
+	 * @since 2015/11/18
+	 * @param isLogin ログイン状態
+	 */
 	public void setIsLogin(boolean isLogin) {
 		this.isLogin = isLogin;
 	}

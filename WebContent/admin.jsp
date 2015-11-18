@@ -30,7 +30,7 @@
 		<s:fielderror>
 			<s:param value="%{'adminPass'}" />
 		</s:fielderror>
-		
+
 		<s:form id="signin" class="navbar-form navbar-right" role="form"
 				action="AdminLoginAction" method="post">
 				<div class="input-group">
@@ -116,7 +116,7 @@
 
  <%--以下、結果表示 --%>
 
-			　<p>以下に検索結果が表示されます<br>チケット情報とユーザー情報の編集はここで行うことができます</p>
+			　<p>以下に検索結果が表示されます<br>チケット情報とユーザー情報の編集はこちらで行うことができます</p>
 				<s:if
 					test="%{ boughtList == null || boughtList.isEmpty()}"></s:if>
 		
@@ -151,8 +151,6 @@
 					</table>
 					</div>
 					
-					  
-    <div id="jqPlot-sample" style="height: 300px; width: 300px;"></div>
 				</s:form>
 
 				</s:else>
@@ -215,7 +213,7 @@
 			    <td colspan="2"><s:radio list="#{true:'販売継続', false:'販売終了'}" name="updateIsSale" value="0"></s:radio></td>
 			   </tr>
 			    <tr>
-			    <td colspan="2"><s:textfield id="updateticketinfo" type="text" class="form-control" name="updateTicketInfo" placeholder="チケット種類" /></td>
+			    <td colspan="2"><s:textfield id="updateticketinfo" type="text" class="form-control" name="updateTicketInfo" placeholder="チケット詳細" style="width:400px;height:200px;" /></td>
 			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
@@ -246,7 +244,7 @@
 			<s:else>
 			 <s:div class="container-fluid">
 	          <s:div class="row">
-		       <s:div class="col-md-6">
+		       <s:div class="col-md-4">
 				<s:form action="AdminUserSelectAction">
 				<s:iterator value="userList">
 					 <table class="table table-striped">
@@ -287,32 +285,40 @@
 					 </table>
 						</s:iterator>
 				</s:form>
+					
+		    <s:div class="userdelete">
+		    <h5 class="userdeletebutton">ユーザーの削除</h5>
+			<s:form action="AdminUserDeleteAction">
+			    <s:submit value="ユーザーを削除 "></s:submit>
+		    </s:form>
+		    </s:div>
+		    
 			</s:div>
 				
-            <s:div class="col-md-6">
+            <s:div class="col-md-8">
 			 <s:form action="AdminUserUpdateAction">
-			  <table class="table table-striped">
+			  <table class="table">
 			   <thead>
 			   <tr>
-			    <td colspan="2">こちらに編集情報を入力してください</td>
+			    <th>こちらに編集情報を入力してください</th>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateEmail" type="text" class="form-control" name="updateEmail" placeholder="メールアドレス" /></td>       
+			    <td><s:textfield id="updateEmail" type="text" class="form-control" name="updateEmail" placeholder="メールアドレス" /></td>       
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatePassword" type="text" class="form-control" name="updatePassword" placeholder="パスワード" /></td>
+			    <td><s:textfield id="updatePassword" type="text" class="form-control" name="updatePassword" placeholder="パスワード" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateName" type="text" class="form-control" name="updateName" placeholder="ユーザー名" /></td>
+			    <td><s:textfield id="updateName" type="text" class="form-control" name="updateName" placeholder="ユーザー名" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateTelNum" type="text" class="form-control" name="updateTelnum" placeholder="電話番号" /></td>
+			    <td><s:textfield id="updateTelNum" type="text" class="form-control" name="updateTelnum" placeholder="電話番号" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updatepostalcode" type="text" class="form-control" name="updatePostalCode" placeholder="郵便番号" /></td>
+			    <td><s:textfield id="updatepostalcode" type="text" class="form-control" name="updatePostalCode" placeholder="郵便番号" /></td>
 			   </tr>
 			   <tr>
-			    <td colspan="2"><s:textfield id="updateaddress" type="text" class="form-control" name="updateAddress" placeholder="住所" /></td>
+			    <td><s:textfield id="updateaddress" type="text" class="form-control" name="updateAddress" placeholder="住所" /></td>
 			   </tr>
 			   <tr>
  			    <td><s:submit value="編集 "></s:submit></td>
@@ -321,17 +327,11 @@
 			  </table>
 			 </s:form>
 			</s:div>
+		  
+		   
 		   </s:div>
 		  </s:div>
-
-			 
-
-		  <s:div class="userdelete">
-			<s:form action="AdminUserDeleteAction">
-			    <s:submit value="ユーザーを削除 "></s:submit>
-		    </s:form>
-		  </s:div>
-
+		  
       </s:else>
      </s:else>
 
