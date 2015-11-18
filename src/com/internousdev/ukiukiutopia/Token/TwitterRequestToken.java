@@ -22,7 +22,7 @@ public class TwitterRequestToken {
 	/**
 	* 結果
 	*/
-	String result="error";
+	String result="ERROR";
 
 	/**
 	* コンシューマーキー

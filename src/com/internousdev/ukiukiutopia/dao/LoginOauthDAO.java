@@ -26,10 +26,9 @@ public class LoginOauthDAO {
 	
 	/**
 	 * 取得したユニークIDの照合メソッド
-	 * 
-	 * @param userUniqueId
-	 * @param oauthName 
-	 * @return result
+	 * @param userUniqueId 取得したユニークID
+	 * @param oauthName 取得した名前
+	 * @return result　結果
 	 */
 	public boolean select(String userUniqueId, String oauthName) {
 		boolean result = false;
@@ -61,11 +60,11 @@ public class LoginOauthDAO {
 
 	/**
 	 * ユーザー情報登録メソッド
-	 * @param uniqueId
-	 * @param userName
-	 * @param oauthName
-	 * @return
-	 */@SuppressWarnings("javadoc")
+	 * @param uniqueId 取得したユニークID
+	 * @param oauthName 取得した名前
+	 * @param userName 
+	 * @return result　結果
+	 */
 	
 	public boolean insert(String uniqueId, String userName, String oauthName) {
 		boolean result = false;

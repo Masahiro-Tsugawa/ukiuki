@@ -27,7 +27,7 @@ public class HomeDAO {
 	 */
 	public String select(String email, String password) {
 		Connection conn = null;
-		String ret = "error";
+		String ret = "ERROR";
 		try {
 			conn = (Connection) DBConnector.getConnection();
 			String sql = "SELECT * FROM user WHERE ";
@@ -37,7 +37,7 @@ public class HomeDAO {
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				ret = "success";
+				ret = "SUCCESS";
 				name = rs.getString("name");
 				id = rs.getInt("id");
 
