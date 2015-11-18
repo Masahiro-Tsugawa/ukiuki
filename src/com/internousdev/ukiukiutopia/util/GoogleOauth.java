@@ -18,7 +18,12 @@ import org.scribe.oauth.OAuthService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
+ *
+ */
 public class GoogleOauth extends ActionSupport {
 
 	/**

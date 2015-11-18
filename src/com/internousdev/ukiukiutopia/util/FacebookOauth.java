@@ -68,11 +68,11 @@ public class FacebookOauth extends ActionSupport {
 	}
 
 	/**
-	 * @param request
-	 * @param response
-	 * @return
+	 * @param request リクエスト
+	 * @param response レスポンス
+	 * @return　response レスポンス
 	 * @throws ServletException
-	 * @throws Exception
+	 * @throws Exception　例外
 	 */
 	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, Exception {

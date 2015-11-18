@@ -26,7 +26,6 @@ public class HomeDAO {
 	 * @return　検索の結果の成否
 	 */
 	public String select(String email, String password) {
-		System.out.println(email);
 		Connection conn = null;
 		String ret = "error";
 		try {
