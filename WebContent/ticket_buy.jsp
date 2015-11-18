@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -23,9 +22,23 @@
     <tr>
      <td>
        <div class="table-bar">
-       <div style="text-align:left;float:left;"><s:checkbox name="name1" value="フルセット" />フルセット:</div>
-         <div style="text-align:right;"><s:select name="sheets1" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
-         枚<p>単価1600円</div>
+       <div style="text-align:left;float:left;"><s:property value="name"/><input type="checkbox" name="2" >フルセット:</div>
+         <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
+         枚<p>単価<s:property value="price"></s:property>1600円</p></div>
 
          <p>説明:</p>
      </div>
@@ -33,7 +46,7 @@
 
      <td>
        <div class="form-text">
-        小計:<s:property value="total"/>円
+        小計:<s:property value="subtotal"></s:property>円
      </div>
      </td>
    </tr>
@@ -42,7 +55,21 @@
      <td>
        <div class="table-bar">
        <div style="text-align:left;float:left;"><s:checkbox name="name2" value="マシン利用チケット"/>マシン利用チケット:</div>
-       <div style="text-align:right;"><s:select name="sheets" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
+       <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
        枚<p>単価700円</p></div>
        <p>説明:</p>
        </div>
@@ -58,7 +85,21 @@
      <td>
        <div class="table-bar">
        <div style="text-align:left;float:left;"><s:checkbox name="name3" value="プール利用チケット"/>プール利用チケット:</div>
-       <div style="text-align:right;"><s:select name="sheets" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
+       <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
        枚<p>単価700円</p></div>
        <p>説明:</p>
        </div>
@@ -74,7 +115,21 @@
      <td>
        <div class="table-bar">
        <div style="text-align:left;float:left;"><s:checkbox name="name4" value="風呂利用チケット"/>風呂利用チケット:</div>
-       <div style="text-align:right;"><s:select name="sheets" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
+       <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
        枚<p>単価700円</p></div>
        <p>説明:</p>
        </div>
@@ -94,7 +149,21 @@
        <td>
          <div class="table-bar">
          <div style="text-align:left;float:left;">レンタル:</div>
-         <div style="text-align:right;"><s:select name="sheets" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
+         <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
          枚<p>単価:500円</p></div>
        <p>説明:</p>
        <form><s:checkbox name="osheets" value="1"/>使用しない</form>
@@ -112,7 +181,21 @@
      <td>
 
        <div style="text-align:left;float:left;">パーソナルトレーナー:</div>
-       <div style="text-align:right;"><s:select name="sheets" list=" #{ '1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9', '10':'10','11':'15','12':'20'}"/>
+       <div style="text-align:right;"><s:property value="sheets"/><select name="sheets" >
+         <option value="0">0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         <option value="8">8</option>
+         <option value="9">9</option>
+         <option value="10">10</option>
+         <option value="11">15</option>
+         <option value="12">20</option>
+         </select>
        枚<p>単価:5000円</p></div>
 
       <p>説明:</p>
@@ -143,11 +226,13 @@
 
    <tr>
 
-   <td colspan="2"><input type="radio" name="card" value="1">店頭払い<br>
-   <input type="radio" name="card" value="2">クレジットカード払い</td>
+   <td colspan="2"><input type="radio" name="pey" value="1">店頭払い<br>
+   <input type="radio" name="peycard" value="2">クレジットカード払い</td>
 
    </tr>
-
+<%
+%>
+<!-- クレジットカード払い時に見せる -->
    <tr>
      <td colspan="2">クレジットカード情報の入力をお願いします</td>
    </tr>
@@ -155,7 +240,7 @@
    <tr>
      <td>カード番号：</td>
 
-     <td><div class="form-text"><s:textfield name="card" placeholder="下4桁"/></div></td>
+     <td><div class="form-text"><s:textfield name="card" placeholder="1234-1234-1234"/></div></td>
 
    </tr>
 
@@ -214,7 +299,7 @@
    <div class="table-kingaku">
    <s:form action="test_buy_check">
      <input type="submit" value="購入"></s:form>
-     <input type="submit" value="キャンセル">
+     <input type="submit" value="キャンセル" onclick="history.back()">
     </div>
     </td>
     </tr>
