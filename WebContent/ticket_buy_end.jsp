@@ -39,7 +39,9 @@
 			</div>
 			<br>
 			<br>
-			<s:form action="pesonal"> <!-- myページに戻る -->
+			<!--アクションに飛ばす-->
+			<s:form action="pesonal"> 
+			<!-- myページに戻る -->
 				<s:submit value="%{getText('Transmission.kawahigshi')}" />
 			</s:form>
 		</div>
