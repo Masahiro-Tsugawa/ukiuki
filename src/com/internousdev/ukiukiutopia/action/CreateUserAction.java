@@ -16,18 +16,57 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class CreateUserAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = -7016065614706474231L;
+	/**
+	 * セッションを表します。
+	 */
 	private Map<String, Object> session;
+	/**
+	 * 性を表します。
+	 */
 	private String userName1;
+	/**
+	 * 名を表します。
+	 */
 	private String userName2;
+	/**
+	 * パスワードを表します。
+	 */
 	private String userPassword;
+	/**
+	 * 確認用パスワードを表します。
+	 */
 	private String confirmUserPassword;
+	/**
+	 * 郵便番号を表します。
+	 */
 	private String userPostalCode;
+	/**
+	 * 住所（都道府県）を表します。
+	 */
 	private String userAddress1;
+	/**
+	 * 住所（市町村区）を表します。
+	 */
 	private String userAddress2;
+	/**
+	 * 住所（マンション等以下）を表します。
+	 */
 	private String userAddress3;
+	/**
+	 * メールアドレスを表します。
+	 */
 	private String userEmail;
+	/**
+	 * 確認用メールアドレスを表します。
+	 */
 	private String confirmUserEmail;
+	/**
+	 * 電話番号を表します。
+	 */
 	private String userTelNum;
+	/**
+	 * メールアドレス重複登録のエラーメッセージを表します。
+	 */
 	private String errorMail;
 
 	/**
@@ -36,11 +75,21 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	 * @see java.dao.CreateUserDAO
 	 */
 	public String execute() throws SQLException {
+		/**
+		 * DAOを参照
+		 */
 		CreateUserDAO dao = new CreateUserDAO();
+		/**
+		 * 結果を取得
+		 */
 		String ret = dao.select(userEmail);
 		if(ret == "error"){
 			  setErrorMail(getText("signUp.errorMail"));
 			}
+
+		/**
+		 * 姓名を表す。
+		 */
 		StringBuilder userName = new StringBuilder();
 		userName.append(userName1);
 		userName.append(userName2);
