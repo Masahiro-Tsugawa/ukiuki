@@ -27,7 +27,7 @@
 				</tr>
 				
 				<tr>
-					<td align="center">名前</td>
+					<td align="center"><s:text name="a" /></td>
 					<td class="data"><s:property value="name" /></td>
 				</tr>
 
