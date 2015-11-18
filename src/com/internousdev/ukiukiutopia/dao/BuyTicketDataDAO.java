@@ -35,7 +35,7 @@ public class BuyTicketDataDAO {
 	 * 購入する施設利用チケット情報のリストを作成するメソッド
 	 * @param id 購入する施設利用チケットのID
 	 * @param sheets 購入する施設利用チケットの枚数
-	 * @return result 
+	 * @return result 購入する施設利用チケットの枚数
 	 * @throws Exception
 	 */
 	public boolean createBuyUseTicketList(int id, int sheets) throws Exception {
