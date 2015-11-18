@@ -65,8 +65,6 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		}
 		
 		historylList.addAll(hd.getHistorylList());
-		System.out.println(historylList);
-		System.out.println("kato");
 		result = SUCCESS;
 		return result;
 	}

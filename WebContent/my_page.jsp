@@ -64,7 +64,7 @@
 				
 				<tr>
 				    <td align="center"><s:text name="MyPage.ticketName" /></td>
-				    <td align="center"><s:text name="MyPage.maisu" /></td>
+				    <td align="center"><s:text name="MyPage.number" /></td>
 				    <td align="center"><s:text name="MyPage.price" /></td>
 				    <td align="center"><s:text name="MyPage.totalAmount" /></td>
 				    
