@@ -23,31 +23,31 @@
 			</p>
 			<table class="table-test">
 				<tr>
-					<th colspan="2">個人情報一覧</th>
+					<th colspan="2"><div class="form-title">個人情報一覧</div></th>
 				</tr>
 				
 				<tr>
-					<td>名前：</td>
+					<td align="center">名前</td>
 					<td class="data"><s:property value="name" /></td>
 				</tr>
 
 				<tr>
-					<td>電話番号:</td>
-					<td class="data"><s:property value="tel_num" /></td>
+					<td align="center">電話番号</td>
+					<td class="data"><s:property value="telNum" /></td>
 				</tr>
 
 				<tr>
-					<td>メールアドレス:</td>
+					<td align="center">メールアドレス</td>
 					<td class="data"><s:property value="email" /></td>
 				</tr>
 
 				<tr>
-					<td>郵便番号:</td>
-					<td class="data"><s:property value="postal_code" /></td>
+					<td align="center">郵便番号</td>
+					<td class="data"><s:property value="postalCode" /></td>
 				</tr>
 
 				<tr>
-					<td>住所:</td>
+					<td align="center">住所</td>
 					<td class="data"><s:property value="address" /></td>
 				</tr>
 
@@ -57,23 +57,37 @@
 
 			</table>
 			
-	    <div>
-			<table>
+			<table class="table-test">
 			    <tr>
-				<th>購入履歴</th>
+				<th colspan="4"><div class="form-title">購入履歴</div></th>
 				</tr>
 				
 				<tr>
-				    <td>チケット名</td>
-				    <td>枚数</td>
-				    <td>単価</td>
-				    <td>合計金額</td>
+				    <td align="center">チケット名</td>
+				    <td align="center">枚数</td>
+				    <td align="center">単価</td>
+				    <td align="center">合計金額</td>
+				    
 				</tr>
+				<s:if test="%{historylList!=null}">
+					<s:iterator value="historylList">
+					<tr>
+					    <td align="center"><s:property value="name" /></td>
+					    <td align="center"><s:property value="sheets" />枚</td>
+					    <td align="center"><s:property value="price" />円</td>
+					    <td align="center"><s:property value="totalAmount" />円</td>
+					</s:iterator>
+				</s:if>
+				<s:else>
+				    <td align="center" colspan="4">購入履歴はありません。</td>
+				</s:else>
+				</tr>   
+				
+				
 				
 			</table>
 		</div>
-		</div>
 	</div>
-	<jsp:include page="base/main_footer.jsp" flush="true" />
 </body>
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>

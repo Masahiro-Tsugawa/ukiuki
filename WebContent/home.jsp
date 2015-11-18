@@ -30,9 +30,9 @@
 						<h3>
 							<s:text name="newSign" />
 						</h3>
-						<a class="new"
-							href="http://localhost:8080/ukiukiutopia/sign_up.jsp"><s:text
-								name="sign" /></a>
+						<s:form action="home">
+						<s:submit  class= "signUpButton"   value="%{getText('sign')}" />
+						</s:form>
 						<p class="new-comment">
 						<h4>
 							<s:text name="free" />
@@ -59,7 +59,9 @@
 											placeholder="%{getText('pass')}" /></td>
 								</tr>
 								<tr>
-									<td><s:submit value="%{getText('login')}" /></td>
+									<td>
+										<s:submit class = "loginButton" value="%{getText('login')}" />
+									</td>
 								</tr>
 							</table>
 						</s:form>
@@ -115,8 +117,7 @@
 						<br>
 					</p>
 				</h4>
-				<h3>GoogleMap</h3>
-				<input id="button01" type="button" value="GoogleMAP" />
+				<input class = "googleMapButton" id="button01" type="button" value="MAP" />
 				<div id="googleMap"></div>
 
 			</div>

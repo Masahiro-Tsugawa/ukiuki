@@ -66,7 +66,7 @@
 
 
 /*新規登録ボタン*/
-.new{
+.signUpButton{
   width:180px;
   color:#ffffff;
   background:#F38605;
@@ -79,7 +79,35 @@
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
+  /*googlemap ボタン*/
+  .googleMapButton{
+  width:60px;
+  color:#ffffff;
+  background:#F38605;
+  font-size:14px;
+  font-weight:bold;
+  text-align:center;
+  display:block;
+  text-decoration:none;
+  border:1px solid #D2691E;　
+  padding:12px 0 8px 0;
+  border-radius:5px;　
+  }
 
+/*login ボタン*/
+  .loginButton{
+  width:180px;
+  color:#ffffff;
+  background:#F38605;
+  font-size:28px;
+  font-weight:bold;
+  text-align:center;
+  display:block;
+  text-decoration:none;
+  border:1px solid #D2691E;　
+  padding:12px 0 8px 0;
+  border-radius:5px;　
+  }
 /*カーソルが上に来た際の色変化*/
 a.new:hover {
   background: #FFD700;

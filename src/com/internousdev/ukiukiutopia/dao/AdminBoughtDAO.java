@@ -22,34 +22,33 @@ public class AdminBoughtDAO {
 	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
 
 //検索するメソッド
-	public boolean select(String selectdate1,String selectdate2,AdminBoughtDTO dto)throws Exception{
+	public boolean select(String selectDate1,String selectDate2,AdminBoughtDTO dto)throws Exception{
 		System.out.println("select - メソッド実行");
+		System.out.println(selectDate1);
 		action=false;
 		con = DBConnector.getConnection();
 
 		try{
-		String sql = "select * from order_ticket";
+		String sql = "select * from order_ticket where registered_date between ? and ?";
 
-		PreparedStatement ps2;
-		ps2 = con.prepareStatement(sql);
+		PreparedStatement ps;
+		ps = con.prepareStatement(sql);
+		ps.setString(1, selectDate1);
+		ps.setString(2, selectDate2);
 
-		System.out.println("select - ps2 - "+ ps2);
+		System.out.println("select - ps - "+ ps);
 
-		ResultSet rs = ps2.executeQuery();
+		ResultSet rs = ps.executeQuery();
 		System.out.println("select - sql実行");
 
 		while(rs.next()){
 			action = true;
 
-			dto.setOrderid(rs.getInt(1));
-			dto.setTicketid(rs.getInt(2));
+			dto.setOrderId(rs.getInt(1));
+			dto.setTicketId(rs.getInt(2));
 			dto.setSheets(rs.getInt(3));
-			dto.setTotalamount(rs.getFloat(4));
-			dto.setRegistereddate(rs.getString(5));
-	
+			dto.setTotalAmount(rs.getFloat(4));
 			
-
-
 			boughtList.add(dto);
 		}//while
 

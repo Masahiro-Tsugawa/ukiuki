@@ -2,9 +2,7 @@
  * 
  */
 package com.internousdev.ukiukiutopia.action;
-import java.util.Map;
 
-import org.apache.struts2.interceptor.SessionAware;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
@@ -15,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class AdminTicketUpdateAction extends ActionSupport implements SessionAware{
+public class AdminTicketUpdateAction extends ActionSupport {
 
 	private int updateId;
 	private String updateName;
@@ -27,7 +25,6 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 	
 	String up=null;
 	public String result=ERROR;
-	private Map<String, Object> session;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -39,8 +36,9 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
 		
-		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,updateRenewDate,updateTicketInfo);
-
+		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,
+				updateRenewDate,updateTicketInfo);
+		
 		if(up > 0){
 			result = SUCCESS;
 		}
@@ -80,16 +78,8 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		}
 
 		public void setUpdateIsSale(boolean updateIsSale) {
-			if(updateIsSale=true)
-				updateIsSale=true;
-			else
-				updateIsSale=false;
-			this.updateIsSale = updateIsSale;
-		}
 
-		public void setSession(Map<String, Object> session) {
-			this.session = session;
-			
+			this.updateIsSale = updateIsSale;
 		}
 
 		public String getUpdateTicketInfo() {
@@ -99,4 +89,5 @@ public class AdminTicketUpdateAction extends ActionSupport implements SessionAwa
 		public void setUpdateTicketInfo(String updateTicketInfo) {
 			this.updateTicketInfo = updateTicketInfo;
 		}
+		
 }

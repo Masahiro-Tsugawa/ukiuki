@@ -12,8 +12,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-public class GoGoogleAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware {
+public class GoGoogleAction extends ActionSupport implements ServletResponseAware, ServletRequestAware, SessionAware {
 
 	/**
 	 * シリアルID
@@ -23,7 +22,7 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	/**
 	 * セッション
 	 */
-	private Map<String,Object> session;
+	private Map<String, Object> session;
 
 	/**
 	 * レスポンス
@@ -35,9 +34,9 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	 */
 	private HttpServletRequest request;
 
-	public String execute()  throws Exception{
+	public String execute() throws Exception {
 		GoogleOauth googleOauth = new GoogleOauth();
-		if(!googleOauth.getRequestToken(request,response)) {
+		if (!googleOauth.getRequestToken(request, response)) {
 			return ERROR;
 		}
 		return SUCCESS;

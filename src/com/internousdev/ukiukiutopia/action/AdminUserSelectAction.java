@@ -32,12 +32,18 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		private String selectEmail;
 
 		public String execute() throws Exception {
-
+			
+			if (selectEmail == null || selectEmail.equals(" ")) {
+				System.out.println(selectEmail);
+				result = ERROR;
+				addActionError("ユーザーIDが違います");
+				return result;
+			}else{
 
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();
 		AdminUserSelectDTO dto = new AdminUserSelectDTO();
 		boolean resultDAO = dao.select(selectEmail);
-
+		
 		if(resultDAO){
 			userList = dao.getUserList();
 			
@@ -49,6 +55,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 			result = SUCCESS;
 		}
 		return result;
+		}
 		}
 
 		@Override

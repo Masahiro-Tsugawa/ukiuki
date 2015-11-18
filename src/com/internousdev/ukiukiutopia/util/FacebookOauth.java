@@ -35,39 +35,36 @@ public class FacebookOauth extends ActionSupport {
 	 * レスポンスURL
 	 */
 	private static final String APP_SECRET = "e0b2de4f10d8f4ebcbeb69984a68452d";
-	
+
 	/**
 	 * コールバックパス
 	 */
 	private static final String CALLBACK_PATH = "/my_page.jsp";
 
-	
-	public void getRequestToken(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Facebook facebook = new FacebookFactory().getInstance();
-        request.getSession().setAttribute("facebook", facebook);
-        facebook.setOAuthAppId(APP_ID, APP_SECRET);
-        String accessTokenString = APP_ID + "|" + APP_SECRET;
-        AccessToken at = new AccessToken(accessTokenString);
-        facebook.setOAuthAccessToken(at);
-        StringBuffer callbackURL = request.getRequestURL();
-        int index = callbackURL.lastIndexOf("/");
-        callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);
-        response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
-    }
-	
+	public void getRequestToken(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Facebook facebook = new FacebookFactory().getInstance();
+		request.getSession().setAttribute("facebook", facebook);
+		facebook.setOAuthAppId(APP_ID, APP_SECRET);
+		String accessTokenString = APP_ID + "|" + APP_SECRET;
+		AccessToken at = new AccessToken(accessTokenString);
+		facebook.setOAuthAccessToken(at);
+		StringBuffer callbackURL = request.getRequestURL();
+		int index = callbackURL.lastIndexOf("/");
+		callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);
+		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+	}
+
 	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, Exception {
 		final String callbackURL = request.getRequestURL().toString();
 		final String code = request.getParameter("code");
-		if(code == null){
-			response.sendRedirect(request.getContextPath()+ "/login");
+		if (code == null) {
+			response.sendRedirect(request.getContextPath() + "/login");
 		}
-		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id="
-				+ APP_ID
-				+ "&redirect_uri="
-				+ URLEncoder.encode(callbackURL, "UTF-8")
-				+ "&client_secret="
-				+ APP_SECRET + "&code=" + URLEncoder.encode(code, "UTF-8");
+		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id=" + APP_ID
+				+ "&redirect_uri=" + URLEncoder.encode(callbackURL, "UTF-8") + "&client_secret=" + APP_SECRET + "&code="
+				+ URLEncoder.encode(code, "UTF-8");
 		final String accessTokenResult = httpRequest(new URL(accessTokenURL));
 		String accessToken = null;
 		String[] pairs = accessTokenResult.split("&");
@@ -81,21 +78,19 @@ public class FacebookOauth extends ActionSupport {
 				}
 			}
 		}
-		final String apiURL = "https://graph.facebook.com/me?access_token="
-				+ URLEncoder.encode(accessToken, "UTF-8");
+		final String apiURL = "https://graph.facebook.com/me?access_token=" + URLEncoder.encode(accessToken, "UTF-8");
 		final String apiResult = httpRequest(new URL(apiURL));
 		@SuppressWarnings("unchecked")
 		Map<String, String> userMap = (Map<String, String>) JSONValue.parse(apiResult);
 		return userMap;
 	}
-	
+
 	private String httpRequest(URL url) throws IOException {
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setDoOutput(true);
 		conn.setUseCaches(false);
 		conn.setRequestMethod("GET");
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				conn.getInputStream()));
+		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String line = null;
 		String response = "";
 		while ((line = reader.readLine()) != null) {
