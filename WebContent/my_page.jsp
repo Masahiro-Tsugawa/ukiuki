@@ -15,39 +15,39 @@
 	<div class="container">
 		<div class="form-title">
 
-			<p class="p">マイページ画面</p>
+			<p class="p"><s:text name="MyPage.mayPage" /></p>
 			<p>
-				こんにちは、
+				<s:text name="MyPage.hello" />
 				<s:property value="loginName" />
-				さん。
+				<s:text name="MyPage.san" />
 			</p>
 			<table class="table-test">
 				<tr>
-					<th colspan="2"><div class="form-title">個人情報一覧</div></th>
+					<th colspan="2"><div class="form-title"><s:text name="MyPage.yourInformation" /></div></th>
 				</tr>
 				
 				<tr>
-					<td align="center"><s:text name="a" /></td>
+					<td align="center"><s:text name="signUpCheck.name" /></td>
 					<td class="data"><s:property value="name" /></td>
 				</tr>
 
 				<tr>
-					<td align="center">電話番号</td>
+					<td align="center"><s:text name="signUpCheck.phoneNumber" /></td>
 					<td class="data"><s:property value="telNum" /></td>
 				</tr>
 
 				<tr>
-					<td align="center">メールアドレス</td>
+					<td align="center"><s:text name="signUpCheck.email" /></td>
 					<td class="data"><s:property value="email" /></td>
 				</tr>
 
 				<tr>
-					<td align="center">郵便番号</td>
+					<td align="center"><s:text name="signUpCheck.posCode" /></td>
 					<td class="data"><s:property value="postalCode" /></td>
 				</tr>
 
 				<tr>
-					<td align="center">住所</td>
+					<td align="center"><s:text name="signUpCheck.address" /></td>
 					<td class="data"><s:property value="address" /></td>
 				</tr>
 
@@ -59,27 +59,27 @@
 			
 			<table class="table-test">
 			    <tr>
-				<th colspan="4"><div class="form-title">購入履歴</div></th>
+				<th colspan="4"><div class="form-title"><s:text name="MyPage.ticketPurchaseHistory" /></div></th>
 				</tr>
 				
 				<tr>
-				    <td align="center">チケット名</td>
-				    <td align="center">枚数</td>
-				    <td align="center">単価</td>
-				    <td align="center">合計金額</td>
+				    <td align="center"><s:text name="MyPage.ticketName" /></td>
+				    <td align="center"><s:text name="MyPage.maisu" /></td>
+				    <td align="center"><s:text name="MyPage.price" /></td>
+				    <td align="center"><s:text name="MyPage.totalAmount" /></td>
 				    
 				</tr>
 				<s:if test="%{historylList!=null}">
 					<s:iterator value="historylList">
 					<tr>
 					    <td align="center"><s:property value="name" /></td>
-					    <td align="center"><s:property value="sheets" />枚</td>
-					    <td align="center"><s:property value="price" />円</td>
-					    <td align="center"><s:property value="totalAmount" />円</td>
+					    <td align="center"><s:property value="sheets" /><s:text name="MyPage.number" /></td>
+					    <td align="center"><s:property value="price" /><s:text name="MyPage.yen" /></td>
+					    <td align="center"><s:property value="totalAmount" /><s:text name="MyPage.yen" /></td>
 					</s:iterator>
 				</s:if>
 				<s:else>
-				    <td align="center" colspan="4">購入履歴はありません。</td>
+				    <td align="center" colspan="4"><s:text name="MyPage.noHistory" /></td>
 				</s:else>
 				</tr>   
 				

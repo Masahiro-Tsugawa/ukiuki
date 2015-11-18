@@ -81,10 +81,12 @@
         </action>
         
          <!--マイページ画面 -->
-        <action name="my_page" class="com.internousdev.ukiukiutopia.action.GoMyPageAction" method="execute">
-            <result name="success">my_page.jsp</result>
-            <result name="error">my_page.jsp</result>
-        </action>
+        <action name="personal"
+         	class="com.internousdev.ukiukiutopia.action.GoMyPageAction"
+         	method="execute">
+         	<result name="success">my_page.jsp</result>
+		 	<result name="error">home.jsp</result>
+		</action>
         
         <!-- チケット購入画面から確認画面へ -->
 	    <action name="check_start" class="com.internousdev.ukiukiutopia.action.BuyInformationAction" method="execute" >
