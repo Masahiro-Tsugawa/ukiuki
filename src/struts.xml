@@ -77,6 +77,7 @@
         <!--チケット購入画面 -->
         <action name="ticket_buy" class="com.internousdev.ukiukiutopia.action.GoTicketBuyAction" method="execute">
             <result name="success">ticket_buy.jsp</result>
+            <result name="error">my_page.jsp</result>
         </action>
         
          <!--マイページ画面 -->
@@ -183,6 +184,12 @@
          <!-- ユーザー情報登録 -->
         <action name="register_user" class="com.internousdev.ukiukiutopia.action.RegisterUserAction" method="execute">
             <result name="success">sign_up_end.jsp</result>
+        </action>
+        
+        <!-- 購入情報の生成 -->
+         <action name="create_order" class="com.internousdev.ukiukiutopia.action.CreateOrderAction" method="execute">
+            <result name="success">ticket_buy_check.jsp</result>
+            <result name="error" type="redirectAction">ticket_buy</result>
         </action>
         
     </package>
