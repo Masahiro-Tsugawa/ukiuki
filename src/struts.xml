@@ -5,7 +5,7 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
-    <constant name="struts.custom.i18n.resources" value="Login,SignUpUser" />
+    <constant name="struts.custom.i18n.resources" value="Login,SignUpUser.MyPage" />
     <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
       
     
