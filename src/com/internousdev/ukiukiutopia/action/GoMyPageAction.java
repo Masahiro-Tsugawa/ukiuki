@@ -10,13 +10,14 @@ import com.internousdev.ukiukiutopia.dao.PersonalInformationDAO;
 import com.internousdev.ukiukiutopia.dto.PersonalInformationDTO;
 import com.internousdev.ukiukiutopia.dto.PurchaseHistoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
+    /**
+     * マイページ画面を出力するためのクラス
+     * @author K.Kato
+     * @version 1.1
+     * @since 1.0
+     */
 public class GoMyPageAction extends ActionSupport implements SessionAware{
-
-	/**
-	 * シリアルID
-	 */
 	private static final long serialVersionUID = 5755890205879217612L;
 	
 	private Map<String, Object> session;
@@ -30,23 +31,19 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	private String postalCode;
 	private String address;
 	
-
+    /**
+     * 登録者情報をDAOから取得し、登録者情報を格納するメソッド
+     * @return 
+     */
 	public String execute() throws Exception{
-		System.out.println("test");
-		System.out.println(session.put("userId", 1));
 		String emailAddress = (String)session.get("userEmail");
 		if (emailAddress == null) {
-			System.out.println("あれ？？？");
-			System.out.println(emailAddress);
 			return ERROR;
 		}
-		System.out.println("PersonalI始");
+		
+		
 		PersonalInformationDAO pd = new PersonalInformationDAO();
-		System.out.println("PersonalInformationDAOの検索開始");
 		boolean resultDAO = pd.select(emailAddress);
-		System.out.println("resultDAO="+resultDAO);
-		System.out.println("PersonalNameDAO.selectからPersonalActionに復帰");
-		System.out.println(resultDAO);
 		if (!resultDAO) {
 			return ERROR;
 		}
@@ -58,7 +55,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		postalCode = personal.getPostalCode();
 		address = personal.getAddress();
 		
-		session.put("userID", 1);
+		
 		int id = (int)session.get("userID");
 		
 		PersonalInformationDAO hd = new PersonalInformationDAO();
