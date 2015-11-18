@@ -12,6 +12,13 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * チケット購入画面で入力された値をセッションに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class CreateOrderAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;

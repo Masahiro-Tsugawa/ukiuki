@@ -8,7 +8,13 @@ import java.util.List;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
-
+/**
+ * クレジットカード情報をリストに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class CreditDataDAO {
 	
 	private List<String> creditData = new ArrayList<String>();

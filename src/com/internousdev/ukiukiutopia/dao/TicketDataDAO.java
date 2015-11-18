@@ -16,7 +16,10 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
- * @author internous
+ * 購入可能なチケットの情報をリストに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
  *
  */
 public class TicketDataDAO {

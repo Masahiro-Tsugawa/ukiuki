@@ -12,6 +12,14 @@ import com.internousdev.ukiukiutopia.dao.TicketDataDAO;
 import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 購入画面に表示する情報をリストなどに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
+
 public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
@@ -84,10 +92,16 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
+	/**
+	 * @return
+	 */
 	public List<String> getPayInfoList() {
 		return payInfoList;
 	}
 
+	/**
+	 * @param payInfoList
+	 */
 	public void setPayInfoList(List<String> payInfoList) {
 		this.payInfoList = payInfoList;
 	}
@@ -103,38 +117,65 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 		return useList;
 	}
 
+	/**
+	 * @param useList
+	 */
 	public void setUseList(List<BuyTicketDataDTO> useList) {
 		this.useList = useList;
 	}
 
+	/**
+	 * @return
+	 */
 	public List<BuyTicketDataDTO> getOptionList() {
 		return optionList;
 	}
 
+	/**
+	 * @param optionList
+	 */
 	public void setOptionList(List<BuyTicketDataDTO> optionList) {
 		this.optionList = optionList;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashMap<Integer, String> getSheetsList() {
 		return sheetsList;
 	}
 
+	/**
+	 * @param sheetsList
+	 */
 	public void setSheetsList(HashMap<Integer, String> sheetsList) {
 		this.sheetsList = sheetsList;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashMap<String, String> getMonthList() {
 		return monthList;
 	}
 
+	/**
+	 * @param monthList
+	 */
 	public void setMonthList(HashMap<String, String> monthList) {
 		this.monthList = monthList;
 	}
 
+	/**
+	 * @return
+	 */
 	public HashMap<String, String> getYearList() {
 		return yearList;
 	}
 
+	/**
+	 * @param yearList
+	 */
 	public void setYearList(HashMap<String, String> yearList) {
 		this.yearList = yearList;
 	}

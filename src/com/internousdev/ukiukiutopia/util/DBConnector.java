@@ -4,6 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * MySQLのsports_gymというデータベースに接続する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class DBConnector {
 
 //	 private static String driverName ="org.gjt.mm.mysql.Driver";

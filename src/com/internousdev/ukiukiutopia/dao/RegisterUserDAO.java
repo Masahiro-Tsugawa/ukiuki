@@ -10,7 +10,6 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 public class RegisterUserDAO {
 
-	// インサートするメソッド
 	public int insert(String email, String password, String name,
 			String telNum, String posCode, String address) throws Exception {
 

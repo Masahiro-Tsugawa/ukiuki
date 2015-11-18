@@ -1,5 +1,12 @@
 package com.internousdev.ukiukiutopia.dto;
 
+/**
+ * 購入可能なチケットの情報を格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class TicketDataDTO {
 	
 	private int id;

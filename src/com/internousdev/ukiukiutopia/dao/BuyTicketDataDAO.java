@@ -9,7 +9,13 @@ import java.util.List;
 import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
-
+/**
+ * 購入するチケットの情報をリストに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class BuyTicketDataDAO {
 
 	private Connection con;
