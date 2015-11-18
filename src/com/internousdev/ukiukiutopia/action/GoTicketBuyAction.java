@@ -9,7 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.dao.CreditDataDAO;
 import com.internousdev.ukiukiutopia.dao.TicketDataDAO;
-import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
+import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -31,11 +31,11 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	/**
 	 * 購入可能な施設利用チケットのリスト
 	 */
-	private List<BuyTicketDataDTO> useList = new ArrayList<BuyTicketDataDTO>();
+	private List<TicketDataDTO> useList = new ArrayList<TicketDataDTO>();
 	/**
 	 * 購入可能なオプションチケットのリスト
 	 */
-	private List<BuyTicketDataDTO> optionList = new ArrayList<BuyTicketDataDTO>();
+	private List<TicketDataDTO> optionList = new ArrayList<TicketDataDTO>();
 	/**
 	 * 購入枚数選択用のリスト
 	 */
@@ -152,7 +152,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入可能な施設利用チケットのリスト取得メソッド
 	 * @return useList 購入可能な施設利用チケットのリスト
 	 */
-	public List<BuyTicketDataDTO> getUseList() {
+	public List<TicketDataDTO> getUseList() {
 		return useList;
 	}
 
@@ -160,7 +160,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入可能な施設利用チケットのリスト格納メソッド
 	 * @param useList 購入可能な施設利用チケットのリスト
 	 */
-	public void setUseList(List<BuyTicketDataDTO> useList) {
+	public void setUseList(List<TicketDataDTO> useList) {
 		this.useList = useList;
 	}
 
@@ -168,7 +168,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入可能なオプションチケットのリスト取得メソッド
 	 * @return optionList 購入可能なオプションチケットのリスト
 	 */
-	public List<BuyTicketDataDTO> getOptionList() {
+	public List<TicketDataDTO> getOptionList() {
 		return optionList;
 	}
 
@@ -176,7 +176,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入可能なオプションチケットのリスト格納メソッド
 	 * @param optionList 購入可能なオプションチケットのリスト
 	 */
-	public void setOptionList(List<BuyTicketDataDTO> optionList) {
+	public void setOptionList(List<TicketDataDTO> optionList) {
 		this.optionList = optionList;
 	}
 

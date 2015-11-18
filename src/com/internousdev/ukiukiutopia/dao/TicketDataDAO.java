@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
+import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 import com.internousdev.ukiukiutopia.util.MongoDBConnector;
 import com.mongodb.BasicDBObject;
@@ -27,8 +27,8 @@ public class TicketDataDAO {
 	private Connection con;
 	private boolean action;
 
-	private List<BuyTicketDataDTO> useTicketList = new ArrayList<BuyTicketDataDTO>();
-	private List<BuyTicketDataDTO> optionTicketList = new ArrayList<BuyTicketDataDTO>();
+	private List<TicketDataDTO> useTicketList = new ArrayList<TicketDataDTO>();
+	private List<TicketDataDTO> optionTicketList = new ArrayList<TicketDataDTO>();
 
 	/**
 	 * @return
@@ -55,7 +55,7 @@ public class TicketDataDAO {
 
 			while (rs.next()) {
 				action = true;
-				BuyTicketDataDTO dto = new BuyTicketDataDTO();
+				TicketDataDTO dto = new TicketDataDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
@@ -85,7 +85,7 @@ public class TicketDataDAO {
 			
 			while (rs2.next()) {
 				action = true;
-				BuyTicketDataDTO dto = new BuyTicketDataDTO();
+				TicketDataDTO dto = new TicketDataDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs2.getInt(1));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
@@ -115,11 +115,11 @@ public class TicketDataDAO {
 	/**
 	 * @return
 	 */
-	public List<BuyTicketDataDTO> getUseTicketList() {
+	public List<TicketDataDTO> getUseTicketList() {
 		return useTicketList;
 	}
 	
-	public List<BuyTicketDataDTO> getOptionTicketList() {
+	public List<TicketDataDTO> getOptionTicketList() {
 		return optionTicketList;
 	}
 

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
+import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
@@ -22,8 +22,8 @@ public class BuyTicketDataDAO {
 	private boolean action = false;
 	private int totalAmount=0;
 
-	private List<BuyTicketDataDTO> buyUseTicketList = new ArrayList<BuyTicketDataDTO>();
-	private List<BuyTicketDataDTO> buyOptionTicketList = new ArrayList<BuyTicketDataDTO>();
+	private List<TicketDataDTO> buyUseTicketList = new ArrayList<TicketDataDTO>();
+	private List<TicketDataDTO> buyOptionTicketList = new ArrayList<TicketDataDTO>();
 
 	public boolean setBuyUseTicketList(int id, int sheets) throws Exception {
 		con = DBConnector.getConnection();
@@ -41,7 +41,7 @@ public class BuyTicketDataDAO {
 
 			rs.next();
 
-			BuyTicketDataDTO dto = new BuyTicketDataDTO();
+			TicketDataDTO dto = new TicketDataDTO();
 
 			dto.setId(rs.getInt(1));
 			dto.setName(rs.getString(2));
@@ -79,7 +79,7 @@ public class BuyTicketDataDAO {
 
 			rs.next();
 
-			BuyTicketDataDTO dto = new BuyTicketDataDTO();
+			TicketDataDTO dto = new TicketDataDTO();
 
 			dto.setId(rs.getInt(1));
 			dto.setName(rs.getString(2));
@@ -101,11 +101,11 @@ public class BuyTicketDataDAO {
 		return action;
 	}
 
-	public List<BuyTicketDataDTO> getBuyUseTicketList() {
+	public List<TicketDataDTO> getBuyUseTicketList() {
 		return this.buyUseTicketList;
 	}
 
-	public List<BuyTicketDataDTO> getBuyOptionTicketList() {
+	public List<TicketDataDTO> getBuyOptionTicketList() {
 		return this.buyOptionTicketList;
 	}
 	
@@ -113,11 +113,11 @@ public class BuyTicketDataDAO {
 		return this.totalAmount;
 	}
 
-	public void setBuyUseTicketList(List<BuyTicketDataDTO> buyUseTicketList) {
+	public void setBuyUseTicketList(List<TicketDataDTO> buyUseTicketList) {
 		this.buyUseTicketList = buyUseTicketList;
 	}
 
-	public void setBuyOptionTicketList(List<BuyTicketDataDTO> buyOptionTicketList) {
+	public void setBuyOptionTicketList(List<TicketDataDTO> buyOptionTicketList) {
 		this.buyOptionTicketList = buyOptionTicketList;
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.internousdev.ukiukiutopia.dao.BuyTicketDataDAO;
-import com.internousdev.ukiukiutopia.dto.BuyTicketDataDTO;
+import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.internousdev.util.CreditCard;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -31,8 +31,8 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 	private List<Integer> optionId;
 	private List<Integer> optionSheets;
 
-	private List<BuyTicketDataDTO> buyUseTicket = new ArrayList<BuyTicketDataDTO>();
-	private List<BuyTicketDataDTO> buyOptionTicket = new ArrayList<BuyTicketDataDTO>();
+	private List<TicketDataDTO> buyUseTicket = new ArrayList<TicketDataDTO>();
+	private List<TicketDataDTO> buyOptionTicket = new ArrayList<TicketDataDTO>();
 
 	private String payInfo;
 	private String creditNum;
