@@ -18,7 +18,7 @@
 			<p class="p"><s:text name="MyPage.mayPage" /></p>
 			<p>
 				<s:text name="MyPage.hello" />
-				<s:property value="loginName" />
+				<s:property value="#session.loginName" />
 				<s:text name="MyPage.san" />
 			</p>
 			<table class="table-test">
