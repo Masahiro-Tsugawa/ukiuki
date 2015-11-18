@@ -25,6 +25,9 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
 	private String result = ERROR;
 	
+	/**
+	 * 
+	 */
 	private String name;
 	private String telNum;
 	private String email;
@@ -70,57 +73,106 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	@Override
+	
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 	
 	
-
+    /**
+     * 名前を格納するメソッド
+     * @return name
+     */
 	public String getName() {
 		return name;
 	}
-
+    
+	/**
+	 * 名前を設定するメソッド
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	/**
+	 * 電話番号を格納するメソッド
+	 * @return telNum
+	 */ 
 	public String getTelNum() {
 		return telNum;
 	}
-
+	
+	/**
+	 * 電話番号を設定するメソッド
+	 * @param telNum
+	 */
 	public void setTelNum(String telNum) {
 		this.telNum = telNum;
 	}
-
+	
+    /**
+     * メールアドレスを格納するメソッド
+     * @return email
+     */
 	public String getEmail() {
 		return email;
 	}
-
+	
+    /**
+     * メールアドレスを設定するメソッド
+     * @param email
+     */
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	/**
+	 * 郵便番号を格納するメソッド
+	 * @return postalCode
+	 */
 
 	public String getPostalCode() {
 		return postalCode;
 	}
-
+	
+    /**
+     * 郵便番号を設定するメソッド
+     * @param postalCode
+     */
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-
+	
+	/**
+	 * 住所を格納するメソッド
+	 * @return address
+	 */
 	public String getAddress() {
 		return address;
 	}
-
+	
+	/**
+	 * 住所を設定するメソッド
+	 * @param address
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	/**
+	 * リストを格納するメソッド
+	 * @return historylList
+	 */
 
 	public List<PurchaseHistoryDTO> getHistorylList() {
 		return historylList;
 	}
-
+	
+    /**
+     * リストを設定するメソッド
+     * @param historylList
+     */
 	public void setHistorylList(List<PurchaseHistoryDTO> historylList) {
 		this.historylList = historylList;
 	}
