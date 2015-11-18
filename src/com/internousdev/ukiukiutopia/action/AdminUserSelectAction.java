@@ -33,11 +33,11 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 
 		public String execute() throws Exception {
 			
-			if (selectEmail == null || selectEmail.equals(" ")) {
+			if (selectEmail == null || selectEmail.equals("")) {
 				System.out.println(selectEmail);
-				result = ERROR;
-				addActionError("ユーザーIDが違います");
+				addActionError("ユーザーIDを入力してください");
 				return result;
+				
 			}else{
 
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();

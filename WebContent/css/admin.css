@@ -1,6 +1,7 @@
 .title{
 	background-color:#FF8C00;
 	color:#fff;
+	text-align:center;
 }
 .logout{
 	text-align:right;
@@ -9,7 +10,11 @@
 }
 
 .userdelete{
-	text-align:center;
+	margin-top:20px;
+	text-align:left;
+}
+.userdeletebutton{
+	font-weight: bold;
 }
 
 .container{
