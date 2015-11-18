@@ -9,29 +9,41 @@ import java.sql.SQLException;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class DBConnector {
 
-//	 private static String driverName ="org.gjt.mm.mysql.Driver";
+	/**
+	 * MySQLのドライバー名
+	 */
     private static String driverName = "com.mysql.jdbc.Driver";
+    /**
+	 * MySQLのsports_gymというデータベースのURL
+	 */
     private static String url = "jdbc:mysql://localhost/sports_gym";
+    /**
+	 * MySQLのユーザー名
+	 */
     private static String user = "root";
+    /**
+	 * MySQLのパスワード
+	 */
     private static String pass = "mysql";
+    
+    
+    /**
+     * 指定したデータベースへのコネクションを取得するメソッド
+     * @return con 指定したデータベースへのコネクション
+     */
     public static Connection getConnection() {
-//    	System.out.println("★★DBconnector内");
 
         Connection con = null;
         try {
             Class.forName(driverName);
             con = DriverManager.getConnection(url,user,pass);
-            System.out.println("★DBconnector内");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            System.out.println("ClassNotFoundException");
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("SQLException");
         }
         return con;
     }

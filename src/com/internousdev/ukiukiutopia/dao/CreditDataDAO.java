@@ -17,49 +17,63 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class CreditDataDAO {
 	
-	private List<String> creditData = new ArrayList<String>();
+	/**
+	 * 購入可能な施設利用チケットのリスト
+	 */
+	private List<String> creditDataList = new ArrayList<String>();
 	
+	/**
+	 * ログインしている会員のクレジットカード情報取得メソッド
+	 * @param email  ログインしている会員のメールアドレス
+	 * @return result ログインしている会員のクレジットカード情報の有無
+	 * @throws Exception データベースとの接続が終了しなかった際に起こるエラー
+	 */
 	public boolean select(String email) throws Exception {
-		System.out.println("select - メソッド実行");
-		System.out.println("EmailAddr:" + email + "を検索");
-		Connection con = DBConnector.getConnection();
+		
 		boolean result = false;
+		Connection con = DBConnector.getConnection();
+		
 		try {
 			String sql = "select * from user where email = ?";
 			
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 
-			System.out.println("select - ps - " + ps);
 			ps.setString(1, email);
-			System.out.println("select - sql実行");
 			ResultSet rs = ps.executeQuery();
-			System.out.println(rs);
+			
 			if (rs.next()) {
 				String creditToken = rs.getString(9);
-				creditData.add(creditToken);
+				creditDataList.add(creditToken);
 				String creditNum = rs.getString(10);
-				creditData.add(creditNum);
+				creditDataList.add(creditNum);
 				result = true;
-				System.out.println("select - itemList - OK");
-			} // while
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 
 		return result;
 		
 	}
 
+	/**
+	 * 購入可能な施設利用チケットのリスト取得メソッド
+	 * @return creditDataList 購入可能な施設利用チケットのリスト
+	 */
 	public List<String> getCreditData() {
-		return creditData;
+		return creditDataList;
 	}
 
+	/**
+	 * 購入可能な施設利用チケットのリスト格納メソッド
+	 * @param creditData 購入可能な施設利用チケットのリスト
+	 */
 	public void setCreditData(List<String> creditData) {
-		this.creditData = creditData;
+		this.creditDataList = creditData;
 	}
 
 }
