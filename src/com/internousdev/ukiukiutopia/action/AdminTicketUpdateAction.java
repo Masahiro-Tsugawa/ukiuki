@@ -10,10 +10,10 @@ import com.internousdev.ukiukiutopia.dao.AdminTicketUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからチケットを編集するアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページからチケットを編集する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminTicketUpdateAction extends ActionSupport {
 	
@@ -61,8 +61,6 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	
 	/**
 	 * 管理者ページからチケットを編集するメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 		public String execute() throws Exception {
@@ -83,36 +81,28 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		}
 
 		/**
-		 * 編集したいチケットのID取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットのID取得するメソッド
 		 * @return updateId
 		 */
 		public int getUpdateId() {
 			return updateId;
 		}
 		/**
-		 * 編集したいチケットのID格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットのID格納するメソッド
 		 * @param updateId 編集したいチケットのID
 		 */
 		public void setUpdateId(int updateId) {
 			this.updateId = updateId;
 		}
 		/**
-		 * 編集したいチケット名取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケット名取得するメソッド
 		 * @return updateName
 		 */
 		public String getUpdateName() {
 			return updateName;
 		}
 		/**
-		 * 編集したいチケット名格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケット名格納するメソッド
 		 * @param updateName 編集したいチケット名
 		 */
 		public void setUpdateName(String updateName) {
@@ -120,18 +110,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		}
 		
 		/**
-		 * 編集したいチケットの値段取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの値段取得するメソッド
 		 * @return updatePrice
 		 */
 		public float getUpdatePrice() {
 			return updatePrice;
 		}
 		/**
-		 * 編集したいチケットの値段格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの値段格納するメソッド
 		 * @param updatePrice 編集したいチケットの値段
 		 */
 		public void setUpdatePrice(int updatePrice) {
@@ -139,18 +125,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		}
 
 		/**
-		 * 編集したいチケットの種類取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの種類取得するメソッド
 		 * @return updateTicketType
 		 */
 		public String getUpdateTicketType() {
 			return updateTicketType;
 		}
 		/**
-		 * 編集したいチケットの種類格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの種類格納するメソッド
 		 * @param updateTicketType 編集したいチケットの種類
 		 */
 		public void setUpdateTicketType(String updateTicketType) {
@@ -158,18 +140,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		}
 
 		/**
-		 * 編集したいチケットの販売状態取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの販売状態取得するメソッド
 		 * @return updateIsSale
 		 */
 		public boolean getUpdateIsSale() {
 			return updateIsSale;
 		}
 		/**
-		 * 編集したいチケットの販売状態格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの販売状態格納するメソッド
 		 * @param updateIsSale 編集したいチケットの販売状態
 		 */
 		public void setUpdateIsSale(boolean updateIsSale) {
@@ -178,18 +156,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		}
 
 		/**
-		 * 編集したいチケットの詳細取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの詳細取得するメソッド
 		 * @return updateTicketInfo
 		 */
 		public String getUpdateTicketInfo() {
 			return updateTicketInfo;
 		}
 		/**
-		 * 編集したいチケットの詳細格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 編集したいチケットの詳細格納するメソッド
 		 * @param updateTicketInfo 編集したいチケットの詳細
 		 */
 		public void setUpdateTicketInfo(String updateTicketInfo) {

@@ -8,10 +8,10 @@ import com.internousdev.ukiukiutopia.dao.AdminTicketDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからチケットを削除するアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページからチケットを削除するクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminTicketDeleteAction extends ActionSupport {
 
@@ -35,8 +35,6 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	
 	/**
 	 * 管理者ページからチケットを削除するメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 		public String execute() throws Exception {
@@ -54,18 +52,14 @@ public class AdminTicketDeleteAction extends ActionSupport {
 		}
 		
 		/**
-		 * 削除したいチケットのID取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 削除したいチケットのID取得するメソッド
 		 * @return deleteId
 		 */
 		public int getDeleteId() {
 			return deleteId;
 		}
 		/**
-		 * 削除したいチケットのID格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 削除したいチケットのID格納するメソッド
 		 * @param deleteId 削除したいチケットのID
 		 */
 		public void setDeleteId(int deleteId) {

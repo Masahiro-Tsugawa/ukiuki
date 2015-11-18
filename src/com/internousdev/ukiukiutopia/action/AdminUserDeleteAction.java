@@ -9,10 +9,10 @@ import com.internousdev.ukiukiutopia.dao.AdminUserDeleteDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからユーザーを削除するアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページからユーザーを削除する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminUserDeleteAction extends ActionSupport implements SessionAware {
 
@@ -40,8 +40,6 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 
 	/**
 	 * 管理者ページからユーザーを削除するメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 		public String execute() throws Exception {
@@ -59,18 +57,14 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 		}
 		
 		/**
-		 * 削除したいユーザーのメールアドレス取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 削除したいユーザーのメールアドレス取得するメソッド
 		 * @return delmail
 		 */
 		public String getDelmail() {
 			return delmail;
 		}
 		/**
-		 * 削除したいユーザーのメールアドレス格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * 削除したいユーザーのメールアドレス格納するメソッド
 		 * @param delmail 削除したいユーザーのメールアドレス
 		 */
 		public void setDelmail(String delmail) {
@@ -78,18 +72,14 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 		}
 		
 		/**
-		 * セッション取得メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * セッション取得するメソッド
 		 * @return session
 		 */
 		public Map<String, Object> getSession() {
 			return session;
 		}
 		/**
-		 * セッション格納メソッド
-		 * @author Mizukoshi Shizuka
-		 * @since 2015/11/18
+		 * セッション格納するメソッド
 		 * @param session セッション
 		 */
 		public void setSession(Map<String, Object> session) {

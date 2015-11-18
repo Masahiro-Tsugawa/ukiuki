@@ -15,23 +15,39 @@ import com.internousdev.ukiukiutopia.dto.AdminUserSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author internous
- *
+ * 管理ページから編集したいユーザーの情報を検索する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminUserSelectAction extends ActionSupport implements SessionAware{
 
-		/**
-	 * 
+	/***
+	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-		public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
-		public String result = ERROR;
-		private Map<String, Object> session;
-		private String selectEmail;
+	 private static final long serialVersionUID = 1L;
+	 /***
+     * 検索結果を格納するリスト
+     */
+	 public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
+	 /***
+	 * 実行結果
+	 */
+	 public String result = ERROR;
+	 /***
+	 * 編集したいユーザーのメールアドレスを保持する為のセッション
+     */
+	 private Map<String, Object> session;
+	 /***
+	 * 編集したいユーザーのメールアドレス
+	 */
+	 private String selectEmail;
 
-		public String execute() throws Exception {
+	 /**
+	　* 編集したいユーザーの情報を検索するメソッド
+	　* @return SUCCESS
+	 */
+	 public String execute() throws Exception {
 			
 			if (selectEmail == null || selectEmail.equals("")) {
 				System.out.println(selectEmail);
@@ -41,32 +57,36 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 			}else{
 
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();
-		AdminUserSelectDTO dto = new AdminUserSelectDTO();
 		boolean resultDAO = dao.select(selectEmail);
 		
 		if(resultDAO){
 			userList = dao.getUserList();
-			
-     		dto = userList.get(0);
 			session.put("sessionEmail", selectEmail);
-			System.out.println("sessionEmail");
-//			
-//			userList.addAll(dao.getUserList());
 			result = SUCCESS;
 		}
 		return result;
 		}
 		}
-
-		@Override
-		public void setSession(Map<String, Object> session) {
+	     
+	     /**
+		 * セッションに格納するメソッド
+		 * @param session セッション
+		 */
+	    public void setSession(Map<String, Object> session) {
 			this.session = session;
 		}
-
+	    
+	    /**
+		 * 編集したいユーザーのメールアドレスを取得するメソッド
+		 * @return selectEmail
+		 */
 		public String getSelectEmail() {
 			return selectEmail;
 		}
-
+		/**
+		 * 編集したいユーザーのメールアドレスを格納するメソッド
+		 * @param selectEmail 編集したいユーザーのメールアドレス
+		 */
 		public void setSelectEmail(String selectEmail) {
 			this.selectEmail = selectEmail;
 		}
