@@ -6,7 +6,18 @@ import java.sql.ResultSet;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
+/**
+ * @author internous
+ *
+ */
 public class BuyCompleteDAO {
+	/**
+	 * @param token
+	 * @param number
+	 * @param email
+	 * @return 
+	 * @throws Exception
+	 */
 	public int updateToUser(String token, String number, String email) throws Exception {
 
 		Connection con = DBConnector.getConnection();
@@ -22,6 +33,11 @@ public class BuyCompleteDAO {
 		return rscount;
 	}
 
+	/**
+	 * @param email
+	 * @return
+	 * @throws Exception
+	 */
 	public int selectUserId(String email) throws Exception {
 		Connection con = DBConnector.getConnection();
 
@@ -38,6 +54,12 @@ public class BuyCompleteDAO {
 		return rs.getInt(1);
 	}
 
+	/**
+	 * @param userId
+	 * @param date
+	 * @return
+	 * @throws Exception
+	 */
 	public int selectOrderId(int userId, String date) throws Exception {
 		Connection con = DBConnector.getConnection();
 
@@ -55,6 +77,12 @@ public class BuyCompleteDAO {
 		return rs.getInt(1);
 	}
 
+	/**
+	 * @param userId
+	 * @param date
+	 * @return
+	 * @throws Exception
+	 */
 	public int insertToOrder(int userId, String date) throws Exception {
 
 		Connection con = DBConnector.getConnection();
@@ -71,6 +99,15 @@ public class BuyCompleteDAO {
 		return rscount;
 	}
 
+	/**
+	 * @param orderId
+	 * @param ticketId
+	 * @param sheets
+	 * @param buyTotal
+	 * @param date
+	 * @return
+	 * @throws Exception
+	 */
 	public int insertToOrderTicket(int orderId, int ticketId, int sheets, int buyTotal, String date) throws Exception {
 
 		Connection con = DBConnector.getConnection();

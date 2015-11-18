@@ -95,11 +95,6 @@
 			<s:form action="check_end">
 				<s:submit value="完了" />
 			</s:form>
-
-			<!--　  -->
-			<s:form action="test">
-		  	<s:submit value="てｓｔ" />
-			</s:form>　
 			
 		</div>
 	</div>

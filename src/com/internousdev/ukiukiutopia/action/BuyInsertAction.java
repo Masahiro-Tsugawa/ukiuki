@@ -1,5 +1,6 @@
 package com.internousdev.ukiukiutopia.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
@@ -9,46 +10,79 @@ import com.internousdev.ukiukiutopia.dao.BuyCompleteDAO;
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * @author M.Namatame
+ * @version 1.1
+ * @since 1.0
+ */
 public class BuyInsertAction extends ActionSupport implements SessionAware {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * シリアルのバージョン
+	 */
+	private static final long serialVersionUID = -122351250439871014L;
 
+	/**
+	 * セッションを利用
+	 */
 	private Map<String, Object> session;
-	private int userId;//
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
+	/**
+	 * チケットID
+	 */
 	private int ticketId;
+	/**
+	 * チケット購入枚数
+	 */
 	private int sheets;
+	/**
+	 * 注文ID
+	 */
 	private int orderId;
-	private int buyTotal;//
+	/**
+	 * 各チケットの小計
+	 */
 	private int buySubTotal;//
+	/**
+	 * 
+	 */
 	private String email;//
+	/**
+	 * 
+	 */
 	private String token;//
+	/**
+	 * 
+	 */
 	private String number;//
+	/**
+	 * 
+	 */
 	private String registeredDate;//
 	// private String ticketName;
 	// private int price;
 	// private int subtotal;
+	// private int buyTotal;
 
 	public String execute() throws Exception {
 
-		BuyCompleteDAO daoUpdate = new BuyCompleteDAO();
+		BuyCompleteDAO dao = new BuyCompleteDAO();
 
 		email = (String) session.get("userEmail");
 		token = (String) session.get("buyCordToken");
 		number = (String) session.get("buyCordNumber");
-		daoUpdate.updateToUser(token, number, email);
+		dao.updateToUser(token, number, email);
 
-		BuyCompleteDAO daoSelectUserId = new BuyCompleteDAO();
-		userId = daoSelectUserId.selectUserId(email);
+		userId = dao.selectUserId(email);
 
-		BuyCompleteDAO daoInsertOrder = new BuyCompleteDAO();
 		DateTime dt = new DateTime();
 		registeredDate = dt.toString(DateTimeFormat.mediumDateTime());
-		daoInsertOrder.insertToOrder(userId, registeredDate);
+		dao.insertToOrder(userId, registeredDate);
 
-		BuyCompleteDAO daoSelectOrderId = new BuyCompleteDAO();
-		orderId = daoSelectOrderId.selectOrderId(userId, registeredDate);
-
-		BuyCompleteDAO daoInsertToOrderTicket = new BuyCompleteDAO();
+		orderId = dao.selectOrderId(userId, registeredDate);
 
 		List<TicketDataDTO> useList = (List<TicketDataDTO>) session.get("buyUseTicket");
 		List<TicketDataDTO> optionList = (List<TicketDataDTO>) session.get("buyOptionTicket");
@@ -58,19 +92,19 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 			ticketId = dto.getId();
 			sheets = dto.getSheets();
 			buySubTotal = dto.getSubTotal();
-			daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
+			dao.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
 
 		}
-		
+
 		for (int i = 0; i < optionList.size(); i++) {
 			TicketDataDTO dto = optionList.get(i);
 			ticketId = dto.getId();
 			sheets = dto.getSheets();
 			buySubTotal = dto.getSubTotal();
-			daoInsertToOrderTicket.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
+			dao.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
 
 		}
-		
+
 		return "success";
 
 	}

@@ -9,10 +9,16 @@ public class BuyCompreteDTO {
 	private int ticketId;
 	private String ticketType;
 
+	/**
+	 * @return
+	 */
 	public String getTicketName() {
 		return ticketName;
 	}
 
+	/**
+	 * @param ticketName
+	 */
 	public void setTicketName(String ticketName) {
 		this.ticketName = ticketName;
 	}

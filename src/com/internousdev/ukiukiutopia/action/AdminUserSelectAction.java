@@ -25,7 +25,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	/***
 	 * 生成したシリアルID
 	 */
-	 private static final long serialVersionUID = 1L;
+
 	 /***
      * 検索結果を格納するリスト
      */
