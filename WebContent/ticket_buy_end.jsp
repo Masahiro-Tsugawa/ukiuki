@@ -9,7 +9,7 @@
 <html lang="ja">
 
 <head>
-<fmt:setLocale value="${pageContext.request.locale.language}" />
+
 <fmt:setBundle
 	basename="com.internousdev.ukiukiutopia.ticket.property.Ticket"
 	var="lang" />
