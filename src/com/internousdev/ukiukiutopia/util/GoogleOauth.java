@@ -22,7 +22,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- *
+ * 
  */
 public class GoogleOauth extends ActionSupport {
 
@@ -46,6 +46,11 @@ public class GoogleOauth extends ActionSupport {
 	 */
 	private static final Token EMPTY_TOKEN = null;
 	
+	/**
+	 * @param request リクエスト
+	 * @param response レスポンス
+	 * @return result　結果
+	 */
 	public boolean getRequestToken(HttpServletRequest request,HttpServletResponse response){
 
 		try{
@@ -73,6 +78,10 @@ public class GoogleOauth extends ActionSupport {
 		return true;
 	}
 
+	/**
+	 * @param request レスポンス
+	 * @return　result　結果
+	 */
 	public Map<String,String> getAccessToken(HttpServletRequest request){
 		Map<String,String> map;
 		try {
