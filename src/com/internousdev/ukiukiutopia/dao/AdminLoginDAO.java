@@ -10,25 +10,28 @@ import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * @author internous
- *
+ * DBから管理者情報の取得を実行する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminLoginDAO {
 
-//	private String name;
-
-//	private boolean is_login;
-
+	/**
+	 * 管理者情報を検索するメソッド
+	 * @param admin_name 
+	 * @param password
+	 * @param dto 
+	 * @return success
+	 */
 	public String select(String admin_name, String password, AdminLoginDTO dto) {
 
 		Connection conn = null;
 		String ret = "error";
-		System.out.println("aaa");
 		try {
 			conn = (Connection) DBConnector.getConnection();
 			String sql = "SELECT * FROM admin WHERE ";
 			sql += "admin_name = ? AND admin_password = ?";
-			System.out.println(sql);
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 
 			ps.setString(1, admin_name);
@@ -40,23 +43,12 @@ public class AdminLoginDAO {
 				System.out.println("if");
 				dto.setName(rs.getString("admin_name"));
 				dto.setIsLogin(rs.getBoolean("is_login"));
-//				System.out.println(dto.getIs_login());
-				
 				sql = "update admin set is_login=? where id=?";
 				ps = conn.prepareStatement(sql);
 				ps.setBoolean(1, true);
 				ps.setInt(2, rs.getInt("id"));
-				
-				
-				System.out.println("update - ps2 -"+ ps);
 
 				int rscount = ps.executeUpdate();
-
-				System.out.println("update - rsCount - 実行");
-				if(rscount > 0){
-				System.out.println("update - rsCount - Update OK");
-				}//if
-				
 				
 				ret = "success";
 			}
@@ -71,7 +63,6 @@ public class AdminLoginDAO {
 				}
 			}
 		}
-		System.out.println(ret);
 		return ret;
 	}
 }

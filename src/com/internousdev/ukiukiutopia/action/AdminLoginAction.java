@@ -10,10 +10,10 @@ import com.internousdev.ukiukiutopia.dao.AdminLoginDAO;
 import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
 
 /**
- * 管理ページにてログインする為のアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページにてログインする為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminLoginAction extends ActionSupport implements SessionAware {
 
@@ -41,8 +41,6 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	
 	/**
 	 * 管理者ページにログインするメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 
@@ -77,18 +75,14 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * 管理者名取得メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * 管理者名取得するメソッド
 	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
-	 * 管理者名格納メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * 管理者名格納するメソッド
 	 * @param name 管理者名
 	 */
 	public void setName(String name) {
@@ -96,18 +90,14 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 	
 	/**
-	 * 管理者パスワード取得メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * 管理者パスワード取得するメソッド
 	 * @return password
 	 */
 	public String getPassword() {
 		return password;
 	}
 	/**
-	 * 管理者パスワード格納メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * 管理者パスワード格納するメソッド
 	 * @param password 管理者パスワード
 	 */
 	public void setPassword(String password) {
@@ -115,9 +105,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * セッション取得メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * セッション取得するメソッド
 	 * @return session
 	 */
 	public Map<String, Object> getSession() {
@@ -125,9 +113,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * セッション格納メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * セッション格納するメソッド
 	 * @param session セッション
 	 */
 	public void setSession(Map<String, Object> session) {
@@ -135,18 +121,14 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * ログイン状態取得メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * ログイン状態取得するメソッド
 	 * @return isLogin
 	 */
 	public boolean getIsLogin() {
 		return isLogin;
 	}
 	/**
-	 * ログイン状態格納メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * ログイン状態格納するメソッド
 	 * @param isLogin ログイン状態
 	 */
 	public void setIsLogin(boolean isLogin) {

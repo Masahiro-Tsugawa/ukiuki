@@ -11,10 +11,10 @@ import com.internousdev.ukiukiutopia.dto.AdminTicketSelectDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからDBに登録されている全てのチケットを検索するアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページからDBに登録されている全てのチケットを検索する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminTicketSelectAction extends ActionSupport{
 
@@ -34,8 +34,6 @@ public class AdminTicketSelectAction extends ActionSupport{
 
 	/**
 	 * 管理者ページからDBに登録されている全てのチケットを検索するメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 	public String execute() throws Exception {

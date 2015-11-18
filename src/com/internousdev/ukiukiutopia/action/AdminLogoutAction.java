@@ -10,10 +10,10 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからログアウトする為のアクション
- * @author Mizukoshi Shizuka
- * @since 2015/11/18
- * @version 1.0
+ * 管理ページからログアウトする為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminLogoutAction extends ActionSupport implements SessionAware{
 
@@ -33,8 +33,6 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 管理者ページからログアウトするメソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
 	 * @return SUCCESS
 	 */
 	public String execute() {
@@ -48,18 +46,14 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 	/**
-	 * セッション取得メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * セッション取得するメソッド
 	 * @return session
 	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 	/**
-	 * セッション格納メソッド
-	 * @author Mizukoshi Shizuka
-	 * @since 2015/11/18
+	 * セッション格納するメソッド
 	 * @param session セッション
 	 */
 	public void setSession(Map<String, Object> session) {

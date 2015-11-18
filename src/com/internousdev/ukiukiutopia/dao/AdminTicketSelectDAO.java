@@ -19,17 +19,29 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
- * @author internous
- *
+ * DBから全チケット情報の取得を実行する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminTicketSelectDAO {
-
+	/***
+	 * DBと接続
+	 */
 	Connection con;
+	/***
+	 * 実行結果
+	 */
 	boolean action;
-
+	/***
+	 * DBから取得した全チケット情報を格納するリスト
+	 */
 	public List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
 
-	// 検索するメソッド
+	/**
+	 * 全チケット情報を検索するメソッド
+	 * @return true
+	 */
 	public boolean select() throws Exception {
 		action = false;
 
@@ -79,6 +91,10 @@ public class AdminTicketSelectDAO {
 		return action;
 	}// select
 
+	/**
+	 * 全チケット情報を取得するメソッド
+	 * @return boughtList
+	 */
 	public List<AdminTicketSelectDTO> getTicketList() {
 		return ticketList;
 	}

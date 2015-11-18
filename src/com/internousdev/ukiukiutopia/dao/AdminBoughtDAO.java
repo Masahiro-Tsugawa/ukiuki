@@ -12,19 +12,35 @@ import com.internousdev.ukiukiutopia.dto.AdminBoughtDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * @author internous
- *
+ * DBから購入されたチケット情報の取得を実行する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminBoughtDAO {
+	/***
+	 * DBと接続
+	 */
 	Connection con;
+	/***
+	 * 実行結果
+	 */
 	boolean action;
-
+	/***
+	 * DBから取得した購入情報を格納するリスト
+	 */
 	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
 
-//検索するメソッド
+	/**
+	 * 購入情報を検索するメソッド
+	 * @param selectDate1 
+	 * @param selectDate2 
+	 * @param dto 
+	 * @return true
+	 * @throws Exception 
+	 */
 	public boolean select(String selectDate1,String selectDate2,AdminBoughtDTO dto)throws Exception{
-		System.out.println("select - メソッド実行");
-		System.out.println(selectDate1);
+
 		action=false;
 		con = DBConnector.getConnection();
 
@@ -36,11 +52,8 @@ public class AdminBoughtDAO {
 		ps.setString(1, selectDate1);
 		ps.setString(2, selectDate2);
 
-		System.out.println("select - ps - "+ ps);
-
 		ResultSet rs = ps.executeQuery();
-		System.out.println("select - sql実行");
-
+		
 		while(rs.next()){
 			action = true;
 
@@ -61,6 +74,11 @@ public class AdminBoughtDAO {
 		return action;
 
 	}//select
+	
+	/**
+	 * チケットの購入情報を取得するメソッド
+	 * @return boughtList
+	 */
 	public List<AdminBoughtDTO> getBoughtList(){
 		return boughtList;
 	}

@@ -14,11 +14,15 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 /**
- * @author internous
- *
+ * DBのチケット情報の変更を実行する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminTicketUpdateDAO {
-
+	/***
+	 * DBと接続
+	 */
 	Connection con;
 	int rscount = 0;
 
