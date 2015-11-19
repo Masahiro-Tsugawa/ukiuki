@@ -18,16 +18,17 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class RegisterUserDAO {
 
+
 	/**
 	 * ユーザー情報メソッド
-	 * @param email メールアドレスの格納
-	 * @param password パスワードの格納
-	 * @param name 名前の格納
-	 * @param telNum 電話番号の格納
-	 * @param posCode 郵便番号の格納
-	 * @param address 住所の格納
-	 * @return ps2.executeUpdate インサート完了と失敗の戻り値
-	 * @throws Exception 例外エラー
+	 * @param email メールアドレス
+	 * @param password パスワード
+	 * @param name 名前
+	 * @param telNum 電話番号
+	 * @param posCode 郵便番号
+	 * @param address 住所
+	 * @return ユーザーの情報
+	 * @throws Exception 例外
 	 */
 	public int insert(String email, String password, String name,
 			String telNum, String posCode, String address) throws Exception {
@@ -52,9 +53,7 @@ public class RegisterUserDAO {
 
 		int rscount = ps2.executeUpdate();
 
-
 		return rscount;
 	}// insert
 
 }
-
