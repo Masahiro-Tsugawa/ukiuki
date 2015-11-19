@@ -74,7 +74,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		if (!result) {
 			return rtn;
 		}
-		
+		System.out.println("");
 		dao.select(uniqueId, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("loginId", dto.getUserId());
