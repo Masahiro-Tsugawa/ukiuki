@@ -20,10 +20,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminUserUpdateAction extends ActionSupport implements SessionAware {
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 484956041771748211L;
 	/***
 	 * 変更したいユーザーのメールアドレス
 	 */
@@ -59,7 +59,36 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	/***
 	 * DAO成功回数
 	 */
-	String up = null;
+	int up = 0;
+	/***
+	 * メールアドレス
+	 */
+	int upE = 0;
+	/***
+	 * パスワード
+	 */
+	int upP = 0;
+	/***
+	 * ユーザー名
+	 */
+	int upN = 0;
+	/***
+	 * 電話番号
+	 */
+	int upTN = 0;
+	/***
+	 * 郵便番号
+	 */
+	int upPC = 0;
+	/***
+	 * 住所
+	 */
+	int upA = 0;
+	/***
+	 * 更新日
+	 */
+	int upRD = 0;
+	
 	/***
 	 * 実行結果
 	 */
@@ -82,16 +111,69 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 		AdminUserUpdateDAO dao = new AdminUserUpdateDAO();
 
-		int up = dao.update(purposeEmail, updateEmail, updatePassword, updateName, updateTelNum, updatePostalCode,
-				updateAddress, updateRenewDate);
+		if(("".equals(purposeEmail)) == false){
+			 if(("".equals(updateEmail)) == false){
+				 upE = dao.updateEmail(purposeEmail,updateEmail);
+			   }
+			 
+			 if(("".equals(updatePassword)) == false | ("".equals(updateEmail)) == false){
+				 purposeEmail = updateEmail;
+				 upP = dao.updatePassword(purposeEmail,updatePassword);
+			   }
+			 if(("".equals(updatePassword)) == false | ("".equals(updateEmail)) == true){
+				 upP = dao.updatePassword(purposeEmail,updatePassword);
+			   }
+			 
+			 if(("".equals(updateName)) == false | purposeEmail==updateEmail){
+				 purposeEmail = updateEmail;
+				 upN = dao.updateName(updateEmail,updateName);
+			   }
+			 if(("".equals(updateName)) == false){
+				 upN = dao.updateName(purposeEmail,updateName);
+			   }
+			 
+			 
+			 if(("".equals(updateTelNum)) == false | purposeEmail==updateEmail){
+				 purposeEmail = updateEmail;
+				 upTN = dao.updateTelNum(updateEmail,updateTelNum);
+			   }
+			 if(("".equals(updateTelNum)) == false){
+				 upTN = dao.updateTelNum(purposeEmail,updateTelNum);
+			   }
+			 
+			 if(("".equals(updatePostalCode)) == false | purposeEmail==updateEmail){
+				 purposeEmail = updateEmail;
+				 upPC = dao.updatePostalCode(updateEmail,updatePostalCode);
+			   }
+			 if(("".equals(updatePostalCode)) == false){
+				 upPC = dao.updatePostalCode(purposeEmail,updatePostalCode);
+			   }
+			 
+			 if(("".equals(updateAddress)) == false | purposeEmail==updateEmail){
+				 purposeEmail = updateEmail;
+				 upA = dao.updateAddress(updateEmail,updateAddress);
+			   }
+			 if(("".equals(updateAddress)) == false){
+				 upA = dao.updateAddress(purposeEmail,updateAddress);
+			   }
+			 
+			 if(purposeEmail==updateEmail){
+				 purposeEmail = updateEmail;
+			upRD = dao.updateRenewDate(purposeEmail,updateRenewDate);
+			 }else{
+				 upRD = dao.updateRenewDate(purposeEmail,updateRenewDate);
+			   }
+			 
+			up = upE + upP + upN + upTN + upPC + upA + upRD;
 
-		if (up > 0) {
+		if (up >= 2) {
 			session.remove(purposeEmail);
 			result = SUCCESS;
 		}
+		}
 		return result;
-	}
-
+		}
+		
 	/**
 	 * セッション取得するメソッド
 	 * @return session

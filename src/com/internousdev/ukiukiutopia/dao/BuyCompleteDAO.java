@@ -7,15 +7,19 @@ import java.sql.ResultSet;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * @author internous
- *
+ * 完了ボタンプッシュ後に購入データをDBへ登録する為のクラス
+ * @author M.Namatame
+ *　@version 1.1　
+ *　@since 1.0
  */
 public class BuyCompleteDAO {
+	
 	/**
-	 * @param token
-	 * @param number
-	 * @param email
-	 * @return 
+	 * ユーザーのクレジットカード情報をアップデートするメソッド
+	 * @param token クレジットカードトークン
+	 * @param number クレジットカード下四桁
+	 * @param email ユーザーメールアドレス
+	 * @return rscount　アップデート数を返す
 	 * @throws Exception
 	 */
 	public int updateToUser(String token, String number, String email) throws Exception {
@@ -34,8 +38,9 @@ public class BuyCompleteDAO {
 	}
 
 	/**
-	 * @param email
-	 * @return
+	 * ユーザーIDを取得するメソッド
+	 * @param email ユーザーメールアドレス
+	 * @return　rs.getInt(1)　DB検索の1列目を取得する
 	 * @throws Exception
 	 */
 	public int selectUserId(String email) throws Exception {
@@ -49,15 +54,14 @@ public class BuyCompleteDAO {
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 
-		System.out.println("useid=" + rs.getInt(1));
-
 		return rs.getInt(1);
 	}
 
 	/**
-	 * @param userId
-	 * @param date
-	 * @return
+	 * 注文IDをDBから取得するメソッド
+	 * @param userId ユーザーID
+	 * @param date 購入を確定した日時
+	 * @return rs.getInt(1)　DB検索の1列目を取得する
 	 * @throws Exception
 	 */
 	public int selectOrderId(int userId, String date) throws Exception {
@@ -72,15 +76,14 @@ public class BuyCompleteDAO {
 		ResultSet rs = ps.executeQuery();
 		rs.next();
 
-		System.out.println("orderid=" + rs.getInt(1));
-
 		return rs.getInt(1);
 	}
 
 	/**
-	 * @param userId
-	 * @param date
-	 * @return
+	 * 注文情報をDBへ登録するメソッド
+	 * @param userId ユーザーID
+	 * @param date 購入を確定した日時
+	 * @return　rscount アップデート数を返す
 	 * @throws Exception
 	 */
 	public int insertToOrder(int userId, String date) throws Exception {
@@ -100,12 +103,13 @@ public class BuyCompleteDAO {
 	}
 
 	/**
-	 * @param orderId
-	 * @param ticketId
-	 * @param sheets
-	 * @param buyTotal
-	 * @param date
-	 * @return
+	 * チケットの注文情報をDBへ登録するメソッド
+	 * @param orderId 注文ID
+	 * @param ticketId チケットID
+	 * @param sheets 枚数
+	 * @param buyTotal チケット毎の小計
+	 * @param date 購入を確定した日時
+	 * @return　rscount アップデート数を返す
 	 * @throws Exception
 	 */
 	public int insertToOrderTicket(int orderId, int ticketId, int sheets, int buyTotal, String date) throws Exception {

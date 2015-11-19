@@ -11,6 +11,12 @@ import com.internousdev.ukiukiutopia.dto.PersonalInformationDTO;
 import com.internousdev.ukiukiutopia.dto.PurchaseHistoryDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
+   /**
+    * 個人情報と購入履歴を検索して取得するクラス
+    * @author K.Kato
+    * @version 1.1
+    * @since 1.0
+    */
 public class PersonalInformationDAO {
 
 	Connection con;
@@ -19,7 +25,12 @@ public class PersonalInformationDAO {
 	private PersonalInformationDTO personal = new PersonalInformationDTO();
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
 
-	// 検索するメソッド
+	/**
+	 * 個人情報を検索するメソッド
+	 * @param emailaddress
+	 * @return action
+	 * @throws Exception
+	 */
 	public boolean select(String emailaddress) throws Exception {
 		action = false;
 		con = DBConnector.getConnection();
@@ -55,7 +66,12 @@ public class PersonalInformationDAO {
 	}
 
 	
-	
+	/**
+	 * 購入履歴を検索するメソッド
+	 * @param userId
+	 * @return action
+	 * @throws Exception
+	 */
 	public boolean selectHistory(int userId) throws Exception {
 		action = false;
 		con = DBConnector.getConnection();
@@ -97,14 +113,25 @@ public class PersonalInformationDAO {
 		return action;
 	}
 	
+	/**
+	 * 個人情報を格納するメソッド
+	 * @return personal
+	 */
 	public PersonalInformationDTO getPersonal() {
 		return personal;
 	}
-
+    
+	/**
+	 * 個人情報を設定するメソッド
+	 * @param personal
+	 */
 	public void setPersonal(PersonalInformationDTO personal) {
 		this.personal = personal;
 	}
-
+    /**
+     * 購入履歴を格納するメソッド
+     * @return historylList
+     */
 	public List<PurchaseHistoryDTO> getHistorylList() {
 		return historylList;
 	}

@@ -14,20 +14,35 @@ import com.internousdev.ukiukiutopia.dto.AdminUserSelectDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 
-
 /**
- * @author internous
- *
+ * DBから選択したユーザー情報の検索を実行する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminUserSelectDAO {
+	/***
+	 * DBと接続
+	 */
 	Connection con;
-	boolean action;
-
+	/***
+	 * 実行結果
+	 */
+	boolean result=false;
+	/***
+	 * DBから取得したユーザー情報を格納するリスト
+	 */
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 
-//検索するメソッド
+	/**
+	 * 購入情報を検索するメソッド
+	 * @param selectEmail 
+	 * @param dto 
+	 * @return action true：検索結果を取得成功
+	 * @throws Exception 
+	 */
 	public boolean select(String selectEmail)throws Exception{
-		action=false;
+		
 		con = DBConnector.getConnection();
 
 		try{
@@ -40,7 +55,6 @@ public class AdminUserSelectDAO {
 		ResultSet rs = ps.executeQuery();
 
 		while(rs.next()){
-			action = true;
 
 			AdminUserSelectDTO dto =new AdminUserSelectDTO();
 			dto.setEmail(rs.getString(2));
@@ -50,11 +64,10 @@ public class AdminUserSelectDAO {
 			dto.setPostalCode(rs.getString(6));
 			dto.setAddress(rs.getString(7));
 			dto.setRenewDate(rs.getString(12));
-	
-			
-
 
 			userList.add(dto);
+			
+			result = true;
 		}//while
 
 	}catch(Exception e){
@@ -63,9 +76,14 @@ public class AdminUserSelectDAO {
 		con.close();
 	}//finally
 
-		return action;
+		return result;
 
 	}//select
+	
+	/**
+	 * 選択したユーザー情報を取得するメソッド
+	 * @return userList
+	 */
 	public List<AdminUserSelectDTO> getUserList(){
 		return userList;
 	}

@@ -1,9 +1,7 @@
 package com.internousdev.ukiukiutopia.action;
 
 import java.util.Map;
-
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.internousdev.ukiukiutopia.dao.RegisterUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,11 +25,8 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	private String address;
 	int count;
 
-
-
 	/**
-	 * エラー
-	 *
+	 * ユーザー情報の確認
 	 */
 	public String action = ERROR;
 

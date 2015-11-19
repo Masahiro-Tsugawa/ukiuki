@@ -5,7 +5,7 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
-    <constant name="struts.custom.i18n.resources" value="Login,SignUpUser,MyPage,ticket_buy_end" />
+    <constant name="struts.custom.i18n.resources" value="Login,SignUpUser,MyPage,ticket_buy_end,TicketBuy" />
     <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
       
     
@@ -97,13 +97,6 @@
 	    <action name="check_end" class="com.internousdev.ukiukiutopia.action.BuyInsertAction" method="execute" >
 	       <result name="success">ticket_buy_end.jsp</result>
 	    </action>
-	    
-	     <!-- 検証用　ナマタメ   最後に消します。--> 
-	    <action name="test" class="com.internousdev.ukiukiutopia.action.TestAction" method="execute" >
-	       <result name="success">ticket_buy_check.jsp</result>
-	       <result name="errar">ticket_buy_check.jsp</result>
-	      
-	    </action> 
 	    
         <!-- 管理者ログイン -->
         <action name="AdminLoginAction"

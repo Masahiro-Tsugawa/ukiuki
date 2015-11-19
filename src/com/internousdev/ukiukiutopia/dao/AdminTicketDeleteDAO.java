@@ -22,17 +22,15 @@ public class AdminTicketDeleteDAO {
 	/***
 	 * 実行結果
 	 */
-	boolean action;
+	boolean result=false;
 
 	/**
-	 * チケット情報を削除するメソッド
+	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
 	 * @param deleteId 
 	 * @return true
 	 * @throws Exception 
 	 */
 	public int delete(int deleteId)throws Exception{
-		System.out.println("select - メソッド実行");
-		System.out.println(deleteId);
 		
 		con = DBConnector.getConnection();
 		int rscount=0;

@@ -16,15 +16,25 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  *
  */
 public class AdminUserDeleteDAO {
+	/***
+	 * DBと接続
+	 */
 	Connection con;
-	boolean action;
+	/***
+	 * 実行結果
+	 */
+	int rscount=0;
 
-//削除するメソッド
+	/**
+	 * 購入情報を検索するメソッド
+	 * @param delmail 
+	 * @param dto 
+	 * @return rscout true：削除成功
+	 * @throws Exception 
+	 */
 	public int delete(String delmail)throws Exception{
-		System.out.println("select - メソッド実行");
 		
 		con = DBConnector.getConnection();
-		int rscount=0;
 		
 		try{
 		String sql = "delete from user where email=?";
@@ -32,14 +42,11 @@ public class AdminUserDeleteDAO {
 		PreparedStatement ps;
 		ps = con.prepareStatement(sql);
 		ps.setString(1,delmail);
-		System.out.println("test");
 		rscount = ps.executeUpdate();
-		System.out.println("delete");
 
-		if(rscount > 0){
-			System.out.println("delete - デリート成功");
-		}else{
-			System.out.println("delete - デリート失敗");
+		if(rscount < 0){
+			
+			return rscount;
 		}
 
 	}catch(Exception e){

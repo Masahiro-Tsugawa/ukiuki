@@ -5,8 +5,17 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 
+/**
+ * MongoDBにコレクションを作成する為のクラス
+ * @author N.Minami
+ * @version 1.1
+ * @since 1.0
+ */
 public class MongoSetUp {
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		try {

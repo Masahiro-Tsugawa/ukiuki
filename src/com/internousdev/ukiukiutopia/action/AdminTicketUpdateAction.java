@@ -16,12 +16,11 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 public class AdminTicketUpdateAction extends ActionSupport {
-	
-	/***
+
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = -1940426436979713361L;
 	/***
 	 * 編集したいチケットのID
 	 */
@@ -50,10 +49,36 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	 * 編集したいチケットの詳細情報
 	 */
 	private String updateTicketInfo;
+
 	/***
 	 * DAOの実行成功数
 	 */
-	String up=null;
+	int up=0;
+	/***
+	 * チケット名変更実行成功
+	 */
+	int upN=0;
+	/***
+	 * 値段変更実行成功
+	 */
+	int upP=0;
+	/***
+	 * 販売状態変更実行成功
+	 */
+	int upI=0;
+	/***
+	 * チケット種類変更実行成功
+	 */
+	int upTT=0;
+	/***
+	 * チケット実行成功
+	 */
+	int upTI=0;
+	/***
+	 * DAOの実行成功数
+	 */
+	int upRD=0;
+	
 	/***
 	 * 実行結果
 	 */
@@ -70,12 +95,36 @@ public class AdminTicketUpdateAction extends ActionSupport {
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
+		if(updateId > 0){
+		 if(("".equals(updateName)) == false){
+			 upN = dao.updateName(updateId,updateName);
+		   }
+		 
+		 if(updatePrice> 0){
+			 upP = dao.updatePrice(updateId,updatePrice);
+		   }
+		 
+		 if(("".equals(updateIsSale)) == false){
+			 upI = dao.updateIsSale(updateId,updateIsSale);
+		   }
+		 
+		 if(("".equals(updateTicketType)) == false){
+			 upTT = dao.updateTicketType(updateId,updateTicketType);
+		   }
+		 
+		 if(("".equals(updateTicketInfo)) == false){
+			 upTI = dao.updateTicketInfo(updateId,updateTicketInfo);
+		   }
+		 
+		 
+		upRD = dao.updateRenewDate(updateId,updateRenewDate);
+		 
+		up = upN + upP + upI + upTT + upTI + upRD;
 		
-		int up = dao.update(updateId,updateName,updatePrice,updateTicketType,updateIsSale,
-				updateRenewDate,updateTicketInfo);
-		
-		if(up > 0){
+		if(up >= 2){
 			result = SUCCESS;
+		  
+		 }
 		}
 		return result;
 		}
@@ -170,4 +219,18 @@ public class AdminTicketUpdateAction extends ActionSupport {
 			this.updateTicketInfo = updateTicketInfo;
 		}
 		
+		/**
+		 * 編集したいチケットの詳細取得するメソッド
+		 * @return updateRenewDate
+		 */
+		public String getUpdateRenewDate() {
+			return updateRenewDate;
+		}
+		/**
+		 * 編集したいチケットの詳細格納するメソッド
+		 * @param updateRenewDate 編集したいチケットの詳細
+		 */
+		public void setUpdateRenewDate(String updateRenewDate) {
+			this.updateRenewDate = updateRenewDate;
+		}
 }

@@ -9,15 +9,25 @@ import java.sql.PreparedStatement;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * @author internous
- *
+ * DBから選択したユーザー情報の編集を実行する為のクラス
+ * 
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminUserUpdateDAO {
-
+	/***
+	 * DBと接続
+	 */
 	Connection con;
+	/***
+	 * 実行結果
+	 */
 	int rscount = 0;
 
 	/**
+	 * 選択したユーザー情報を編集するメソッド
+	 * 
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updatePassword
@@ -26,11 +36,10 @@ public class AdminUserUpdateDAO {
 	 * @param updatePostalCode
 	 * @param updateAddress
 	 * @param updateRenewDate
-	 * @return
+	 * @return rscount>0:編集成功
 	 * @throws Exception
 	 */
-	public int update(String purposeEmail, String updateEmail, String updatePassword, String updateName,
-			String updateTelNum, String updatePostalCode, String updateAddress, String updateRenewDate)
+	public int updateEmail(String purposeEmail, String updateEmail)
 					throws Exception {
 
 		con = DBConnector.getConnection();
@@ -39,9 +48,6 @@ public class AdminUserUpdateDAO {
 
 			if (("".equals(purposeEmail)) == false) {
 
-				System.out.println(purposeEmail);
-				System.out.println("updateEmail" + updateEmail);
-
 				if (("".equals(updateEmail)) == false) {
 					String sql = "update user set email=? where email=?";
 					PreparedStatement ps;
@@ -49,13 +55,38 @@ public class AdminUserUpdateDAO {
 					ps = con.prepareStatement(sql);
 					ps.setString(1, updateEmail);
 					ps.setString(2, purposeEmail);
-					
-					purposeEmail = updateEmail;
-
-					System.out.println("update - ps -" + ps);
 
 					rscount = ps.executeUpdate();
 				}
+
+				
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+	}// update
+
+	/**
+	 * 選択したユーザーのパスワードを編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updatePassword
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updatePassword(String purposeEmail, String updatePassword) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			System.out.println(updatePassword);
+			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updatePassword)) == false) {
 					String sql = "update user set password=? where email=?";
 					PreparedStatement ps;
@@ -64,10 +95,33 @@ public class AdminUserUpdateDAO {
 					ps.setString(1, updatePassword);
 					ps.setString(2, purposeEmail);
 
-					System.out.println("update - ps -" + ps);
-
 					rscount = ps.executeUpdate();
 				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+	}
+
+	/**
+	 * 選択したユーザーのユーザー名を編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updateName
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updateName(String purposeEmail, String updateName) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updateName)) == false) {
 					String sql = "update user set name=? where email=?";
 					PreparedStatement ps;
@@ -76,10 +130,33 @@ public class AdminUserUpdateDAO {
 					ps.setString(1, updateName);
 					ps.setString(2, purposeEmail);
 
-					System.out.println("update - ps -" + ps);
-
 					rscount = ps.executeUpdate();
 				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+	}
+
+	/**
+	 * 選択したユーザーの電話番号を編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updateTelNum
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updateTelNum(String purposeEmail, String updateTelNum) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updateTelNum)) == false) {
 					String sql = "update user set tel_num=? where email=?";
 					PreparedStatement ps;
@@ -88,10 +165,34 @@ public class AdminUserUpdateDAO {
 					ps.setString(1, updateTelNum);
 					ps.setString(2, purposeEmail);
 
-					System.out.println("update - ps -" + ps);
-
 					rscount = ps.executeUpdate();
 				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+
+	}
+
+	/**
+	 * 選択したユーザーの郵便番号を編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updatePostalCode
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updatePostalCode(String purposeEmail, String updatePostalCode) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updatePostalCode)) == false) {
 					String sql = "update user set postal_code=? where email=?";
 					PreparedStatement ps;
@@ -100,10 +201,33 @@ public class AdminUserUpdateDAO {
 					ps.setString(1, updatePostalCode);
 					ps.setString(2, purposeEmail);
 
-					System.out.println("update - ps -" + ps);
-
 					rscount = ps.executeUpdate();
 				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+	}
+
+	/**
+	 * 選択したユーザーの住所を編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updateAddress
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updateAddress(String purposeEmail, String updateAddress) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updateAddress)) == false) {
 					String sql = "update user set Address=? where email=?";
 					PreparedStatement ps;
@@ -112,11 +236,35 @@ public class AdminUserUpdateDAO {
 					ps.setString(1, updateAddress);
 					ps.setString(2, purposeEmail);
 
-					System.out.println("update - ps -" + ps);
-
 					rscount = ps.executeUpdate();
 				}
 
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		} // finally
+		return rscount;
+
+	}
+	
+	/**
+	 * 選択したユーザーの更新日を編集するメソッド
+	 * 
+	 * @param purposeEmail
+	 * @param updateEmail
+	 * @param updateRenewDate
+	 * @return rscount>0:編集成功
+	 * @throws Exception
+	 */
+	public int updateRenewDate(String purposeEmail, String updateRenewDate) throws Exception {
+
+		con = DBConnector.getConnection();
+
+		try {
+
+			if (("".equals(purposeEmail)) == false) {
 				String sql = "update user set renew_date=? where email=?";
 				PreparedStatement ps;
 
@@ -124,22 +272,15 @@ public class AdminUserUpdateDAO {
 				ps.setString(1, updateRenewDate);
 				ps.setString(2, purposeEmail);
 
-				System.out.println("update - ps -" + ps);
-
 				rscount = ps.executeUpdate();
-
+			
 			}
-			if (rscount > 0) {
-				System.out.println("update - rsCount - Update OK");
-			} // if rs
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
 		} // finally
-		System.out.println("update - return -" + rscount);
 		return rscount;
-	}// update
 
+	}
 }

@@ -11,7 +11,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
  * 購入するチケットの情報をリストに格納する為のクラス
- * @author  N.Minami
+ * @author N.Minami
  * @version 1.1
  * @since 1.0
  */
@@ -20,7 +20,7 @@ public class BuyTicketDataDAO {
 	/**
 	 * 購入するチケットの合計金額
 	 */
-	private int totalAmount=0;
+	private int totalAmount = 0;
 	/**
 	 * 購入する施設利用チケット情報のリスト
 	 */
@@ -29,13 +29,13 @@ public class BuyTicketDataDAO {
 	 * 購入するオプションチケット情報のリスト
 	 */
 	private List<TicketDataDTO> buyOptionTicketList = new ArrayList<TicketDataDTO>();
-	
 
 	/**
 	 * 購入する施設利用チケット情報のリストを作成するメソッド
+	 * 
 	 * @param id 購入する施設利用チケットのID
 	 * @param sheets 購入する施設利用チケットの枚数
-	 * @return result 購入する施設利用チケットの枚数
+	 * @return result 購入する施設利用チケット情報のリスト
 	 * @throws Exception
 	 */
 	public boolean createBuyUseTicketList(int id, int sheets) throws Exception {
@@ -57,9 +57,9 @@ public class BuyTicketDataDAO {
 			dto.setPrice(rs.getInt(3));
 			dto.setType(rs.getString(4));
 			dto.setSheets(sheets);
-			dto.setSubTotal(sheets*rs.getInt(3));
-			totalAmount+=dto.getSubTotal();
-			
+			dto.setSubTotal(sheets * rs.getInt(3));
+			totalAmount += dto.getSubTotal();
+
 			buyUseTicketList.add(dto);
 			result = true;
 
@@ -71,13 +71,12 @@ public class BuyTicketDataDAO {
 
 		return result;
 	}
-	
-	
+
 	/**
-	 * 購入する施設利用チケット情報のリストを作成するメソッド
-	 * @param id
-	 * @param sheets
-	 * @return result
+	 * 購入するオプションチケット情報のリストを作成するメソッド
+	 * @param id 購入すオプションチケットのID
+	 * @param sheets 購入するオプションチケットの枚数
+	 * @return result 購入するオプションチケットの枚数
 	 * @throws Exception
 	 */
 	public boolean createBuyOptionTicketList(int id, int sheets) throws Exception {
@@ -101,8 +100,8 @@ public class BuyTicketDataDAO {
 			dto.setPrice(rs.getInt(3));
 			dto.setType(rs.getString(4));
 			dto.setSheets(sheets);
-			dto.setSubTotal(sheets*rs.getInt(3));
-			totalAmount+=dto.getSubTotal();
+			dto.setSubTotal(sheets * rs.getInt(3));
+			totalAmount += dto.getSubTotal();
 
 			buyOptionTicketList.add(dto);
 			result = true;
@@ -116,22 +115,42 @@ public class BuyTicketDataDAO {
 		return result;
 	}
 
+	/**
+	 * 購入する施設利用チケット情報のリストの取得メソッド
+	 * @return buyUseTicketList 購入する施設利用チケット情報のリスト
+	 */
 	public List<TicketDataDTO> getBuyUseTicketList() {
 		return this.buyUseTicketList;
 	}
 
+	/**
+	 * 購入するオプションチケット情報のリストの取得メソッド
+	 * @return buyOptionTicketList 購入するオプションチケット情報のリスト
+	 */
 	public List<TicketDataDTO> getBuyOptionTicketList() {
 		return this.buyOptionTicketList;
 	}
-	
-	public int getTotalAmount(){
+
+	/**
+	 * 購入するチケットの合計金額取得メソッド
+	 * @return totalAmount 購入するチケットの合計金額
+	 */
+	public int getTotalAmount() {
 		return this.totalAmount;
 	}
 
+	/**
+	 * 購入する施設利用チケット情報のリストの格納メソッド
+	 * @param buyUseTicketList 購入する施設利用チケット情報のリスト
+	 */
 	public void setBuyUseTicketList(List<TicketDataDTO> buyUseTicketList) {
 		this.buyUseTicketList = buyUseTicketList;
 	}
 
+	/**
+	 * 購入するオプションチケット情報のリストの格納メソッド
+	 * @param buyOptionTicketList 購入するオプションチケット情報のリスト
+	 */
 	public void setBuyOptionTicketList(List<TicketDataDTO> buyOptionTicketList) {
 		this.buyOptionTicketList = buyOptionTicketList;
 	}
