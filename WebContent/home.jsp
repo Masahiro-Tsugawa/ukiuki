@@ -86,7 +86,7 @@
 						<h4>
 							<s:text name="home.aikon" />
 						</h4>
-						<s:form action="HomeAction">
+						<s:form action="UpdateOAuthInfoAction">
 								<s:if test = "#session.OAuthName != null" > 
 								 <tr>
 									<td><label for="emailInput">メールアドレスを入力してください</label><br><s:textfield label="email" name="OAuthEmail" /></td>
