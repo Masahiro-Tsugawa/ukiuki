@@ -59,45 +59,6 @@ public class LoginOauthDAO {
 	}
 
 	/**
-	 * ユーザー情報登録メソッド
-	 * @param uniqueId 取得したユニークID
-	 * @param oauthName 取得した名前
-	 * @param userName 
-	 * @return result　結果
-	 */
-	
-	public boolean insert(String uniqueId, String userName, String oauthName) {
-		boolean result = false;
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		String now = sdf.format(cal.getTime());
-		con = DBConnector.getConnection();
-		String sql = "INSERT INTO user(name, unique_id, oauth_name, created_at, updated_at) values (?,?,?,?,?)";
-		try {
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, userName);
-			stmt.setString(2, uniqueId);
-			stmt.setString(3, oauthName);
-			stmt.setString(4, now);
-			stmt.setString(5, now);
-
-			int insertCount = stmt.executeUpdate();
-			if (insertCount > 0) {
-				result = true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
-
-	/**
 	 * DTO取得メソッド
 	 * 
 	 * @return dto

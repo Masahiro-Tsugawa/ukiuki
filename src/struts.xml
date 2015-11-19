@@ -50,7 +50,7 @@
                 </action>
 
 		<!-- Facebook認証のコールバックアクション -->
-		<action name="CallbackServlet" class="com.internousdev.ukiukiutopia.action.LoginFacebookAction"
+		<action name="login-facebook-action" class="com.internousdev.ukiukiutopia.action.LoginFacebookAction"
 		method="execute">
 			<result name="success" type="redirectAction">personal</result>
 			<result name="error">home.jsp</result>

@@ -52,7 +52,7 @@ ServletRequestAware, SessionAware {
 		}
 		
 		String uniqueId = userMap.get("id");
-		String userName = userMap.get("name");
+		//String userName = userMap.get("name");
 		LoginOauthDAO dao = new LoginOauthDAO();
 		if (dao.select(uniqueId, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
@@ -62,10 +62,10 @@ ServletRequestAware, SessionAware {
 			return rtn;
 		}
 		
-		boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
-		if (!result) {
-			return rtn;
-		}
+		//boolean result = dao.insert(uniqueId, userName, NETWORK_NAME);
+//		if (!result) {
+//			return rtn;
+//		}
 		
 		dao.select(uniqueId, NETWORK_NAME);
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
