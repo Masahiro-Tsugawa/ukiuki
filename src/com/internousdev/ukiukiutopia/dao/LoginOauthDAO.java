@@ -68,18 +68,14 @@ public class LoginOauthDAO {
 	
 	public boolean insert(String uniqueId, String userName, String oauthName) {
 		boolean result = false;
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		String now = sdf.format(cal.getTime());
 		con = DBConnector.getConnection();
-		String sql = "INSERT INTO user(name, unique_id, oauth_name, created_at, updated_at) values (?,?,?,?,?)";
+		String sql = "INSERT INTO user(name, unique_id, oauth_name) values (?,?,?)";
 		try {
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userName);
 			stmt.setString(2, uniqueId);
 			stmt.setString(3, oauthName);
-			stmt.setString(4, now);
-			stmt.setString(5, now);
+		
 
 			int insertCount = stmt.executeUpdate();
 			if (insertCount > 0) {

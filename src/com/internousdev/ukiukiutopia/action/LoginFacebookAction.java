@@ -79,8 +79,6 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("loginId", dto.getUserId());
 		session.put("loginName", dto.getUserName());
-		System.out.println(session.get("loginId"));
-		System.out.println(session.get("loginName"));
 		rtn = SUCCESS;
 		return rtn;
 		
