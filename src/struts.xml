@@ -10,7 +10,7 @@
       
     
         <!-- ホーム画面 -->
-        <action name="GoCreateUser" class="com.internousdev.ukiukiutopia.action.GoHomeAction" method="execute">
+        <action name="GoCreateUser" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
             <result name="success">sign_up.jsp</result>
         </action>
         
@@ -52,7 +52,7 @@
 		<!-- Facebook認証のコールバックアクション -->
 		<action name="login-facebook-action" class="com.internousdev.ukiukiutopia.action.LoginFacebookAction"
 		method="execute">
-			<result name="success" type="redirectAction">personal</result>
+			<result name="success">home.jsp</result>
 			<result name="error">home.jsp</result>
 		</action>
 
@@ -169,7 +169,7 @@
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>
          </action>
-         
+         <!-- ログイン画面 -->
          <action name="HomeAction" class="com.internousdev.ukiukiutopia.action.HomeAction" method="execute">
             <result name="success" type="redirectAction">personal</result>
             <result name="error">home.jsp</result>
@@ -186,6 +186,13 @@
             <result name="success">ticket_buy_check.jsp</result>
             <result name="error" type="redirectAction">ticket_buy</result>
         </action>
+       
+        <!-- OAuthログイン -->
+        <action name="UpdateOAuthInfoAction" class="com.internousdev.ukiukiutopia.action.UpdateOAuthInfoAction" method="execute">
+            <result name="success" type="redirectAction">personal</result>
+            <result name="error">home.jsp</result>
+        </action>
+        
         
     </package>
 </struts>
