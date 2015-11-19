@@ -51,24 +51,24 @@
 <h3>施設利用券</h3>
 <table class="table-test">
 	<tr>
-		<th colspan="4"><div class="form-titel">施設利用券</div></th>
+		<th colspan="7"><div class="form-titel">施設利用券</div></th>
 	</tr>
 	<tr>
-		<td align="center">id</td>
-		<td align="center">name</td>
-		<td align="center">info</td>
-		<td align="center">price</td>
-		<td align="center">sheets</td>
-		<td align="center">total</td>
+		<td colspan="1" align="center">id</td>
+		<td colspan="2" align="center">name</td>
+		<td colspan="1" align="center">info</td>
+		<td colspan="1" align="center">price</td>
+		<td colspan="1" align="center">sheets</td>
+		<td colspan="1" align="center">total</td>
 	</tr>
 <s:iterator value="useList">
 	<tr>
-       	<td align="center"><s:property value="id"/><s:hidden value="%{id}" name="useId"></s:hidden></td>
-       	<td align="center"><s:property value="name" /></td>
-        <td align="left"><s:property value="info" /></td>
-        <td align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
-        <td align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="useSheets"/></td>
-        <td align="right"><span id="subTotal<%= i++ %>">0</span>円</td>	
+       	<td colspan="1" align="center"><s:property value="id"/><s:hidden value="%{id}" name="useId"></s:hidden></td>
+       	<td colspan="2" align="center"><s:property value="name" /></td>
+        <td colspan="1" align="left"><s:property value="info" /></td>
+        <td colspan="1" align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
+        <td colspan="1" align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="useSheets"/></td>
+        <td colspan="1" align="right"><span id="subTotal<%= i++ %>">0</span>円</td>	
 	</tr>
 </s:iterator>
 </table>
@@ -76,32 +76,43 @@
 <h3>オプション利用券</h3>
 <table class="table-test">
 	<tr>
-		<th colspan="4"><div class="form-titel">オプション</div></th>
+		<th colspan="7"><div class="form-titel">オプション</div></th>
 	</tr>
 	<tr>
-		<td align="center">id</td>
-		<td align="center">name</td>
-		<td align="center">info</td>
-		<td align="center">price</td>
-		<td align="center">sheets</td>
-		<td align="center">total</td>
+		<td colspan="1" align="center">id</td>
+		<td colspan="2" align="center">name</td>
+		<td colspan="1" align="center">info</td>
+		<td colspan="1" align="center">price</td>
+		<td colspan="1" align="center">sheets</td>
+		<td colspan="1" align="center">total</td>
 	</tr>
 <s:iterator value="optionList">
 	<tr>
-       	<td align="center"><s:property value="id"/><s:hidden value="%{id}" name="optionId"></s:hidden></td>
-       	<td align="center"><s:property value="name" /></td>
-        <td align="left"><s:property value="info" /></td>
-        <td align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
-        <td align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="optionSheets"/></td>
-        <td align="right"><span id="subTotal<%= i++ %>">0</span>円</td>
+       	<td colspan="1" align="center"><s:property value="id"/><s:hidden value="%{id}" name="optionId"></s:hidden></td>
+       	<td colspan="2" align="center"><s:property value="name" /></td>
+        <td colspan="1" align="left"><s:property value="info" /></td>
+        <td colspan="1" align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
+        <td colspan="1" align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="optionSheets"/></td>
+        <td colspan="1" align="right"><span id="subTotal<%= i++ %>">0</span>円</td>
 	</tr>
 </s:iterator>
 </table>
 </div>
+
 <br>
-<h3>合計：<span id="total">0</span>円</h3>
-<br>
+<table class="table-test2">
+<tr>
+<th><div class="form-titel">合計</div></th>
+</tr>
+<tr>
+<td><span id="total">0</span>円</td>
+</tr>
+
+</table>
+
 <h3>お支払い情報</h3>
+
+
 <label><s:radio name="payInfo" list="payInfoList" value="radio"/></label>
 <div>
 <p>クレジットカード番号（「-」は除く）：<s:textfield name="creditNum"/></p>
@@ -114,11 +125,12 @@
 <p>セキュリティコード：<s:textfield name="secureCode"/></p>
 </div>
 
-<br>
-<s:submit value="購入確認へ" />
-</s:form>
-<input type="button" value="戻る" onClick="history.back()">
+
+	<s:submit value="購入確認へ" /></s:form>
+	<input type="button" value="戻る" onClick="history.back()">
 </div>
+
+
 </body>
 <jsp:include page="base/main_footer.jsp" flush="true" />
 </html>

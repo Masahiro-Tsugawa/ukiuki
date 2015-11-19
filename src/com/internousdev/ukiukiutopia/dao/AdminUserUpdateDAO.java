@@ -84,7 +84,6 @@ public class AdminUserUpdateDAO {
 		con = DBConnector.getConnection();
 
 		try {
-
 			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updatePassword)) == false) {
 					String sql = "update user set password=? where email=?";

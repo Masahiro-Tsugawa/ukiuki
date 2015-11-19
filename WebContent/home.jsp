@@ -60,6 +60,7 @@
 										<s:submit class = "loginButton" value="%{getText('home.login')}" />
 									</td>
 								</tr>
+								
 							</table>
 						</s:form>
 						<p class="login-comment">
@@ -67,7 +68,7 @@
 							<s:text name="home.already.member" />
 						</h4>
 						<br>
-						</p>
+						
 
 					</div>
 				</div>
@@ -85,8 +86,14 @@
 						<h4>
 							<s:text name="home.aikon" />
 						</h4>
+						<s:if test = "#session.oauthId != null" > 
+								 <tr>
+									<td><label for="emailInput">メールアドレスを入力してください</label><br><s:textfield label="email" name="emailInput" /></td>
+									<s:submit value="%{getText('home.login')}" />
+								</tr>
+								
+								</s:if>
 						<br>
-						</p>
 					</div>
 				</div>
 				<div class="clear"></div>

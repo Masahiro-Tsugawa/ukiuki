@@ -88,9 +88,8 @@ public class AdminLoginDAO {
 
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1,id);
-			System.out.println("test");
 			rscountU = ps.executeUpdate();
-		    System.out.println("test01");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
