@@ -26,7 +26,7 @@ public class AdminUserUpdateDTO {
 	/***
 	 * 変更したい電話番号
 	 */
-	private String updateTelnum;
+	private String updateTelNum;
 	/***
 	 * 変更したい郵便番号
 	 */
@@ -98,19 +98,19 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更電話番号取得メソッド
 	 * 
-	 * @return updateTelnum
+	 * @return updateTelNum
 	 */
-	public String getUpdateTelnum(){
-		return updateTelnum;
+	public String getUpdateTelNum(){
+		return updateTelNum;
 	}
 	/**
 	 * 変更電話番号格納メソッド
 	 * 
-	 * @param updateTelnum
+	 * @param updateTelNum
 	 *            変更電話番号
 	 */
-	public void setUpdateTelnum(String updateTelnum){
-		this.updateTelnum=updateTelnum;
+	public void setUpdateTelNum(String updateTelNum){
+		this.updateTelNum=updateTelNum;
 	}
 
 	/**

@@ -315,7 +315,7 @@
 			    <td><s:textfield id="updateName" type="text" class="form-control" name="updateName" placeholder="ユーザー名" /></td>
 			   </tr>
 			   <tr>
-			    <td><s:textfield id="updateTelNum" type="text" class="form-control" name="updateTelnum" placeholder="電話番号" /></td>
+			    <td><s:textfield id="updateTelNum" type="text" class="form-control" name="updateTelNum" placeholder="電話番号" /></td>
 			   </tr>
 			   <tr>
 			    <td><s:textfield id="updatepostalcode" type="text" class="form-control" name="updatePostalCode" placeholder="郵便番号" /></td>
