@@ -10,7 +10,7 @@
       
     
         <!-- ホーム画面 -->
-        <action name="GoCreateUser" class="com.internousdev.ukiukiutopia.action.GoHomeAction" method="execute">
+        <action name="GoCreateUser" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
             <result name="success">sign_up.jsp</result>
         </action>
         

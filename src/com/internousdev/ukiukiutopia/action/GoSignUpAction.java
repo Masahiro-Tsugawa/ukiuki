@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author internous
  *
  */
-public class GoHomeAction extends ActionSupport implements SessionAware {
+public class GoSignUpAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * シリアルID

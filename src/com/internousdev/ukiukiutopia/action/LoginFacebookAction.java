@@ -53,25 +53,21 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
 		
 		if (userMap == null) {
+			System.out.println(userMap);
 			return rtn;
 		}
-		System.out.println(userMap.get("id"));
+		
 		String uniqueId = userMap.get("id");
 		String userName = userMap.get("name");
-		System.out.println("id = " + uniqueId);
-		System.out.println("name = " + userName);
 		LoginOauthDAO dao = new LoginOauthDAO();
-		if (dao.select(uniqueId, NETWORK_NAME)) {
-			LoginOauthDTO dto = dao.getLoginOauthDTO();
-			session.put("oauthId", dto.getUserId());
-			session.put("oauthName", dto.getUserName());
-			System.out.println(session.get("nnnn="+"loginName"));
+			
+			session.put("OAuthId",  userMap.get("id"));
+			session.put("OAuthName", userMap.get("name"));
+			System.out.println(session.get("OAuthName"));
+			System.out.println(session.get("OAuthId"));
 			rtn = SUCCESS;
 			return rtn;
 		}
-		return rtn;
-		
-	}
 	
 	/**
 

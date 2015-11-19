@@ -86,13 +86,14 @@
 						<h4>
 							<s:text name="home.aikon" />
 						</h4>
-						<s:if test = "#session.oauthId != null" > 
+						<s:form action="HomeAction">
+								<s:if test = "#session.OAuthName != null" > 
 								 <tr>
-									<td><label for="emailInput">メールアドレスを入力してください</label><br><s:textfield label="email" name="emailInput" /></td>
+									<td><label for="emailInput">メールアドレスを入力してください</label><br><s:textfield label="email" name="OAuthEmail" /></td>
 									<s:submit value="%{getText('home.login')}" />
 								</tr>
-								
 								</s:if>
+								</s:form>
 						<br>
 					</div>
 				</div>
