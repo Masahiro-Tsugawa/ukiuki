@@ -15,12 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 public class AdminUserDeleteAction extends ActionSupport implements SessionAware {
-
-	/***
+	
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 6819911393806628609L;
 	/***
 	 * 削除したいユーザーのメールアドレス
 	 */

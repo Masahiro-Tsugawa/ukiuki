@@ -17,11 +17,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminLogoutAction extends ActionSupport implements SessionAware{
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 8936223776548902089L;
 	/***
 	 * 管理者名を保持しているセッションを取得する
 	 */

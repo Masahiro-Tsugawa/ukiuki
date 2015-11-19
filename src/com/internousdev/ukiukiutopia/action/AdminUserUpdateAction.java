@@ -20,10 +20,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminUserUpdateAction extends ActionSupport implements SessionAware {
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 484956041771748211L;
 	/***
 	 * 変更したいユーザーのメールアドレス
 	 */
@@ -59,7 +59,7 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	/***
 	 * DAO成功回数
 	 */
-	String up = null;
+	int up = 0;
 	/***
 	 * 実行結果
 	 */
@@ -82,7 +82,7 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 		AdminUserUpdateDAO dao = new AdminUserUpdateDAO();
 
-		int up = dao.update(purposeEmail, updateEmail, updatePassword, updateName, updateTelNum, updatePostalCode,
+		up = dao.update(purposeEmail, updateEmail, updatePassword, updateName, updateTelNum, updatePostalCode,
 				updateAddress, updateRenewDate);
 
 		if (up > 0) {

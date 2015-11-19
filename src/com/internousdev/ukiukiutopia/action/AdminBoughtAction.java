@@ -21,45 +21,45 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminBoughtAction extends ActionSupport implements SessionAware {
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 314691105289038532L;
 	/***
 	 * 検索開始年
 	 */
-	private int year1;
+	private int yearS;
 	/***
 	 * 検索開始月
 	 */
-	private int month1;
+	private int monthS;
 	/***
 	 * 検索開始日
 	 */
-	private int date1;
+	private int dateS;
 	/***
 	 * 検索開始年月日
 	 */
-	private String selectDate1;
-	
+	private String selectDateS;
+
 	/***
 	 * 検索終了年
 	 */
-	private int year2;
+	private int yearE;
 	/***
 	 * 検索終了月
 	 */
-	private int month2;
+	private int monthE;
 	/***
 	 * 検索終了日
 	 */
-	private int date2;
+	private int dateE;
 	/***
 	 * 検索終了年月日
 	 */
-	private String selectDate2;
+	private String selectDateE;
 	/**
-     * MongoDBから取得した購入情報を入れるリスト
+	 * MongoDBから取得した購入情報を入れるリスト
 	 */
 	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
 	/**
@@ -70,44 +70,50 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索日を入れるためにセッションを用意
 	 */
 	private Map<String, Object> session;
-	
+
 	/**
 	 * 購入情報を検索するメソッド
+	 * 
 	 * @return SUCCESS
 	 */
 	public String execute() throws Exception {
-		
-	StringBuffer sd1 = new StringBuffer("");
-	sd1.append(year1);
-	sd1.append(month1);
-	sd1.append(date1);
-	
-	selectDate1 = sd1.toString();
-	
-	StringBuffer sd2 = new StringBuffer("");
-	sd2.append(year2);
-	sd2.append(month2);
-	sd2.append(date2);
-	
-	selectDate2 = sd2.toString();
 
-	AdminBoughtDAO dao = new AdminBoughtDAO();
-	AdminBoughtDTO dto = new AdminBoughtDTO();
-	boolean resultDAO = dao.select(selectDate1,selectDate2,dto);
-	
-	if(resultDAO ){
-		boughtList = dao.getBoughtList();
+		StringBuffer sds = new StringBuffer("");
+		sds.append(yearS);
+		sds.append("/");
+		sds.append(monthS);
+		sds.append("/");
+		sds.append(dateS);
 
-		session.put("selectDate1", selectDate1);
-		session.put("selectDate2", selectDate2);
+		selectDateS = sds.toString();
 
-		result = SUCCESS;
+		StringBuffer sde = new StringBuffer("");
+		sde.append(yearE);
+		sde.append("/");
+		sde.append(monthE);
+		sde.append("/");
+		sde.append(dateE);
+
+		selectDateE = sde.toString();
+
+		AdminBoughtDAO dao = new AdminBoughtDAO();
+		AdminBoughtDTO dto = new AdminBoughtDTO();
+		boolean resultDAO = dao.select(selectDateS, selectDateE, dto);
+
+		if (resultDAO) {
+			boughtList = dao.getBoughtList();
+
+			session.put("selectDateS", selectDateS);
+			session.put("selectDateE", selectDateE);
+
+			result = SUCCESS;
+		}
+		return result;
 	}
-	return result;
-	}
-	
+
 	/**
 	 * セッション取得メソッド
+	 * 
 	 * @return session
 	 */
 	public Map<String, Object> getSession() {
@@ -116,7 +122,9 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * セッション格納メソッド
-	 * @param session セッション
+	 * 
+	 * @param session
+	 *            セッション
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -124,121 +132,152 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 検索開始年情報取得メソッド
-	 * @return year1
+	 * 
+	 * @return yearS
 	 */
-	public int getYear1() {
-		return year1;
+	public int getYearS() {
+		return yearS;
 	}
+
 	/**
 	 * 検索開始年情報格納メソッド
-	 * @param year1 検索開始年
+	 * 
+	 * @param yearS
+	 *            検索開始年
 	 */
-	public void setYear1(int year1) {
-		this.year1 = year1;
+	public void setYearS(int yearS) {
+		this.yearS = yearS;
 	}
-	
+
 	/**
 	 * 検索開始月情報取得メソッド
-	 * @return month1
+	 * 
+	 * @return monthS
 	 */
-	public int getMonth1() {
-		return month1;
+	public int getMonthS() {
+		return monthS;
 	}
+
 	/**
 	 * 検索開始月情報格納メソッド
-	 * @param month1 検索開始月
+	 * 
+	 * @param monthS
+	 *            検索開始月
 	 */
-	public void setMonth1(int month1) {
-		this.month1 = month1;
+	public void setMonthS(int monthS) {
+		this.monthS = monthS;
 	}
 
 	/**
 	 * 検索開始日情報取得メソッド
-	 * @return date1
+	 * 
+	 * @return dateS
 	 */
-	public int getDate1() {
-		return date1;
+	public int getDateS() {
+		return dateS;
 	}
+
 	/**
 	 * 検索開始日情報格納メソッド
-	 * @param date1 検索開始日
+	 * 
+	 * @param dateS
+	 *            検索開始日
 	 */
-	public void setDate1(int date1) {
-		this.date1 = date1;
+	public void setDateS(int dateS) {
+		this.dateS = dateS;
 	}
 
 	/**
 	 * 検索終了年情報取得メソッド
-	 * @return year2
+	 * 
+	 * @return yearE
 	 */
-	public int getYear2() {
-		return year2;
+	public int getYearE() {
+		return yearE;
 	}
+
 	/**
 	 * 検索終了年情報格納メソッド
-	 * @param year2 検索終了年
+	 * 
+	 * @param yearE 検索終了年
 	 */
-	public void setYear2(int year2) {
-		this.year2 = year2;
+	public void setYearE(int yearE) {
+		this.yearE = yearE;
 	}
 
 	/**
 	 * 検索終了月情報取得メソッド
-	 * @return month2
+	 * @return monthE
 	 */
-	public int getMonth2() {
-		return month2;
+	public int getMonthE() {
+		return monthE;
 	}
+
 	/**
 	 * 検索終了月情報格納メソッド
-	 * @param month2 検索終了月
+	 * 
+	 * @param monthE
+	 *            検索終了月
 	 */
-	public void setMonth2(int month2) {
-		this.month2 = month2;
+	public void setMonthE(int monthE) {
+		this.monthE = monthE;
 	}
+
 	/**
 	 * 検索終了日情報取得メソッド
-	 * @return date2
+	 * 
+	 * @return dateE
 	 */
-	public int getDate2() {
-		return date2;
+	public int getDateE() {
+		return dateE;
 	}
+
 	/**
 	 * 検索終了日情報格納メソッド
-	 * @param date2 検索終了日
+	 * 
+	 * @param dateE
+	 *            検索終了日
 	 */
-	public void setDate2(int date2) {
-		this.date2 = date2;
+	public void setDateE(int dateE) {
+		this.dateE = dateE;
 	}
-	
+
 	/**
 	 * 検索開始年月日情報取得メソッド
-	 * @return selectDate1
+	 * 
+	 * @return selectDateS
 	 */
-	public String getSelectDate1() {
-		return selectDate1;
+	public String getSelectDateS() {
+		return selectDateS;
 	}
+
 	/**
 	 * 検索開始年月日情報格納メソッド
-	 * @param selectDate1 検索開始年月日
+	 * 
+	 * @param selectDateS
+	 *            検索開始年月日
 	 */
-	public void setSelectDate1(String selectDate1) {
-		this.selectDate1 = selectDate1;
+	public void setSelectDateS(String selectDateS) {
+		this.selectDateS = selectDateS;
 	}
 
 	/**
 	 * 検索終了年月日情報取得メソッド
-	 * @return selectDate2
+	 * 
+	 * @return selectDateE
 	 */
-	public String getSelectDate2() {
-		return selectDate2;
+	public String getSelectDateE() {
+		return selectDateE;
 	}
+
 	/**
 	 * 検索終了年月日情報格納メソッド
-	 * @param selectDate2 検索終了年月日
+	 * 
+	 * @param selectDateE
+	 *            検索終了年月日
 	 */
-	public void setSelectDate2(String selectDate2) {
-		this.selectDate2 = selectDate2;
+	public void setSelectDateE(String selectDateE) {
+		this.selectDateE = selectDateE;
 	}
 
 }

@@ -17,11 +17,14 @@ import com.internousdev.ukiukiutopia.dto.AdminLoginDTO;
  */
 public class AdminLoginAction extends ActionSupport implements SessionAware {
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 3147941456730448070L;
+	/**
+	 * 管理者ID
+	 */
+	int id;
 	/***
 	 * 管理者名
 	 */
@@ -39,39 +42,66 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 */
 	private Map<String, Object> session;
 	
+	/***
+	 * 実行結果
+	 */
+	private String result;
+	
 	/**
 	 * 管理者ページにログインするメソッド
-	 * @return SUCCESS
+	 * @return result SUCCESS：ユーザー名とパスワード合致＆ログイン状態を変更成功
 	 */
-
 	public String execute() throws SQLException {
-		if (name == null || name.equals(" ")) {
+		if (name.equals("")) {
 			addActionError("ユーザー名を入力してください");
 			return ERROR;
 		}
-		if (password == null || password.equals(" ")) {
+		if (password.equals("")) {
 			addActionError("パスワードを入力してください");
 			return ERROR;
 		}
 
-		AdminLoginDAO dao = new AdminLoginDAO();
-		AdminLoginDTO dto = new AdminLoginDTO();
-		String ret = dao.select(name, password, dto);
+		AdminLoginDAO daoS = new AdminLoginDAO();
+		AdminLoginDTO dtoS = new AdminLoginDTO();
+		int rscountS = daoS.select(name, password, dtoS);
+		id=dtoS.getId();
 
-		if (ret == "error") {
+		AdminLoginDAO daoU = new AdminLoginDAO();
+		int rscountU = daoU.update(id);
+
+		int rscount = rscountS + rscountU;
+		System.out.println(rscount);
+				
+		if (rscount<1) {
 			addActionError("ユーザー名もしくはパスワードが違います");
 		}
-//		else if (dto.getIsLogin() == true) {
-//			addActionError("すでにログインしているユーザーです");
-//		}
-	else{
-			session.put("name_key", dto.getName());
-			System.out.println(dto.getName());
+		else if (1<rscount | rscount<2) {
+			addActionError("すでにログインしているユーザーです");
 		}
+			session.put("name_key", dtoS.getName());
+			result=SUCCESS;
 
 		
-		return ret;
+		return result;
 
+	}
+
+	/**
+	 * ID取得メソッド
+	 * 
+	 * @return id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * ID格納メソッド
+	 * 
+	 * @param id
+	 *         ログイン状態
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**

@@ -18,11 +18,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminTicketSelectAction extends ActionSupport{
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 7663473936501306795L;
 	/***
 	 * チケットの一覧を格納するリスト
 	 */
@@ -39,13 +38,10 @@ public class AdminTicketSelectAction extends ActionSupport{
 	public String execute() throws Exception {
 
 	AdminTicketSelectDAO dao = new AdminTicketSelectDAO();
-	AdminTicketSelectDTO dto = new AdminTicketSelectDTO();
 	boolean resultDAO = dao.select();
 
 	if(resultDAO){
 		ticketList = dao.getTicketList();
-		dto = ticketList.get(0);
-		
 		result = SUCCESS;
 	}
 	return result;
