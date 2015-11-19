@@ -3,7 +3,7 @@
  * @version 1.1　　
  * @since 1.0　
  -->
- <!-- 文字コードの指定-->
+<!-- 文字コードの指定-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -27,22 +27,19 @@
 	<jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
 		<div class="form-chiket">
-			<br>
-			<br>
-			<br> 
-			<br>
-			<div><!-- ご購入ありがとうございました。-->
+			<br> <br> <br> <br>
+			<div>
+				<!-- ご購入ありがとうございました。-->
 				<s:text name="Purchase.ticket_buy_end" />
 			</div>
-			<br>
-			<br>
+			<br> <br>
 			<!--アクションに飛ばす-->
-			<s:form action="personal"> 
+			<s:form action="personal">
 				<!-- myページに戻る -->
 				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
 			</s:form>
 		</div>
 	</div>
 </body>
-		<jsp:include page="base/main_footer.jsp" flush="true" />
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
