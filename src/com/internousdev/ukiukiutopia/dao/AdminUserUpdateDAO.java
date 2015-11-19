@@ -85,6 +85,7 @@ public class AdminUserUpdateDAO {
 
 		try {
 
+			System.out.println(updatePassword);
 			if (("".equals(purposeEmail)) == false) {
 				if (("".equals(updatePassword)) == false) {
 					String sql = "update user set password=? where email=?";

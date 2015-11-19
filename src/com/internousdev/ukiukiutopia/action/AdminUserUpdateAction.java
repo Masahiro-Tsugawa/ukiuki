@@ -116,11 +116,11 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				 upE = dao.updateEmail(purposeEmail,updateEmail);
 			   }
 			 
-			 if(("".equals(updatePassword)) == false | purposeEmail==updateEmail){
+			 if(("".equals(updatePassword)) == false | ("".equals(updateEmail)) == false){
 				 purposeEmail = updateEmail;
 				 upP = dao.updatePassword(purposeEmail,updatePassword);
 			   }
-			 if(("".equals(updatePassword)) == false){
+			 if(("".equals(updatePassword)) == false | ("".equals(updateEmail)) == true){
 				 upP = dao.updatePassword(purposeEmail,updatePassword);
 			   }
 			 

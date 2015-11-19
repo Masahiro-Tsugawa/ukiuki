@@ -70,7 +70,6 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		int rscountU = daoU.update(id);
 
 		int rscount = rscountS + rscountU;
-		System.out.println(rscount);
 				
 		if (rscount<1) {
 			addActionError("ユーザー名もしくはパスワードが違います");
