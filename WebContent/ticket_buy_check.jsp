@@ -13,25 +13,26 @@
 <body>
 	<jsp:include page="base/main_header.jsp" flush="true" />
 	<div class="container">
-		<p align="center">チケット購入確認画面</p>
+		<p align="center"><s:text name="ticketBuyCheckScr" />
+</p>
 		<s:if test="%{#session.buyUseTicket!=null}">
 			<div class="box1">
 			<table class="table-test">
 				<tr>
-				<th colspan="4"><div class="form-titel">施設利用券</div></th>
+				<th colspan="4"><div class="form-titel"><s:text name="facilitiesUseTicket" /></div></th>
 				</tr>
 				<tr>
-					<td align="center">チケット名</td>
-					<td align="center">枚数</td>
-					<td align="center">単価</td>
-					<td align="center">小計</td>
+					<td align="center"><s:text name="ticketName" /></td>
+					<td align="center"><s:text name="number" /></td>
+					<td align="center"><s:text name="unitPrice" /></td>
+					<td align="center"><s:text name="subtotal" /></td>
 				</tr>
 			<s:iterator value="%{#session.buyUseTicket}">
 				<tr>
-				<td align="center"><s:property value="name" /></td>
-				<td align="right"><s:property value="sheets" />枚</td>
-				<td align="right"><s:property value="price" />円</td>
-				<td align="right"><s:property value="subTotal" />円</td>
+					<td align="center"><s:property value="name" /></td>
+					<td align="right"><s:property value="sheets" /><s:text name="sheets" /></td>
+					<td align="right"><s:property value="price" /><s:text name="yen" /></td>
+					<td align="right"><s:property value="subTotal" /><s:text name="yen" /></td>
 				</tr>
 			</s:iterator>
 			</table>
@@ -42,20 +43,20 @@
 			<div class="box1">
 			<table class="table-test">
 				<tr>
-				<th colspan="4"><div class="form-titel">オプション</div></th>
+				<th colspan="4"><div class="form-titel"><s:text name="optionTicket" /></div></th>
 				</tr>
 				<tr>
-					<td align="center">チケット名</td>
-					<td align="center">枚数</td>
-					<td align="center">単価</td>
-					<td align="center">小計</td>
+					<td align="center"><s:text name="ticketName" /></td>
+					<td align="center"><s:text name="number" /></td>
+					<td align="center"><s:text name="unitPrice" /></td>
+					<td align="center"><s:text name="subtotal" /></td>
 				</tr>
 			<s:iterator value="%{#session.buyOptionTicket}">
 				<tr>
-				<td align="center"><s:property value="name" /></td>
-				<td align="right"><s:property value="sheets" />枚</td>
-				<td align="right"><s:property value="price" />円</td>
-				<td align="right"><s:property value="subTotal" />円</td>				
+					<td align="center"><s:property value="name" /></td>
+					<td align="right"><s:property value="sheets" /><s:text name="sheets" /></td>
+					<td align="right"><s:property value="price" /><s:text name="yen" /></td>
+					<td align="right"><s:property value="subTotal" /><s:text name="yen" /></td>				
 				</tr>
 			</s:iterator>
 			</table>
@@ -65,10 +66,10 @@
 		<div class="box1">
 			<table class="table-test2">
 				<tr>
-				<th colspan="4"><div class="form-titel">合計</div></th>
+				<th colspan="4"><div class="form-titel"><s:text name="total" /></div></th>
 				</tr>
 				<tr>
-					<td><s:property value="#session.buyTotal" />円</td>
+					<td><s:property value="#session.buyTotal" /><s:text name="yen" /></td>
 				</tr>
 			</table>
 		</div>
@@ -76,24 +77,24 @@
 		<div class="box1">
 			<table class="table-test">
 				<tr>
-				<th colspan="4"><div class="form-titel">お支払い情報</div></th>
+				<th colspan="4"><div class="form-titel"><s:text name="payInfo" /></div></th>
 				</tr>
 				<tr>
 				<s:if test="%{#session.buyCardNumber!=null}">
-					<td colspan="2">クレジットカードにてお支払いとなります。</td>
-		　			<td colspan="2">下四桁 <s:property value="#session.buyCardNumber" /></td>
+					<td colspan="2"><s:text name="cordMessage" /></td>
+		　			<td colspan="2"><s:text name="underFourDigits" /> <s:property value="#session.buyCardNumber" /></td>
 				</s:if>
 				<s:else>
-					 <td colspan="４">店頭窓口でのお支払をお願いいたします。</td>
+					 <td colspan="４"><s:text name="cashMessage" /></td>
 				</s:else>
 				</tr>
 			</table>
 		</div>
 	
 		 <div align="center">
-			<input type="button" value="キャンセル " onClick="history.back()">
+			<input type="button" value=<s:text name="cancel" /> onClick="history.back()">
 			<s:form action="check_end">
-				<s:submit value="完了" />
+				<s:submit value="%{getText('completion')}" />
 			</s:form>
 		</div>
 	</div>
