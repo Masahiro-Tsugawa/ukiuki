@@ -1,6 +1,3 @@
-
-
-
 <!--  
  * @author  Y.kawahigashi　
  * @version 1.1　　
@@ -41,7 +38,7 @@
 			<br>
 			<!--アクションに飛ばす-->
 			<s:form action="personal"> 
-			<!-- myページに戻る -->
+				<!-- myページに戻る -->
 				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
 			</s:form>
 		</div>
