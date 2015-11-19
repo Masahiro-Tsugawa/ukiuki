@@ -121,27 +121,11 @@ public class RegisterUserDAO {
 	}
 
 	/**
-	 * @param id
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
 	 * @return name
 	 */
 	public String getName() {
 		return name;
 	}
-
-	/**
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 
 }
 

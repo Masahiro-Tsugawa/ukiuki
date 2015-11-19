@@ -9,14 +9,23 @@ import com.internousdev.ukiukiutopia.dao.RegisterUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author internous
- *
+ * OAuth認証で取得したIDをデータベースに格納する為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
  */
 public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware {
-	
+	/**
+	 * シリアルID
+	 */
 	private static final long serialVersionUID = 5032385507019540641L;
+	/**
+	 * セッション
+	 */
 	private Map<String, Object> session;
-	
+	/**
+	 * 購入する施設利用チケットIDのリスト
+	 */
 	private String OAuthEmail;
 	
 	public String execute() throws SQLException{
