@@ -117,44 +117,44 @@
 			</div>
 
 			<br>
-			<table align="right" class="table-test3">
+			<table align="center" class="table-test3">
 				<tr>
 					<th><div class="form-titel">合計</div></th>
 				</tr>
 				<tr>
-					<td><span id="total">0</span>円</td>
+					<td align="right"><span id="total">0</span>円</td>
 				</tr>
 
 			</table>
-            <br>
-            <table class=box1>
+			<br>
+
             </table>
-			<table align="right" class="table-test3">
+			<table align="center" class="table-test3">
 				<tr>
 					<th colspan="2"><div class="form-titel">お支払い情報</div></th>
 				</tr>
 				
 				<tr>
-					<td colspan="2"><label><s:radio name="payInfo" list="payInfoList"
+					<td align="right" colspan="2"><label><s:radio name="payInfo" list="payInfoList"
 								value="radio" /></label></td>
 				</tr>
 				
                 <tr>
-					<td colspan="1">クレジットカード番号（「-」は除く）：</td>
-					<td class="data"><s:textfield name="creditNum" /></td>
+					<td align="right" colspan="1">クレジットカード番号（「-」は除く）：</td>
+					<td align="right" class="data"><s:textfield name="creditNum" /></td>
 				</tr>
 				
 				<tr>
-					<td colspan="1">有効期限（月/年）：</td>
-					<td class="data">
+					<td align="right" colspan="1">有効期限（月/年）：</td>
+					<td align="right" class="data">
 					 (月)<s:select id="month" list="monthList" name="creditMonth" />
 				     (年)<s:select id="year" list="yearList" name="creditYear" />
 					</td>
 				</tr>
 				
 				<tr>
-					<td colspan="1">セキュリティコード：</td>
-					<td class="data"><s:textfield name="secureCode" /></td>
+					<td align="right" colspan="1">セキュリティコード：</td>
+					<td align="right" class="data"><s:textfield name="secureCode" /></td>
 				</tr>
 			</table>
 			
