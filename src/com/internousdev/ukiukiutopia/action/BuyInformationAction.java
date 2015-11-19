@@ -55,7 +55,7 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 		return option;
 	}
 
-	@Override
+
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
 	}
