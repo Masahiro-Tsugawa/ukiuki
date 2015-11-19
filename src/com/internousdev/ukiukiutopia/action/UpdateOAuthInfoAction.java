@@ -23,15 +23,19 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		
 		String result = SUCCESS;
 		
-		OAuthEmail = "test@test.com";
 		String OAuthId = (String) session.get("OAuthId");
 		String OAuthName = (String) session.get("OAuthName");
 		
 		RegisterUserDAO dao = new RegisterUserDAO();
 		if(!dao.update(OAuthId, OAuthName, OAuthEmail)){
+			session.remove("OAuthId");
+			session.remove("OAuthName");
 			result = ERROR;
 			return result;
 		}
+		
+		session.remove("OAuthId");
+		session.remove("OAuthName");
 		
 		if(!dao.select(OAuthEmail)){
 			result = ERROR;
