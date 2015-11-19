@@ -16,8 +16,6 @@ create table if not exists user(
   address varchar(255) not null,
   unique_id varchar(50),
   oauth_name varchar(50),
-  created_at datetime not null,
-　　updated_at datetime not null,
   credit_token varchar(255),
   credit_num varchar(4),
   registered_date datetime not null,
