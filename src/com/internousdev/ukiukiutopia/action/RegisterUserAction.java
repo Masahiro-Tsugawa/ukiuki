@@ -10,7 +10,6 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class RegisterUserAction extends ActionSupport implements SessionAware {
 
@@ -23,14 +22,10 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	private String telNum;
 	private String posCode;
 	private String address;
-	int count;
-
-	/**
-	 * ユーザー情報の確認
-	 */
-	public String action = ERROR;
 
 	public String execute() throws Exception {
+		String result = ERROR;
+		int count;
 
 		email = (String) session.get("signUpEmail");
 		password = (String) session.get("signUpPassword");
@@ -48,10 +43,10 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 		session.put("userName",name);
 
 		if (count > 0) {
-			action = SUCCESS;
+			result = SUCCESS;
 		}
 
-		return action;
+		return result;
 
 	}
 

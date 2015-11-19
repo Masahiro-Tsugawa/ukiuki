@@ -37,6 +37,10 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 			result = ERROR;
 			return result;
 		}
+		
+		session.put("userId", dao.getId());
+		session.put("loginName", dao.getName());
+		session.put("userEmail", OAuthEmail);
 
 		return result;
 	}
