@@ -21,24 +21,23 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	
 	public String execute() throws SQLException{
 		
-		String result = "error";
+		String result = SUCCESS;
 		
 		OAuthEmail = "test@test.com";
 		String OAuthId = (String) session.get("OAuthId");
 		String OAuthName = (String) session.get("OAuthName");
 		
 		RegisterUserDAO dao = new RegisterUserDAO();
-//		if(!dao.update(OAuthId, OAuthName, OAuthEmail)){
-//			return result;
-//		}
-//		
-//		
-//		
-//		
-//		session.put("userId", dao.getId());
-//		session.put("loginName", dao.getName());
-//		session.put("userEmail", OAuthEmail);
+		if(!dao.update(OAuthId, OAuthName, OAuthEmail)){
+			result = ERROR;
+			return result;
+		}
 		
+		if(!dao.select(OAuthEmail)){
+			result = ERROR;
+			return result;
+		}
+
 		return result;
 	}
 	
@@ -46,12 +45,18 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		this.session = session;
 	}
 
+	/**
+	 * @return OAuthEmail
+	 */
 	public String getOAuthEmail() {
 		return OAuthEmail;
 	}
 
-	public void setOAuthEmail(String oAuthEmail) {
-		OAuthEmail = oAuthEmail;
+	/**
+	 * @param OAuthEmail
+	 */
+	public void setOAuthEmail(String OAuthEmail) {
+		this.OAuthEmail = OAuthEmail;
 	}
 
 }
