@@ -20,19 +20,19 @@ public class CreateUserDAO {
      * @param userEmail 登録されているメールアドレス
      * @return 既存アドレスがあるかの有無
      */
-	public String select(String userEmail) {
+	public boolean select(String userEmail) {
 
 		Connection conn = null;
-		String ret = "success";
+		boolean action = true;
 		try {
 			conn = (Connection) DBConnector.getConnection();
-			String sql = "SELECT * FROM user WHERE";
+			String sql = "SELECT email FROM user WHERE";
 			sql += " email = ?";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, userEmail);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				ret = "error";
+				action = false;
 				setEmail(rs.getString("email"));
 			}
 		} catch (SQLException e) {
@@ -46,7 +46,7 @@ public class CreateUserDAO {
 				}
 			}
 		}
-		return ret;
+		return action;
 	}
 	
 	/**
