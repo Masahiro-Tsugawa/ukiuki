@@ -55,7 +55,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		if (userMap == null) {
 			return rtn;
 		}
-		
+		System.out.println(userMap.get("id"));
 		String uniqueId = userMap.get("id");
 		String userName = userMap.get("name");
 		System.out.println("id = " + uniqueId);
@@ -65,8 +65,6 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 			LoginOauthDTO dto = dao.getLoginOauthDTO();
 			session.put("loginId", dto.getUserId());
 			session.put("loginName", dto.getUserName());
-			System.out.println(session.get("loginId"));
-			System.out.println(session.get("loginName"));
 			rtn = SUCCESS;
 			return rtn;
 		}

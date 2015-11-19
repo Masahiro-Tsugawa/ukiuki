@@ -12,8 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * @author DBからid,name,emailを取得、
-   * 　　　　　　　　sessionに格納する為のクラス
+ * @author DBからid,name,emailを取得、sessionに格納する為のクラス
  * 
  */
 public class HomeAction extends ActionSupport implements SessionAware {

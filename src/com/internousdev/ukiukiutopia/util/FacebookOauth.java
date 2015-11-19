@@ -45,7 +45,7 @@ public class FacebookOauth extends ActionSupport {
 	/**
 	 * コールバックパス
 	 */
-	private static final String CALLBACK_PATH = "/my_page.jsp";
+	private static final String CALLBACK_PATH = "/login-facebook-action";
 
 	/**
 	 * @param request リクエスト
