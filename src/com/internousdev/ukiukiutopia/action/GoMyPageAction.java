@@ -26,12 +26,28 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	private String result = ERROR;
 	
 	/**
-	 * 
+	 * 名前を表示
 	 */
 	private String name;
+	
+	/**
+	 * 電話番号を表示
+	 */
 	private String telNum;
+	
+	/**
+	 * メールアドレスを表示
+	 */
 	private String email;
+	
+	/**
+	 * 郵便番号を表示
+	 */
 	private String postalCode;
+	
+	/**
+	 * 住所を表示
+	 */
 	private String address;
 	
     /**
