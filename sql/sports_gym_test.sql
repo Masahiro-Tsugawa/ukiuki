@@ -15,7 +15,7 @@ create table if not exists user(
   postal_code varchar(8) not null,
   address varchar(255) not null,
   unique_id varchar(50),
-  oauth_name varchar(50),
+  oauth_name varchar(15),
   credit_token varchar(255),
   credit_num varchar(4),
   registered_date datetime not null,
