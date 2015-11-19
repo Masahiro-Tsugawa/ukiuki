@@ -47,7 +47,6 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 	private Map<String, Object> session;
 
 	public String execute() throws Exception {
-		System.out.println("tet");
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
@@ -62,9 +61,10 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		LoginOauthDAO dao = new LoginOauthDAO();
 			
 			session.put("OAuthId",  userMap.get("id"));
-			session.put("OAuthName", userMap.get("name"));
+			session.put("OAuthName", "FaceBook");
 			System.out.println(session.get("OAuthName"));
 			System.out.println(session.get("OAuthId"));
+			System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
 			rtn = SUCCESS;
 			return rtn;
 		}
