@@ -99,7 +99,10 @@ public class GoogleOauth extends ActionSupport {
 			service.signRequest(accessToken, requestOauth);
 			Response response = requestOauth.send();
 			map = new LinkedHashMap<>();
+			
+			System.out.println(111111111);
 			ObjectMapper mapper = new ObjectMapper();
+			System.out.println(22222222);
 
 			map = mapper.readValue(response.getBody(), new TypeReference<LinkedHashMap<String,String>>(){});
 		} catch (Exception e) {
