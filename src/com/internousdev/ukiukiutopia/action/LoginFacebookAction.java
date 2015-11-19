@@ -1,4 +1,5 @@
 package com.internousdev.ukiukiutopia.action;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author A.Masui
- * @version 1.1　
- * @since 1.0　
- *FaceBookから情報を取得し、sessionに格納する為のクラス
+ * @version 1.1
+ * @since 1.0 FaceBookから情報を取得し、sessionに格納する為のクラス
  */
-public class LoginFacebookAction extends ActionSupport implements SessionAware,
-		ServletResponseAware, ServletRequestAware {
+public class LoginFacebookAction extends ActionSupport
+		implements SessionAware, ServletResponseAware, ServletRequestAware {
 
 	/**
 	 * シリアルバージョンIDの生成
@@ -50,30 +50,30 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
-		
+
 		if (userMap == null) {
 			System.out.println(userMap);
 			return rtn;
 		}
-		
+
 		String uniqueId = userMap.get("id");
-		String userName = userMap.get("name");
 		LoginOauthDAO dao = new LoginOauthDAO();
-			
-			session.put("OAuthId",  userMap.get("id"));
-			session.put("OAuthName", "FaceBook");
-			System.out.println(session.get("OAuthName"));
-			System.out.println(session.get("OAuthId"));
-			System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-			rtn = SUCCESS;
-			return rtn;
-		}
-	
-	/**
+
+		session.put("OAuthId", userMap.get("id"));
+		session.put("OAuthName", "FaceBook");
+		System.out.println(session.get("OAuthName"));
+		System.out.println(session.get("OAuthId"));
+		System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+		rtn = SUCCESS;
+		return rtn;
+	}
 
 	/**
-	 * リクエスト格納メソッド
-	 * @param request リクエスト
+	 * 
+	 * /** リクエスト格納メソッド
+	 * 
+	 * @param request
+	 *            リクエスト
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
@@ -81,7 +81,9 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 
 	/**
 	 * レスポンス格納メソッド
-	 * @param response レスポンス
+	 * 
+	 * @param response
+	 *            レスポンス
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
@@ -89,6 +91,7 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 
 	/**
 	 * セッション取得メソッド
+	 * 
 	 * @return sessionMap セッションマップ
 	 */
 	public Map<String, Object> getSession() {
@@ -97,7 +100,9 @@ public class LoginFacebookAction extends ActionSupport implements SessionAware,
 
 	/**
 	 * セッション格納メソッド
-	 * @param sessionMap セッションマップ
+	 * 
+	 * @param sessionMap
+	 *            セッションマップ
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
