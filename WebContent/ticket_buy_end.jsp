@@ -35,14 +35,14 @@
 			<br> 
 			<br>
 			<div><!-- ご購入ありがとうございました。-->
-				<s:text name="Purchase.kawahigashi" />
+				<s:text name="Purchase.ticket_buy_end" />
 			</div>
 			<br>
 			<br>
 			<!--アクションに飛ばす-->
-			<s:form action="pesonal"> 
+			<s:form action="personal"> 
 			<!-- myページに戻る -->
-				<s:submit value="%{getText('Transmission.kawahigshi')}" />
+				<s:submit value="%{getText('Transmission.ticket_buy_end')}" />
 			</s:form>
 		</div>
 	</div>
