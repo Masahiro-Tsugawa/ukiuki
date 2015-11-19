@@ -60,35 +60,35 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	/***
 	 * DAO成功回数
 	 */
-	int up = 0;
+	int count = 0;
 	/***
 	 * メールアドレス
 	 */
-	int upE = 0;
+	int countEmail = 0;
 	/***
 	 * パスワード
 	 */
-	int upP = 0;
+	int countPassword = 0;
 	/***
 	 * ユーザー名
 	 */
-	int upN = 0;
+	int countName = 0;
 	/***
 	 * 電話番号
 	 */
-	int upTN = 0;
+	int countTelNum = 0;
 	/***
 	 * 郵便番号
 	 */
-	int upPC = 0;
+	int countPostalCode = 0;
 	/***
 	 * 住所
 	 */
-	int upA = 0;
+	int countAddress = 0;
 	/***
 	 * 更新日
 	 */
-	int upRD = 0;
+	int countRenewDate = 0;
 
 	/***
 	 * 実行結果
@@ -115,17 +115,17 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 		if (("".equals(purposeEmail)) == false) {
 			if (("".equals(updateEmail)) == false) {
-				upE = dao.updateEmail(purposeEmail, updateEmail);
+				countEmail = dao.updateEmail(purposeEmail, updateEmail);
 			}
 
 			if (("".equals(updatePassword)) == false) {
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					upP = dao.updatePassword(purposeEmail, updatePassword);
+					countPassword = dao.updatePassword(purposeEmail, updatePassword);
 				}
 				if (("".equals(updateEmail)) == true) {
-					upP = dao.updatePassword(purposeEmail, updatePassword);
+					countPassword = dao.updatePassword(purposeEmail, updatePassword);
 				}
 			}
 
@@ -133,10 +133,10 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					upP = dao.updateName(purposeEmail, updateName);
+					countName = dao.updateName(purposeEmail, updateName);
 				}
 				if (("".equals(updateEmail)) == true) {
-					upP = dao.updateName(purposeEmail, updateName);
+					countName = dao.updateName(purposeEmail, updateName);
 				}
 			}
 
@@ -144,10 +144,10 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					upP = dao.updateTelNum(purposeEmail, updateTelNum);
+					countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
 				}
 				if (("".equals(updateEmail)) == true) {
-					upP = dao.updateTelNum(purposeEmail, updateTelNum);
+					countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
 				}
 			}
 
@@ -155,10 +155,10 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					upP = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
 				}
 				if (("".equals(updateEmail)) == true) {
-					upP = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
 				}
 			}
 
@@ -166,25 +166,25 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					upP = dao.updateAddress(purposeEmail, updateAddress);
+					countAddress = dao.updateAddress(purposeEmail, updateAddress);
 				}
 				if (("".equals(updateEmail)) == true) {
-					upP = dao.updateAddress(purposeEmail, updateAddress);
+					countAddress = dao.updateAddress(purposeEmail, updateAddress);
 				}
 			}
 
 			if (("".equals(updateEmail)) == false) {
 
 				purposeEmail = updateEmail;
-				upP = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
 			}
 			if (("".equals(updateEmail)) == true) {
-				upP = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
 			}
 
-			up = upE + upP + upN + upTN + upPC + upA + upRD;
+			count = countEmail + countPassword + countName + countTelNum + countPostalCode + countAddress + countRenewDate;
 
-			if (up >= 2) {
+			if (count >= 2) {
 				session.remove(purposeEmail);
 				result = SUCCESS;
 			}

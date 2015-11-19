@@ -13,36 +13,36 @@ public class AdminBoughtDTO {
 	/***
 	 * 検索開始年
 	 */
-	private int yearS;
+	private int fromYear;
 	/***
 	 * 検索開始月
 	 */
-	private int monthS;
+	private int fromMonth;
 	/***
 	 * 検索開始日
 	 */
-	private int dateS;
+	private int fromDate;
 	/***
 	 * 検索開始年月日
 	 */
-	private String selectDateS;
+	private String startDate;
 
 	/***
 	 * 検索終了年
 	 */
-	private int yearE;
+	private int toYear;
 	/***
 	 * 検索終了月
 	 */
-	private int monthE;
+	private int toMonth;
 	/***
 	 * 検索終了日
 	 */
-	private int dateE;
+	private int toDate;
 	/***
 	 * 検索終了年月日
 	 */
-	private String selectDateE;
+	private String endDate;
 	
 	/***
 	 * 注文ID
@@ -64,151 +64,151 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索開始年情報取得メソッド
 	 * 
-	 * @return yearS
+	 * @return fromYear
 	 */
-	public int getYearS() {
-		return yearS;
+	public int getFromYear() {
+		return fromYear;
 	}
 
 	/**
 	 * 検索開始年情報格納メソッド
 	 * 
-	 * @param yearS
+	 * @param fromYear
 	 *            検索開始年
 	 */
-	public void setYearS(int yearS) {
-		this.yearS = yearS;
+	public void setFromYear(int fromYear) {
+		this.fromYear = fromYear;
 	}
 
 	/**
 	 * 検索開始月情報取得メソッド
 	 * 
-	 * @return monthS
+	 * @return fromMonth
 	 */
-	public int getMonthS() {
-		return monthS;
+	public int getFromMonth() {
+		return fromMonth;
 	}
 
 	/**
 	 * 検索開始月情報格納メソッド
 	 * 
-	 * @param monthS
+	 * @param fromMonth
 	 *            検索開始月
 	 */
-	public void setMonthS(int monthS) {
-		this.monthS = monthS;
+	public void setFromMonth(int fromMonth) {
+		this.fromMonth = fromMonth;
 	}
 
 	/**
 	 * 検索開始日情報取得メソッド
 	 * 
-	 * @return dateS
+	 * @return fromDate
 	 */
-	public int getDateS() {
-		return dateS;
+	public int getFromDate() {
+		return fromDate;
 	}
 
 	/**
 	 * 検索開始日情報格納メソッド
 	 * 
-	 * @param dateS
+	 * @param fromDate
 	 *            検索開始日
 	 */
-	public void setDateS(int dateS) {
-		this.dateS = dateS;
+	public void setFromDate(int fromDate) {
+		this.fromDate = fromDate;
 	}
 
 	/**
 	 * 検索終了年情報取得メソッド
 	 * 
-	 * @return yearE
+	 * @return toYear
 	 */
-	public int getYearE() {
-		return yearE;
+	public int getToYear() {
+		return toYear;
 	}
 
 	/**
 	 * 検索終了年情報格納メソッド
 	 * 
-	 * @param yearE 検索終了年
+	 * @param toYear 検索終了年
 	 */
-	public void setYearE(int yearE) {
-		this.yearE = yearE;
+	public void setToYear(int toYear) {
+		this.toYear = toYear;
 	}
 
 	/**
 	 * 検索終了月情報取得メソッド
-	 * @return monthE
+	 * @return toMonth
 	 */
-	public int getMonthE() {
-		return monthE;
+	public int getToMonth() {
+		return toMonth;
 	}
 
 	/**
 	 * 検索終了月情報格納メソッド
 	 * 
-	 * @param monthE
+	 * @param toMonth
 	 *            検索終了月
 	 */
-	public void setMonthE(int monthE) {
-		this.monthE = monthE;
+	public void setToMonth(int toMonth) {
+		this.toMonth = toMonth;
 	}
 
 	/**
 	 * 検索終了日情報取得メソッド
 	 * 
-	 * @return dateE
+	 * @return toDate
 	 */
-	public int getDateE() {
-		return dateE;
+	public int gettoDate() {
+		return toDate;
 	}
 
 	/**
 	 * 検索終了日情報格納メソッド
 	 * 
-	 * @param dateE
+	 * @param toDate
 	 *            検索終了日
 	 */
-	public void setDateE(int dateE) {
-		this.dateE = dateE;
+	public void settoDate(int toDate) {
+		this.toDate = toDate;
 	}
 
 	/**
 	 * 検索開始年月日情報取得メソッド
 	 * 
-	 * @return selectDateS
+	 * @return startDate
 	 */
-	public String getSelectDateS() {
-		return selectDateS;
+	public String getStartDate() {
+		return startDate;
 	}
 
 	/**
 	 * 検索開始年月日情報格納メソッド
 	 * 
-	 * @param selectDateS
+	 * @param startDate
 	 *            検索開始年月日
 	 */
-	public void setSelectDateS(String selectDateS) {
-		this.selectDateS = selectDateS;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
 	/**
 	 * 検索終了年月日情報取得メソッド
 	 * 
-	 * @return selectDateE
+	 * @return endDate
 	 */
-	public String getSelectDateE() {
-		return selectDateE;
+	public String getEndDate() {
+		return endDate;
 	}
 
 	/**
 	 * 検索終了年月日情報格納メソッド
 	 * 
-	 * @param selectDateE
+	 * @param endDate
 	 *            検索終了年月日
 	 */
-	public void setSelectDateE(String selectDateE) {
-		this.selectDateE = selectDateE;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	/**

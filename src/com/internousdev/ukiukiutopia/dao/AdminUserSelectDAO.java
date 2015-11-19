@@ -68,17 +68,14 @@ public class AdminUserSelectDAO {
 			userList.add(dto);
 			
 			result = true;
-		}//while
-
+		}
 	}catch(Exception e){
 		e.printStackTrace();
 	}finally{
 		con.close();
-	}//finally
-
+	}
 		return result;
-
-	}//select
+ }
 	
 	/**
 	 * 選択したユーザー情報を取得するメソッド

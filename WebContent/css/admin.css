@@ -9,6 +9,10 @@
 	font-weight: bold;
 }
 
+ul{
+	list-style: none;
+}
+
 .userdelete{
 	margin-top:20px;
 	text-align:left;

@@ -58,8 +58,7 @@ public class AdminTicketDeleteDAO {
 		e.printStackTrace();
 	}finally{
 		con.close();
-	}//finally
-
+	}
 		return rscount;
 	}
 }

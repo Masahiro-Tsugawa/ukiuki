@@ -12,8 +12,10 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 
 /**
- * @author internous
- *
+ * 指定したユーザーの個人情報を削除する為のクラス
+ * @author S.Mizukoshi
+ * @version 1.1
+ * @since 1.0
  */
 public class AdminUserDeleteDAO {
 	/***
@@ -26,7 +28,7 @@ public class AdminUserDeleteDAO {
 	int rscount=0;
 
 	/**
-	 * 購入情報を検索するメソッド
+	 * 指定したユーザーの個人情報を削除するメソッド
 	 * @param delmail 
 	 * @param dto 
 	 * @return rscout true：削除成功
@@ -44,18 +46,15 @@ public class AdminUserDeleteDAO {
 		ps.setString(1,delmail);
 		rscount = ps.executeUpdate();
 
-		if(rscount < 0){
-			
+		if(rscount < 0){	
 			return rscount;
 		}
-
 	}catch(Exception e){
 		e.printStackTrace();
 	}finally{
 		con.close();
-	}//finally
-
+	}
 		return rscount;
 	}
-} //class
+}
 

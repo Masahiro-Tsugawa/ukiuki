@@ -46,15 +46,10 @@ public class AdminTicketSelectDAO {
 	public boolean select() throws Exception {
 		// MySQLと接続
 		con = DBConnector.getConnection();
-
-		// MongoDBと接続
 		DB db = MongoDBConnector.getConnection();
-		// Mongoのコレクションを指定して取得
 		DBCollection coll = db.getCollection("ticket_detail");
 
 		try {
-			
-			//mysql
 			String sql = "select * from ticket where is_show=true";
 
 			PreparedStatement ps;
@@ -63,8 +58,6 @@ public class AdminTicketSelectDAO {
 			
 			while (rs.next()) {
 				AdminTicketSelectDTO dto = new AdminTicketSelectDTO();
-				
-				//mongodb
 				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
@@ -80,16 +73,14 @@ public class AdminTicketSelectDAO {
 				ticketList.add(dto); 
 				
 				result = true;
-		}// while
+		}
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-//			cursor.close();
-		} // finally
-
+		}
 		return result;
-	}// select
+	}
 
 	/**
 	 * 全チケット情報を取得するメソッド

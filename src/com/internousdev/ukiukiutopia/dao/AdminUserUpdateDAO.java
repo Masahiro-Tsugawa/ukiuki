@@ -58,17 +58,14 @@ public class AdminUserUpdateDAO {
 
 					rscount = ps.executeUpdate();
 				}
-
-				
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
-	}// update
+	}
 
 	/**
 	 * 選択したユーザーのパスワードを編集するメソッド
@@ -100,7 +97,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
 	}
 
@@ -135,7 +132,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
 	}
 
@@ -170,7 +167,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
 
 	}
@@ -206,7 +203,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
 	}
 
@@ -242,7 +239,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		} 
 		return rscount;
 
 	}
@@ -277,7 +274,7 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return rscount;
 
 	}

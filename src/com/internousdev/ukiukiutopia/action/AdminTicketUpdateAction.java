@@ -24,60 +24,60 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/***
 	 * 編集したいチケットのID
 	 */
-	private int updateId;
+	private int id;
 	/***
 	 * 編集したいチケット名
 	 */
-	private String updateName;
+	private String name;
 	/***
 	 * 編集したいチケットの値段
 	 */
-	private float updatePrice;
+	private float price;
 	/***
 	 * 編集したいチケットの種類
 	 */
-	private String updateTicketType;
+	private String ticketType;
 	/***
 	 * 編集したいチケットの販売状態
 	 */
-	private boolean updateIsSale;
+	private boolean isSale;
 	/***
 	 * 編集したいチケットの更新日
 	 */
-	private String updateRenewDate;
+	private String renewDate;
 	/***
 	 * 編集したいチケットの詳細情報
 	 */
-	private String updateTicketInfo;
+	private String ticketInformation;
 
 	/***
 	 * DAOの実行成功数
 	 */
-	int up=0;
+	int count=0;
 	/***
 	 * チケット名変更実行成功
 	 */
-	int upN=0;
+	int countName=0;
 	/***
 	 * 値段変更実行成功
 	 */
-	int upP=0;
-	/***
-	 * 販売状態変更実行成功
-	 */
-	int upI=0;
+	int countPrice=0;
 	/***
 	 * チケット種類変更実行成功
 	 */
-	int upTT=0;
+	int countTicketType=0;
+	/***
+	 * 販売状態変更実行成功
+	 */
+	int countIsSale=0;
 	/***
 	 * チケット実行成功
 	 */
-	int upTI=0;
+	int countTicketInformationrmation=0;
 	/***
 	 * DAOの実行成功数
 	 */
-	int upRD=0;
+	int countRenewDate=0;
 	
 	/***
 	 * 実行結果
@@ -91,37 +91,37 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		public String execute() throws Exception {
 		
 		DateTime dt = new DateTime();
-		updateRenewDate = dt.toString(DateTimeFormat.mediumDateTime());
+		renewDate = dt.toString(DateTimeFormat.mediumDateTime());
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
-		if(updateId > 0){
-		 if(("".equals(updateName)) == false){
-			 upN = dao.updateName(updateId,updateName);
+		if(id > 0){
+		 if(("".equals(name)) == false){
+			 countName = dao.updateName(id,name);
 		   }
 		 
-		 if(updatePrice> 0){
-			 upP = dao.updatePrice(updateId,updatePrice);
+		 if(price> 0){
+			 countPrice = dao.updatePrice(id,price);
 		   }
 		 
-		 if(("".equals(updateIsSale)) == false){
-			 upI = dao.updateIsSale(updateId,updateIsSale);
+		 if(("".equals(isSale)) == false){
+			 countIsSale = dao.updateIsSale(id,isSale);
 		   }
 		 
-		 if(("".equals(updateTicketType)) == false){
-			 upTT = dao.updateTicketType(updateId,updateTicketType);
+		 if(("".equals(ticketType)) == false){
+			 countTicketType = dao.updateTicketType(id,ticketType);
 		   }
 		 
-		 if(("".equals(updateTicketInfo)) == false){
-			 upTI = dao.updateTicketInfo(updateId,updateTicketInfo);
+		 if(("".equals(ticketInformation)) == false){
+			 countTicketInformationrmation = dao.updateTicketInformation(id,ticketInformation);
 		   }
 		 
 		 
-		upRD = dao.updateRenewDate(updateId,updateRenewDate);
+		 countRenewDate = dao.updateRenewDate(id,renewDate);
 		 
-		up = upN + upP + upI + upTT + upTI + upRD;
+		 count = countName + countPrice + countIsSale + countTicketType + countTicketInformationrmation + countRenewDate;
 		
-		if(up >= 2){
+		if(count >= 2){
 			result = SUCCESS;
 		  
 		 }
@@ -134,28 +134,28 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 * @return updateId
 		 */
 		public int getUpdateId() {
-			return updateId;
+			return id;
 		}
 		/**
 		 * 編集したいチケットのID格納するメソッド
 		 * @param updateId 編集したいチケットのID
 		 */
 		public void setUpdateId(int updateId) {
-			this.updateId = updateId;
+			this.id = updateId;
 		}
 		/**
 		 * 編集したいチケット名取得するメソッド
 		 * @return updateName
 		 */
 		public String getUpdateName() {
-			return updateName;
+			return name;
 		}
 		/**
 		 * 編集したいチケット名格納するメソッド
 		 * @param updateName 編集したいチケット名
 		 */
 		public void setUpdateName(String updateName) {
-			this.updateName = updateName;
+			this.name = updateName;
 		}
 		
 		/**
@@ -163,14 +163,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 * @return updatePrice
 		 */
 		public float getUpdatePrice() {
-			return updatePrice;
+			return price;
 		}
 		/**
 		 * 編集したいチケットの値段格納するメソッド
 		 * @param updatePrice 編集したいチケットの値段
 		 */
 		public void setUpdatePrice(int updatePrice) {
-			this.updatePrice = updatePrice;
+			this.price = updatePrice;
 		}
 
 		/**
@@ -178,14 +178,14 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 * @return updateTicketType
 		 */
 		public String getUpdateTicketType() {
-			return updateTicketType;
+			return ticketType;
 		}
 		/**
 		 * 編集したいチケットの種類格納するメソッド
 		 * @param updateTicketType 編集したいチケットの種類
 		 */
 		public void setUpdateTicketType(String updateTicketType) {
-			this.updateTicketType = updateTicketType;
+			this.ticketType = updateTicketType;
 		}
 
 		/**
@@ -193,7 +193,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 * @return updateIsSale
 		 */
 		public boolean getUpdateIsSale() {
-			return updateIsSale;
+			return isSale;
 		}
 		/**
 		 * 編集したいチケットの販売状態格納するメソッド
@@ -201,22 +201,22 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 */
 		public void setUpdateIsSale(boolean updateIsSale) {
 
-			this.updateIsSale = updateIsSale;
+			this.isSale = updateIsSale;
 		}
 
 		/**
 		 * 編集したいチケットの詳細取得するメソッド
-		 * @return updateTicketInfo
+		 * @return ticketInformation
 		 */
-		public String getUpdateTicketInfo() {
-			return updateTicketInfo;
+		public String getTicketInformation() {
+			return ticketInformation;
 		}
 		/**
 		 * 編集したいチケットの詳細格納するメソッド
-		 * @param updateTicketInfo 編集したいチケットの詳細
+		 * @param ticketInformation 編集したいチケットの詳細
 		 */
-		public void setUpdateTicketInfo(String updateTicketInfo) {
-			this.updateTicketInfo = updateTicketInfo;
+		public void setTicketInformation(String ticketInformation) {
+			this.ticketInformation = ticketInformation;
 		}
 		
 		/**
@@ -224,13 +224,13 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 * @return updateRenewDate
 		 */
 		public String getUpdateRenewDate() {
-			return updateRenewDate;
+			return renewDate;
 		}
 		/**
 		 * 編集したいチケットの詳細格納するメソッド
 		 * @param updateRenewDate 編集したいチケットの詳細
 		 */
 		public void setUpdateRenewDate(String updateRenewDate) {
-			this.updateRenewDate = updateRenewDate;
+			this.renewDate = updateRenewDate;
 		}
 }

@@ -62,17 +62,14 @@ public class AdminBoughtDAO {
 			dto.setTotalAmount(rs.getFloat(4));
 			
 			boughtList.add(dto);
-		}//while
-
+		}
 	}catch(Exception e){
 		e.printStackTrace();
 	}finally{
 		con.close();
-	}//finally
-
+	}
 		return result;
-
-	}//select
+	}
 	
 	/**
 	 * チケットの購入情報を取得するメソッド
