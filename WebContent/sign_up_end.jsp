@@ -16,7 +16,7 @@
     <div class="container">
 		<div class="create">
   		<h1><s:text name="signUpEnd.registeredCompleted" /></h1>
-  		<s:form action="my_page">
+  		<s:form action="personal">
   			<s:submit value="%{getText('signUpEnd.toMyPage')}" />
 		</s:form>
 		</div>

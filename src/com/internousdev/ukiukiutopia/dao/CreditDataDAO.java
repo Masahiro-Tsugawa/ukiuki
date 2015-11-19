@@ -34,7 +34,7 @@ public class CreditDataDAO {
 		Connection con = DBConnector.getConnection();
 		
 		try {
-			String sql = "select * from user where email = ?";
+			String sql = "select credit_token,credit_num from user where email = ?";
 			
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -43,9 +43,9 @@ public class CreditDataDAO {
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.next()) {
-				String creditToken = rs.getString(9);
+				String creditToken = rs.getString("credit_token");
 				creditDataList.add(creditToken);
-				String creditNum = rs.getString(10);
+				String creditNum = rs.getString("credit_num");
 				creditDataList.add(creditNum);
 				result = true;
 			}

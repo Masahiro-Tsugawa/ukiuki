@@ -79,7 +79,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute() throws Exception {
 
-		String result = "error";
+		String result = ERROR;
 		boolean resultDAO = false;
 
 		BuyTicketDataDAO dao = new BuyTicketDataDAO();
@@ -102,7 +102,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 			buyOptionTicket.addAll(dao.getBuyOptionTicketList());
 			session.put("buyOptionTicket", buyOptionTicket);
 			session.put("buyTotal", dao.getTotalAmount());
-			result = "success";
+			result = SUCCESS;
 		}else{
 			session.put("errorMessege", "すべてのチケットの購入枚数が0枚になっています");
 			return result;
@@ -118,7 +118,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 				session.put("buyCardToken", credit.getToken());
 				session.put("buyCardNumber", credit.getCardNumber());
 			}else{
-				result = "error";
+				result = ERROR;
 				session.put("errorMessege", "クレジットカードの入力情報に誤りがあります");
 				return result;
 			}
