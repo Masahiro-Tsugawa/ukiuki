@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BuyInformationAction extends ActionSupport implements SessionAware {
 
 	/**
-	 * シリアルのバージョン
+	 * 生成されたシリアルID
 	 */
 	private static final long serialVersionUID = 3335803111845911636L;
 	/**
@@ -32,7 +32,6 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 	 */
 	private List<TicketDataDTO> option = new ArrayList<TicketDataDTO>();
 
-
 	public String execute() {
 		use = (List<TicketDataDTO>) session.get("buyUseTicket");
 		option = (List<TicketDataDTO>) session.get("buyOptionTicket");
@@ -42,7 +41,7 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 
 	/**
 	 * 利用券リスト取得メソッド
-	 * @return 購入する利用券の情報
+	 * @return use　購入する利用券の情報
 	 */
 	public List<TicketDataDTO> getUseList() {
 		return use;
@@ -50,7 +49,7 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 
 	/**
 	 * オプション券取得メソッド
-	 * @return　購入するオプション券の情報
+	 * @return　option　購入するオプション券の情報
 	 */
 	public List<TicketDataDTO> getOptionList() {
 		return option;

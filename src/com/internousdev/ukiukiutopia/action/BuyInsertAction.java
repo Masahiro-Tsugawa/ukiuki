@@ -11,6 +11,7 @@ import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ * ユーザーのチケット購入情報をDBへ登録する為のクラス
  * @author M.Namatame
  * @version 1.1
  * @since 1.0
@@ -18,7 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 	/**
-	 * シリアルのバージョン
+	 * 生成されたシリアルID
 	 */
 	private static final long serialVersionUID = -122351250439871014L;
 
@@ -45,28 +46,24 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	/**
 	 * 各チケットの小計
 	 */
-	private int buySubTotal;//
+	private int buySubTotal;
 	/**
-	 * 
+	 * メールアドレス
 	 */
-	private String email;//
+	private String email;
 	/**
-	 * 
+	 * クレジットカードトークン
 	 */
-	private String token;//
+	private String token;
 	/**
-	 * 
+	 * クレジットカード下四桁
 	 */
-	private String number;//
+	private String number;
 	/**
-	 * 
+	 *　年月日秒を取得
 	 */
-	private String registeredDate;//
-	// private String ticketName;
-	// private int price;
-	// private int subtotal;
-	// private int buyTotal;
-
+	private String registeredDate;
+	
 	public String execute() throws Exception {
 
 		BuyCompleteDAO dao = new BuyCompleteDAO();
