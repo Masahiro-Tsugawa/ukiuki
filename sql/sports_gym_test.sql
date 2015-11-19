@@ -27,7 +27,7 @@ insert into user(id,email,password,name,tel_num,postal_code,address,
   unique_id,credit_token,credit_num,registered_date,renew_date)
   values(1,"test@test.com","testtest","test","00-0000-0000","000-0000",
   "test","test","test","0000","0000/01/01 00:00:00","0001/01/01 00:00:00");
-INSERT INTO user VALUES (2,"hidehiko202@dydrfgvpca.iol","XWchBiUd","中　英彦","0764060942","9220307","石川県加賀市干拓町2-16-1",null,null,null,"2014-09-01 12:00:00","2014-11-01 12:00:00");
+INSERT INTO user VALUES (2,"hidehiko202@dydrfgvpca.iol","XWchBiUd","中　英彦","0764060942","9220307","石川県加賀市干拓町2-16-1",null,null,null,null,"2014-09-01 12:00:00","2014-11-01 12:00:00");
 
 /* ticket */
 drop table if exists ticket;

@@ -66,8 +66,8 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	private String userCreditNum;
 
 	/**
-	 * 支払い方法リスト取得メソッド
-	 * @return result 支払い方法リストの情報
+	 * 購入画面に表示する情報をリストなどに格納するメソッド
+	 * @return result すべての処理が完了したか否か
 	 */
 	public String execute() throws Exception {
 
