@@ -3,8 +3,6 @@
  */
 package com.internousdev.ukiukiutopia.action;
 
-import java.util.Map;
-
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 
@@ -97,12 +95,12 @@ public class AdminTicketUpdateAction extends ActionSupport {
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 		
-		if(("".equals(updateId)) == false){
+		if(updateId > 0){
 		 if(("".equals(updateName)) == false){
 			 upN = dao.updateName(updateId,updateName);
 		   }
 		 
-		 if(("".equals(updatePrice)) == false){
+		 if(updatePrice> 0){
 			 upP = dao.updatePrice(updateId,updatePrice);
 		   }
 		 
@@ -123,7 +121,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 
 		up = upN + upP + upI + upTT + upTI + upRD;
 		
-		if(up > 2){
+		if(up >= 2){
 			result = SUCCESS;
 		  
 		 }
