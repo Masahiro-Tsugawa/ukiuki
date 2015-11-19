@@ -6,6 +6,8 @@
 <html lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<link rel="stylesheet" href="css/ticket_buy.css" type="text/css">
 	<title>TicketBuy</title>
 	
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -37,6 +39,9 @@
 </head>
 
 <body>
+<jsp:include page="base/main_header.jsp" flush="true" />
+
+<div class="container">
 <s:form action="create_order">
 <s:if test="%{#session.errorMessege!=null}">
 	<s:property value="#session.errorMessege"/>
@@ -44,46 +49,51 @@
 <div id="ticket">
 <%! int i = 0; %>
 <h3>施設利用券</h3>
-<table>
+<table class="table-test">
 	<tr>
-		<th>id</th>
-		<th>name</th>
-		<th>info</th>
-		<th>price</th>
-		<th>sheets</th>
-		<th>total</th>
+		<th colspan="4"><div class="form-titel">施設利用券</div></th>
+	</tr>
+	<tr>
+		<td align="center">id</td>
+		<td align="center">name</td>
+		<td align="center">info</td>
+		<td align="center">price</td>
+		<td align="center">sheets</td>
+		<td align="center">total</td>
 	</tr>
 <s:iterator value="useList">
 	<tr>
-       	<td><s:property value="id"/><s:hidden value="%{id}" name="useId"></s:hidden></td>
-       	<td><s:property value="name" /></td>
-        <td><s:property value="info" /></td>
-        <td><span id="price<%= i %>"><s:property value="price"/></span>円</td>
-        <td><s:select id="sheets<%= i %>" list="sheetsList" name="useSheets"/></td>
-        <td><span id="subTotal<%= i++ %>">0</span>円</td>	
+       	<td align="center"><s:property value="id"/><s:hidden value="%{id}" name="useId"></s:hidden></td>
+       	<td align="center"><s:property value="name" /></td>
+        <td align="left"><s:property value="info" /></td>
+        <td align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
+        <td align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="useSheets"/></td>
+        <td align="right"><span id="subTotal<%= i++ %>">0</span>円</td>	
 	</tr>
 </s:iterator>
 </table>
 <br>
 <h3>オプション利用券</h3>
-<table>
+<table class="table-test">
 	<tr>
-		
-		<th>id</th>
-		<th>name</th>
-		<th>info</th>
-		<th>price</th>
-		<th>sheets</th>
-		<th>total</th>
+		<th colspan="4"><div class="form-titel">オプション</div></th>
+	</tr>
+	<tr>
+		<td align="center">id</td>
+		<td align="center">name</td>
+		<td align="center">info</td>
+		<td align="center">price</td>
+		<td align="center">sheets</td>
+		<td align="center">total</td>
 	</tr>
 <s:iterator value="optionList">
 	<tr>
-       	<td><s:property value="id"/><s:hidden value="%{id}" name="optionId"></s:hidden></td>
-       	<td><s:property value="name" /></td>
-        <td><s:property value="info" /></td>
-        <td><span id="price<%= i %>"><s:property value="price"/></span>円</td>
-        <td><s:select id="sheets<%= i %>" list="sheetsList" name="optionSheets"/></td>
-        <td><span id="subTotal<%= i++ %>">0</span>円</td>
+       	<td align="center"><s:property value="id"/><s:hidden value="%{id}" name="optionId"></s:hidden></td>
+       	<td align="center"><s:property value="name" /></td>
+        <td align="left"><s:property value="info" /></td>
+        <td align="right"><span id="price<%= i %>"><s:property value="price"/></span>円</td>
+        <td align="right"><s:select id="sheets<%= i %>" list="sheetsList" name="optionSheets"/></td>
+        <td align="right"><span id="subTotal<%= i++ %>">0</span>円</td>
 	</tr>
 </s:iterator>
 </table>
@@ -108,5 +118,7 @@
 <s:submit value="購入確認へ" />
 </s:form>
 <input type="button" value="戻る" onClick="history.back()">
+</div>
 </body>
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
