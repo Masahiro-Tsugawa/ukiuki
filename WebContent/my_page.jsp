@@ -50,11 +50,6 @@
 					<td align="center"><s:text name="signUpCheck.address" /></td>
 					<td class="data"><s:property value="address" /></td>
 				</tr>
-
-				<s:form action="ticket_buy">
-					<td colspan="2"><s:submit value="%{getText('MyPage.newPurchaseScreen')}" /></td>
-				</s:form>
-
 			</table>
 			
 			<table class="table-test">
@@ -71,7 +66,7 @@
 				</tr>
 				<s:if test="%{historylList!=null}">
 					<s:iterator value="historylList">
-					<tr>
+				<tr>
 					    <td align="center"><s:property value="name" /></td>
 					    <td align="center"><s:property value="sheets" /><s:text name="MyPage.number" /></td>
 					    <td align="center"><s:property value="price" /><s:text name="MyPage.yen" /></td>
@@ -81,11 +76,11 @@
 				<s:else>
 				    <td align="center" colspan="4"><s:text name="MyPage.noHistory" /></td>
 				</s:else>
-				</tr>   
-				
-				
-				
+				</tr>
 			</table>
+			　　　　<s:form action="ticket_buy">
+					<td colspan="2"><s:submit value="%{getText('MyPage.newPurchaseScreen')}" /></td>
+				</s:form>
 		</div>
 	</div>
 </body>
