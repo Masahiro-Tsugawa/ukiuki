@@ -24,20 +24,23 @@ import com.mongodb.DBObject;
  */
 public class TicketDataDAO {
 
-	private Connection con;
-	private boolean action;
-
+	/**
+	 * 購入可能な施設利用チケットのリスト
+	 */
 	private List<TicketDataDTO> useTicketList = new ArrayList<TicketDataDTO>();
+	/**
+	 * 購入可能なオプションチケットのリスト
+	 */
 	private List<TicketDataDTO> optionTicketList = new ArrayList<TicketDataDTO>();
 
 	/**
-	 * @return
+	 * 購入可能なチケットのリストを作成する為のメソッド
+	 * @return　result 購入可能なチケットのリストを作成できたか否か
 	 * @throws Exception
 	 */
-	public boolean setTicketList() throws Exception {
-		System.out.println("select - メソッド実行");
-		action = false;
-		con = DBConnector.getConnection();
+	public boolean createTicketList() throws Exception {
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 
 		DB db = MongoDBConnector.getConnection();
 		DBCollection coll = db.getCollection("ticket_detail");
@@ -48,13 +51,10 @@ public class TicketDataDAO {
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 
-			System.out.println("select - ps - " + ps);
-
 			ResultSet rs = ps.executeQuery();
-			System.out.println("select - sql実行");
 
 			while (rs.next()) {
-				action = true;
+				result = true;
 				TicketDataDTO dto = new TicketDataDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
 				DBCursor cursor = coll.find(query);
@@ -66,25 +66,18 @@ public class TicketDataDAO {
 				dto.setType(rs.getString(4));
 				dto.setInfo((String) doc.get("ticket_info"));
 			
-				useTicketList.add(dto);
-
-				System.out.println("select - useList - OK");
-				
-			} // while
-			
+				useTicketList.add(dto);			
+			}	
 			
 			String sql2 = "select * from ticket where is_sale=true and ticket_type='option'";
 
 			PreparedStatement ps2;
 			ps2 = con.prepareStatement(sql2);
 
-			System.out.println("select - ps2 - " + ps2);
-
 			ResultSet rs2 = ps2.executeQuery();
-			System.out.println("select - sql2実行");
 			
 			while (rs2.next()) {
-				action = true;
+				result = true;
 				TicketDataDTO dto = new TicketDataDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs2.getInt(1));
 				DBCursor cursor = coll.find(query);
@@ -96,29 +89,30 @@ public class TicketDataDAO {
 				dto.setType(rs2.getString(4));
 				dto.setInfo((String) doc.get("ticket_info"));
 				
-				optionTicketList.add(dto);
-
-				System.out.println("select - optionList - OK");
-				
-			} // while
+				optionTicketList.add(dto);		
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
-		System.out.println("select - return - " + action);
-		return action;
+		}
+		return result;
 
-	}// select
+	}
 
 	/**
-	 * @return
+	 * 購入可能な施設利用チケットのリスト取得メソッド
+	 * @return　useTicketList　購入可能な施設利用チケットのリスト
 	 */
 	public List<TicketDataDTO> getUseTicketList() {
 		return useTicketList;
 	}
 	
+	/**
+	 * 購入可能なオプションチケットのリスト取得メソッド
+	 * @return　optionTicketList　購入可能なオプションチケットのリスト
+	 */
 	public List<TicketDataDTO> getOptionTicketList() {
 		return optionTicketList;
 	}

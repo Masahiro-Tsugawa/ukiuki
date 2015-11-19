@@ -74,7 +74,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 		String result = ERROR;
 
 		TicketDataDAO dao = new TicketDataDAO();
-		boolean resultDAO = dao.setTicketList();
+		boolean resultDAO = dao.createTicketList();
 		if (resultDAO) {
 			useList.addAll(dao.getUseTicketList());
 			session.put("useListSize", useList.size());
