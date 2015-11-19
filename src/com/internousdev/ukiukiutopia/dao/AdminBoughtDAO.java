@@ -25,7 +25,7 @@ public class AdminBoughtDAO {
 	/***
 	 * 実行結果
 	 */
-	boolean action;
+	boolean result = false;
 	/***
 	 * DBから取得した購入情報を格納するリスト
 	 */
@@ -33,15 +33,14 @@ public class AdminBoughtDAO {
 
 	/**
 	 * 購入情報を検索するメソッド
-	 * @param selectDate1 
-	 * @param selectDate2 
+	 * @param selectDateS 
+	 * @param selectDateE 
 	 * @param dto 
-	 * @return true
+	 * @return result true:DBから購入情報取得成功
 	 * @throws Exception 
 	 */
-	public boolean select(String selectDate1,String selectDate2,AdminBoughtDTO dto)throws Exception{
+	public boolean select(String selectDateS,String selectDateE,AdminBoughtDTO dto)throws Exception{
 
-		action=false;
 		con = DBConnector.getConnection();
 
 		try{
@@ -49,13 +48,13 @@ public class AdminBoughtDAO {
 
 		PreparedStatement ps;
 		ps = con.prepareStatement(sql);
-		ps.setString(1, selectDate1);
-		ps.setString(2, selectDate2);
+		ps.setString(1, selectDateS);
+		ps.setString(2, selectDateE);
 
 		ResultSet rs = ps.executeQuery();
 		
 		while(rs.next()){
-			action = true;
+			result = true;
 
 			dto.setOrderId(rs.getInt(1));
 			dto.setTicketId(rs.getInt(2));
@@ -71,7 +70,7 @@ public class AdminBoughtDAO {
 		con.close();
 	}//finally
 
-		return action;
+		return result;
 
 	}//select
 	

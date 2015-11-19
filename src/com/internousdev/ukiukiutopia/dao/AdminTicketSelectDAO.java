@@ -32,7 +32,7 @@ public class AdminTicketSelectDAO {
 	/***
 	 * 実行結果
 	 */
-	boolean action;
+	boolean result=false;
 	/***
 	 * DBから取得した全チケット情報を格納するリスト
 	 */
@@ -41,10 +41,9 @@ public class AdminTicketSelectDAO {
 	/**
 	 * 全チケット情報を検索するメソッド
 	 * @return true
+	 * @throws Exception 
 	 */
 	public boolean select() throws Exception {
-		action = false;
-
 		// MySQLと接続
 		con = DBConnector.getConnection();
 
@@ -63,8 +62,6 @@ public class AdminTicketSelectDAO {
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				action = true;
-
 				AdminTicketSelectDTO dto = new AdminTicketSelectDTO();
 				
 				//mongodb
@@ -77,9 +74,12 @@ public class AdminTicketSelectDAO {
 				dto.setPrice(rs.getFloat(3));
 				dto.setTicketType(rs.getString(4));
 				dto.setIsSale(rs.getBoolean(5));
+				dto.setRenewDate(rs.getString(8));
 				dto.setTicketInfo((String) doc.get("ticket_info"));
 
 				ticketList.add(dto); 
+				
+				result = true;
 		}// while
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -88,7 +88,7 @@ public class AdminTicketSelectDAO {
 //			cursor.close();
 		} // finally
 
-		return action;
+		return result;
 	}// select
 
 	/**

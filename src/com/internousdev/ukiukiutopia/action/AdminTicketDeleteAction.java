@@ -15,11 +15,10 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminTicketDeleteAction extends ActionSupport {
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 3272574526615947484L;
 	/***
 	 * 削除したいチケットのID
 	 */

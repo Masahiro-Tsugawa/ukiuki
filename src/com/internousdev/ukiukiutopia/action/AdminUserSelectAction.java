@@ -22,11 +22,11 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AdminUserSelectAction extends ActionSupport implements SessionAware{
 
-	/***
+	/**
 	 * 生成したシリアルID
 	 */
-
-	 /***
+	private static final long serialVersionUID = 5335805675679897912L;
+	/***
      * 検索結果を格納するリスト
      */
 	 public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
@@ -49,8 +49,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	 */
 	 public String execute() throws Exception {
 			
-			if (selectEmail == null || selectEmail.equals("")) {
-				System.out.println(selectEmail);
+			if (selectEmail.equals("")) {
 				addActionError("ユーザーIDを入力してください");
 				return result;
 				

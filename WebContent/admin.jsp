@@ -25,15 +25,16 @@
 		   <div class="loginName">
 		   <s:actionerror />
 		<s:fielderror>
-			<s:param value="%{'adminId'}" />
+			<s:param value="id" />
 		</s:fielderror>
 		<s:fielderror>
-			<s:param value="%{'adminPass'}" />
+			<s:param value="password" />
 		</s:fielderror>
 
 		<s:form id="signin" class="navbar-form navbar-right" role="form"
 				action="AdminLoginAction" method="post">
 				<div class="input-group">
+				 <s:actionerror />
 					<s:textfield id="name" type="text" class="form-control" name="Name"
 						placeholder="ユーザー名" />
                  </div>
@@ -67,17 +68,17 @@
 		  <h4>チケット購入情報検索</h4>
 
 			<s:form action="AdminBoughtAction">
-			　<s:select list="#{0:'--',2015:'2015',2016:'2016'}" name="year1"></s:select>年
+			　<s:select list="#{0:'--',2015:'2015',2016:'2016'}" name="yearS"></s:select>年
 			
-			 <s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12'}" name="month1"></s:select>月
+			 <s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12'}" name="monthS"></s:select>月
 			
-			　<s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12',13:'13',14:'14',15:'15',16:'16',17:'17',18:'18',19:'19',20:'20',21:'21',22:'22',23:'23',24:'24',25:'25',26:'26',27:'27',28:'28',29:'29',30:'30',31:'31'}" name="date1"></s:select>日  ～ 
+			　<s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12',13:'13',14:'14',15:'15',16:'16',17:'17',18:'18',19:'19',20:'20',21:'21',22:'22',23:'23',24:'24',25:'25',26:'26',27:'27',28:'28',29:'29',30:'30',31:'31'}" name="dateS"></s:select>日  ～ 
 				
-			 <s:select list="#{0:'--',2015:'2015',2016:'2016'}" name="year2"></s:select>年
+			 <s:select list="#{0:'--',2015:'2015',2016:'2016'}" name="yearE"></s:select>年
 			
-			 <s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12'}" name="month2"></s:select>月
+			 <s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12'}" name="monthE"></s:select>月
 			
-			　<s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12',13:'13',14:'14',15:'15',16:'16',17:'17',18:'18',19:'19',20:'20',21:'21',22:'22',23:'23',24:'24',25:'25',26:'26',27:'27',28:'28',29:'29',30:'30',31:'31'}" name="date2"></s:select>日
+			　<s:select list="#{0:'--',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'10',11:'11',12:'12',13:'13',14:'14',15:'15',16:'16',17:'17',18:'18',19:'19',20:'20',21:'21',22:'22',23:'23',24:'24',25:'25',26:'26',27:'27',28:'28',29:'29',30:'30',31:'31'}" name="dateE"></s:select>日
 			<s:submit value=" 検索 " />
 			</s:form>
 		</s:div>
@@ -105,7 +106,7 @@
 					<p>
 						<s:textfield name="selectEmail" placeholder="ユーザーのメールアドレス" /><s:submit value=" 検索 " />
 					</p>
-					<s:actionerror />
+					
 				  <s:fielderror>
 			       <s:param value="%{boughtList}" />
 		         </s:fielderror>
@@ -169,6 +170,7 @@
 					   <th>チケット種類</th>
 					   <th>チケット詳細</th>
 					   <th>販売確認</th>
+					   <th>更新日</th>
 					   </tr>
 					  </thead>
 	                  <tbody>
@@ -182,6 +184,7 @@
 								<td><s:property value="ticketInfo" /></td>
 								<td><s:if test="isSale==true">販売中</s:if>
 								 <s:else>停止中</s:else></td>
+								<td><s:property value="renewDate" /></td>
 							</tr>
 						</s:iterator>
 				       </s:form>
