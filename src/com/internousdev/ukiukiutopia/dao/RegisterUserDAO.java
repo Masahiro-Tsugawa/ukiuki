@@ -8,13 +8,32 @@ import org.joda.time.format.DateTimeFormat;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
+
+/**
+ * ユーザー情報の為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
+ *
+ */
 public class RegisterUserDAO {
 
+	/**
+	 * ユーザー情報メソッド
+	 * @param email メールアドレスの格納
+	 * @param password パスワードの格納
+	 * @param name 名前の格納
+	 * @param telNum 電話番号の格納
+	 * @param posCode 郵便番号の格納
+	 * @param address 住所の格納
+	 * @return ps2.executeUpdate インサート完了と失敗の戻り値
+	 * @throws Exception 例外エラー
+	 */
 	public int insert(String email, String password, String name,
 			String telNum, String posCode, String address) throws Exception {
 
 		Connection con = DBConnector.getConnection();
-		
+
 		DateTime dt = new DateTime();
 
 		String sql = "insert into user(email,password,name,tel_num,postal_code,address,"
@@ -33,13 +52,9 @@ public class RegisterUserDAO {
 
 		int rscount = ps2.executeUpdate();
 
-		if (rscount > 0) {
-			System.out.println("insert - インサート完了");
-		} else {
-			System.out.println("insert - インサード失敗");
-		}
 
 		return rscount;
 	}// insert
 
 }
+

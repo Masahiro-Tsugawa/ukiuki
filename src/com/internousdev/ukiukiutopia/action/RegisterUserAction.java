@@ -8,7 +8,10 @@ import com.internousdev.ukiukiutopia.dao.RegisterUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author internous
+ * ユーザー情報の為のクラス
+ * @author  N.Minami
+ * @version 1.1
+ * @since 1.0
  *
  */
 public class RegisterUserAction extends ActionSupport implements SessionAware {
@@ -23,10 +26,16 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	private String posCode;
 	private String address;
 	int count;
-	private String action = ERROR;
+
+
+
+	/**
+	 * エラー
+	 *
+	 */
+	public String action = ERROR;
 
 	public String execute() throws Exception {
-		System.out.println("■reguserActiont内");
 
 		email = (String) session.get("signUpEmail");
 		password = (String) session.get("signUpPassword");
@@ -37,11 +46,10 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 
 		RegisterUserDAO dao = new RegisterUserDAO();
 
-		System.out.println("■reguserDAOに突入");
 		count = dao.insert(email, password, name, telNum, posCode, address);
-		
+
 		session.clear();
-		
+
 		session.put("userName",name);
 
 		if (count > 0) {
@@ -55,5 +63,4 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 }
