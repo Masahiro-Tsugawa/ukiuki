@@ -104,9 +104,10 @@
          method="execute">
          <result name="success">admin.jsp</result>
          <result name="error">admin.jsp</result>
+         <result name="input">admin.jsp</result>
          </action>
          
-         <!-- 管理者ログイン -->
+         <!-- 管理者ログアウト -->
         <action name="AdminLogoutAction"
          class="com.internousdev.ukiukiutopia.action.AdminLogoutAction"
          method="execute">

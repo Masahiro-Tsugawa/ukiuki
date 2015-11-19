@@ -24,12 +24,12 @@
 			<s:if test="#session.name_key == null">
 				<div class="loginName">
 					<s:actionerror />
-					<!--<s:fielderror>
+					<s:fielderror>
 						<s:param value="name" />
 					</s:fielderror>
 					<s:fielderror>
 						<s:param value="password" />
-					</s:fielderror> -->
+					</s:fielderror>
 
 					<s:form id="signin" class="navbar-form navbar-right" role="form"
 						action="AdminLoginAction" method="post">
