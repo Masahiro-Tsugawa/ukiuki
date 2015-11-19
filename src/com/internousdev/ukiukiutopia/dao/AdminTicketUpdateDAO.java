@@ -80,8 +80,6 @@ public class AdminTicketUpdateDAO {
 
 		try {
 			if (updateId > 0) {
-
-				if (("".equals(updatePrice) == false)) {
 					if (updatePrice > 0) {
 						String sql = "update ticket set price=? where id=?";
 						PreparedStatement ps;
@@ -93,7 +91,6 @@ public class AdminTicketUpdateDAO {
 						rscount = ps.executeUpdate();
 					}
 				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -148,8 +145,6 @@ public class AdminTicketUpdateDAO {
 
 		try {
 			if (updateId > 0) {
-
-				if (("".equals(updateIsSale) == false)) {
 					String sql = "update ticket set is_sale=? where id=?";
 					PreparedStatement ps;
 
@@ -159,7 +154,6 @@ public class AdminTicketUpdateDAO {
 
 					rscount = ps.executeUpdate();
 				}
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
