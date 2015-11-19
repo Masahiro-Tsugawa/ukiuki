@@ -24,10 +24,14 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	 */
 	private Map<String, Object> session;
 	/**
-	 * 購入する施設利用チケットIDのリスト
+	 * OAuth認証後に入力するメールアドレス
 	 */
 	private String OAuthEmail;
 	
+	/**
+	 * OAuth認証で取得したIDをデータベースに格納するメソッド
+	 * @return result すべての処理が完了したか否か
+	 */
 	public String execute() throws SQLException{
 		
 		String result = SUCCESS;
@@ -37,19 +41,17 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		
 		RegisterUserDAO dao = new RegisterUserDAO();
 		if(!dao.update(OAuthId, OAuthName, OAuthEmail)){
-			session.remove("OAuthId");
-			session.remove("OAuthName");
+			result = ERROR;
+			return result;
+		}
+		
+		if(!dao.select(OAuthEmail)){
 			result = ERROR;
 			return result;
 		}
 		
 		session.remove("OAuthId");
 		session.remove("OAuthName");
-		
-		if(!dao.select(OAuthEmail)){
-			result = ERROR;
-			return result;
-		}
 		
 		session.put("userId", dao.getId());
 		session.put("loginName", dao.getName());
@@ -58,19 +60,25 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		return result;
 	}
 	
+	/**
+	 * セッション格納メソッド
+	 * @param session セッション
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
 	/**
-	 * @return OAuthEmail
+	 * OAuth認証後に入力するメールアドレス取得メソッド
+	 * @return OAuthEmail　OAuth認証後に入力するメールアドレス
 	 */
 	public String getOAuthEmail() {
 		return OAuthEmail;
 	}
 
 	/**
-	 * @param OAuthEmail
+	 * OAuth認証後に入力するメールアドレス格納メソッド
+	 * @param OAuthEmail OAuth認証後に入力するメールアドレス
 	 */
 	public void setOAuthEmail(String OAuthEmail) {
 		this.OAuthEmail = OAuthEmail;
