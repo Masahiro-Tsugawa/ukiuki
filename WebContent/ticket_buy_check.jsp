@@ -26,7 +26,7 @@
 					<td align="center">単価</td>
 					<td align="center">小計</td>
 				</tr>
-			<s:iterator value="useList">
+			<s:iterator value="%{#session.buyUseTicket}">
 				<tr>
 				<td align="center"><s:property value="name" /></td>
 				<td align="right"><s:property value="sheets" />枚</td>
@@ -50,7 +50,7 @@
 					<td align="center">単価</td>
 					<td align="center">小計</td>
 				</tr>
-			<s:iterator value="optionList">
+			<s:iterator value="%{#session.buyOptionTicket}">
 				<tr>
 				<td align="center"><s:property value="name" /></td>
 				<td align="right"><s:property value="sheets" />枚</td>
@@ -95,7 +95,6 @@
 			<s:form action="check_end">
 				<s:submit value="完了" />
 			</s:form>
-			
 		</div>
 	</div>
 </body>

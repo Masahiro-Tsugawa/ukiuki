@@ -84,8 +84,8 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		orderId = dao.selectOrderId(userId, registeredDate);
 
-		List<TicketDataDTO> useList = (List<TicketDataDTO>) session.get("buyUseTicket");
-		List<TicketDataDTO> optionList = (List<TicketDataDTO>) session.get("buyOptionTicket");
+		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
+		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
 
 		for (int i = 0; i < useList.size(); i++) {
 			TicketDataDTO dto = useList.get(i);
@@ -105,7 +105,7 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		}
 
-		return "success";
+		return SUCCESS;
 
 	}
 

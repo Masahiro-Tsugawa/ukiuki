@@ -34,8 +34,8 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 
 
 	public String execute() {
-		use = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
-		option = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
+		use = (List<TicketDataDTO>) session.get("buyUseTicket");
+		option = (List<TicketDataDTO>) session.get("buyOptionTicket");
 		
 		return SUCCESS;
 	}
