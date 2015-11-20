@@ -32,20 +32,20 @@ public class LoginOauthDAO {
 	 * @param NETWORK_NAME 
 	 * @return result　結果
 	 */
-	public boolean select(String userUniqueId, String oauthName, String oauthEmail, String NETWORK_NAME) {
+	public boolean select(String userUniqueId, String NETWORK_NAME) {
 		boolean result = false;
 		con = DBConnector.getConnection();
 		try {
-			String sql = "SELECT id, name, email FROM user WHERE unique_id = ? AND oauth_name = ? AND email ";
+			String sql = "SELECT id, name, email FROM user WHERE unique_id = ? AND oauth_name = ? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userUniqueId);
-			stmt.setString(2, oauthName);
-			stmt.setString(2, oauthEmail);
+			stmt.setString(2, NETWORK_NAME);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				dto.setUserId(rs.getInt(1));
+				dto.setUserId(rs.getString(1));
 				dto.setUserName(rs.getString(2));
+				dto.setUserEmail(rs.getString(3));
 				result = true;
 			}
 

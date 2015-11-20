@@ -16,7 +16,7 @@ public class LoginOauthDTO {
 	/**
 	 * ユーザーID
 	 */
-	private int userId;
+	private String userId;
 	/**
 	 * OAuthから取得した名前
 	 * 
@@ -66,7 +66,7 @@ public class LoginOauthDTO {
 	 * 
 	 * @return userId
 	 */
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
@@ -76,7 +76,7 @@ public class LoginOauthDTO {
 	 * @param userId
 	 *            ユーザーID
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 }

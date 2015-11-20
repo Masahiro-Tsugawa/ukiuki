@@ -50,8 +50,6 @@ public class LoginFacebookAction extends ActionSupport
 	 */
 	private Map<String, Object> session;
 
-	
-
 	public String execute() throws Exception {
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
@@ -61,20 +59,17 @@ public class LoginFacebookAction extends ActionSupport
 			return rtn;
 		}
 		String uniqueId = userMap.get("id");
-		String userName = userMap.get("name");
-		String userEmail = userMap.get("name");
 		LoginOauthDAO dao = new LoginOauthDAO();
-		if(dao.select(uniqueId,userName,userEmail, NETWORK_NAME)){
-		LoginOauthDTO dto = dao.getLoginOauthDTO();
-		session.put("OAuthId", dto.getUserId());
-		session.put("OAuthName", dto.getUserName());
-		session.put("OAuthEmail","test@Test.com");
-		System.out.println(session.get("OAuthEmail"));
-		rtn = SUCCESS;
-		return rtn;
+		if (dao.select(uniqueId, NETWORK_NAME)) {
+			LoginOauthDTO dto = dao.getLoginOauthDTO();
+			session.put("OAuthId", dto.getUserId());
+			session.put("OAuthName", dto.getUserName());
+			session.put("OAuthEmail", dto.getUserEmail());
+			System.out.println(session.get("OAuthEmail"));
+			rtn = SUCCESS;
+			return rtn;
 		}
-		
-	
+
 		session.put("OAuthId", userMap.get("id"));
 		session.put("OAuthName", "FaceBook");
 		System.out.println(session.get("OAuthName"));
