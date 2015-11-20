@@ -21,12 +21,12 @@ public class AdminLogoutDAO {
 	 * ログイン情報をfalseに編集するメソッド
 	 * 
 	 * @param id 管理者ID
-	 * @return 編集結果を取得した回数
+	 * @return count 編集結果を取得した回数
 	 */
 	public int update(int id) {
 
 		Connection conn = null;
-		int rscount = 0;
+		int count = 0;
 
 		try {
 			conn = (Connection) DBConnector.getConnection();
@@ -36,7 +36,7 @@ public class AdminLogoutDAO {
 
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
-			rscount = ps.executeUpdate();
+			count = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -49,7 +49,7 @@ public class AdminLogoutDAO {
 				}
 			}
 		}
-		return rscount;
+		return count;
 	}
 
 }

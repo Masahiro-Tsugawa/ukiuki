@@ -21,10 +21,7 @@ import com.mongodb.DBCollection;
  * @since 1.0
  */
 public class AdminTicketUpdateDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+
 	/***
 	 * 実行して成功した回数
 	 */
@@ -38,7 +35,7 @@ public class AdminTicketUpdateDAO {
 	 */
 	public int updateName(int id, String name) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (id > 0) {
@@ -74,7 +71,7 @@ public class AdminTicketUpdateDAO {
 	 */
 	public int updatePrice(int id, float price) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (id > 0) {
@@ -109,7 +106,7 @@ public class AdminTicketUpdateDAO {
 	 */
 	public int updateTicketType(int id, String ticketType) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (id > 0) {
@@ -145,7 +142,7 @@ public class AdminTicketUpdateDAO {
 	 */
 	public int updateIsSale(int id, boolean isSale){
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (id > 0) {
@@ -171,13 +168,15 @@ public class AdminTicketUpdateDAO {
 	}
 
 	/**
-	 * チケット種類を変更するメソッド
+	 * チケット詳細を変更するメソッド
 	 * @param id チケットID
-	 * @param ticketType チケットの種類
+	 * @param ticketInformation チケットの詳細
 	 * @return rscount 編集の可否
 	 */
-	public int updateTicketInformation(int id, String ticketInformation) throws Exception {
+	public int updateTicketInformation(int id, String ticketInformation) {
+
 		try {
+			
 			if (id > 0) {
 
 				if (("".equals(ticketInformation) == false)) {
@@ -194,22 +193,19 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
 		} 
 		return rscount;
 	}
 
 	/**
-	 * チケット種類を変更するメソッド
-	 * 
-	 * @param id
-	 * @param renewDate
-	 * @return 編集の可否
-	 * @throws Exception
+	 * 更新日を変更するメソッド
+	 * @param id チケットID
+	 * @param   renewDate 更新日
+	 * @return rscount 編集の可否
 	 */
-	public int updateRenewDate(int id, String renewDate) throws Exception {
+	public int updateRenewDate(int id, String renewDate) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (id > 0) {
@@ -230,7 +226,11 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}

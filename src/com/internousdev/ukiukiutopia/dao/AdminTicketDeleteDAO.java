@@ -17,10 +17,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminTicketDeleteDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+
 	/***
 	 * 実行結果
 	 */
@@ -34,8 +31,9 @@ public class AdminTicketDeleteDAO {
 	 */
 	public int updateIsSale(int deleteId) {
 
+		Connection con;
 		con = DBConnector.getConnection();
-		int rsIsSale = 0;
+		int isSale = 0;
 
 		try {
 			String sql = "update ticket set is_sale=false where id=?";
@@ -43,7 +41,7 @@ public class AdminTicketDeleteDAO {
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, deleteId);
-			rsIsSale = ps.executeUpdate();
+			isSale = ps.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,7 +52,7 @@ public class AdminTicketDeleteDAO {
 				e.printStackTrace();
 			}
 		}
-		return rsIsSale;
+		return isSale;
 	}
 
 	/**
@@ -65,8 +63,9 @@ public class AdminTicketDeleteDAO {
 	 */
 	public int updateIsShow(int deleteId) {
 
+		Connection con;
 		con = DBConnector.getConnection();
-		int rsIsShow = 0;
+		int isShow = 0;
 
 		try {
 
@@ -75,7 +74,7 @@ public class AdminTicketDeleteDAO {
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, deleteId);
-			rsIsShow = ps.executeUpdate();
+			isShow = ps.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,6 +85,6 @@ public class AdminTicketDeleteDAO {
 				e.printStackTrace();
 			}
 		}
-		return rsIsShow;
+		return isShow;
 	}
 }
