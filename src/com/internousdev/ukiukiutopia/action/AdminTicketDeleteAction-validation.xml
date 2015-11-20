@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DTD(文書型定義) -->
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+
+
+<validators>
+ <field name="deleteTicket">
+		<field-validator type="requiredstring">
+			<message>%{getText('削除したいチケットのIDを入力してください')}</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[([0-9a-z])]]></param>
+			<message>%{getText('チケットのIDは半角数字で入力してください')}</message>
+		</field-validator>
+	</field>
+
+</validators>
