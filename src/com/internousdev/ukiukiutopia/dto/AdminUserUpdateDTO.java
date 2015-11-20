@@ -51,7 +51,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更メールアドレス格納メソッド
 	 * 
-	 * @param updateEmail
+	 * @param updateEmail 変更メールアドレス
 	 */
 	public void setUpdateEmail(String updateEmail){
 		this.updateEmail=updateEmail;
@@ -68,7 +68,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更パスワード格納メソッド
 	 * 
-	 * @param updatePassword
+	 * @param updatePassword 変更パスワード
 	 */
 	public void setUpdatePassword(String updatePassword){
 		this.updatePassword=updatePassword;
@@ -85,7 +85,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更ユーザー名格納メソッド
 	 * 
-	 * @param updateName
+	 * @param updateName 変更ユーザー名
 	 */
 	public void setUpdateName(String updateName){
 		this.updateName=updateName;
@@ -102,7 +102,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更電話番号格納メソッド
 	 * 
-	 * @param updateTelNum
+	 * @param updateTelNum 変更電話番号
 	 */
 	public void setUpdateTelNum(String updateTelNum){
 		this.updateTelNum=updateTelNum;
@@ -119,7 +119,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更郵便番号格納メソッド
 	 * 
-	 * @param updatePostalCode
+	 * @param updatePostalCode 変更郵便番号
 	 */
 	public void setUpdatePostalCode(String updatePostalCode){
 		this.updatePostalCode=updatePostalCode;
@@ -136,7 +136,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更住所格納メソッド
 	 * 
-	 * @param updateAddress
+	 * @param updateAddress 変更住所
 	 */
 	public void setUpdateAddress(String updateAddress){
 		this.updateAddress=updateAddress;
@@ -153,7 +153,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 更新日格納メソッド
 	 * 
-	 * @param updateRenewDate
+	 * @param updateRenewDate 更新日
 	 */
 	public void setUpdateRenewDate(String updateRenewDate){
 		this.updateRenewDate=updateRenewDate;

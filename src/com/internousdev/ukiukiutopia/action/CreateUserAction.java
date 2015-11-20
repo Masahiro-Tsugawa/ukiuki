@@ -75,7 +75,6 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	/**
 	 * 既存メールアドレスがDBにないかを確かめるメソッド
 	 * @return 既存登録アドレスの有無
-	 * @see java.dao.CreateUserDAO
 	 */
 	public String execute() throws SQLException {
 		/**
