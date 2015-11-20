@@ -19,7 +19,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class PersonalInformationDAO {
 
 	Connection con;
-	boolean rest;
+	boolean result;
 
 	private PersonalInformationDTO personal = new PersonalInformationDTO();
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
@@ -27,11 +27,11 @@ public class PersonalInformationDAO {
 	/**
 	 * 個人情報を検索するメソッド
 	 * @param emailaddress
-	 * @return rest
+	 * @return result
 	 * @throws Exception
 	 */
 	public boolean select(String emailaddress) throws Exception {
-		rest = false;
+		result = false;
 		con = DBConnector.getConnection();
 
 		try {
@@ -42,9 +42,8 @@ public class PersonalInformationDAO {
 			ps2.setString(1, emailaddress);
 			ResultSet rs = ps2.executeQuery();
 			if (rs.next()) {
-				rest = true;
+				result = true;
 
-				PersonalInformationDTO personal = new PersonalInformationDTO();
 				personal.setId(rs.getInt(1));
 				personal.setName(rs.getString(2));
 				personal.setTelNum(rs.getString(3));
@@ -59,7 +58,7 @@ public class PersonalInformationDAO {
 		} finally {
 			con.close();
 		} 
-		return rest;
+		return result;
 		
 	}
 
@@ -67,11 +66,11 @@ public class PersonalInformationDAO {
 	/**
 	 * 購入履歴を検索するメソッド
 	 * @param userId
-	 * @return action
+	 * @return result
 	 * @throws Exception
 	 */
 	public boolean selectHistory(int userId) throws Exception {
-		action = false;
+		result = false;
 		con = DBConnector.getConnection();
 
 		try {
@@ -91,7 +90,7 @@ public class PersonalInformationDAO {
 			ps2.setInt(1, userId);
 			ResultSet rs = ps2.executeQuery();
 			while (rs.next()) {
-				action = true;
+				result = true;
 
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
 				
@@ -108,7 +107,7 @@ public class PersonalInformationDAO {
 		} finally {
 			con.close();
 		} // finally
-		return action;
+		return result;
 	}
 	
 	/**

@@ -53,6 +53,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
     /**
      * 登録者情報をDAOから取得し、登録者情報を格納するメソッド
      * @return result
+     * @throws Exception 例外処理
      */
 	public String execute() throws Exception{
 		String emailAddress = (String)session.get("userEmail");
