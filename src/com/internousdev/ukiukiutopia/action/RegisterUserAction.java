@@ -14,7 +14,16 @@ import com.opensymphony.xwork2.ActionSupport;
 public class RegisterUserAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
-
+    
+	/**
+	 * 個人情報の表示
+	 * メールアドレスの表示
+	 * パスワードの表示
+	 * ユーザー名の表示
+	 * 電話番号の表示
+	 * 郵便番号の表示
+	 * 住所の表示
+	 */
 	private Map<String, Object> session;
 	private String email;
 	private String password;
@@ -22,7 +31,12 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	private String telNum;
 	private String posCode;
 	private String address;
-
+    
+	
+	/**
+	 * 個人情報を取得するメソッド
+	 * @return result　インサート完了の戻り値
+	 */
 	public String execute() throws Exception {
 		String result = ERROR;
 		int count;
@@ -33,25 +47,28 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 		telNum = (String) session.get("signUpTelNum");
 		posCode = (String) session.get("signUpPostalCode");
 		address = (String) session.get("signUpAddress");
-		
-		session.clear();
 
 		RegisterUserDAO dao = new RegisterUserDAO();
 
 		count = dao.insert(email, password, name, telNum, posCode, address);
 
+		session.clear();
+
+		session.put("userName",name);
+
 		if (count > 0) {
-			dao.select(email);
-			session.put("userId", dao.getId());
-			session.put("loginName", name);
-			session.put("userEmail", email);
 			result = SUCCESS;
 		}
 
 		return result;
 
 	}
-
+    
+	
+	/**
+	 * 個人情報を設定するメソッド
+	 * @param session 個人情報の格納
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

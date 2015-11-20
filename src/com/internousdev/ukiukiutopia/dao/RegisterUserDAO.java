@@ -20,13 +20,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class RegisterUserDAO {
 	
-	/**
-	 * ユーザーID
-	 */
 	private int id;
-	/**
-	 * ユーザー名
-	 */
 	private String name;
 
 	/**
@@ -50,28 +44,29 @@ public class RegisterUserDAO {
 		String sql = "insert into user(email,password,name,tel_num,postal_code,address,"
 				+ "registered_date,renew_date) value(?,?,?,?,?,?,?,?)";
 
-		PreparedStatement ps;
-		ps = con.prepareStatement(sql);
-		ps.setString(1, email);
-		ps.setString(2, password);
-		ps.setString(3, name);
-		ps.setString(4, telNum);
-		ps.setString(5, posCode);
-		ps.setString(6, address);
-		ps.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
-		ps.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
+		PreparedStatement ps2;
+		ps2 = con.prepareStatement(sql);
+		ps2.setString(1, email);
+		ps2.setString(2, password);
+		ps2.setString(3, name);
+		ps2.setString(4, telNum);
+		ps2.setString(5, posCode);
+		ps2.setString(6, address);
+		ps2.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
+		ps2.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
 
-		int rscount = ps.executeUpdate();
+		int rscount = ps2.executeUpdate();
+
 
 		return rscount;
 	}
 	
 	/**
-	 * @param OAuthId
-	 * @param OAuthName
-	 * @param email
-	 * @return result
-	 * @throws SQLException 
+	 * @param OAuthId オーオースIDの格納
+	 * @param OAuthName オーオースユーザー名の格納
+	 * @param email メールアドレスの格納
+	 * @return result　インサート完了と失敗の戻り値
+	 * @throws SQLException 例外エラー
 	 */
 	public boolean update(String OAuthId,String OAuthName, String email) throws SQLException{
 		
@@ -96,9 +91,9 @@ public class RegisterUserDAO {
 	}
 	
 	/**
-	 * @param email
-	 * @return result
-	 * @throws SQLException
+	 * @param email メールアドレスの格納
+	 * @return result 検索の完了と失敗の戻り値
+	 * @throws SQLException　例外エラー
 	 */
 	public boolean select(String email) throws SQLException{
 		boolean result = false;
