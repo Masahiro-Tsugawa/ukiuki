@@ -62,7 +62,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * 登録者情報をDAOから取得し、登録者情報を格納するメソッド
-     * @return result
+     * @return 処理が行われているか否か
      * @throws Exception 例外処理
      */
 	public String execute() throws Exception{
@@ -101,7 +101,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 
 	/**
 	 * セッションの値を設定するメソッド
-	 * @param sessionの値を格納
+	 * @param session セッションの値を格納
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -110,7 +110,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * 名前を取得するメソッド
-     * @return name　
+     * @return ユーザー名
      */
 	public String getName() {
 		return name;
@@ -118,7 +118,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
     
 	/**
 	 * 名前を設定するメソッド
-	 * @param name
+	 * @param name ユーザー名
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -126,7 +126,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 電話番号を取得するメソッド
-	 * @return telNum
+	 * @return 電話番号
 	 */ 
 	public String getTelNum() {
 		return telNum;
@@ -134,7 +134,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 電話番号を設定するメソッド
-	 * @param telNum
+	 * @param telNum 電話番号
 	 */
 	public void setTelNum(String telNum) {
 		this.telNum = telNum;
@@ -142,7 +142,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * メールアドレスを取得するメソッド
-     * @return email
+     * @return メールアドレス
      */
 	public String getEmail() {
 		return email;
@@ -150,7 +150,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * メールアドレスを設定するメソッド
-     * @param email
+     * @param email メールアドレス
      */
 	public void setEmail(String email) {
 		this.email = email;
@@ -158,7 +158,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 郵便番号を取得するメソッド
-	 * @return postalCode
+	 * @return 郵便番号
 	 */
 
 	public String getPostalCode() {
@@ -167,7 +167,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
     /**
      * 郵便番号を設定するメソッド
-     * @param postalCode
+     * @param postalCode 郵便番号
      */
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
@@ -175,7 +175,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 住所を所得するメソッド
-	 * @return address
+	 * @return 住所
 	 */
 	public String getAddress() {
 		return address;
@@ -183,7 +183,7 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 住所を設定するメソッド
-	 * @param address 
+	 * @param address 住所
 	 */
 	public void setAddress(String address) {
 		this.address = address;

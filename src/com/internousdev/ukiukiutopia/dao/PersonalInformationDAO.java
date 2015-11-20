@@ -41,7 +41,7 @@ public class PersonalInformationDAO {
 	/**
 	 * 個人情報を検索するメソッド
 	 * @param emailaddress
-	 * @return result
+	 * @return 処理が行われたか否か
 	 * @throws Exception
 	 */
 	public boolean select(String emailaddress) throws Exception {
@@ -80,7 +80,7 @@ public class PersonalInformationDAO {
 	/**
 	 * 購入履歴を検索するメソッド
 	 * @param userId
-	 * @return result
+	 * @return 処理が行われたか否か
 	 * @throws Exception
 	 */
 	public boolean selectHistory(int userId) throws Exception {
@@ -127,7 +127,7 @@ public class PersonalInformationDAO {
 	
 	/**
 	 * 個人情報を格納するメソッド
-	 * @return personal
+	 * @return 個人情報
 	 */
 	public PersonalInformationDTO getPersonal() {
 		return personal;
@@ -135,14 +135,14 @@ public class PersonalInformationDAO {
     
 	/**
 	 * 個人情報を設定するメソッド
-	 * @param personal
+	 * @param personal 個人情報
 	 */
 	public void setPersonal(PersonalInformationDTO personal) {
 		this.personal = personal;
 	}
     /**
      * 購入履歴を格納するメソッド
-     * @return historylList
+     * @return 購入履歴
      */
 	public List<PurchaseHistoryDTO> getHistorylList() {
 		return historylList;

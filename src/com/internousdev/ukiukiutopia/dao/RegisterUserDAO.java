@@ -38,7 +38,7 @@ public class RegisterUserDAO {
 	 * @param telNum 電話番号の格納
 	 * @param posCode 郵便番号の格納
 	 * @param address 住所の格納
-	 * @return rscount インサートする情報
+	 * @return 個人情報
 	 * @throws Exception 例外エラー
 	 */
 	public int insert(String email, String password, String name,
@@ -73,7 +73,7 @@ public class RegisterUserDAO {
 	 * @param OAuthId オーオースIDの格納
 	 * @param OAuthName オーオースユーザー名の格納
 	 * @param email メールアドレスの格納
-	 * @return result　OAuthの情報
+	 * @return OAuthの情報とメールアドレス
 	 * @throws SQLException 例外エラー
 	 */
 	public boolean update(String OAuthId,String OAuthName, String email) throws SQLException{
@@ -99,9 +99,9 @@ public class RegisterUserDAO {
 	}
 	
 	/**
-	 * IDと名前を検索するメソッド
+	 * メールアドレスでユーザーのIDと名前を検索するメソッド
 	 * @param email メールアドレスの格納
-	 * @return result IDと名前
+	 * @return 処理ができたか
 	 * @throws SQLException　例外エラー
 	 */
 	public boolean select(String email) throws SQLException{
