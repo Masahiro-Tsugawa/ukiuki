@@ -9,11 +9,10 @@ import com.internousdev.ukiukiutopia.dao.HomeDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ * データーベースからid,name,emailの情報を取得、sessionに格納する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * @author データーベースからid,name,emailの情報を取得、sessionに格納する為のクラス
- * 
  */
 public class HomeAction extends ActionSupport implements SessionAware {
 
@@ -53,42 +52,40 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 *  ユーザーemail取得メソッド
-	 * @param email ユーザーのemail
+	 *  顧客email取得メソッド
+	 * @param email 顧客のemail
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	/**
-	 *  ユーザーpassword取得メソッド
-	 * @return password ユーザーのpassword
+	 *  顧客password取得メソッド
+	 * @return password 顧客のpassword
 	 */
 	public String getPassword() {
 		return password;
 	}
 
 	/**
-	 *  ユーザーpassword取得メソッド
-	 * @param password ユーザーのpassword
+	 *  顧客password取得メソッド
+	 * @param password 顧客のpassword
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	/**
-	 *  ユーザーidError取得メソッド
-	 * @return idError 
-	 * ID,Passwordの入力間違い
+	 * idError取得メソッド
+	 * @return idError ID,Passwordの入力間違い
 	 */
 	public String getIdError() {
 		return idError;
 	}
 
 	/**
-	 *  ユーザーidError取得メソッド
-	 * @param idError ユーザーidError
-	 * ID,Passwordの入力間違い
+	 * idError取得メソッド
+	 * @param idError ID,Passwordの入力間違い
 	 */
 	public void setIdError(String idError) {
 		this.idError = idError;

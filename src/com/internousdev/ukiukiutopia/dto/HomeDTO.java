@@ -1,10 +1,10 @@
 package com.internousdev.ukiukiutopia.dto;
 
 /**
+ * 顧客情報を格納する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * 顧客情報を格納する為のクラス
  */
 public class HomeDTO{
 

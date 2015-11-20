@@ -8,11 +8,10 @@ import java.sql.SQLException;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * 
+ *　DBからemailとpasswordを検索する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- *　DBからemailとpasswordを検索する為のクラス
  */
 public class HomeDAO {
 
@@ -23,7 +22,7 @@ public class HomeDAO {
 	 * データベース検索メソッド
 	 * @param email データベース内のemail
 	 * @param password データベース内のpassword
-	 * @return　データベースでemail,passwordを検索の結果の成否
+	 * @return　データベースでemail,passwordを検索した結果の成否
 	 */
 	public String select(String email, String password) {
 		Connection conn = null;
