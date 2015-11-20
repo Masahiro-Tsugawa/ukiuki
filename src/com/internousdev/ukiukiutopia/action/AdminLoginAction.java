@@ -24,7 +24,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * 管理者ID
 	 */
-	int id;
+	private int id;
 	/***
 	 * 管理者名
 	 */
