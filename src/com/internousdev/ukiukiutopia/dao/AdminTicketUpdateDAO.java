@@ -188,7 +188,7 @@ public class AdminTicketUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		} 
 		return rscount;
 	}
 

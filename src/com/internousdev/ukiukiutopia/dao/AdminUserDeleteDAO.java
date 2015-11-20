@@ -28,12 +28,12 @@ public class AdminUserDeleteDAO {
 	/**
 	 * 指定したユーザーの個人情報を削除するメソッド
 	 * 
-	 * @param delmail
+	 * @param deleteMail
 	 * @param dto
 	 * @return 削除成功の可否
 	 * @throws Exception
 	 */
-	public int delete(String delmail) throws Exception {
+	public int delete(String deleteMail) throws Exception {
 
 		con = DBConnector.getConnection();
 
@@ -42,7 +42,7 @@ public class AdminUserDeleteDAO {
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
-			ps.setString(1, delmail);
+			ps.setString(1, deleteMail);
 			int rscount = ps.executeUpdate();
 
 			if (rscount < 0) {
