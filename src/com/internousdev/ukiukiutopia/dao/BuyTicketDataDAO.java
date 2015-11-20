@@ -42,7 +42,7 @@ public class BuyTicketDataDAO {
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
 		try {
-			String sql = "select * from ticket where ticket_type='use' and id=?";
+			String sql = "select id,name,price,ticket_type from ticket where ticket_type='use' and id=?";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class BuyTicketDataDAO {
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
 		try {
-			String sql = "select * from ticket where ticket_type='option' and id=?";
+			String sql = "select id,name,price,ticket_type from ticket where ticket_type='option' and id=?";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
