@@ -3,7 +3,7 @@ package com.internousdev.ukiukiutopia.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.sql.SQLException;
+
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.ukiukiutopia.dao.AdminLoginDAO;
@@ -51,7 +51,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 * 管理者ページにログインするメソッド
 	 * @return result SUCCESS：ユーザー名とパスワード合致＆ログイン状態を変更成功
 	 */
-	public String execute() throws SQLException {
+	public String execute() {
 		if (name.equals("")) {
 			addActionError("ユーザー名を入力してください");
 			return ERROR;
@@ -61,14 +61,13 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}
 
-		AdminLoginDAO daoSelect = new AdminLoginDAO();
-		AdminLoginDTO dtoSelect = new AdminLoginDTO();
-		int rscountSelect = daoSelect.select(name, password, dtoSelect);
-		id=dtoSelect.getId();
+		AdminLoginDAO dao = new AdminLoginDAO();
+		AdminLoginDTO dto = new AdminLoginDTO();
+		int rscountSelect = dao.select(name, password, dto);
+		id=dto.getId();
 		session.put("id", id);
 
-		AdminLoginDAO daoUpdate = new AdminLoginDAO();
-		int rscountUpdate = daoUpdate.update(id);
+		int rscountUpdate = dao.update(id);
 
 		int rscount = rscountSelect + rscountUpdate;
 				
@@ -78,7 +77,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 			return result;
 		}
 		
-			session.put("name_key", dtoSelect.getName());
+			session.put("name_key", dto.getName());
 			
 			result=SUCCESS;
 
@@ -90,7 +89,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * ID取得メソッド
 	 * 
-	 * @return ユーザーID
+	 * @return id ユーザーID
 	 */
 	public int getId() {
 		return id;
@@ -106,7 +105,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 管理者名取得するメソッド
-	 * @return 管理者名
+	 * @return name 管理者名
 	 */
 	public String getName() {
 		return name;
@@ -121,7 +120,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	
 	/**
 	 * 管理者パスワード取得するメソッド
-	 * @return 管理者パスワード
+	 * @return password 管理者パスワード
 	 */
 	public String getPassword() {
 		return password;
@@ -136,7 +135,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * セッション取得するメソッド
-	 * @return 管理者名
+	 * @return session 管理者名
 	 */
 	public Map<String, Object> getSession() {
 		return session;

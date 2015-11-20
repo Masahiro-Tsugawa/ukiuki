@@ -74,9 +74,9 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * チケット注文情報を検索するメソッド
 	 * 
-	 * @return チケット注文情報の有無
+	 * @return result チケット注文情報の有無
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		StringBuffer sbStartDate = new StringBuffer("");
 		sbStartDate.append(fromYear);
@@ -114,7 +114,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return 検索した販売期間の開始年月日と終了年月日
+	 * @return session 検索した販売期間の開始年月日と終了年月日
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -132,7 +132,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始年情報取得メソッド
 	 * 
-	 * @return 検索した販売期間の開始年
+	 * @return fromYear 検索した販売期間の開始年
 	 */
 	public int getFromYear() {
 		return fromYear;
@@ -150,7 +150,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始月情報取得メソッド
 	 * 
-	 * @return 検索した販売期間の開始月
+	 * @return fromMonth 検索した販売期間の開始月
 	 */
 	public int getFromMonth() {
 		return fromMonth;
@@ -168,7 +168,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始日情報取得メソッド
 	 * 
-	 * @return 検索した販売期間の開始日
+	 * @return fromDate 検索した販売期間の開始日
 	 */
 	public int getFromDate() {
 		return fromDate;
@@ -186,7 +186,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了年情報取得メソッド
 	 * 
-	 * @return 検索した販売期間の終了年
+	 * @return toYear 検索した販売期間の終了年
 	 */
 	public int getToYear() {
 		return toYear;
@@ -203,7 +203,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 検索終了月情報取得メソッド
-	 * @return 検索した販売期間の終了月
+	 * @return toMonth 検索した販売期間の終了月
 	 */
 	public int getToMonth() {
 		return toMonth;
@@ -221,7 +221,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了日情報取得メソッド
 	 * 
-	 * @return 検索した販売期間の終了日
+	 * @return toDate 検索した販売期間の終了日
 	 */
 	public int gettoDate() {
 		return toDate;
@@ -239,7 +239,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始年月日情報取得メソッド
 	 * 
-	 * @return startDate
+	 * @return startDate 検索開始年月日
 	 */
 	public String getStartDate() {
 		return startDate;

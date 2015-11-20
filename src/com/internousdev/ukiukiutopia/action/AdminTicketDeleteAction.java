@@ -37,19 +37,30 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	/**
 	 * 管理者ページからチケットを削除するメソッド
 	 * 
-	 * @return チケット削除の可否
+	 * @return result チケット削除の可否
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
-		AdminTicketDeleteDAO daoIsSale = new AdminTicketDeleteDAO();
+		AdminTicketDeleteDAO dao = new AdminTicketDeleteDAO();
 		deleteId = getDeleteId();
-		int rsIsSale = daoIsSale.updateIsSale(deleteId);
+		
+		int isSale = 0;
+		try {
+			isSale = dao.updateIsSale(deleteId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		AdminTicketDeleteDAO daoIsShow = new AdminTicketDeleteDAO();
 		deleteId = getDeleteId();
-		int rsIsShow = daoIsShow.updateIsShow(deleteId);
+		
+		int isShow = 0;
+		try {
+			isShow = dao.updateIsShow(deleteId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-		int count = rsIsSale + rsIsShow;
+		int count = isSale + isShow;
 
 		if (count < 1) {
 			setErrorTicketDelete("削除に失敗しました");

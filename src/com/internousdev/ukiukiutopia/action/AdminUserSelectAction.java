@@ -51,7 +51,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	/**
 	 * 編集したいユーザーの情報を検索するメソッド @return ユーザー情報取得の可否
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		if (selectEmail.equals("")) {
 			addActionError("ユーザーIDを入力してください");
@@ -60,7 +60,12 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		} else {
 
 			AdminUserSelectDAO dao = new AdminUserSelectDAO();
-			boolean resultDAO = dao.select(selectEmail);
+			boolean resultDAO=false;
+			try {
+				resultDAO = dao.select(selectEmail);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			if (resultDAO == false) {
 				setErrorUserSelect("ユーザー情報の取得に失敗しました");

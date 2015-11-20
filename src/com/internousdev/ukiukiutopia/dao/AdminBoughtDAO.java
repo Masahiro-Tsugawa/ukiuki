@@ -6,6 +6,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +41,8 @@ public class AdminBoughtDAO {
 	 * @param endDate 検索終了年月日
 	 * @param dto DBからチケット購入情報を取得・格納する為のクラス
 	 * @return result true:DBから購入情報取得成功
-	 * @throws Exception
 	 */
-	public boolean select(String startDate, String endDate, AdminBoughtDTO dto) throws Exception {
+	public boolean select(String startDate, String endDate, AdminBoughtDTO dto) {
 
 		con = DBConnector.getConnection();
 
@@ -69,7 +69,11 @@ public class AdminBoughtDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}

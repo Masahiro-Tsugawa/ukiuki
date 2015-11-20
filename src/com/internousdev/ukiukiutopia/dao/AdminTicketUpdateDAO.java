@@ -5,6 +5,7 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 import com.internousdev.ukiukiutopia.util.MongoDBConnector;
@@ -31,13 +32,11 @@ public class AdminTicketUpdateDAO {
 
 	/**
 	 * チケット名を変更するメソッド
-	 * 
 	 * @param id チケットID
 	 * @param name チケット名
-	 * @return 編集の可否
-	 * @throws Exception チケットの編集ができませんでした
+	 * @return rscount 編集の可否
 	 */
-	public int updateName(int id, String name) throws Exception {
+	public int updateName(int id, String name) {
 
 		con = DBConnector.getConnection();
 
@@ -58,20 +57,22 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
 
 	/**
 	 * 値段を変更するメソッド
-	 * 
-	 * @param id
-	 * @param price
-	 * @return 編集の可否
-	 * @throws Exception
+	 * @param id チケットID
+	 * @param price 値段
+	 * @return rscount 編集の可否
 	 */
-	public int updatePrice(int id, float price) throws Exception {
+	public int updatePrice(int id, float price) {
 
 		con = DBConnector.getConnection();
 
@@ -91,20 +92,22 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
 
 	/**
 	 * チケット種類を変更するメソッド
-	 * 
-	 * @param id
-	 * @param ticketType
-	 * @return 編集の可否
-	 * @throws Exception
+	 * @param id チケットID
+	 * @param ticketType チケットの種類
+	 * @return rscount 編集の可否
 	 */
-	public int updateTicketType(int id, String ticketType) throws Exception {
+	public int updateTicketType(int id, String ticketType) {
 
 		con = DBConnector.getConnection();
 
@@ -125,20 +128,22 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
 
 	/**
 	 * チケット種類を変更するメソッド
-	 * 
-	 * @param id
-	 * @param isSale
-	 * @return 編集の可否
-	 * @throws Exception
+	 * @param id チケットID
+	 * @param isSale 販売状態
+	 * @return rscount 編集の可否
 	 */
-	public int updateIsSale(int id, boolean isSale) throws Exception {
+	public int updateIsSale(int id, boolean isSale){
 
 		con = DBConnector.getConnection();
 
@@ -156,18 +161,20 @@ public class AdminTicketUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
 
 	/**
 	 * チケット種類を変更するメソッド
-	 * 
-	 * @param id
-	 * @param ticketInformation
-	 * @return 編集の可否
-	 * @throws Exception
+	 * @param id チケットID
+	 * @param ticketType チケットの種類
+	 * @return rscount 編集の可否
 	 */
 	public int updateTicketInformation(int id, String ticketInformation) throws Exception {
 		try {

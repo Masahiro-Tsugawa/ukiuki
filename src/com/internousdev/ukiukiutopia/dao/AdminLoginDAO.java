@@ -19,9 +19,9 @@ public class AdminLoginDAO {
 	/**
 	 * 管理者情報を検索するメソッド
 	 * 
-	 * @param name
-	 * @param password
-	 * @param dtoSelect
+	 * @param name 管理者名
+	 * @param password パスワード
+	 * @param dtoSelect ログインしようとしている管理者の情報を取得・格納するクラス
 	 * @return rscountSelect 検索結果を取得した回数
 	 */
 	public int select(String name, String password, AdminLoginDTO dtoSelect) {
@@ -66,8 +66,8 @@ public class AdminLoginDAO {
 	/**
 	 * ログイン情報をtrueに編集するメソッド
 	 * 
-	 * @param dtoSelect
-	 * @param id
+	 * @param dtoSelect 管理者の情報を格納・取得するクラス
+	 * @param id 管理者ID
 	 * @return rscountUpdate 編集結果を取得した回数
 	 */
 	public int update(int id) {

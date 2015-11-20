@@ -44,12 +44,17 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	 * 
 	 * @return ユーザー削除の可否
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		AdminUserDeleteDAO dao = new AdminUserDeleteDAO();
 
 		deleteMail = (String) session.get("sessionEmail");
-		int count = dao.delete(deleteMail);
+		int count=0;
+		try {
+			count = dao.delete(deleteMail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		if (count < 1) {
 			setErrorUserDelete("ユーザーの削除に失敗しました");

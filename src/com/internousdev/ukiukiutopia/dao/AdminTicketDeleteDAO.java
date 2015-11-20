@@ -5,6 +5,7 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
@@ -30,9 +31,8 @@ public class AdminTicketDeleteDAO {
 	 * 
 	 * @param deleteId 販売中止したいチケットのID
 	 * @return rsIsSale 1以上なら販売中止に変更成功
-	 * @throws Exception 変更ができませんでした
 	 */
-	public int updateIsSale(int deleteId) throws Exception {
+	public int updateIsSale(int deleteId) {
 
 		con = DBConnector.getConnection();
 		int rsIsSale = 0;
@@ -48,7 +48,11 @@ public class AdminTicketDeleteDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rsIsSale;
 	}
@@ -57,10 +61,9 @@ public class AdminTicketDeleteDAO {
 	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
 	 * 
 	 * @param deleteId 販売中止したいチケットのID
-	 * @return 非表示への変更の可否
-	 * @throws Exception
+	 * @return rsIsShow 非表示への変更の可否
 	 */
-	public int updateIsShow(int deleteId) throws Exception {
+	public int updateIsShow(int deleteId) {
 
 		con = DBConnector.getConnection();
 		int rsIsShow = 0;
@@ -77,7 +80,11 @@ public class AdminTicketDeleteDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rsIsShow;
 	}

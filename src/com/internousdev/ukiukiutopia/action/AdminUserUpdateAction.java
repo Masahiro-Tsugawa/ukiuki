@@ -77,7 +77,7 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	 * 
 	 * @return ユーザー情報編集の可否
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		purposeEmail = (String) session.get("sessionEmail");
 
@@ -96,17 +96,29 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 		if (("".equals(purposeEmail)) == false) {
 			if (("".equals(updateEmail)) == false) {
-				countEmail = dao.updateEmail(purposeEmail, updateEmail);
+				try {
+					countEmail = dao.updateEmail(purposeEmail, updateEmail);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			if (("".equals(updatePassword)) == false) {
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					countPassword = dao.updatePassword(purposeEmail, updatePassword);
+					try {
+						countPassword = dao.updatePassword(purposeEmail, updatePassword);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (("".equals(updateEmail)) == true) {
-					countPassword = dao.updatePassword(purposeEmail, updatePassword);
+					try {
+						countPassword = dao.updatePassword(purposeEmail, updatePassword);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -114,10 +126,18 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					countName = dao.updateName(purposeEmail, updateName);
+					try {
+						countName = dao.updateName(purposeEmail, updateName);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (("".equals(updateEmail)) == true) {
-					countName = dao.updateName(purposeEmail, updateName);
+					try {
+						countName = dao.updateName(purposeEmail, updateName);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -125,10 +145,18 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
+					try {
+						countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (("".equals(updateEmail)) == true) {
-					countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
+					try {
+						countTelNum = dao.updateTelNum(purposeEmail, updateTelNum);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -136,10 +164,18 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					try {
+						countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (("".equals(updateEmail)) == true) {
-					countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					try {
+						countPostalCode = dao.updatePostalCode(purposeEmail, updatePostalCode);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -147,20 +183,36 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				if (("".equals(updateEmail)) == false) {
 
 					purposeEmail = updateEmail;
-					countAddress = dao.updateAddress(purposeEmail, updateAddress);
+					try {
+						countAddress = dao.updateAddress(purposeEmail, updateAddress);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				if (("".equals(updateEmail)) == true) {
-					countAddress = dao.updateAddress(purposeEmail, updateAddress);
+					try {
+						countAddress = dao.updateAddress(purposeEmail, updateAddress);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 
 			if (("".equals(updateEmail)) == false) {
 
 				purposeEmail = updateEmail;
-				countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				try {
+					countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			if (("".equals(updateEmail)) == true) {
-				countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				try {
+					countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 			int count = countEmail + countPassword + countName + countTelNum + countPostalCode + countAddress

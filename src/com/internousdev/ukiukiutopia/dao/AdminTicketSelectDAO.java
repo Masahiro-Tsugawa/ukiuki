@@ -6,6 +6,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +27,7 @@ import com.mongodb.DBObject;
  * @since 1.0
  */
 public class AdminTicketSelectDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+
 	/***
 	 * 実行結果
 	 */
@@ -43,11 +41,12 @@ public class AdminTicketSelectDAO {
 	 * 全チケット情報を検索するメソッド
 	 * 
 	 * @return 全チケット情報取得の可否
-	 * @throws Exception 全チケット情報を取得できませんでした
 	 */
-	public boolean select() throws Exception {
-		// MySQLと接続
+	public boolean select() {
+		
+		Connection con;
 		con = DBConnector.getConnection();
+		
 		DB db = MongoDBConnector.getConnection();
 		DBCollection coll = db.getCollection("ticket_detail");
 
@@ -79,7 +78,11 @@ public class AdminTicketSelectDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}

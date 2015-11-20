@@ -40,12 +40,17 @@ public class AdminTicketSelectAction extends ActionSupport {
 	/**
 	 * 管理者ページからDBに登録されている全てのチケットを検索するメソッド
 	 * 
-	 * @return チケット編集の可否
+	 * @return result チケット編集の可否
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		AdminTicketSelectDAO dao = new AdminTicketSelectDAO();
-		boolean resultDAO = dao.select();
+		boolean resultDAO=false;
+		try {
+			resultDAO = dao.select();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		if (resultDAO == false) {
 			setErrorTicketSelect("チケット一覧の取得に失敗しました");
@@ -71,8 +76,7 @@ public class AdminTicketSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージを格納するメソッド
 	 * 
-	 * @param errorTicketSelect
-	 *            エラーメッセージ
+	 * @param errorTicketSelect エラーメッセージ
 	 */
 	public void setErrorTicketSelect(String errorTicketSelect) {
 		this.errorTicketSelect = errorTicketSelect;
