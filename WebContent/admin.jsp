@@ -123,6 +123,7 @@
 					<s:actionerror />
 							     <s:fielderror>
 							 	  <s:param value="%{'errorUserSelect'}" />
+							 	  <s:param value="%{'errorTicketUpdate'}" />
 							      </s:fielderror>
 						<p>
 							<s:textfield name="selectEmail" placeholder="ユーザーのメールアドレス" />
@@ -130,7 +131,7 @@
 						</p>
 
 						<s:fielderror>
-							<s:param value="%{boughtList}" />
+							<s:param value="%{userList}" />
 						</s:fielderror>
 					</s:form>
 
@@ -274,6 +275,7 @@
 								<s:actionerror />
 							     <s:fielderror>
 							 	  <s:param value="%{'errorTicketDelete'}" />
+							 	  <s:param value="%{'deleteTicket'}" />
 							      </s:fielderror>
 								<s:textfield id="deleteId" type="text" class="form-control"
 									name="deleteId" placeholder="チケットID" />

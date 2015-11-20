@@ -50,7 +50,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケットID格納メソッド
 	 * 
-	 * @param id
+	 * @param id チケットID
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -66,7 +66,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット名格納メソッド
 	 * 
-	 * @param name
+	 * @param name チケット名
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -83,7 +83,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 値段格納メソッド
 	 * 
-	 * @param price
+	 * @param price 値段
 	 */
 	public void setPrice(float price) {
 		this.price = price;
@@ -100,7 +100,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット種類格納メソッド
 	 * 
-	 * @param ticketType
+	 * @param ticketType チケット種類
 	 */
 	public void setTicketType(String ticketType) {
 		this.ticketType = ticketType;
@@ -117,7 +117,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 販売状態格納メソッド
 	 * 
-	 * @param isSale
+	 * @param isSale 販売状態
 	 */
 	public void setIsSale(boolean isSale) {
 		this.isSale = isSale;
@@ -134,7 +134,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット詳細格納メソッド
 	 * 
-	 * @param ticketInfo
+	 * @param ticketInfo チケット詳細
 	 */
 	public void setTicketInfo(String ticketInfo) {
 		this.ticketInfo = ticketInfo;
@@ -151,7 +151,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 更新日格納メソッド
 	 * 
-	 * @param renewDate
+	 * @param renewDate 更新日
 	 */
 	public void setRenewDate(String renewDate) {
 		this.renewDate = renewDate;
