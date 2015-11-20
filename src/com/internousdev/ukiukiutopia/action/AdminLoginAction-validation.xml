@@ -13,7 +13,11 @@
 		<field-validator type="requiredstring">
 			<message>%{getText('パスワードを入力して下さい')}</message>
 		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[([0-9a-z]{4,32})]]></param>
+			<message>%{getText('パスワードは4~32文字までの半角英数を入力して下さい')}</message>
+		</field-validator>
 	</field>
-	
-	
+
+
 </validators>
