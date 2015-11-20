@@ -37,13 +37,14 @@ public class AdminUserDeleteDAO {
 
 		con = DBConnector.getConnection();
 
+		System.out.println(deleteMail);
 		try {
 			String sql = "delete from user where email=?";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 			ps.setString(1, deleteMail);
-			int rscount = ps.executeUpdate();
+			rscount = ps.executeUpdate();
 
 			if (rscount < 0) {
 				return rscount;

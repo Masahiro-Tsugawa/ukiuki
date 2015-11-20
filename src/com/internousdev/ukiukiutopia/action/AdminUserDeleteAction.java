@@ -48,7 +48,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 
 		AdminUserDeleteDAO dao = new AdminUserDeleteDAO();
 
-		String deleteMail = (String) session.get("email");
+		deleteMail = (String) session.get("sessionEmail");
 		int count = dao.delete(deleteMail);
 
 		if (count < 1) {
@@ -59,7 +59,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 		if (count > 0) {
 			result = SUCCESS;
 		}
-		session.remove(deleteMail);
+		session.remove("email");
 		return result;
 	}
 
