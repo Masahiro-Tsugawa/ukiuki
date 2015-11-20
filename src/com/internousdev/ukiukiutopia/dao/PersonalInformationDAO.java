@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import com.internousdev.ukiukiutopia.dto.PersonalInformationDTO;
@@ -20,7 +19,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class PersonalInformationDAO {
 
 	Connection con;
-	boolean action;
+	boolean rest;
 
 	private PersonalInformationDTO personal = new PersonalInformationDTO();
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
@@ -28,31 +27,30 @@ public class PersonalInformationDAO {
 	/**
 	 * 個人情報を検索するメソッド
 	 * @param emailaddress
-	 * @return action
+	 * @return rest
 	 * @throws Exception
 	 */
 	public boolean select(String emailaddress) throws Exception {
-		action = false;
+		rest = false;
 		con = DBConnector.getConnection();
 
 		try {
-			String sql = "select * from user where email = ?";
+			String sql = "select id,name,tel_num,email,postal_code,address from user where email = ?";
 
 			PreparedStatement ps2;
 			ps2 = con.prepareStatement(sql);
 			ps2.setString(1, emailaddress);
 			ResultSet rs = ps2.executeQuery();
 			if (rs.next()) {
-				action = true;
+				rest = true;
 
-				PersonalInformationDTO dto = new PersonalInformationDTO();
-				dto.setId(rs.getInt(1));
-				dto.setName(rs.getString(4));
-				dto.setTelNum(rs.getString(5));
-				dto.setEmail(rs.getString(2));
-				dto.setPostalCode(rs.getString(6));
-				dto.setAddress(rs.getString(7));
-				personal = dto;
+				PersonalInformationDTO personal = new PersonalInformationDTO();
+				personal.setId(rs.getInt(1));
+				personal.setName(rs.getString(2));
+				personal.setTelNum(rs.getString(3));
+				personal.setEmail(rs.getString(4));
+				personal.setPostalCode(rs.getString(5));
+				personal.setAddress(rs.getString(6));
 
 			}
 
@@ -61,7 +59,7 @@ public class PersonalInformationDAO {
 		} finally {
 			con.close();
 		} 
-		return action;
+		return rest;
 		
 	}
 
