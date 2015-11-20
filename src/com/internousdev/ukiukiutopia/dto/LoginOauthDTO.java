@@ -5,7 +5,6 @@ package com.internousdev.ukiukiutopia.dto;
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * 
  */
 public class LoginOauthDTO {
 
@@ -20,7 +19,6 @@ public class LoginOauthDTO {
 	private String userId;
 	/**
 	 * OAuthから取得した顧客名
-	 * 
 	 */
 	private String userEmail;
 
@@ -36,8 +34,7 @@ public class LoginOauthDTO {
 	/**
 	 * 顧客名格納メソッド
 	 * 
-	 * @param userName
-	 *            名前
+	 * @param userName 顧客名
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -46,7 +43,7 @@ public class LoginOauthDTO {
 	/**
 	 * OAUthからEmailを取得するメソッド
 	 * 
-	 * @return userEmail
+	 * @return userEmail　顧客email
 	 */
 	public String getUserEmail() {
 		return userEmail;
@@ -54,7 +51,7 @@ public class LoginOauthDTO {
 
 	/**
 	 * OAUthから取得したEmailの格納メソッド
-	 * @param userEmail 
+	 * @param userEmail 顧客email
 	 */
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;

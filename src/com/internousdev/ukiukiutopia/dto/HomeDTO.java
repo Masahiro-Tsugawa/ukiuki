@@ -63,7 +63,7 @@ public class HomeDTO{
 
 	/**
 	 * 顧客名格納メソッド
-	 * @param userName 名前
+	 * @param userName 顧客名
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -71,7 +71,7 @@ public class HomeDTO{
 
 	/**
 	 * 顧客ID取得メソッド
-	 * @return userId
+	 * @return userId 顧客ID
 	 */
 	public int getUserId() {
 		return userId;
@@ -87,7 +87,7 @@ public class HomeDTO{
 
 	/**
 	 * ログインID取得メソッド
-	 * @return loginId
+	 * @return loginId　ログイン用ID　
 	 */
 	public String getLoginId() {
 		return loginId;
@@ -95,7 +95,7 @@ public class HomeDTO{
 
 	/**
 	 * ログインID格納メソッド
-	 * @param loginId ログインID
+	 * @param loginId ログイン用ID
 	 */
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
@@ -103,7 +103,7 @@ public class HomeDTO{
 
 	/**
 	 * パスワード取得メソッド
-	 * @return password
+	 * @return password　ログイン用パスワード
 	 */
 	public String getPassword() {
 		return password;
@@ -111,7 +111,7 @@ public class HomeDTO{
 
 	/**
 	 * パスワード格納メソッド
-	 * @param password パスワード
+	 * @param password ログイン用パスワード
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -119,7 +119,7 @@ public class HomeDTO{
 
 	/**
 	 * メールアドレス取得メソッド
-	 * @return eMail
+	 * @return email 顧客email
 	 */
 	public String getEmail() {
 		return email;
@@ -127,7 +127,7 @@ public class HomeDTO{
 
 	/**
 	 * メールアドレス格納メソッド
-	 * @param email メールアドレス
+	 * @param email 顧客email
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -135,7 +135,7 @@ public class HomeDTO{
 
 	/**
 	 *電話番号取得メソッド
-	 * @return telNumber
+	 * @return telNumber 電話番号
 	 */
 	public String getTelNumber() {
 		return telNumber;
@@ -151,7 +151,7 @@ public class HomeDTO{
 
 	/**
 	 * 郵便番号取得メソッド
-	 * @return postal
+	 * @return postal　郵便番号
 	 */
 	public String getPostal() {
 		return postal;
@@ -167,7 +167,7 @@ public class HomeDTO{
 
 	/**
 	 * 住所取得メソッド
-	 * @return address
+	 * @return address　住所
 	 */
 	public String getAddress() {
 		return address;
@@ -183,7 +183,7 @@ public class HomeDTO{
 
 	/**
 	 * 固有ID取得メソッド
-	 * @return uniqueId
+	 * @return uniqueId　固有ID
 	 */
 	public String getUniqueId() {
 		return uniqueId;

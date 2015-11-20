@@ -114,8 +114,7 @@ public class LoginUserDAO{
 
 	/**
 	 * DTO取得メソッド
-	 * @return dto
-	 * 			ログイン顧客情報
+	 * @return dto ログイン顧客情報
 	 */
 	public HomeDTO getLoginUserDTO() {
 		return dto;
@@ -123,8 +122,7 @@ public class LoginUserDAO{
 
 	/**
 	 * DTO格納メソッド
-	 * @param dto 
-	 * 			ログイン顧客情報
+	 * @param dto ログイン顧客情報
 	 */
 	public void setLoginUserDTO(HomeDTO dto) {
 		this.dto = dto;

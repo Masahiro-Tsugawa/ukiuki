@@ -58,7 +58,7 @@ public class HomeDAO {
 	
 	/**
 	 * 顧客ID取得メソッド
-	 * @return　顧客登録ID
+	 * @return id　顧客登録ID
 	 */
 	public int getId() {
 		return id;
@@ -75,7 +75,7 @@ public class HomeDAO {
 
 	/**
 	 *  顧客名取得メソッド
-	 * @return　顧客登録名
+	 * @return　name 顧客登録名
 	 */
 	public String getName() {
 		return name;
