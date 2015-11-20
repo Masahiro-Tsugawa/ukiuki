@@ -27,18 +27,18 @@ public class AdminLoginDAO {
 	 * 
 	 * @param name
 	 * @param password
-	 * @param dtoS
-	 * @return rscountS 検索結果を取得した回数
+	 * @param dtoSelect
+	 * @return rscountSelect 検索結果を取得した回数
 	 */
-	public int select(String name, String password, AdminLoginDTO dtoS) {
+	public int select(String name, String password, AdminLoginDTO dtoSelect) {
 
 		Connection conn = null;
-		int rscountS = 0;
+		int rscountSelect = 0;
 
 		try {
 			conn = DBConnector.getConnection();
-			String sql = "SELECT * FROM admin WHERE ";
-			sql += "admin_name = ? AND admin_password = ?";
+			String sql = "select id,admin_password,admin_name,is_login from admin where ";
+			sql += "admin_name = ? and admin_password = ?";
 			PreparedStatement ps;
 
 			ps = conn.prepareStatement(sql);
@@ -47,12 +47,12 @@ public class AdminLoginDAO {
 	
 			ResultSet rs = ps.executeQuery();
 			rs.next();
-			dtoS.setId(rs.getInt("id"));
-			dtoS.setName(rs.getString("admin_name"));
+			dtoSelect.setId(rs.getInt("id"));
+			dtoSelect.setName(rs.getString("admin_name"));
 			
 			if (rs.next()) {
 
-				rscountS = ps.executeUpdate();
+				rscountSelect = ps.executeUpdate();
 
 			}
 		} catch (SQLException e) {
@@ -66,19 +66,19 @@ public class AdminLoginDAO {
 				}
 			}
 		}
-		return rscountS;
+		return rscountSelect;
 	}
 
 	/**
 	 * ログイン情報をtrueに編集するメソッド
-	 * 
+	 * @param dtoSelect
 	 * @param id
-	 * @return rscountU 編集結果を取得した回数
+	 * @return rscountUpdate 編集結果を取得した回数
 	 */
 	public int update(int id) {
 
 		Connection conn = null;
-		int rscountU = 0;
+		int rscountUpdate = 0;
 
 		try {
 			conn = (Connection) DBConnector.getConnection();
@@ -88,7 +88,7 @@ public class AdminLoginDAO {
 
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1,id);
-			rscountU = ps.executeUpdate();
+			rscountUpdate = ps.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -101,6 +101,6 @@ public class AdminLoginDAO {
 				}
 			}
 		}
-		return rscountU;
+		return rscountUpdate;
 	}
 }

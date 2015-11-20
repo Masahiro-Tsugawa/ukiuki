@@ -33,23 +33,23 @@ public class AdminBoughtDAO {
 
 	/**
 	 * 購入情報を検索するメソッド
-	 * @param selectDateS 
-	 * @param selectDateE 
+	 * @param startDate 
+	 * @param endDate 
 	 * @param dto 
 	 * @return result true:DBから購入情報取得成功
 	 * @throws Exception 
 	 */
-	public boolean select(String selectDateS,String selectDateE,AdminBoughtDTO dto)throws Exception{
+	public boolean select(String startDate,String endDate,AdminBoughtDTO dto)throws Exception{
 
 		con = DBConnector.getConnection();
 
 		try{
-		String sql = "select * from order_ticket where registered_date between ? and ?";
+		String sql = "select order_id,ticket_id,sheets,total_amount,registered_date from order_ticket where registered_date between ? and ?";
 
 		PreparedStatement ps;
 		ps = con.prepareStatement(sql);
-		ps.setString(1, selectDateS);
-		ps.setString(2, selectDateE);
+		ps.setString(1, startDate);
+		ps.setString(2, endDate);
 
 		ResultSet rs = ps.executeQuery();
 		

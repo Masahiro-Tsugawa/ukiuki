@@ -83,6 +83,11 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	 * 実行結果
 	 */
 	public String result=ERROR;
+
+	/***
+	 * チケット編集ができなかった際のエラーメッセージ
+	 */
+	private String errorTicketUpdate;
 	
 	/**
 	 * 管理者ページからチケットを編集するメソッド
@@ -121,12 +126,31 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		 
 		 count = countName + countPrice + countIsSale + countTicketType + countTicketInformationrmation + countRenewDate;
 		
+		 if(count<1){
+			 setErrorTicketUpdate("チケット情報の編集に失敗しました");
+			 result = ERROR;
+		 }
+		 
 		if(count >= 2){
 			result = SUCCESS;
-		  
 		 }
 		}
 		return result;
+		}
+
+		/**
+		 * エラーメッセージを取得するメソッド
+		 * @return errorTicketUpdate
+		 */
+		public String getErrorTicketUpdate(){
+			return errorTicketUpdate;
+		}
+		/**
+		 * エラーメッセージを格納するメソッド
+		 * @param errorTicketUpdate エラーメッセージ
+		 */
+		public void setErrorTicketUpdate(String errorTicketUpdate) {
+			this.errorTicketUpdate = errorTicketUpdate;
 		}
 
 		/**

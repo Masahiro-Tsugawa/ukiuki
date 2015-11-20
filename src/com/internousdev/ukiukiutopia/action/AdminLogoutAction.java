@@ -30,6 +30,11 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 */
 	private String result;
 	
+	/***
+	 * ログアウトできなかった際のエラーメッセージ
+	 */
+	private String errorLogout;
+	
 	/**
 	 * 管理者ページからログアウトするメソッド
 	 * @return SUCCESS
@@ -39,11 +44,28 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 		session.clear();
 		
 		if (session.containsKey("name_key")){
+			setErrorLogout("ログアウトに失敗しました");
 			return result;
 		}
 		result = SUCCESS;
 		return result;
 	}
+
+	/**
+	 * エラーメッセージを取得するメソッド
+	 * @return errorLogout
+	 */
+	public String getErrorLogout(){
+		return errorLogout;
+	}
+	/**
+	 * エラーメッセージを格納するメソッド
+	 * @param errorLogout エラーメッセージ
+	 */
+	public void setErrorLogout(String errorLogout) {
+		this.errorLogout = errorLogout;
+	}
+	
 	/**
 	 * セッション取得するメソッド
 	 * @return session

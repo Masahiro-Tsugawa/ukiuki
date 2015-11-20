@@ -35,6 +35,11 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	 */
 	 public String result = ERROR;
 	 /***
+	 * ユーザー情報を取得できなかった際のエラーメッセージ
+	 */
+	 private String errorUserSelect;
+		
+	 /***
 	 * 編集したいユーザーのメールアドレスを保持する為のセッション
      */
 	 private Map<String, Object> session;
@@ -58,6 +63,11 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		AdminUserSelectDAO dao = new AdminUserSelectDAO();
 		boolean resultDAO = dao.select(selectEmail);
 		
+		if(resultDAO==false){
+			setErrorUserSelect("ユーザー情報の取得に失敗しました");
+			return result;
+		}
+		
 		if(resultDAO){
 			userList = dao.getUserList();
 			session.put("sessionEmail", selectEmail);
@@ -66,7 +76,22 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 		return result;
 		}
 		}
-	     
+
+		/**
+		 * エラーメッセージを取得するメソッド
+		 * @return errorUserSelect
+		 */
+		public String getErrorUserSelect(){
+			return errorUserSelect;
+		}
+		/**
+		 * エラーメッセージを格納するメソッド
+		 * @param errorUserSelect エラーメッセージ
+		 */
+		public void setErrorUserSelect(String errorUserSelect) {
+			this.errorUserSelect = errorUserSelect;
+		}
+		
 	     /**
 		 * セッションに格納するメソッド
 		 * @param session セッション

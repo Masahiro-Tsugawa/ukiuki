@@ -32,6 +32,12 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	 * 実行結果
 	 */
 	public String result=ERROR;
+
+	/***
+	 * ユーザーを削除できなかった際のエラーメッセージ
+	 */
+	private String errorUserDelete;
+	
 	/***
 	 * 削除したいユーザーのメールアドレスをセッションから取得
 	 */
@@ -47,12 +53,32 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 		
 		String delmail = (String) session.get("email");
 		count = dao.delete(delmail);
+		
+		if(count<1){
+			setErrorUserDelete("ユーザーの削除に失敗しました");
+			return result;
+		}
 
 		if(count>0){
 			result = SUCCESS;
 		}
 		session.remove(delmail);
 		return result;
+		}
+
+		/**
+		 * エラーメッセージを取得するメソッド
+		 * @return errorUserDelete
+		 */
+		public String getErrorUserDelete(){
+			return errorUserDelete;
+		}
+		/**
+		 * エラーメッセージを格納するメソッド
+		 * @param errorUserDelete エラーメッセージ
+		 */
+		public void setErrorUserDelete(String errorUserDelete) {
+			this.errorUserDelete = errorUserDelete;
 		}
 		
 		/**

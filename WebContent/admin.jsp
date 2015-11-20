@@ -23,13 +23,6 @@
 
 			<s:if test="#session.name_key == null">
 				<div class="loginName">
-					<s:actionerror />
-					<s:fielderror>
-						<s:param value="name" />
-					</s:fielderror>
-					<s:fielderror>
-						<s:param value="password" />
-					</s:fielderror>
 
 					<s:form id="signin" class="navbar-form navbar-right" role="form"
 						action="AdminLoginAction" method="post">
@@ -43,6 +36,10 @@
 						</div>
 
 						<div class="input-group">
+						　<s:actionerror />
+							<s:fielderror>
+								<s:param value="%{'password'}" />
+							</s:fielderror>
 							<s:textfield id="password" type="password" class="form-control"
 								name="password" placeholder="パスワード" />
 						</div>
@@ -65,6 +62,10 @@
 					<s:property value="#session.name_key" />
 					<br>
 				</p>
+				<s:actionerror />
+							<s:fielderror>
+								<s:param value="%{'errorLogout'}" />
+							</s:fielderror>
 				<s:a href="AdminLogoutAction">ログアウト</s:a>
 			</s:div>
 
@@ -118,6 +119,10 @@
 				<div class="user_info">
 
 					<s:form action="AdminUserSelectAction">
+					<s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorUserSelect'}" />
+							      </s:fielderror>
 						<p>
 							<s:textfield name="selectEmail" placeholder="ユーザーのメールアドレス" />
 							<s:submit value=" 検索 " />
@@ -194,6 +199,10 @@
 						</thead>
 						<tbody>
 							<s:form action="AdminTicketSelectAction">
+							 <s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorTicketSelect'}" />
+							      </s:fielderror>
 								<s:iterator value="ticketList">
 									<tr>
 										<th><s:property value="id" /></th>
@@ -214,6 +223,10 @@
 					<s:div class="row">
 						<s:div class="col-md-6">
 							<s:form action="AdminTicketUpdateAction">
+							 <s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorTicketUpdate'}" />
+							      </s:fielderror>
 								<table>
 									<tr>
 										<th colspan="2">チケット情報の編集</th>
@@ -257,6 +270,10 @@
 						<s:div class="col-md-6">
 							<s:form action="AdminTicketDeleteAction">
 								<h4>削除したいチケットのIDを入力してください</h4>
+								<s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorTicketDelete'}" />
+							      </s:fielderror>
 								<s:textfield id="deleteId" type="text" class="form-control"
 									name="deleteId" placeholder="チケットID" />
 								<s:submit value=" 削除  "></s:submit>
@@ -322,6 +339,10 @@
 							<s:div class="userdelete">
 								<h5 class="userdeletebutton">ユーザーの削除</h5>
 								<s:form action="AdminUserDeleteAction">
+								 <s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorUserDelete'}" />
+							      </s:fielderror>
 									<s:submit value="ユーザーを削除 "></s:submit>
 								</s:form>
 							</s:div>
@@ -330,6 +351,10 @@
 
 						<s:div class="col-md-8">
 							<s:form action="AdminUserUpdateAction">
+							<s:actionerror />
+							     <s:fielderror>
+							 	  <s:param value="%{'errorUserUpdate'}" />
+							      </s:fielderror>
 								<table class="table">
 									<thead>
 										<tr>

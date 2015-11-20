@@ -94,6 +94,11 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	 * 実行結果
 	 */
 	public String result = ERROR;
+	 /***
+	 * ユーザー情報を編集できなかった際のエラーメッセージ
+	 */
+	 private String errorUserUpdate;
+
 	/***
 	 * 変更したいユーザーのメールアドレスをセッションから取得
 	 */
@@ -184,6 +189,11 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 
 			count = countEmail + countPassword + countName + countTelNum + countPostalCode + countAddress + countRenewDate;
 
+			if(count<1){
+				setErrorUserUpdate("ユーザー情報の編集に失敗しました");
+				return result;
+			}
+			
 			if (count >= 2) {
 				session.remove(purposeEmail);
 				result = SUCCESS;
@@ -192,6 +202,22 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 		return result;
 	}
 
+
+	/**
+	 * エラーメッセージを取得するメソッド
+	 * @return errorUserUpdate
+	 */
+	public String getErrorUserUpdate(){
+		return errorUserUpdate;
+	}
+	/**
+	 * エラーメッセージを格納するメソッド
+	 * @param errorUserUpdate エラーメッセージ
+	 */
+	public void setErrorUserUpdate(String errorUserUpdate) {
+		this.errorUserUpdate = errorUserUpdate;
+	}
+	
 	/**
 	 * セッション取得するメソッド
 	 * 

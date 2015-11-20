@@ -61,23 +61,23 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 			return ERROR;
 		}
 
-		AdminLoginDAO daoS = new AdminLoginDAO();
-		AdminLoginDTO dtoS = new AdminLoginDTO();
-		int rscountS = daoS.select(name, password, dtoS);
-		id=dtoS.getId();
+		AdminLoginDAO daoSelect = new AdminLoginDAO();
+		AdminLoginDTO dtoSelect = new AdminLoginDTO();
+		int rscountSelect = daoSelect.select(name, password, dtoSelect);
+		id=dtoSelect.getId();
 
-		AdminLoginDAO daoU = new AdminLoginDAO();
-		int rscountU = daoU.update(id);
+		AdminLoginDAO daoUpdate = new AdminLoginDAO();
+		int rscountUpdate = daoUpdate.update(id);
 
-		int rscount = rscountS + rscountU;
+		int rscount = rscountSelect + rscountUpdate;
 				
 		if (rscount<1) {
 			addActionError("ユーザー名もしくはパスワードが違います");
+			result = ERROR;
+			return result;
 		}
-		else if (1<rscount | rscount<2) {
-			addActionError("すでにログインしているユーザーです");
-		}
-			session.put("name_key", dtoS.getName());
+		
+			session.put("name_key", dtoSelect.getName());
 			result=SUCCESS;
 
 		

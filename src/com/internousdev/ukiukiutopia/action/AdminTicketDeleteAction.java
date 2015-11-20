@@ -32,6 +32,11 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	 */
 	public String result=ERROR;
 	
+	/***
+	 * 削除できなかった際のエラーメッセージ
+	 */
+	private String errorTicketDelete;
+	
 	/**
 	 * 管理者ページからチケットを削除するメソッド
 	 * @return SUCCESS
@@ -43,11 +48,32 @@ public class AdminTicketDeleteAction extends ActionSupport {
 		deleteId = getDeleteId();
 		
 		count = dao.delete(deleteId);
+		
+		if(count<1){
+			setErrorTicketDelete("削除に失敗しました");
+			result = ERROR;
+		}
 
 		if(count>0){
 			result = SUCCESS;
 		}
 		return result;
+		}
+		
+
+		/**
+		 * エラーメッセージを取得するメソッド
+		 * @return errorTicketDelete
+		 */
+		public String getErrorTicketDelete(){
+			return errorTicketDelete;
+		}
+		/**
+		 * エラーメッセージを格納するメソッド
+		 * @param errorTicketDelete エラーメッセージ
+		 */
+		public void setErrorTicketDelete(String errorTicketDelete) {
+			this.errorTicketDelete = errorTicketDelete;
 		}
 		
 		/**

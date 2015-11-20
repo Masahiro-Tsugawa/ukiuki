@@ -31,6 +31,11 @@ public class AdminTicketSelectAction extends ActionSupport{
 	 */
 	public String result = ERROR;
 
+	/***
+	 * チケット一覧を取得できなかった際のエラーメッセージ
+	 */
+	private String errorTicketSelect;
+	
 	/**
 	 * 管理者ページからDBに登録されている全てのチケットを検索するメソッド
 	 * @return SUCCESS
@@ -39,12 +44,32 @@ public class AdminTicketSelectAction extends ActionSupport{
 
 	AdminTicketSelectDAO dao = new AdminTicketSelectDAO();
 	boolean resultDAO = dao.select();
+	
+	if(resultDAO==false){
+		setErrorTicketSelect("チケット一覧の取得に失敗しました");
+		result = ERROR;
+	}
 
 	if(resultDAO){
 		ticketList = dao.getTicketList();
 		result = SUCCESS;
 	}
 	return result;
+	}
+
+	/**
+	 * エラーメッセージを取得するメソッド
+	 * @return errorTicketSelect
+	 */
+	public String getErrorTicketSelect() {
+		return errorTicketSelect;
+	}
+	/**
+	 * エラーメッセージを格納するメソッド
+	 * @param errorTicketSelect エラーメッセージ
+	 */
+	public void setErrorTicketSelect(String errorTicketSelect) {
+		this.errorTicketSelect = errorTicketSelect;
 	}
 
 }
