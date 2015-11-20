@@ -41,7 +41,7 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	private HttpServletRequest request;
 	/**
 	 * Google認証の実行メソッド
-     * @return String
+     * @return rtn
 	 */
 	public String execute() throws Exception {
 		String rtn = ERROR;
@@ -53,11 +53,11 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 			return rtn;
 		}
 
-		String uniqueId = userMap.get("id");
+		userMap.get("id");
 		LoginOauthDAO dao = new LoginOauthDAO();
 		LoginOauthDTO dto = dao.getLoginOauthDTO();
 		session.put("OAuthId", dto.getUserId());
-		session.put("OAuthName", "Google");
+		session.put("OAuthName", "google");
 		rtn = SUCCESS;
 		return rtn;
 	}
@@ -65,8 +65,8 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	/**
 	 * セッション格納メソッド
 	 * 
-	 * @param sessionMap
-	 *            セッションマップ
+	 * @param session
+	 *            セッション
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -75,8 +75,8 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return sessionMap 
-	 * 				セッションマップ
+	 * @return session
+	 * 				セッション
 	 */
 	public Map<String, Object> getSession() {
 		return session;

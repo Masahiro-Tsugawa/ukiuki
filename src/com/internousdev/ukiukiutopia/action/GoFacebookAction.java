@@ -42,7 +42,6 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 	/**
 	 * FaceBookからTokenを取得メソッド
 	 * @throws Exception 例外処理
-	 * @return String
 	 */
 	public String execute() throws Exception {
 		FacebookOauth oauth = new com.internousdev.ukiukiutopia.util.FacebookOauth();

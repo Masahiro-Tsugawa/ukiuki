@@ -84,7 +84,7 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 				session.put("password", dto.getPassword());
 				session.put("userName", dto.getUserName());
 				session.put("uniqueId", dto.getUniqueId());
-				result = "success";
+				result = SUCCESS;
 
 				if(session.containsKey("prePage")){
 

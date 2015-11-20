@@ -43,7 +43,6 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	/**
 	 * GoogleからリクエストTokenを取得メソッド
 	 * @throws Exception 例外処理
-	 * @return String
 	 */
 	public String execute() throws Exception {
 		GoogleOauth googleOauth = new GoogleOauth();
@@ -54,7 +53,7 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	}
 	/**
 	 * セッション格納メソッド
-	 * @param session セッションマップ
+	 * @param session セッション
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -62,7 +61,7 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 
 	/**
 	 * セッション取得メソッド
-	 * @return sessionMap セッションマップ情報
+	 * @return session　セッション
 	 */
 	public Map<String, Object> getSession() {
 		return session;

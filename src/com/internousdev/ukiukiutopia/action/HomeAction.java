@@ -22,7 +22,10 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	private String password;
 	private Map<String, Object> session;
 	private String idError;
-
+	/**
+	 * データーベースからid,name,emailをsessionに格納するメソッド
+	 * 
+	 */
 	public String execute() throws SQLException {
 		HomeDAO dao = new HomeDAO();
 		String ret = dao.select(email,password);

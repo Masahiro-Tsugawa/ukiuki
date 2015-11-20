@@ -8,14 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
-import org.junit.Test;
-
 import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.FacebookOauth;
 import com.opensymphony.xwork2.ActionSupport;
-
-import javafx.beans.binding.SetExpression;
 
 /**
  *  FaceBookから情報を取得し、sessionに格納する為のクラス
@@ -75,7 +71,7 @@ public class LoginFacebookAction extends ActionSupport
 		}
 
 		session.put("OAuthId", userMap.get("id"));
-		session.put("OAuthName", "FaceBook");
+		session.put("OAuthName", "Facebook");
 		rtn = SUCCESS;
 		return rtn;
 	}
@@ -104,8 +100,7 @@ public class LoginFacebookAction extends ActionSupport
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return sessionMap 
-	 * 			セッションマップ
+	 * @return session セッション
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -114,8 +109,8 @@ public class LoginFacebookAction extends ActionSupport
 	/**
 	 * セッション格納メソッド
 	 * 
-	 * @param sessionMap
-	 *            セッションマップ
+	 * @param session セッション
+	 *            
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

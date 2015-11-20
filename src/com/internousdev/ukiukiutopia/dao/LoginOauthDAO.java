@@ -24,8 +24,6 @@ public class LoginOauthDAO {
 	/**
 	 * 取得したユニークIDの照合メソッド
 	 * @param userUniqueId OAuthから取得したユニークID
-	 * @param oauthName OAuthから取得した名前
-	 * @param oauthEmail OAuthから取得したEmail
 	 * @param NETWORK_NAME OAuthで使用するSNS名
 	 * @return result　データベースの検索結果
 	 */
