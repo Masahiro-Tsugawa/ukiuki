@@ -6,6 +6,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +21,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminUserSelectDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+
 	/***
 	 * 実行結果
 	 */
@@ -39,11 +37,10 @@ public class AdminUserSelectDAO {
 	 * @param selectEmail
 	 * @param dto ユーザー情報を取得・格納するクラス
 	 * @return action true：検索結果を取得成功
-	 * @throws Exception ユーザー情報を取得できませんでした
 	 */
-	public boolean select(String selectEmail) throws Exception {
+	public boolean select(String selectEmail) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			String sql = "select email,password,name,tel_num,postal_code,address,renew_date from user where email=?";
@@ -72,7 +69,11 @@ public class AdminUserSelectDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}

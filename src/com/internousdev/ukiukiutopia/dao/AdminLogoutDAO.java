@@ -25,25 +25,24 @@ public class AdminLogoutDAO {
 	 */
 	public int update(int id) {
 
-		Connection conn = null;
+		Connection con = DBConnector.getConnection();
 		int count = 0;
 
 		try {
-			conn = (Connection) DBConnector.getConnection();
 
 			String sql = "update admin set is_login=false where id=?";
-			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			count = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (con != null) {
 				try {
-					conn.close();
+					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

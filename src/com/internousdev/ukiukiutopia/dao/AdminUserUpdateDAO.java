@@ -5,6 +5,7 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
@@ -16,10 +17,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminUserUpdateDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+
 	/***
 	 * 実行結果
 	 */
@@ -30,12 +28,11 @@ public class AdminUserUpdateDAO {
 	 * 
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
-	 * @return 編集の可否
-	 * @throws Exception メールアドレスを編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updateEmail(String purposeEmail, String updateEmail) throws Exception {
+	public int updateEmail(String purposeEmail, String updateEmail) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -55,7 +52,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
@@ -66,12 +67,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail	編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updatePassword 新しいパスワード
-	 * @return 編集の可否
-	 * @throws Exception パスワードを編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updatePassword(String purposeEmail, String updatePassword) throws Exception {
+	public int updatePassword(String purposeEmail, String updatePassword) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 			if (("".equals(purposeEmail)) == false) {
@@ -89,7 +89,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
@@ -100,12 +104,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updateName 新しいユーザー名
-	 * @return 編集の可否
-	 * @throws Exception ユーザー名を編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updateName(String purposeEmail, String updateName) throws Exception {
+	public int updateName(String purposeEmail, String updateName) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -124,7 +127,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
@@ -135,12 +142,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updateTelNum 新しい電話番号
-	 * @return 編集の可否
-	 * @throws Exception 電話番号を編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updateTelNum(String purposeEmail, String updateTelNum) throws Exception {
+	public int updateTelNum(String purposeEmail, String updateTelNum) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -159,7 +165,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 
@@ -171,12 +181,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updatePostalCode 新しい郵便番号
-	 * @return 編集の可否
-	 * @throws Exception 郵便番号を編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updatePostalCode(String purposeEmail, String updatePostalCode) throws Exception {
+	public int updatePostalCode(String purposeEmail, String updatePostalCode) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -195,7 +204,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}
@@ -206,12 +219,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updateAddress 新しい住所
-	 * @return 編集の可否
-	 * @throws Exception 住所を編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updateAddress(String purposeEmail, String updateAddress) throws Exception {
+	public int updateAddress(String purposeEmail, String updateAddress) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -231,7 +243,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 
@@ -243,12 +259,11 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail 編集するメールアドレス
 	 * @param updateEmail 新しいメールアドレス
 	 * @param updateRenewDate 新しい更新日
-	 * @return 編集の可否
-	 * @throws Exception 更新日を編集できません。
+	 * @return rscount 編集の可否
 	 */
-	public int updateRenewDate(String purposeEmail, String updateRenewDate) throws Exception {
+	public int updateRenewDate(String purposeEmail, String updateRenewDate) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 
 		try {
 
@@ -266,7 +281,11 @@ public class AdminUserUpdateDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 

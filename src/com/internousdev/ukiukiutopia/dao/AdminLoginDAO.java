@@ -26,16 +26,15 @@ public class AdminLoginDAO {
 	 */
 	public int select(String name, String password, AdminLoginDTO dtoSelect) {
 
-		Connection conn = null;
+		Connection con = DBConnector.getConnection();
 		int rscountSelect = 0;
 
 		try {
-			conn = DBConnector.getConnection();
 			String sql = "select id,admin_password,admin_name,is_login from admin where ";
 			sql += "admin_name = ? and admin_password = ?";
 			PreparedStatement ps;
 
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, password);
 
@@ -52,9 +51,9 @@ public class AdminLoginDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (con != null) {
 				try {
-					conn.close();
+					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -72,25 +71,24 @@ public class AdminLoginDAO {
 	 */
 	public int update(int id) {
 
-		Connection conn = null;
+		Connection con = DBConnector.getConnection();
 		int rscountUpdate = 0;
 
 		try {
-			conn = (Connection) DBConnector.getConnection();
 
 			String sql = "update admin set is_login=true where id=?";
-			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			rscountUpdate = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (con != null) {
 				try {
-					conn.close();
+					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}

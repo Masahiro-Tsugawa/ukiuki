@@ -5,6 +5,7 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
@@ -16,10 +17,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminUserDeleteDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
+	
 	/***
 	 * 実行結果
 	 */
@@ -29,12 +27,12 @@ public class AdminUserDeleteDAO {
 	 * 指定したユーザーの個人情報を削除するメソッド
 	 * 
 	 * @param deleteMail 削除したいユーザーのメールアドレス
-	 * @return 削除成功の可否
+	 * @return rscount 削除成功の可否
 	 * @throws Exception ユーザー情報を削除できませんでした
 	 */
-	public int delete(String deleteMail) throws Exception {
+	public int delete(String deleteMail) {
 
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 		try {
 			String sql = "delete from user where email=?";
 
@@ -49,7 +47,11 @@ public class AdminUserDeleteDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return rscount;
 	}

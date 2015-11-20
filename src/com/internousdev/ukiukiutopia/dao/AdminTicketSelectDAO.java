@@ -44,8 +44,7 @@ public class AdminTicketSelectDAO {
 	 */
 	public boolean select() {
 		
-		Connection con;
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 		
 		DB db = MongoDBConnector.getConnection();
 		DBCollection coll = db.getCollection("ticket_detail");
