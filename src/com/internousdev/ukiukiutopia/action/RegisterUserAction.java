@@ -6,7 +6,7 @@ import com.internousdev.ukiukiutopia.dao.RegisterUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * ユーザー情報の為のクラス
+ * ユーザーの個人情報を取得するクラス
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
@@ -35,7 +35,7 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	
 	/**
 	 * 個人情報を取得するメソッド
-	 * @return result　インサート完了の戻り値
+	 * @return result　個人情報
 	 */
 	public String execute() throws Exception {
 		String result = ERROR;

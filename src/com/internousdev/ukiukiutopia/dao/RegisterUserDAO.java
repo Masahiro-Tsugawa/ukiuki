@@ -12,7 +12,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 
 /**
- * ユーザー情報の為のクラス
+ * ユーザー情報を検索しインサートとアップデートするクラス
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
@@ -31,14 +31,14 @@ public class RegisterUserDAO {
 	private String name;
 
 	/**
-	 * ユーザー情報メソッド
+	 * ユーザー情報をデータベースにインサートするメソッド
 	 * @param email メールアドレスの格納
 	 * @param password パスワードの格納
 	 * @param name 名前の格納
 	 * @param telNum 電話番号の格納
 	 * @param posCode 郵便番号の格納
 	 * @param address 住所の格納
-	 * @return ps2.executeUpdate インサート完了と失敗の戻り値
+	 * @return rscount インサートする情報
 	 * @throws Exception 例外エラー
 	 */
 	public int insert(String email, String password, String name,
@@ -69,10 +69,11 @@ public class RegisterUserDAO {
 	}
 	
 	/**
+	 * OAuthの情報をアップデートするメソッド
 	 * @param OAuthId オーオースIDの格納
 	 * @param OAuthName オーオースユーザー名の格納
 	 * @param email メールアドレスの格納
-	 * @return result　インサート完了と失敗の戻り値
+	 * @return result　OAuthの情報
 	 * @throws SQLException 例外エラー
 	 */
 	public boolean update(String OAuthId,String OAuthName, String email) throws SQLException{
@@ -98,8 +99,9 @@ public class RegisterUserDAO {
 	}
 	
 	/**
+	 * IDと名前を検索するメソッド
 	 * @param email メールアドレスの格納
-	 * @return result 検索の完了と失敗の戻り値
+	 * @return result IDと名前
 	 * @throws SQLException　例外エラー
 	 */
 	public boolean select(String email) throws SQLException{
