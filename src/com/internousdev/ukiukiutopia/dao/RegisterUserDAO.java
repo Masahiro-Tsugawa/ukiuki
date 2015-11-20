@@ -20,7 +20,13 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class RegisterUserDAO {
 	
+	/**
+	 * ユーザーID
+	 */
 	private int id;
+	/**
+	 * ユーザー名
+	 */
 	private String name;
 
 	/**
@@ -44,19 +50,18 @@ public class RegisterUserDAO {
 		String sql = "insert into user(email,password,name,tel_num,postal_code,address,"
 				+ "registered_date,renew_date) value(?,?,?,?,?,?,?,?)";
 
-		PreparedStatement ps2;
-		ps2 = con.prepareStatement(sql);
-		ps2.setString(1, email);
-		ps2.setString(2, password);
-		ps2.setString(3, name);
-		ps2.setString(4, telNum);
-		ps2.setString(5, posCode);
-		ps2.setString(6, address);
-		ps2.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
-		ps2.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
+		PreparedStatement ps;
+		ps = con.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, password);
+		ps.setString(3, name);
+		ps.setString(4, telNum);
+		ps.setString(5, posCode);
+		ps.setString(6, address);
+		ps.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
+		ps.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
 
-		int rscount = ps2.executeUpdate();
-
+		int rscount = ps.executeUpdate();
 
 		return rscount;
 	}

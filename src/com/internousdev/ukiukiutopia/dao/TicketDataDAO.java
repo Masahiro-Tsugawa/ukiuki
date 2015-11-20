@@ -46,7 +46,7 @@ public class TicketDataDAO {
 		DBCollection coll = db.getCollection("ticket_detail");
 
 		try {
-			String sql = "select * from ticket where is_sale=true and ticket_type='use'";
+			String sql = "select id,name,price,ticket_type from ticket where is_sale=true and ticket_type='use'";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -56,20 +56,20 @@ public class TicketDataDAO {
 			while (rs.next()) {
 				result = true;
 				TicketDataDTO dto = new TicketDataDTO();
-				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
+				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt("id"));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
 
-				dto.setId(rs.getInt(1));
-				dto.setName(rs.getString(2));
-				dto.setPrice(rs.getInt(3));
-				dto.setType(rs.getString(4));
+				dto.setId(rs.getInt("id"));
+				dto.setName(rs.getString("name"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setType(rs.getString("ticket_type"));
 				dto.setInfo((String) doc.get("ticket_info"));
 			
 				useTicketList.add(dto);			
 			}	
 			
-			String sql2 = "select * from ticket where is_sale=true and ticket_type='option'";
+			String sql2 = "select id,name,price,ticket_type from ticket where is_sale=true and ticket_type='option'";
 
 			PreparedStatement ps2;
 			ps2 = con.prepareStatement(sql2);
@@ -79,14 +79,14 @@ public class TicketDataDAO {
 			while (rs2.next()) {
 				result = true;
 				TicketDataDTO dto = new TicketDataDTO();
-				BasicDBObject query = new BasicDBObject("ticket_id", rs2.getInt(1));
+				BasicDBObject query = new BasicDBObject("ticket_id", rs2.getInt("id"));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
 
-				dto.setId(rs2.getInt(1));
-				dto.setName(rs2.getString(2));
-				dto.setPrice(rs2.getInt(3));
-				dto.setType(rs2.getString(4));
+				dto.setId(rs2.getInt("id"));
+				dto.setName(rs2.getString("name"));
+				dto.setPrice(rs2.getInt("price"));
+				dto.setType(rs2.getString("ticket_type"));
 				dto.setInfo((String) doc.get("ticket_info"));
 				
 				optionTicketList.add(dto);		
