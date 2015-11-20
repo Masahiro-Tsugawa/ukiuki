@@ -25,40 +25,57 @@ public class AdminTicketDeleteDAO {
 	boolean result=false;
 
 	/**
-	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
+	 * 管理者画面から任意のチケット情報を販売中止に変更するメソッド
 	 * @param deleteId 
-	 * @return true
+	 * @return rsIsSale 1以上なら販売中止に変更成功
 	 * @throws Exception 
 	 */
-	public int delete(int deleteId)throws Exception{
+	public int updateIsSale(int deleteId)throws Exception{
 		
 		con = DBConnector.getConnection();
-		int rscount=0;
-		int rscount1=0;
-		int rscount2=0;
+		int rsIsSale=0;
+		
 		try{
-		String sql1 = "update ticket set is_sale=false where id=?";
+		String sql = "update ticket set is_sale=false where id=?";
 
 		PreparedStatement ps;
-		ps = con.prepareStatement(sql1);
+		ps = con.prepareStatement(sql);
 		ps.setInt(1,deleteId);
-		rscount1 = ps.executeUpdate();
+		rsIsSale = ps.executeUpdate();
 		
-		String sql2 = "update ticket set is_show=false where id=?";
-
-		PreparedStatement ps2;
-		ps2 = con.prepareStatement(sql2);
-		ps2.setInt(1,deleteId);
-		rscount2 = ps2.executeUpdate();
-
-		if(rscount1 > 0 | rscount2 > 0){
-			rscount=1;
-	     }
 		}catch(Exception e){
 		e.printStackTrace();
 	}finally{
 		con.close();
 	}
-		return rscount;
+		return rsIsSale;
+	}
+	
+	/**
+	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
+	 * @param deleteId 
+	 * @return true
+	 * @throws Exception 
+	 */
+	public int updateIsShow(int deleteId)throws Exception{
+		
+		con = DBConnector.getConnection();
+		int rsIsShow=0;
+		
+		try{
+		
+		String sql = "update ticket set is_show=false where id=?";
+
+		PreparedStatement ps;
+		ps = con.prepareStatement(sql);
+		ps.setInt(1,deleteId);
+		rsIsShow = ps.executeUpdate();
+
+		}catch(Exception e){
+		e.printStackTrace();
+	}finally{
+		con.close();
+	}
+		return rsIsShow;
 	}
 }

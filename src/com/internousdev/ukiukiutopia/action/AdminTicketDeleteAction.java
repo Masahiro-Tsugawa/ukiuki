@@ -23,6 +23,15 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	 * 削除したいチケットのID
 	 */
 	private int deleteId;
+	
+	/***
+	 * 販売状態変更の実行成功数
+	 */
+	int rsIsSale;
+	/***
+	 * チケット情報閲覧状態変更の実行成功数
+	 */
+	int rsIsShow;
 	/***
 	 * DAOの実行成功結果数
 	 */
@@ -43,11 +52,16 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	 */
 		public String execute() throws Exception {
 
-		AdminTicketDeleteDAO dao = new AdminTicketDeleteDAO();
-		
+		AdminTicketDeleteDAO daoIsSale = new AdminTicketDeleteDAO();
 		deleteId = getDeleteId();
+		rsIsSale = daoIsSale.updateIsSale(deleteId);
+
 		
-		count = dao.delete(deleteId);
+        AdminTicketDeleteDAO daoIsShow = new AdminTicketDeleteDAO();
+		deleteId = getDeleteId();
+		rsIsShow = daoIsShow.updateIsShow(deleteId);
+		
+		count = rsIsSale + rsIsShow;
 		
 		if(count<1){
 			setErrorTicketDelete("削除に失敗しました");
