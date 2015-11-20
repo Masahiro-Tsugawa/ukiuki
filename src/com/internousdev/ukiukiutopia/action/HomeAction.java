@@ -24,9 +24,6 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	private String idError;
 	/**
 	 * データーベースからid,name,emailをsessionに格納するメソッド
-	 *  @param userId 顧客ID
-	 *  @param loginName 顧客名
-	 *  @param userEmail 顧客email
 	 */
 	public String execute() throws SQLException {
 		HomeDAO dao = new HomeDAO();
@@ -44,41 +41,6 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}	
-	
-	
-
-	
-	/**
-	 *  ユーザーemail取得メソッド
-	 * @return ユーザーのemail
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 *  顧客email取得メソッド
-	 * @param email 顧客のemail
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 *  顧客password取得メソッド
-	 * @return password 顧客のpassword
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 *  顧客password取得メソッド
-	 * @param password 顧客のpassword
-	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	/**
 	 * idError取得メソッド
