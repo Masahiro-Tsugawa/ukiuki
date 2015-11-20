@@ -64,6 +64,7 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	 */
 	private String registeredDate;
 	
+	
 	public String execute() throws Exception {
 
 		BuyCompleteDAO dao = new BuyCompleteDAO();

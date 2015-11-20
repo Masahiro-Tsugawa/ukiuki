@@ -20,7 +20,14 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class RegisterUserDAO {
 	
+	/**
+	 * IDの表示
+	 */
 	private int id;
+	
+	/**
+	 * 名前の表示
+	 */
 	private String name;
 
 	/**

@@ -31,7 +31,9 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 	 * AssayListをインスタンス化
 	 */
 	private List<TicketDataDTO> option = new ArrayList<TicketDataDTO>();
+    
 
+	
 	public String execute() {
 		use = (List<TicketDataDTO>) session.get("buyUseTicket");
 		option = (List<TicketDataDTO>) session.get("buyOptionTicket");
@@ -55,7 +57,10 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 		return option;
 	}
 
-
+    /**
+     * セッションの設定メソッド
+     * @param session  
+     */
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
 	}

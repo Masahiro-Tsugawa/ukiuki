@@ -20,12 +20,22 @@ public class PersonalInformationDAO {
     
 	/**
 	 * データベース接続
-	 * 結果を表示
 	 */
 	Connection con;
+	
+	/**
+	 * 結果の表示
+	 */
 	boolean result;
-
+    
+	/**
+	 * 個人情報のインスタンス化
+	 */
 	private PersonalInformationDTO personal = new PersonalInformationDTO();
+	
+	/**
+	 * 購入履歴のインスタンス化
+	 */
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
 
 	/**
@@ -74,6 +84,7 @@ public class PersonalInformationDAO {
 	 * @throws Exception
 	 */
 	public boolean selectHistory(int userId) throws Exception {
+		
 		result = false;
 		con = DBConnector.getConnection();
 
