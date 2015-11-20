@@ -31,7 +31,7 @@ public class HomeDTO{
 	/**
 	 * メールアドレス
 	 */
-	private String eMail;
+	private String email;
 
 	/**
 	 * 電話番号
@@ -121,16 +121,16 @@ public class HomeDTO{
 	 * メールアドレス取得メソッド
 	 * @return eMail
 	 */
-	public String geteMail() {
-		return eMail;
+	public String getEmail() {
+		return email;
 	}
 
 	/**
 	 * メールアドレス格納メソッド
-	 * @param eMail メールアドレス
+	 * @param email メールアドレス
 	 */
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**

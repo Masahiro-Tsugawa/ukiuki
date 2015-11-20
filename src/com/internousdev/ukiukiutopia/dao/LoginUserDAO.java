@@ -9,11 +9,9 @@ import com.internousdev.ukiukiutopia.dto.HomeDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- * LoginUserDAO
- * ユーザーがログインする際DBに接続する為のDAOクラス
- * @author 大嶋 里奈
- * @since 2015/08/10
- * @version 1.0
+ *  @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  *
  */
 public class LoginUserDAO{
@@ -46,7 +44,7 @@ public class LoginUserDAO{
 				dto.setUserId(rs.getInt(2));
 				dto.setLoginId(rs.getString(3));
 				dto.setPassword(rs.getString(4));
-				dto.seteMail(rs.getString(5));
+				dto.setEmail(rs.getString(5));
 				dto.setTelNumber(rs.getString(6));
 				dto.setPostal(rs.getString(7));
 				dto.setAddress(rs.getString(8));
@@ -90,7 +88,7 @@ public class LoginUserDAO{
 				dto.setUserId(rs.getInt(2));
 				dto.setLoginId(rs.getString(3));
 				dto.setPassword(rs.getString(4));
-				dto.seteMail(rs.getString(5));
+				dto.setEmail(rs.getString(5));
 				dto.setTelNumber(rs.getString(6));
 				dto.setPostal(rs.getString(7));
 				dto.setAddress(rs.getString(8));

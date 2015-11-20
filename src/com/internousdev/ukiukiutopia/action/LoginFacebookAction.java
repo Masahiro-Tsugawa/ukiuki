@@ -8,10 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.junit.Test;
+
 import com.internousdev.ukiukiutopia.dao.LoginOauthDAO;
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.FacebookOauth;
 import com.opensymphony.xwork2.ActionSupport;
+
+import javafx.beans.binding.SetExpression;
 
 /**
  * @author A.Masui
@@ -46,19 +50,31 @@ public class LoginFacebookAction extends ActionSupport
 	 */
 	private Map<String, Object> session;
 
+	
+
 	public String execute() throws Exception {
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
 
 		if (userMap == null) {
-			System.out.println(userMap);
 			return rtn;
 		}
-
 		String uniqueId = userMap.get("id");
+		String userName = userMap.get("name");
+		String userEmail = userMap.get("name");
 		LoginOauthDAO dao = new LoginOauthDAO();
-
+		if(dao.select(uniqueId,userName,userEmail, NETWORK_NAME)){
+		LoginOauthDTO dto = dao.getLoginOauthDTO();
+		session.put("OAuthId", dto.getUserId());
+		session.put("OAuthName", dto.getUserName());
+		session.put("OAuthEmail","test@Test.com");
+		System.out.println(session.get("OAuthEmail"));
+		rtn = SUCCESS;
+		return rtn;
+		}
+		
+	
 		session.put("OAuthId", userMap.get("id"));
 		session.put("OAuthName", "FaceBook");
 		System.out.println(session.get("OAuthName"));
