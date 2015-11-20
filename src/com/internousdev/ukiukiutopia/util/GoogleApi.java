@@ -19,10 +19,11 @@ import org.scribe.utils.OAuthEncoder;
 import org.scribe.utils.Preconditions;
 
 /**
- * Google OAuth2.0 Released under the same license as scribe (MIT License)
+ *　GoogleOAuth Googleでログインする為のクラス
+ * @author A.Masui
+ * @version 1.1　
+ * @since 1.0　
  * 
- * @author Nagata Shigeru
- * @since 2015/09/17
  */
 public class GoogleApi extends DefaultApi20 {
 

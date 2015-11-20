@@ -44,7 +44,7 @@ public class AdminLoginDTO {
 	/**
 	 * ユーザー名格納メソッド
 	 * 
-	 * @param name
+	 * @param name ユーザー名
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -62,7 +62,7 @@ public class AdminLoginDTO {
 	/**
 	 * パスワード格納メソッド
 	 * 
-	 * @param password
+	 * @param password パスワード
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -80,7 +80,7 @@ public class AdminLoginDTO {
 	/**
 	 * ログイン状態格納メソッド
 	 * 
-	 * @param isLogin
+	 * @param isLogin ログイン状態
 	 */
 	public void setIsLogin(boolean isLogin) {
 		this.isLogin = isLogin;
@@ -97,7 +97,7 @@ public class AdminLoginDTO {
 	/**
 	 * 管理者ID格納メソッド
 	 * 
-	 * @param id
+	 * @param id 管理者ID
 	 */
 	public void setId(int id) {
 		this.id = id;

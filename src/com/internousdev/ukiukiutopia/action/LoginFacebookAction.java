@@ -49,7 +49,7 @@ public class LoginFacebookAction extends ActionSupport
 
 	/**
 	 * Facebook認証の実行メソッド
-	 * @return String
+	 * @return rtn
 	 */
 	public String execute() throws Exception {
 		String rtn = ERROR;
@@ -80,8 +80,7 @@ public class LoginFacebookAction extends ActionSupport
 	 * 
 	 * /** リクエスト格納メソッド
 	 * 
-	 * @param request
-	 *            リクエスト
+	 * @param request リクエスト
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
@@ -90,8 +89,7 @@ public class LoginFacebookAction extends ActionSupport
 	/**
 	 * レスポンス格納メソッド
 	 * 
-	 * @param response
-	 *            レスポンス
+	 * @param response レスポンス
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;

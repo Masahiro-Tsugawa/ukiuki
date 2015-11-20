@@ -34,7 +34,7 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
     
 	
 	/**
-	 * 個人情報を取得するメソッド
+	 * 個人情報を取得しデータベースにインサートするメソッド
 	 * @return result　個人情報
 	 */
 	public String execute() throws Exception {

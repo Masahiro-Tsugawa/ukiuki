@@ -59,7 +59,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 変更パスワード格納メソッド
 	 * 
-	 * @param password
+	 * @param password 変更パスワード
 	 */
 	public void setPassword(String password){
 		this.password = password;
@@ -75,7 +75,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 変更ユーザー名格納メソッド
 	 * 
-	 * @param name
+	 * @param name 変更ユーザー名
 	 */
 	public void setName(String name){
 		this.name = name;
@@ -91,7 +91,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 変更電話番号格納メソッド
 	 * 
-	 * @param telNum
+	 * @param telNum 変更電話番号
 	 */
 	public void setTelNum(String telNum){
 		this.telNum = telNum;
@@ -107,7 +107,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 変更郵便番号格納メソッド
 	 * 
-	 * @param postalCode
+	 * @param postalCode 変更郵便番号
 	 */
 	public void setPostalCode(String postalCode){
 		this.postalCode = postalCode;
@@ -123,7 +123,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 変更住所格納メソッド
 	 * 
-	 * @param address
+	 * @param address 変更住所
 	 */
 	public void setAddress(String address){
 		this.address = address;
@@ -139,7 +139,7 @@ public class AdminUserSelectDTO {
 	/**
 	 * 更新日格納メソッド
 	 * 
-	 * @param renewDate
+	 * @param renewDate 更新日
 	 */
 	public void setRenewDate(String renewDate){
 		this.renewDate = renewDate;
