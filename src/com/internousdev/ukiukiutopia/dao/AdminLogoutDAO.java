@@ -11,6 +11,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
  * ログイン情報をfalseに編集する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
@@ -18,8 +19,9 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class AdminLogoutDAO {
 	/**
 	 * ログイン情報をfalseに編集するメソッド
+	 * 
 	 * @param id
-	 * @return rscount 編集結果を取得した回数
+	 * @return 編集結果を取得した回数
 	 */
 	public int update(int id) {
 
@@ -33,9 +35,9 @@ public class AdminLogoutDAO {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1,id);
+			ps.setInt(1, id);
 			rscount = ps.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

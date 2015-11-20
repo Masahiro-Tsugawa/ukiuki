@@ -57,47 +57,15 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	 * 変更したい更新日
 	 */
 	private String updateRenewDate;
-	/***
-	 * DAO成功回数
-	 */
-	int count = 0;
-	/***
-	 * メールアドレス
-	 */
-	int countEmail = 0;
-	/***
-	 * パスワード
-	 */
-	int countPassword = 0;
-	/***
-	 * ユーザー名
-	 */
-	int countName = 0;
-	/***
-	 * 電話番号
-	 */
-	int countTelNum = 0;
-	/***
-	 * 郵便番号
-	 */
-	int countPostalCode = 0;
-	/***
-	 * 住所
-	 */
-	int countAddress = 0;
-	/***
-	 * 更新日
-	 */
-	int countRenewDate = 0;
 
 	/***
 	 * 実行結果
 	 */
 	public String result = ERROR;
-	 /***
+	/***
 	 * ユーザー情報を編集できなかった際のエラーメッセージ
 	 */
-	 private String errorUserUpdate;
+	private String errorUserUpdate;
 
 	/***
 	 * 変更したいユーザーのメールアドレスをセッションから取得
@@ -117,6 +85,14 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 		updateRenewDate = dt.toString(DateTimeFormat.mediumDateTime());
 
 		AdminUserUpdateDAO dao = new AdminUserUpdateDAO();
+
+		int countEmail = 0;
+		int countPassword = 0;
+		int countName = 0;
+		int countTelNum = 0;
+		int countPostalCode = 0;
+		int countAddress = 0;
+		int countRenewDate = 0;
 
 		if (("".equals(purposeEmail)) == false) {
 			if (("".equals(updateEmail)) == false) {
@@ -187,13 +163,14 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				countRenewDate = dao.updateRenewDate(purposeEmail, updateRenewDate);
 			}
 
-			count = countEmail + countPassword + countName + countTelNum + countPostalCode + countAddress + countRenewDate;
+			int count = countEmail + countPassword + countName + countTelNum + countPostalCode + countAddress
+					+ countRenewDate;
 
-			if(count<1){
+			if (count < 1) {
 				setErrorUserUpdate("ユーザー情報の編集に失敗しました");
 				return result;
 			}
-			
+
 			if (count >= 2) {
 				session.remove(purposeEmail);
 				result = SUCCESS;
@@ -202,22 +179,25 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 		return result;
 	}
 
-
 	/**
 	 * エラーメッセージを取得するメソッド
+	 * 
 	 * @return errorUserUpdate
 	 */
-	public String getErrorUserUpdate(){
+	public String getErrorUserUpdate() {
 		return errorUserUpdate;
 	}
+
 	/**
 	 * エラーメッセージを格納するメソッド
-	 * @param errorUserUpdate エラーメッセージ
+	 * 
+	 * @param errorUserUpdate
+	 *            エラーメッセージ
 	 */
 	public void setErrorUserUpdate(String errorUserUpdate) {
 		this.errorUserUpdate = errorUserUpdate;
 	}
-	
+
 	/**
 	 * セッション取得するメソッド
 	 * 

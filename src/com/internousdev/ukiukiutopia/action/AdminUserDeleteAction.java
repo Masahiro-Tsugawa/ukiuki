@@ -1,6 +1,5 @@
 package com.internousdev.ukiukiutopia.action;
 
-
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,12 +9,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 管理ページからユーザーを削除する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
  */
 public class AdminUserDeleteAction extends ActionSupport implements SessionAware {
-	
+
 	/**
 	 * 生成したシリアルID
 	 */
@@ -23,21 +23,17 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/***
 	 * 削除したいユーザーのメールアドレス
 	 */
-	private String delmail;
-	/***
-	 * DAOの実行成功回数
-	 */
-	int count;
+	private String deleteMail;
 	/***
 	 * 実行結果
 	 */
-	public String result=ERROR;
+	public String result = ERROR;
 
 	/***
 	 * ユーザーを削除できなかった際のエラーメッセージ
 	 */
 	private String errorUserDelete;
-	
+
 	/***
 	 * 削除したいユーザーのメールアドレスをセッションから取得
 	 */
@@ -45,70 +41,83 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 
 	/**
 	 * 管理者ページからユーザーを削除するメソッド
+	 * 
 	 * @return ユーザー削除の可否
 	 */
-		public String execute() throws Exception {
+	public String execute() throws Exception {
 
 		AdminUserDeleteDAO dao = new AdminUserDeleteDAO();
-		
-		String delmail = (String) session.get("email");
-		count = dao.delete(delmail);
-		
-		if(count<1){
+
+		String deleteMail = (String) session.get("email");
+		int count = dao.delete(deleteMail);
+
+		if (count < 1) {
 			setErrorUserDelete("ユーザーの削除に失敗しました");
 			return result;
 		}
 
-		if(count>0){
+		if (count > 0) {
 			result = SUCCESS;
 		}
-		session.remove(delmail);
+		session.remove(deleteMail);
 		return result;
-		}
-
-		/**
-		 * エラーメッセージを取得するメソッド
-		 * @return errorUserDelete
-		 */
-		public String getErrorUserDelete(){
-			return errorUserDelete;
-		}
-		/**
-		 * エラーメッセージを格納するメソッド
-		 * @param errorUserDelete エラーメッセージ
-		 */
-		public void setErrorUserDelete(String errorUserDelete) {
-			this.errorUserDelete = errorUserDelete;
-		}
-		
-		/**
-		 * 削除したいユーザーのメールアドレス取得するメソッド
-		 * @return delmail
-		 */
-		public String getDelmail() {
-			return delmail;
-		}
-		/**
-		 * 削除したいユーザーのメールアドレス格納するメソッド
-		 * @param delmail 削除したいユーザーのメールアドレス
-		 */
-		public void setDelmail(String delmail) {
-			this.delmail = delmail;
-		}
-		
-		/**
-		 * セッション取得するメソッド
-		 * @return session
-		 */
-		public Map<String, Object> getSession() {
-			return session;
-		}
-		/**
-		 * セッション格納するメソッド
-		 * @param session セッション
-		 */
-		public void setSession(Map<String, Object> session) {
-			this.session = session;
-		}
-
 	}
+
+	/**
+	 * エラーメッセージを取得するメソッド
+	 * 
+	 * @return errorUserDelete
+	 */
+	public String getErrorUserDelete() {
+		return errorUserDelete;
+	}
+
+	/**
+	 * エラーメッセージを格納するメソッド
+	 * 
+	 * @param errorUserDelete
+	 *            エラーメッセージ
+	 */
+	public void setErrorUserDelete(String errorUserDelete) {
+		this.errorUserDelete = errorUserDelete;
+	}
+
+	/**
+	 * 削除したいユーザーのメールアドレス取得するメソッド
+	 * 
+	 * @return deleteMail
+	 */
+	public String getDeleteMail() {
+		return deleteMail;
+	}
+
+	/**
+	 * 削除したいユーザーのメールアドレス格納するメソッド
+	 * 
+	 * @param deleteMail
+	 *            削除したいユーザーのメールアドレス
+	 */
+	public void setDeleteMail(String deleteMail) {
+		this.deleteMail = deleteMail;
+	}
+
+	/**
+	 * セッション取得するメソッド
+	 * 
+	 * @return session
+	 */
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	 * セッション格納するメソッド
+	 * 
+	 * @param session
+	 *            セッション
+	 */
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

@@ -78,23 +78,23 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute() throws Exception {
 
-		StringBuffer sds = new StringBuffer("");
-		sds.append(fromYear);
-		sds.append("/");
-		sds.append(fromMonth);
-		sds.append("/");
-		sds.append(fromDate);
+		StringBuffer sbStartDate = new StringBuffer("");
+		sbStartDate.append(fromYear);
+		sbStartDate.append("/");
+		sbStartDate.append(fromMonth);
+		sbStartDate.append("/");
+		sbStartDate.append(fromDate);
 
-		startDate = sds.toString();
+		startDate = sbStartDate.toString();
 
-		StringBuffer sde = new StringBuffer("");
-		sde.append(toYear);
-		sde.append("/");
-		sde.append(toMonth);
-		sde.append("/");
-		sde.append(toDate);
+		StringBuffer sbEndDate = new StringBuffer("");
+		sbEndDate.append(toYear);
+		sbEndDate.append("/");
+		sbEndDate.append(toMonth);
+		sbEndDate.append("/");
+		sbEndDate.append(toDate);
 
-		endDate = sde.toString();
+		endDate = sbEndDate.toString();
 
 		AdminBoughtDAO dao = new AdminBoughtDAO();
 		AdminBoughtDTO dto = new AdminBoughtDTO();

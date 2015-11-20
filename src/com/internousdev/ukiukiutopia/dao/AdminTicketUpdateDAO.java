@@ -14,6 +14,7 @@ import com.mongodb.DBCollection;
 
 /**
  * DBのチケット情報の変更を実行する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
@@ -29,10 +30,11 @@ public class AdminTicketUpdateDAO {
 	int rscount = 0;
 
 	/**
-	 * チケット名を変更するメソッド 
+	 * チケット名を変更するメソッド
+	 * 
 	 * @param id
 	 * @param name
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateName(int id, String name) throws Exception {
@@ -66,7 +68,7 @@ public class AdminTicketUpdateDAO {
 	 * 
 	 * @param id
 	 * @param price
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updatePrice(int id, float price) throws Exception {
@@ -75,17 +77,17 @@ public class AdminTicketUpdateDAO {
 
 		try {
 			if (id > 0) {
-					if (price > 0) {
-						String sql = "update ticket set price=? where id=?";
-						PreparedStatement ps;
+				if (price > 0) {
+					String sql = "update ticket set price=? where id=?";
+					PreparedStatement ps;
 
-						ps = con.prepareStatement(sql);
-						ps.setFloat(1, price);
-						ps.setInt(2, id);
+					ps = con.prepareStatement(sql);
+					ps.setFloat(1, price);
+					ps.setInt(2, id);
 
-						rscount = ps.executeUpdate();
-					}
+					rscount = ps.executeUpdate();
 				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -93,12 +95,13 @@ public class AdminTicketUpdateDAO {
 		}
 		return rscount;
 	}
-	
+
 	/**
 	 * チケット種類を変更するメソッド
+	 * 
 	 * @param id
 	 * @param ticketType
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateTicketType(int id, String ticketType) throws Exception {
@@ -126,12 +129,13 @@ public class AdminTicketUpdateDAO {
 		}
 		return rscount;
 	}
-	
+
 	/**
 	 * チケット種類を変更するメソッド
+	 * 
 	 * @param id
 	 * @param isSale
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateIsSale(int id, boolean isSale) throws Exception {
@@ -140,15 +144,15 @@ public class AdminTicketUpdateDAO {
 
 		try {
 			if (id > 0) {
-					String sql = "update ticket set is_sale=? where id=?";
-					PreparedStatement ps;
+				String sql = "update ticket set is_sale=? where id=?";
+				PreparedStatement ps;
 
-					ps = con.prepareStatement(sql);
-					ps.setBoolean(1, isSale);
-					ps.setInt(2, id);
+				ps = con.prepareStatement(sql);
+				ps.setBoolean(1, isSale);
+				ps.setInt(2, id);
 
-					rscount = ps.executeUpdate();
-				}
+				rscount = ps.executeUpdate();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -159,9 +163,10 @@ public class AdminTicketUpdateDAO {
 
 	/**
 	 * チケット種類を変更するメソッド
+	 * 
 	 * @param id
 	 * @param ticketInformation
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateTicketInformation(int id, String ticketInformation) throws Exception {
@@ -172,10 +177,10 @@ public class AdminTicketUpdateDAO {
 
 					DB db = MongoDBConnector.getConnection();
 					DBCollection coll = db.getCollection("ticket_detail");
-					BasicDBObject serch = new BasicDBObject().append("ticket_id",id);
+					BasicDBObject serch = new BasicDBObject().append("ticket_id", id);
 					BasicDBObject update = new BasicDBObject();
-					update.append("$set",new BasicDBObject().append("ticket_info", ticketInformation));
-					coll.update(serch,update);
+					update.append("$set", new BasicDBObject().append("ticket_info", ticketInformation));
+					coll.update(serch, update);
 
 				}
 			}
@@ -189,9 +194,10 @@ public class AdminTicketUpdateDAO {
 
 	/**
 	 * チケット種類を変更するメソッド
+	 * 
 	 * @param id
 	 * @param renewDate
-	 * @return rscount 実行成功回数
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateRenewDate(int id, String renewDate) throws Exception {
