@@ -74,7 +74,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 既存メールアドレスがDBにないかを確かめるメソッド
-	 * @return 既存登録アドレスの有無
+	 * @return ret 既存登録アドレスの有無
 	 */
 	public String execute() throws SQLException {
 		/**
@@ -117,7 +117,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 新規登録メールアドレスを取得するメソッド
-	 * @return 新規登録メールアドレス
+	 * @return userEmail 新規登録メールアドレス
 	 */
 	public String getUserEmail() {
 		return userEmail;
@@ -131,7 +131,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録電話番号を取得するメソッド
-     * @return 電話番号
+     * @return userTelNum 電話番号
      */
 	public String getUserTelNum() {
 		return userTelNum;
@@ -145,7 +145,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録郵便番号を取得するメソッド
-     * @return 新規登録郵便番号
+     * @return userPostalCode 新規登録郵便番号
      */
 	public String getUserPostalCode() {
 		return userPostalCode;
@@ -159,7 +159,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録パスワードを取得するメソッド
-     * @return 新規登録パスワード
+     * @return userPassword 新規登録パスワード
      */
 	public String getUserPassword() {
 		return userPassword;

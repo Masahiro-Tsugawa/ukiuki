@@ -14,6 +14,9 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class CreateUserDAO {
+	/**
+	 * DBに登録されたメールアドレス
+	 */
 	private String email;
     /**
      * 新規登録メールアドレスが既にDBに登録されてないか確かめるメソッド

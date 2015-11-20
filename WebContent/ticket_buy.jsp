@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/ticket_buy.css" type="text/css">
+<script src="js/creditInfoRadio.js" type="text/javascript"></script>
 <title>TicketBuy</title>
 
 <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -48,9 +49,6 @@
 				total = total + parseInt($("#subTotal9").text());
 			$("#total").text(total);
 		}
-		$('s:radio[name=payInfo]').change(function(){
-			$("#creditRadio").toggle();
-		});
 	});
 </script>
 </head>
@@ -138,7 +136,7 @@
 				</tr>
 				
 				<tr>
-					<td id="creditRadio" align="right" colspan="2"><label><s:radio name="payInfo" list="payInfoList"
+					<td id="creditRadio" align="right" colspan="2"><label><s:radio  id="payInfo" name="payInfo" list="payInfoList"
 								value="radio" /></label></td>
 				</tr>
 				
