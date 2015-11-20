@@ -7,13 +7,13 @@
 
 <validators>
 	<!-- 氏名 -->
-	<field name="userName1">
+	<field name="userNameSurName">
 		<field-validator type="requiredstring">
 			<message>%{getText('signUp.validSurNameRS')}</message>
 		</field-validator>
 	</field>
 
-	<field name="userName2">
+	<field name="userNameFirstName">
 		<field-validator type="requiredstring">
 			<message>%{getText('signUp.validFirstNameRS')}</message>
 		</field-validator>
@@ -68,16 +68,16 @@
 	</field>
 
 	<!-- 住所1 -->
-	<field name="userAddress1">
+	<field name="userAddressPrefecture">
 		<field-validator type="requiredstring">
-			<message>%{getText('signUp.validAddress1RS')}</message>
+			<message>%{getText('signUp.validAddressPrefectureRS')}</message>
 		</field-validator>
 	</field>
 
 	<!-- 住所2 -->
-	<field name="userAddress2">
+	<field name="userAddressCity">
 		<field-validator type="requiredstring">
-			<message>%{getText('signUp.validAddress2RS')}</message>
+			<message>%{getText('signUp.validAddressCityRS')}</message>
 		</field-validator>
 	</field>
 

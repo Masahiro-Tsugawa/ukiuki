@@ -29,26 +29,26 @@
 
 					<tbody>
 						<tr>
-							<td><label for="userName1"><s:text
+							<td><label for="userNameSurName"><s:text
 										name="signUp.surName" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'userName1'}" />
-								</s:fielderror> <s:textfield name="userName1"
+									<s:param value="%{'userNameSurName'}" />
+								</s:fielderror> <s:textfield name="userNameSurName"
 									placeholder="%{getText('signUp.surNamePH')}" maxlength="50" /></td>
 						</tr>
 						<tr>
-							<td><label for="userName2"><s:text
+							<td><label for="userNameFirstName"><s:text
 										name="signUp.firstName" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'userName2'}" />
-								</s:fielderror> <s:textfield name="userName2"
+									<s:param value="%{'userNameFirstName'}" />
+								</s:fielderror> <s:textfield name="userNameFirstName"
 									placeholder="%{getText('signUp.firstNamePH')}" maxlength="50" /></td>
 						</tr>
 
 						<tr>
 							<td><label for="userEmail"><s:text
 										name="signUp.email" />：</label></td>
-							<td class="errorMail"><s:property value="getErrorMail()" /><br>
+							<td class=><div class="errorMail"><s:property value="getErrorMail()" /></div><br>
 								<s:fielderror>
 									<s:param value="%{'userEmail'}" />
 								</s:fielderror> <s:textfield name="userEmail"
@@ -93,25 +93,25 @@
 						</tr>
 
 						<tr>
-							<td><label for="userAddress1"><s:text
+							<td><label for="userAddressPrefecture"><s:text
 										name="signUp.prefecture" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'userAddress1'}" />
-								</s:fielderror> <s:textfield id="address1" name="userAddress1"
+									<s:param value="%{'userAddressPrefecture'}" />
+								</s:fielderror> <s:textfield id="addressPrefecture" name="userAddressPrefecture"
 									placeholder="%{getText('signUp.prefecturePH')}" /></td>
 						</tr>
 						<tr>
-							<td><label for="userAddress2"><s:text
+							<td><label for="userAddressCity"><s:text
 										name="signUp.city" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'userAddress2'}" />
-								</s:fielderror> <s:textfield id="address2" name="userAddress2"
+									<s:param value="%{'userAddressCity'}" />
+								</s:fielderror> <s:textfield id="addressCity" name="userAddressCity"
 									placeholder="%{getText('signUp.cityPH')}" /></td>
 						</tr>
 						<tr>
-							<td><label for="userAddress3"><s:text
+							<td><label for="userAddressOther"><s:text
 										name="signUp.addressLine" /> ：</label></td>
-							<td><s:textfield label="マンション等" name="userAddress3"
+							<td><s:textfield label="マンション等" name="userAddressOther"
 									placeholder="%{getText('signUp.addressLinePH')}" /></td>
 						</tr>
 

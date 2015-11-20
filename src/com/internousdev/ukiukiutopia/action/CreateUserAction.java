@@ -23,11 +23,11 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	/**
 	 * 性を表します。
 	 */
-	private String userName1;
+	private String userNameSurName;
 	/**
 	 * 名を表します。
 	 */
-	private String userName2;
+	private String userNameFirstName;
 	/**
 	 * パスワードを表します。
 	 */
@@ -43,15 +43,15 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	/**
 	 * 住所（都道府県）を表します。
 	 */
-	private String userAddress1;
+	private String userAddressPrefecture;
 	/**
 	 * 住所（市町村区）を表します。
 	 */
-	private String userAddress2;
+	private String userAddressCity;
 	/**
 	 * 住所（マンション等以下）を表します。
 	 */
-	private String userAddress3;
+	private String userAddressOther;
 	/**
 	 * メールアドレスを表します。
 	 */
@@ -98,15 +98,15 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		 * 姓名を表す。
 		 */
 		StringBuilder userName = new StringBuilder();
-		userName.append(userName1);
-		userName.append(userName2);
+		userName.append(userNameSurName);
+		userName.append(userNameFirstName);
 		session.put("signUpName", userName.toString());
 		session.put("signUpPassword", userPassword);
 		session.put("signUpPostalCode", userPostalCode);
 		StringBuilder userAddress = new StringBuilder();
-		userAddress.append(userAddress1);
-		userAddress.append(userAddress2);
-		userAddress.append(userAddress3);
+		userAddress.append(userAddressPrefecture);
+		userAddress.append(userAddressCity);
+		userAddress.append(userAddressOther);
 		session.put("signUpAddress", userAddress.toString());
 		session.put("signUpEmail", userEmail);
 		session.put("signUpTelNum", userTelNum);
@@ -187,43 +187,43 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
      * 都道府県を取得するメソッド
      * @return 都道府県
      */
-	public String getUserAddress1() {
-		return userAddress1;
+	public String getUserAddressPrefecture() {
+		return userAddressPrefecture;
 	}
     /**
      * を設定するメソッド
-     * @param userAddress1 都道府県
+     * @param userAddressPrefecture 都道府県
      */
-	public void setUserAddress1(String userAddress1) {
-		this.userAddress1 = userAddress1;
+	public void setUserAddressPrefecture(String userAddressPrefecture) {
+		this.userAddressPrefecture = userAddressPrefecture;
 	}
     /**
      * 市町村区を取得するメソッド
      * @return 市町村区
      */
-	public String getUserAddress2() {
-		return userAddress2;
+	public String getUserAddressCity() {
+		return userAddressCity;
 	}
     /**
      * 市町村区を設定するメソッド
-     * @param userAddress2 市町村区
+     * @param userAddressCity 市町村区
      */
-	public void setUserAddress2(String userAddress2) {
-		this.userAddress2 = userAddress2;
+	public void setUserAddressCity(String userAddressCity) {
+		this.userAddressCity = userAddressCity;
 	}
     /**
      * 市町村区以下の住所を取得するメソッド
      * @return 市町村区以下の住所
      */
-	public String getUserAddress3() {
-		return userAddress3;
+	public String getUserAddressOther() {
+		return userAddressOther;
 	}
     /**
      * 市町村区以下の住所を設定するメソッド
-     * @param userAddress3 市町村区以下の住所
+     * @param userAddressOther 市町村区以下の住所
      */
-	public void setUserAddress3(String userAddress3) {
-		this.userAddress3 = userAddress3;
+	public void setUserAddressOther(String userAddressOther) {
+		this.userAddressOther = userAddressOther;
 	}
     /**
      * セッションを設定するメソッド
@@ -264,29 +264,29 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
      * 新規登録性を取得するメソッド
      * @return 新規登録性
      */
-	public String getUserName1() {
-		return userName1;
+	public String getUserNameSurName() {
+		return userNameSurName;
 	}
     /**
      * 新規登録性を設定するメソッド
-     * @param userName1 新規登録性
+     * @param userNameSurName 新規登録性
      */
-	public void setUserName1(String userName1) {
-		this.userName1 = userName1;
+	public void setUserNameSurName(String userNameSurName) {
+		this.userNameSurName = userNameSurName;
 	}
     /**
      * 新規登録名を取得するメソッド
      * @return 新規登録名
      */
-	public String getUserName2() {
-		return userName2;
+	public String getUserNameFirstName() {
+		return userNameFirstName;
 	}
     /**
      * 新規登録名を設定するメソッド
-     * @param userName2 新規登録名
+     * @param userNameFirstName 新規登録名
      */
-	public void setUserName2(String userName2) {
-		this.userName2 = userName2;
+	public void setUserNameFirstName(String userNameFirstName) {
+		this.userNameFirstName = userNameFirstName;
 	}
 
 
