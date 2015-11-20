@@ -23,7 +23,7 @@ public class CreateUserDAO {
 	public boolean select(String userEmail) {
 
 		Connection conn = null;
-		boolean action = true;
+		boolean result = true;
 		try {
 			conn = (Connection) DBConnector.getConnection();
 			String sql = "SELECT email FROM user WHERE";
@@ -32,7 +32,7 @@ public class CreateUserDAO {
 			ps.setString(1, userEmail);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				action = false;
+				result = false;
 				setEmail(rs.getString("email"));
 			}
 		} catch (SQLException e) {
@@ -46,7 +46,7 @@ public class CreateUserDAO {
 				}
 			}
 		}
-		return action;
+		return result;
 	}
 	
 	/**

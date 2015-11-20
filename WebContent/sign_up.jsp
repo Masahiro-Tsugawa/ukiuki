@@ -58,7 +58,7 @@
 							<td><label for="confirmUserEmail"><s:text
 										name="signUp.confirmEmail" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'confirmaUserEmail'}" />
+									<s:param value="%{'confirmUserEmail'}" />
 								</s:fielderror> <s:textfield name="confirmUserEmail" /></td>
 						</tr>
 
@@ -76,7 +76,7 @@
 
 
 						<tr>
-							<td><label for="confirmUserEmail"><s:text
+							<td><label for="confirmUserPassword"><s:text
 										name="signUp.confirmPassword" /> ：</label></td>
 							<td><s:fielderror>
 									<s:param value="%{'confirmUserPassword'}" />

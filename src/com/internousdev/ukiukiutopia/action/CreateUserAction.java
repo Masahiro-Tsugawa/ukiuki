@@ -86,10 +86,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		/**
 		 * DBにて既存メールアドレスの有無を取得
 		 */
-		boolean action = dao.select(userEmail);
-		if(action == true){
+		boolean result = dao.select(userEmail);
+		if(result == true){
 		ret = SUCCESS;
-		}else if(action == false){
+		}else if(result == false){
 			  setErrorMail(getText("signUp.errorMail"));
 			  ret = ERROR;
 			}
