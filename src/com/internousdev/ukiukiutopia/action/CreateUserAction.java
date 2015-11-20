@@ -15,6 +15,9 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 public class CreateUserAction extends ActionSupport implements SessionAware {
+	/**
+	 * シリアルを生成
+	 */
 	private static final long serialVersionUID = -7016065614706474231L;
 	/**
 	 * セッションを表します。

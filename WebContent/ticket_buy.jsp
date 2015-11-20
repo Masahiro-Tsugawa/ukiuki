@@ -129,7 +129,6 @@
 			</table>
 			<br>
 
-            </table>
 			<table align="center" class="table-test3">
 				<tr>
 					<th colspan="2"><div class="form-titel"><s:text name="payInfo" /></div></th>
