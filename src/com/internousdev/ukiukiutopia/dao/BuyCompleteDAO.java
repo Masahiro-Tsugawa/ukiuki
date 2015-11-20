@@ -20,7 +20,7 @@ public class BuyCompleteDAO {
 	 * @param number クレジットカード下四桁
 	 * @param email ユーザーメールアドレス
 	 * @return rscount　アップデート数を返す
-	 * @throws Exception
+	 * @throws Exception 例外処理
 	 */
 	public int updateToUser(String token, String number, String email) throws Exception {
 
@@ -41,7 +41,7 @@ public class BuyCompleteDAO {
 	 * ユーザーIDを取得するメソッド
 	 * @param email ユーザーメールアドレス
 	 * @return　rs.getInt(1)　ユーザーID
-	 * @throws Exception
+	 * @throws Exception 例外処理
 	 */
 	public int selectUserId(String email) throws Exception {
 		Connection con = DBConnector.getConnection();
@@ -62,7 +62,7 @@ public class BuyCompleteDAO {
 	 * @param userId ユーザーID
 	 * @param date 購入を確定した日時
 	 * @return rs.getInt(1)　注文ID
-	 * @throws Exception
+	 * @throws Exception 例外処理
 	 */
 	public int selectOrderId(int userId, String date) throws Exception {
 		Connection con = DBConnector.getConnection();
@@ -84,7 +84,7 @@ public class BuyCompleteDAO {
 	 * @param userId ユーザーID
 	 * @param date 購入を確定した日時
 	 * @return　rscount アップデート数
-	 * @throws Exception
+	 * @throws Exception 例外処理
 	 */
 	public int insertToOrder(int userId, String date) throws Exception {
 
@@ -110,7 +110,7 @@ public class BuyCompleteDAO {
 	 * @param buyTotal チケット毎の小計
 	 * @param date 購入を確定した日時
 	 * @return　rscount アップデート数
-	 * @throws Exception
+	 * @throws Exception 例外処理
 	 */
 	public int insertToOrderTicket(int orderId, int ticketId, int sheets, int buyTotal, String date) throws Exception {
 

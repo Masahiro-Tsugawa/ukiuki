@@ -62,7 +62,7 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 
     /**
      * セッションの設定メソッド
-     * @param session  
+     * @param session セッション
      */
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
