@@ -62,11 +62,12 @@
 					<s:property value="#session.name_key" />
 					<br>
 				</p>
+				
+				<s:a href="AdminLogoutAction">ログアウト</s:a>
 				<s:actionerror />
 							<s:fielderror>
 								<s:param value="%{'errorLogout'}" />
 							</s:fielderror>
-				<s:a href="AdminLogoutAction">ログアウト</s:a>
 			</s:div>
 
 			<!--情報入力のダイアログボックスを作る-->

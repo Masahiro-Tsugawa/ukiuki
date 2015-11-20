@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.ukiukiutopia.dao.AdminLogoutDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -25,10 +26,14 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 * 管理者名を保持しているセッションを取得する
 	 */
 	private Map<String,Object >session;
+	/**
+	 * 管理者ID
+	 */
+	int id;
 	/***
 	 * ログイン状態変更の結果
 	 */
-	private String result;
+	private String result = ERROR;
 	
 	/***
 	 * ログアウトできなかった際のエラーメッセージ
@@ -40,17 +45,49 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 * @return SUCCESS
 	 */
 	public String execute() {
-		result = ERROR;
+		
+		AdminLogoutDAO dao = new AdminLogoutDAO();
+		int id = (int) session.get("id");
+		int rscount = dao.update(id);
+		
+		if(rscount<0){
+			setErrorLogout("ログアウトに失敗しました");
+			return result;
+		}
+		
 		session.clear();
 		
 		if (session.containsKey("name_key")){
 			setErrorLogout("ログアウトに失敗しました");
 			return result;
 		}
+		if (rscount<1) {
+			addActionError("ログアウトに失敗しました");
+			result = ERROR;
+			return result;
+		}
 		result = SUCCESS;
 		return result;
 	}
 
+
+	/**
+	 * 管理者ID取得メソッド
+	 * 
+	 * @return id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * 管理者ID格納メソッド
+	 * 
+	 * @param id
+	 *         管理者ID
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * @return errorLogout

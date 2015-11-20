@@ -65,6 +65,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		AdminLoginDTO dtoSelect = new AdminLoginDTO();
 		int rscountSelect = daoSelect.select(name, password, dtoSelect);
 		id=dtoSelect.getId();
+		session.put("id", id);
 
 		AdminLoginDAO daoUpdate = new AdminLoginDAO();
 		int rscountUpdate = daoUpdate.update(id);
@@ -78,6 +79,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		}
 		
 			session.put("name_key", dtoSelect.getName());
+			
 			result=SUCCESS;
 
 		
@@ -97,7 +99,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 * ID格納メソッド
 	 * 
 	 * @param id
-	 *         ログイン状態
+	 *         管理者ID
 	 */
 	public void setId(int id) {
 		this.id = id;

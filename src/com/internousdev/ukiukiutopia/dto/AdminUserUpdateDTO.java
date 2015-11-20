@@ -30,7 +30,7 @@ public class AdminUserUpdateDTO {
 	/***
 	 * 変更したい郵便番号
 	 */
-	private String updatePostalcode;
+	private String updatePostalCode;
 	/***
 	 * 変更したい住所
 	 */
@@ -38,7 +38,7 @@ public class AdminUserUpdateDTO {
 	/***
 	 * 変更したい更新日
 	 */
-	private String updateRenewdate;
+	private String updateRenewDate;
 	
 	/**
 	 * 変更メールアドレス取得メソッド
@@ -116,19 +116,19 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更郵便番号取得メソッド
 	 * 
-	 * @return updatePostalcode
+	 * @return updatePostalCode
 	 */
-	public String getUpdatePostalcode(){
-		return updatePostalcode;
+	public String getUpdatePostalCode(){
+		return updatePostalCode;
 	}
 	/**
 	 * 変更郵便番号格納メソッド
 	 * 
-	 * @param updatePostalcode
+	 * @param updatePostalCode
 	 *            変更郵便番号
 	 */
-	public void setUpdatePostalcode(String updatePostalcode){
-		this.updatePostalcode=updatePostalcode;
+	public void setUpdatePostalCode(String updatePostalCode){
+		this.updatePostalCode=updatePostalCode;
 	}
 
 	/**
@@ -152,18 +152,18 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更更新日取得メソッド
 	 * 
-	 * @return updateRenewdate
+	 * @return updateRenewDate
 	 */
-	public String getUpdateRenewdate(){
-		return updateRenewdate;
+	public String getUpdateRenewDate(){
+		return updateRenewDate;
 	}
 	/**
 	 * 変更更新日格納メソッド
 	 * 
-	 * @param updateRenewdate
+	 * @param updateRenewDate
 	 *            変更更新日
 	 */
-	public void setUpdateRenewdate(String updateRenewdate){
-		this.updateRenewdate=updateRenewdate;
+	public void setUpdateRenewDate(String updateRenewDate){
+		this.updateRenewDate=updateRenewDate;
 	}
 }
