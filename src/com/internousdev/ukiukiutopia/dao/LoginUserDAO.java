@@ -26,7 +26,7 @@ public class LoginUserDAO{
 	 * 入力されたログインIDとパスワードをDBと照合するメソッド
 	 * @param loginId ログインID
 	 * @param password パスワード
-	 * @return result
+	 * @return result　データベース照合結果
 	 */
 	public boolean selectByUserLoginId(String loginId, String password){
 		boolean result=false;
@@ -71,7 +71,7 @@ public class LoginUserDAO{
 	/**
 	 * 取得したユニークIDを照合するためのメソッド
 	 * @param userUniqueId ユニークID
-	 * @return result
+	 * @return result　データベース照合結果
 	 */
 	public boolean selectByUserUniqueId(String userUniqueId){
 		boolean result=false;
@@ -115,6 +115,7 @@ public class LoginUserDAO{
 	/**
 	 * DTO取得メソッド
 	 * @return dto
+	 * 			ログイン顧客情報
 	 */
 	public HomeDTO getLoginUserDTO() {
 		return dto;
@@ -122,7 +123,8 @@ public class LoginUserDAO{
 
 	/**
 	 * DTO格納メソッド
-	 * @param dto ログインユーザDTO
+	 * @param dto 
+	 * 			ログイン顧客情報
 	 */
 	public void setLoginUserDTO(HomeDTO dto) {
 		this.dto = dto;

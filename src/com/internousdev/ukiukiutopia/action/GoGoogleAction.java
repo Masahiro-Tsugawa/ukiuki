@@ -26,17 +26,17 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	private static final long serialVersionUID = 1524555947613444860L;
 
 	/**
-	 * セッション
+	 * セッション情報
 	 */
 	private Map<String, Object> session;
 
 	/**
-	 * レスポンス
+	 * レスポンス情報
 	 */
 	private HttpServletResponse response;
 
 	/**
-	 * リクエスト
+	 * リクエスト情報
 	 */
 	private HttpServletRequest request;
 
@@ -57,21 +57,21 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 
 	/**
 	 * セッション取得メソッド
-	 * @return sessionMap セッションマップ
+	 * @return sessionMap セッションマップ情報
 	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 	/**
 	 * レスポンス格納メソッド
-	 * @param response レスポンス
+	 * @param response レスポンス情報
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
 	}
 	/**
 	 * リクエスト格納メソッド
-	 * @param request リクエスト
+	 * @param request リクエスト情報
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;

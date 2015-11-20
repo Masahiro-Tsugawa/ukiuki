@@ -26,11 +26,11 @@ public class LoginOauthDAO {
 	
 	/**
 	 * 取得したユニークIDの照合メソッド
-	 * @param userUniqueId 取得したユニークID
-	 * @param oauthName 取得した名前
-	 * @param oauthEmail 
-	 * @param NETWORK_NAME 
-	 * @return result　結果
+	 * @param userUniqueId OAuthから取得したユニークID
+	 * @param oauthName OAuthから取得した名前
+	 * @param oauthEmail OAuthから取得したEmail
+	 * @param NETWORK_NAME SNS名
+	 * @return result　データベースの検索結果
 	 */
 	public boolean select(String userUniqueId, String NETWORK_NAME) {
 		boolean result = false;
@@ -65,6 +65,7 @@ public class LoginOauthDAO {
 	 * DTO取得メソッド
 	 * 
 	 * @return dto
+	 * 　　　　　　　　　　ログイン顧客情報
 	 */
 	public LoginOauthDTO getLoginOauthDTO() {
 		return dto;
@@ -74,7 +75,7 @@ public class LoginOauthDAO {
 	 * DTO格納メソッド
 	 * 
 	 * @param dto
-	 *            ログインユーザDTO
+	 *            ログイン顧客情報
 	 */
 	public void setLoginOauthDTO(LoginOauthDTO dto) {
 		this.dto = dto;

@@ -20,10 +20,10 @@ public class HomeDAO {
 	private int id;
 
 	/**
-	 * DB検索メソッド
-	 * @param email DB内のemail
-	 * @param password DB内のpassword
-	 * @return　検索の結果の成否
+	 * データベース検索メソッド
+	 * @param email データベース内のemail
+	 * @param password データベース内のpassword
+	 * @return　データベースでemail,passwordを検索の結果の成否
 	 */
 	public String select(String email, String password) {
 		Connection conn = null;
@@ -57,16 +57,16 @@ public class HomeDAO {
 	}
 	
 	/**
-	 * ユーザーID取得メソッド
-	 * @return　ユーザーID
+	 * 顧客ID取得メソッド
+	 * @return　顧客登録ID
 	 */
 	public int getId() {
 		return id;
 	}
 
 	/**
-	 *  ユーザーID格納メソッド
-	 * @param id ユーザーID
+	 *  顧客ID格納メソッド
+	 * @param id 顧客登録ID
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -74,16 +74,16 @@ public class HomeDAO {
 
 
 	/**
-	 *  ユーザー名取得メソッド
-	 * @return　ユーザー名
+	 *  顧客名取得メソッド
+	 * @return　顧客登録名
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 *  ユーザー名格納メソッド
-	 * @param name ユーザー名
+	 *  顧客名格納メソッド
+	 * @param name 顧客登録名
 	 */
 	public void setName(String name) {
 		this.name = name;

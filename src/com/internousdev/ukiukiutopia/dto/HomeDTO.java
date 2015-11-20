@@ -4,7 +4,7 @@ package com.internousdev.ukiukiutopia.dto;
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * 顧客情報を格納する為のDTOクラス
+ * 顧客情報を格納する為のクラス
  */
 public class HomeDTO{
 
@@ -14,7 +14,7 @@ public class HomeDTO{
 	private String userName;
 
 	/**
-	 * ユーザーID
+	 * 顧客ID
 	 */
 	private int userId;
 
@@ -70,7 +70,7 @@ public class HomeDTO{
 	}
 
 	/**
-	 * ユーザーID取得メソッド
+	 * 顧客ID取得メソッド
 	 * @return userId
 	 */
 	public int getUserId() {
@@ -78,8 +78,8 @@ public class HomeDTO{
 	}
 
 	/**
-	 * ユーザーID格納メソッド
-	 * @param userId ユーザーID
+	 * 顧客ID格納メソッド
+	 * @param userId 顧客ID
 	 */
 	public void setUserId(int userId) {
 		this.userId = userId;

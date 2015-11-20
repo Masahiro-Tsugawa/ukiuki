@@ -15,11 +15,11 @@ import com.internousdev.ukiukiutopia.dto.HomeDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ * Twitter認証画面からユーザーページか新規登録画面へ遷移する為のアクションクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- * LoginTwitterAction
- * Twitter認証画面からユーザーページか新規登録画面へ遷移する為のアクションクラス
+ * 
  */
 public class LoginTwitterAction extends ActionSupport implements ServletResponseAware,ServletRequestAware,SessionAware{
 
