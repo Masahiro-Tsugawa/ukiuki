@@ -36,8 +36,6 @@ public class AdminUserDeleteDAO {
 	public int delete(String deleteMail) throws Exception {
 
 		con = DBConnector.getConnection();
-
-		System.out.println(deleteMail);
 		try {
 			String sql = "delete from user where email=?";
 
