@@ -42,7 +42,7 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * 管理者ページからログアウトするメソッド
-	 * @return SUCCESS
+	 * @return ログアウト成功の可否
 	 */
 	public String execute() {
 		

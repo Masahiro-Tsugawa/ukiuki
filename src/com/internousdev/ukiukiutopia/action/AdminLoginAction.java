@@ -90,7 +90,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * ID取得メソッド
 	 * 
-	 * @return id
+	 * @return ユーザーID
 	 */
 	public int getId() {
 		return id;
@@ -99,7 +99,6 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 * ID格納メソッド
 	 * 
 	 * @param id
-	 *         管理者ID
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -107,14 +106,14 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 管理者名取得するメソッド
-	 * @return name
+	 * @return 管理者名
 	 */
 	public String getName() {
 		return name;
 	}
 	/**
 	 * 管理者名格納するメソッド
-	 * @param name 管理者名
+	 * @param name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -122,14 +121,14 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	
 	/**
 	 * 管理者パスワード取得するメソッド
-	 * @return password
+	 * @return 管理者パスワード
 	 */
 	public String getPassword() {
 		return password;
 	}
 	/**
 	 * 管理者パスワード格納するメソッド
-	 * @param password 管理者パスワード
+	 * @param password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -137,7 +136,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * セッション取得するメソッド
-	 * @return session
+	 * @return 管理者名
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -145,7 +144,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * セッション格納するメソッド
-	 * @param session セッション
+	 * @param session
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

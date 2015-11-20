@@ -91,7 +91,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	
 	/**
 	 * 管理者ページからチケットを編集するメソッド
-	 * @return SUCCESS
+	 * @return チケット編集の可否
 	 */
 		public String execute() throws Exception {
 		

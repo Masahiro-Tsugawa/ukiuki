@@ -13,7 +13,7 @@ import com.internousdev.ukiukiutopia.dao.AdminUserUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページからユーザーを編集する為のクラス
+ * 管理ページからユーザー情報を編集する為のクラス
  * 
  * @author S.Mizukoshi
  * @version 1.1
@@ -105,9 +105,9 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 	private Map<String, Object> session;
 
 	/**
-	 * ユーザーを編集するメソッド
+	 * ユーザー情報を編集するメソッド
 	 * 
-	 * @return SUCCESS
+	 * @return ユーザー情報編集の可否
 	 */
 	public String execute() throws Exception {
 

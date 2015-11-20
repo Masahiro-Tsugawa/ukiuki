@@ -38,7 +38,7 @@ public class AdminTicketSelectAction extends ActionSupport{
 	
 	/**
 	 * 管理者ページからDBに登録されている全てのチケットを検索するメソッド
-	 * @return SUCCESS
+	 * @return チケット編集の可否
 	 */
 	public String execute() throws Exception {
 

@@ -64,7 +64,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索開始年情報取得メソッド
 	 * 
-	 * @return fromYear
+	 * @return 検索開始年
 	 */
 	public int getFromYear() {
 		return fromYear;
@@ -74,7 +74,6 @@ public class AdminBoughtDTO {
 	 * 検索開始年情報格納メソッド
 	 * 
 	 * @param fromYear
-	 *            検索開始年
 	 */
 	public void setFromYear(int fromYear) {
 		this.fromYear = fromYear;
@@ -83,7 +82,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索開始月情報取得メソッド
 	 * 
-	 * @return fromMonth
+	 * @return 検索開始月
 	 */
 	public int getFromMonth() {
 		return fromMonth;
@@ -93,7 +92,6 @@ public class AdminBoughtDTO {
 	 * 検索開始月情報格納メソッド
 	 * 
 	 * @param fromMonth
-	 *            検索開始月
 	 */
 	public void setFromMonth(int fromMonth) {
 		this.fromMonth = fromMonth;
@@ -102,7 +100,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索開始日情報取得メソッド
 	 * 
-	 * @return fromDate
+	 * @return 検索開始日
 	 */
 	public int getFromDate() {
 		return fromDate;
@@ -112,7 +110,6 @@ public class AdminBoughtDTO {
 	 * 検索開始日情報格納メソッド
 	 * 
 	 * @param fromDate
-	 *            検索開始日
 	 */
 	public void setFromDate(int fromDate) {
 		this.fromDate = fromDate;
@@ -121,7 +118,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索終了年情報取得メソッド
 	 * 
-	 * @return toYear
+	 * @return 検索終了年
 	 */
 	public int getToYear() {
 		return toYear;
@@ -130,7 +127,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索終了年情報格納メソッド
 	 * 
-	 * @param toYear 検索終了年
+	 * @param toYear
 	 */
 	public void setToYear(int toYear) {
 		this.toYear = toYear;
@@ -138,7 +135,7 @@ public class AdminBoughtDTO {
 
 	/**
 	 * 検索終了月情報取得メソッド
-	 * @return toMonth
+	 * @return 検索終了月
 	 */
 	public int getToMonth() {
 		return toMonth;
@@ -148,7 +145,6 @@ public class AdminBoughtDTO {
 	 * 検索終了月情報格納メソッド
 	 * 
 	 * @param toMonth
-	 *            検索終了月
 	 */
 	public void setToMonth(int toMonth) {
 		this.toMonth = toMonth;
@@ -157,7 +153,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索終了日情報取得メソッド
 	 * 
-	 * @return toDate
+	 * @return 検索終了日
 	 */
 	public int gettoDate() {
 		return toDate;
@@ -167,7 +163,6 @@ public class AdminBoughtDTO {
 	 * 検索終了日情報格納メソッド
 	 * 
 	 * @param toDate
-	 *            検索終了日
 	 */
 	public void settoDate(int toDate) {
 		this.toDate = toDate;
@@ -176,7 +171,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索開始年月日情報取得メソッド
 	 * 
-	 * @return startDate
+	 * @return 検索開始年月日
 	 */
 	public String getStartDate() {
 		return startDate;
@@ -186,7 +181,6 @@ public class AdminBoughtDTO {
 	 * 検索開始年月日情報格納メソッド
 	 * 
 	 * @param startDate
-	 *            検索開始年月日
 	 */
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
@@ -195,7 +189,7 @@ public class AdminBoughtDTO {
 	/**
 	 * 検索終了年月日情報取得メソッド
 	 * 
-	 * @return endDate
+	 * @return 検索終了年月日
 	 */
 	public String getEndDate() {
 		return endDate;
@@ -205,7 +199,6 @@ public class AdminBoughtDTO {
 	 * 検索終了年月日情報格納メソッド
 	 * 
 	 * @param endDate
-	 *            検索終了年月日
 	 */
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
@@ -213,7 +206,7 @@ public class AdminBoughtDTO {
 
 	/**
 	 * 注文ID取得メソッド
-	 * @return orderId
+	 * @return 注文ID
 	 */
 	public int getOrderId() {
 		return orderId;
@@ -222,7 +215,6 @@ public class AdminBoughtDTO {
 	 *　注文ID格納メソッド
 	 * 
 	 * @param orderId
-	 *            注文ID
 	 */
 	public void setOrderId(int orderId) {
 		this.orderId = orderId;
@@ -230,7 +222,7 @@ public class AdminBoughtDTO {
 
 	/**
 	 * チケットID取得メソッド
-	 * @return ticketId
+	 * @return チケットID
 	 */
 	public int getTicketId() {
 		return ticketId;
@@ -239,7 +231,6 @@ public class AdminBoughtDTO {
 	 *　チケットID格納メソッド
 	 * 
 	 * @param ticketId
-	 *            チケットID
 	 */
 	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
@@ -247,7 +238,7 @@ public class AdminBoughtDTO {
 
 	/**
 	 * 売上枚数取得メソッド
-	 * @return sheets
+	 * @return 売上枚数
 	 */
 	public int getSheets() {
 		return sheets;
@@ -256,7 +247,6 @@ public class AdminBoughtDTO {
 	 *　売上枚数格納メソッド
 	 * 
 	 * @param sheets
-	 *            売上枚数
 	 */
 	public void setSheets(int sheets) {
 		this.sheets = sheets;
@@ -264,7 +254,7 @@ public class AdminBoughtDTO {
 
 	/**
 	 * 売上合計金額取得メソッド
-	 * @return totalAmount
+	 * @return 売上合計金額
 	 */
 	public float getTotalAmount() {
 		return totalAmount;
@@ -273,7 +263,6 @@ public class AdminBoughtDTO {
 	 *　売上合計金額格納メソッド
 	 * 
 	 * @param totalAmount
-	 *            売上合計金額
 	 */
 	public void setTotalAmount(float totalAmount) {
 		this.totalAmount = totalAmount;

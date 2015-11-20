@@ -43,7 +43,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更メールアドレス取得メソッド
 	 * 
-	 * @return updateEmail
+	 * @return 変更メールアドレス
 	 */
 	public String getUpdateEmail(){
 		return updateEmail;
@@ -52,7 +52,6 @@ public class AdminUserUpdateDTO {
 	 * 変更メールアドレス格納メソッド
 	 * 
 	 * @param updateEmail
-	 *            変更メールアドレス
 	 */
 	public void setUpdateEmail(String updateEmail){
 		this.updateEmail=updateEmail;
@@ -61,7 +60,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更パスワード取得メソッド
 	 * 
-	 * @return updatePassword
+	 * @return 変更パスワード
 	 */
 	public String getUpdatePassword(){
 		System.out.println(updatePassword);
@@ -71,7 +70,6 @@ public class AdminUserUpdateDTO {
 	 * 変更パスワード格納メソッド
 	 * 
 	 * @param updatePassword
-	 *            変更パスワード
 	 */
 	public void setUpdatePassword(String updatePassword){
 		this.updatePassword=updatePassword;
@@ -80,7 +78,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更ユーザー名取得メソッド
 	 * 
-	 * @return updateName
+	 * @return 変更ユーザー名
 	 */
 	public String getUpdateName(){
 		return updateName;
@@ -89,7 +87,6 @@ public class AdminUserUpdateDTO {
 	 * 変更ユーザー名格納メソッド
 	 * 
 	 * @param updateName
-	 *            変更ユーザー名
 	 */
 	public void setUpdateName(String updateName){
 		this.updateName=updateName;
@@ -98,7 +95,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更電話番号取得メソッド
 	 * 
-	 * @return updateTelNum
+	 * @return 変更電話番号
 	 */
 	public String getUpdateTelNum(){
 		return updateTelNum;
@@ -107,7 +104,6 @@ public class AdminUserUpdateDTO {
 	 * 変更電話番号格納メソッド
 	 * 
 	 * @param updateTelNum
-	 *            変更電話番号
 	 */
 	public void setUpdateTelNum(String updateTelNum){
 		this.updateTelNum=updateTelNum;
@@ -116,7 +112,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更郵便番号取得メソッド
 	 * 
-	 * @return updatePostalCode
+	 * @return 変更郵便番号
 	 */
 	public String getUpdatePostalCode(){
 		return updatePostalCode;
@@ -125,7 +121,6 @@ public class AdminUserUpdateDTO {
 	 * 変更郵便番号格納メソッド
 	 * 
 	 * @param updatePostalCode
-	 *            変更郵便番号
 	 */
 	public void setUpdatePostalCode(String updatePostalCode){
 		this.updatePostalCode=updatePostalCode;
@@ -134,7 +129,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更住所取得メソッド
 	 * 
-	 * @return updateAddress
+	 * @return 変更住所
 	 */
 	public String getUpdateAddress(){
 		return updateAddress;
@@ -143,7 +138,6 @@ public class AdminUserUpdateDTO {
 	 * 変更住所格納メソッド
 	 * 
 	 * @param updateAddress
-	 *            変更住所
 	 */
 	public void setUpdateAddress(String updateAddress){
 		this.updateAddress=updateAddress;
@@ -152,7 +146,7 @@ public class AdminUserUpdateDTO {
 	/**
 	 * 変更更新日取得メソッド
 	 * 
-	 * @return updateRenewDate
+	 * @return 変更更新日
 	 */
 	public String getUpdateRenewDate(){
 		return updateRenewDate;
@@ -161,7 +155,6 @@ public class AdminUserUpdateDTO {
 	 * 変更更新日格納メソッド
 	 * 
 	 * @param updateRenewDate
-	 *            変更更新日
 	 */
 	public void setUpdateRenewDate(String updateRenewDate){
 		this.updateRenewDate=updateRenewDate;

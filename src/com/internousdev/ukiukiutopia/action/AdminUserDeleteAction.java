@@ -45,7 +45,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 
 	/**
 	 * 管理者ページからユーザーを削除するメソッド
-	 * @return SUCCESS
+	 * @return ユーザー削除の可否
 	 */
 		public String execute() throws Exception {
 

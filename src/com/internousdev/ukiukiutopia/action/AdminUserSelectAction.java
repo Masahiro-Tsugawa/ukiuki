@@ -50,7 +50,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 
 	 /**
 	　* 編集したいユーザーの情報を検索するメソッド
-	　* @return SUCCESS
+	　* @return ユーザー情報取得の可否
 	 */
 	 public String execute() throws Exception {
 			

@@ -42,7 +42,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケットID取得メソッド
 	 * 
-	 * @return id
+	 * @return チケットID
 	 */
 	public int getId() {
 		return id;
@@ -51,7 +51,6 @@ public class AdminTicketSelectDTO {
 	 * チケットID格納メソッド
 	 * 
 	 * @param id
-	 *            チケットID
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -59,7 +58,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット名取得メソッド
 	 * 
-	 * @return name
+	 * @return チケット名
 	 */
 	public String getName() {
 		return name;
@@ -68,7 +67,6 @@ public class AdminTicketSelectDTO {
 	 * チケット名格納メソッド
 	 * 
 	 * @param name
-	 *            チケット名
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -77,7 +75,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 値段取得メソッド
 	 * 
-	 * @return price
+	 * @return 値段
 	 */
 	public float getPrice() {
 		return price;
@@ -86,7 +84,6 @@ public class AdminTicketSelectDTO {
 	 * 値段格納メソッド
 	 * 
 	 * @param price
-	 *            値段
 	 */
 	public void setPrice(float price) {
 		this.price = price;
@@ -95,7 +92,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット種類取得メソッド
 	 * 
-	 * @return ticketType
+	 * @return チケット種類
 	 */
 	public String getTicketType() {
 		return ticketType;
@@ -104,7 +101,6 @@ public class AdminTicketSelectDTO {
 	 * チケット種類格納メソッド
 	 * 
 	 * @param ticketType
-	 *            チケット種類
 	 */
 	public void setTicketType(String ticketType) {
 		this.ticketType = ticketType;
@@ -113,7 +109,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 販売状態取得メソッド
 	 * 
-	 * @return isSale
+	 * @return 販売状態
 	 */
 	public boolean getIsSale() {
 		return isSale;
@@ -122,7 +118,6 @@ public class AdminTicketSelectDTO {
 	 * 販売状態格納メソッド
 	 * 
 	 * @param isSale
-	 *            販売状態
 	 */
 	public void setIsSale(boolean isSale) {
 		this.isSale = isSale;
@@ -131,7 +126,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット詳細取得メソッド
 	 * 
-	 * @return ticketInfo
+	 * @return チケット詳細
 	 */
 	public String getTicketInfo() {
 		return ticketInfo;
@@ -140,7 +135,6 @@ public class AdminTicketSelectDTO {
 	 * チケット詳細格納メソッド
 	 * 
 	 * @param ticketInfo
-	 *            チケット詳細
 	 */
 	public void setTicketInfo(String ticketInfo) {
 		this.ticketInfo = ticketInfo;
@@ -149,7 +143,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 更新日取得メソッド
 	 * 
-	 * @return renewDate
+	 * @return 更新日
 	 */
 	public String getRenewDate() {
 		return renewDate;
@@ -158,7 +152,6 @@ public class AdminTicketSelectDTO {
 	 * 更新日格納メソッド
 	 * 
 	 * @param renewDate
-	 *            チケット詳細
 	 */
 	public void setRenewDate(String renewDate) {
 		this.renewDate = renewDate;

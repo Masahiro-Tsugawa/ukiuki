@@ -48,7 +48,7 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	
 	/**
 	 * 管理者ページからチケットを削除するメソッド
-	 * @return SUCCESS
+	 * @return チケット削除の可否
 	 */
 		public String execute() throws Exception {
 

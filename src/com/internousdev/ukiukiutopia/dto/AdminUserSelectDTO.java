@@ -44,14 +44,13 @@ public class AdminUserSelectDTO {
 	 * 変更メールアドレス格納メソッド
 	 * 
 	 * @param email
-	 *            変更メールアドレス
 	 */
 	public void setEmail(String email){
 		this.email = email;
 	}
 	/**
 	 * 変更メールアドレス取得メソッド
-	 * @return email 
+	 * @return 変更メールアドレス 
 	 */
 	public String getEmail(){
 		return email;
@@ -61,14 +60,13 @@ public class AdminUserSelectDTO {
 	 * 変更パスワード格納メソッド
 	 * 
 	 * @param password
-	 *            変更パスワード
 	 */
 	public void setPassword(String password){
 		this.password = password;
 	}
 	/**
 	 * 変更パスワード取得メソッド
-	 * @return password
+	 * @return 変更パスワード
 	 */
 	public String getPassword(){
 		return password;
@@ -78,14 +76,13 @@ public class AdminUserSelectDTO {
 	 * 変更ユーザー名格納メソッド
 	 * 
 	 * @param name
-	 *            変更ユーザー名
 	 */
 	public void setName(String name){
 		this.name = name;
 	}
 	/**
 	 * 変更ユーザー名取得メソッド
-	 * @return name
+	 * @return 変更ユーザー名
 	 */
 	public String getName(){
 		return name;
@@ -95,14 +92,13 @@ public class AdminUserSelectDTO {
 	 * 変更電話番号格納メソッド
 	 * 
 	 * @param telNum
-	 *            変更電話番号
 	 */
 	public void setTelNum(String telNum){
 		this.telNum = telNum;
 	}
 	/**
 	 * 変更電話番号取得メソッド
-	 * @return telNum
+	 * @return 変更電話番号
 	 */
 	public String getTelNum(){
 		return telNum;
@@ -112,14 +108,13 @@ public class AdminUserSelectDTO {
 	 * 変更郵便番号格納メソッド
 	 * 
 	 * @param postalCode
-	 *            変更郵便番号
 	 */
 	public void setPostalCode(String postalCode){
 		this.postalCode = postalCode;
 	}
 	/**
 	 * 変更郵便番号取得メソッド
-	 * @return postalCode
+	 * @return 変更郵便番号
 	 */
 	public String getPostalCode(){
 		return postalCode;
@@ -129,14 +124,13 @@ public class AdminUserSelectDTO {
 	 * 変更住所格納メソッド
 	 * 
 	 * @param address
-	 *            変更住所
 	 */
 	public void setAddress(String address){
 		this.address = address;
 	}
 	/**
 	 * 変更住所取得メソッド
-	 * @return address
+	 * @return 変更住所
 	 */
 	public String getAddress(){
 		return address;
@@ -146,14 +140,13 @@ public class AdminUserSelectDTO {
 	 * 変更更新日格納メソッド
 	 * 
 	 * @param renewDate
-	 *            変更更新日
 	 */
 	public void setRenewDate(String renewDate){
 		this.renewDate = renewDate;
 	}
 	/**
 	 * 変更更新日取得メソッド
-	 * @return renewDate
+	 * @return 変更更新日
 	 */
 	public String getRenewDate(){
 		return renewDate;
