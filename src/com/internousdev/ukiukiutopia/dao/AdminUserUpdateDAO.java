@@ -28,10 +28,10 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザー情報を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception メールアドレスを編集できません。
 	 */
 	public int updateEmail(String purposeEmail, String updateEmail) throws Exception {
 
@@ -63,11 +63,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーのパスワードを編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updatePassword
+	 * @param purposeEmail	編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updatePassword 新しいパスワード
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception パスワードを編集できません。
 	 */
 	public int updatePassword(String purposeEmail, String updatePassword) throws Exception {
 
@@ -97,11 +97,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーのユーザー名を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updateName
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updateName 新しいユーザー名
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception ユーザー名を編集できません。
 	 */
 	public int updateName(String purposeEmail, String updateName) throws Exception {
 
@@ -132,11 +132,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーの電話番号を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updateTelNum
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updateTelNum 新しい電話番号
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception 電話番号を編集できません。
 	 */
 	public int updateTelNum(String purposeEmail, String updateTelNum) throws Exception {
 
@@ -168,11 +168,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーの郵便番号を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updatePostalCode
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updatePostalCode 新しい郵便番号
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception 郵便番号を編集できません。
 	 */
 	public int updatePostalCode(String purposeEmail, String updatePostalCode) throws Exception {
 
@@ -203,11 +203,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーの住所を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updateAddress
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updateAddress 新しい住所
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception 住所を編集できません。
 	 */
 	public int updateAddress(String purposeEmail, String updateAddress) throws Exception {
 
@@ -240,11 +240,11 @@ public class AdminUserUpdateDAO {
 	/**
 	 * 選択したユーザーの更新日を編集するメソッド
 	 * 
-	 * @param purposeEmail
-	 * @param updateEmail
-	 * @param updateRenewDate
+	 * @param purposeEmail 編集するメールアドレス
+	 * @param updateEmail 新しいメールアドレス
+	 * @param updateRenewDate 新しい更新日
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception 更新日を編集できません。
 	 */
 	public int updateRenewDate(String purposeEmail, String updateRenewDate) throws Exception {
 
