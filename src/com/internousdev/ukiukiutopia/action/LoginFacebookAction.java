@@ -18,9 +18,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import javafx.beans.binding.SetExpression;
 
 /**
+ *  FaceBookから情報を取得し、sessionに格納する為のクラス
  * @author A.Masui
  * @version 1.1
- * @since 1.0 FaceBookから情報を取得し、sessionに格納する為のクラス
+ * @since 1.0
  */
 public class LoginFacebookAction extends ActionSupport
 		implements SessionAware, ServletResponseAware, ServletRequestAware {
@@ -36,17 +37,17 @@ public class LoginFacebookAction extends ActionSupport
 	static final String NETWORK_NAME = "Facebook";
 
 	/**
-	 * レスポンス
+	 * レスポンス情報
 	 */
 	private HttpServletRequest request;
 
 	/**
-	 * リクエスト
+	 * リクエスト情報
 	 */
 	private HttpServletResponse response;
 
 	/**
-	 * セッション
+	 * セッション情報
 	 */
 	private Map<String, Object> session;
 
@@ -65,16 +66,12 @@ public class LoginFacebookAction extends ActionSupport
 			session.put("OAuthId", dto.getUserId());
 			session.put("OAuthName", dto.getUserName());
 			session.put("OAuthEmail", dto.getUserEmail());
-			System.out.println(session.get("OAuthEmail"));
 			rtn = SUCCESS;
 			return rtn;
 		}
 
 		session.put("OAuthId", userMap.get("id"));
 		session.put("OAuthName", "FaceBook");
-		System.out.println(session.get("OAuthName"));
-		System.out.println(session.get("OAuthId"));
-		System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
 		rtn = SUCCESS;
 		return rtn;
 	}
@@ -103,7 +100,8 @@ public class LoginFacebookAction extends ActionSupport
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return sessionMap セッションマップ
+	 * @return sessionMap 
+	 * 			セッションマップ
 	 */
 	public Map<String, Object> getSession() {
 		return session;

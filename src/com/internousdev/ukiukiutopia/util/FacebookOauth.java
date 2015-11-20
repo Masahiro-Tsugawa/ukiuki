@@ -20,10 +20,11 @@ import facebook4j.FacebookFactory;
 import facebook4j.auth.AccessToken;
 
 /**
+ * FaceBookでログインする為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- *
+ *　
  */
 public class FacebookOauth extends ActionSupport {
 
@@ -48,10 +49,11 @@ public class FacebookOauth extends ActionSupport {
 	private static final String CALLBACK_PATH = "/login-facebook-action";
 
 	/**
-	 * @param request リクエスト
-	 * @param response レスポンス
-	 * @throws ServletException　　
-	 * @throws IOException　例外
+	 *　認証用 リクエストトークンの取得メソッド
+	 * @param request リクエスト情報
+	 * @param response レスポンス情報
+	 * @throws ServletException　サーブレットの例外
+	 * @throws IOException　AppID,シークレットIDの入力間違いによる例外　
 	 */
 	public void getRequestToken(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -68,10 +70,11 @@ public class FacebookOauth extends ActionSupport {
 	}
 
 	/**
-	 * @param request リクエスト
-	 * @param response レスポンス
-	 * @return　response レスポンス
-	 * @throws ServletException
+	 * リクエスト用メソッド
+	 * @param request リクエスト情報
+	 * @param response レスポンス情報
+	 * @return　response レスポンス情報
+	 * @throws ServletException　サーブレットの例外
 	 * @throws Exception　例外
 	 */
 	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response)

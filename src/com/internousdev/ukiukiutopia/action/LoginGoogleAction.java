@@ -13,9 +13,10 @@ import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ * FaceBookから情報を取得し、sessionに格納する為のクラス
  * @author A.Masui
  * @version 1.1
- * @since 1.0 FaceBookから情報を取得し、sessionに格納する為のクラス
+ * @since 1.0 
  */
 public class LoginGoogleAction extends ActionSupport implements ServletRequestAware, SessionAware {
 
@@ -30,12 +31,12 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	static final String NETWORK_NAME = "google";
 
 	/**
-	 * セッション
+	 * セッション情報
 	 */
 	private Map<String, Object> session;
 
 	/**
-	 * リクエスト
+	 * リクエスト情報
 	 */
 	private HttpServletRequest request;
 
@@ -71,7 +72,8 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return sessionMap セッションマップ
+	 * @return sessionMap 
+	 * 				セッションマップ
 	 */
 	public Map<String, Object> getSession() {
 		return session;

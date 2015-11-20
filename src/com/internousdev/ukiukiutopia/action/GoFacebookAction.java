@@ -30,12 +30,12 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 	private static final long serialVersionUID = 8410788671527276072L;
 
 	/**
-	 * リクエスト
+	 * リクエスト情報
 	 */
 	private HttpServletRequest request;
 
 	/**
-	 * レスポンス
+	 * レスポンス情報
 	 */
 	private HttpServletResponse response;
 
@@ -47,10 +47,10 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 
 	/**
 	 * FaceBookの情報の照合メソッド
-	 * @param request リクエスト
-	 * @param response レスポンス
+	 * @param request リクエスト情報
+	 * @param response レスポンス情報
 	 * @throws ServletException　実装されているインターフェイス
-	 * @throws IOException　例外
+	 * @throws IOException　FaceBookのID、シークレットIDの照合失敗した場合の例外
 	 * 
 	 */
 	public void getToken(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {

@@ -20,9 +20,19 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GoMyPageAction extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 5755890205879217612L;
 	
+	/**
+	 * セッションの表示
+	 */
 	private Map<String, Object> session;
 	
+	/**
+	 * リストをインスタンス化
+	 */
 	private List<PurchaseHistoryDTO> historylList = new ArrayList<PurchaseHistoryDTO>();
+	
+	/**
+	 * エラーの戻り値
+	 */
 	private String result = ERROR;
 	
 	/**
@@ -89,7 +99,10 @@ public class GoMyPageAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-	
+	/**
+	 * セッションの値を設定するメソッド
+	 * @param sessionの値を格納
+	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

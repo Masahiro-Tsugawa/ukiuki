@@ -29,7 +29,7 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	/**
 	 * 管理者ID
 	 */
-	int id;
+	private int id;
 	/***
 	 * ログイン状態変更の結果
 	 */

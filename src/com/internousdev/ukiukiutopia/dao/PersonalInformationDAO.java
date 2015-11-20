@@ -17,7 +17,11 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
     * @since 1.0
     */
 public class PersonalInformationDAO {
-
+    
+	/**
+	 * データベース接続
+	 * 結果を表示
+	 */
 	Connection con;
 	boolean result;
 
@@ -106,7 +110,7 @@ public class PersonalInformationDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} // finally
+		}
 		return result;
 	}
 	

@@ -10,6 +10,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
  * DBからチケット情報の削除を実行する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
@@ -22,60 +23,62 @@ public class AdminTicketDeleteDAO {
 	/***
 	 * 実行結果
 	 */
-	boolean result=false;
+	boolean result = false;
 
 	/**
 	 * 管理者画面から任意のチケット情報を販売中止に変更するメソッド
-	 * @param deleteId 
+	 * 
+	 * @param deleteId
 	 * @return rsIsSale 1以上なら販売中止に変更成功
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public int updateIsSale(int deleteId)throws Exception{
-		
-		con = DBConnector.getConnection();
-		int rsIsSale=0;
-		
-		try{
-		String sql = "update ticket set is_sale=false where id=?";
+	public int updateIsSale(int deleteId) throws Exception {
 
-		PreparedStatement ps;
-		ps = con.prepareStatement(sql);
-		ps.setInt(1,deleteId);
-		rsIsSale = ps.executeUpdate();
-		
-		}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		con.close();
-	}
+		con = DBConnector.getConnection();
+		int rsIsSale = 0;
+
+		try {
+			String sql = "update ticket set is_sale=false where id=?";
+
+			PreparedStatement ps;
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, deleteId);
+			rsIsSale = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		}
 		return rsIsSale;
 	}
-	
+
 	/**
 	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
-	 * @param deleteId 
+	 * 
+	 * @param deleteId
 	 * @return true
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public int updateIsShow(int deleteId)throws Exception{
-		
+	public int updateIsShow(int deleteId) throws Exception {
+
 		con = DBConnector.getConnection();
-		int rsIsShow=0;
-		
-		try{
-		
-		String sql = "update ticket set is_show=false where id=?";
+		int rsIsShow = 0;
 
-		PreparedStatement ps;
-		ps = con.prepareStatement(sql);
-		ps.setInt(1,deleteId);
-		rsIsShow = ps.executeUpdate();
+		try {
 
-		}catch(Exception e){
-		e.printStackTrace();
-	}finally{
-		con.close();
-	}
+			String sql = "update ticket set is_show=false where id=?";
+
+			PreparedStatement ps;
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, deleteId);
+			rsIsShow = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		}
 		return rsIsShow;
 	}
 }

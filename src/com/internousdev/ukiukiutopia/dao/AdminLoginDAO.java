@@ -1,6 +1,5 @@
 package com.internousdev.ukiukiutopia.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,17 +10,12 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
  * DBから管理者情報の取得を実行する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
  */
 public class AdminLoginDAO {
-
-	/**
-	 * 管理者ID
-	 */
-	int id;
-
 	/**
 	 * 管理者情報を検索するメソッド
 	 * 
@@ -44,12 +38,12 @@ public class AdminLoginDAO {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, password);
-	
+
 			ResultSet rs = ps.executeQuery();
 			rs.next();
 			dtoSelect.setId(rs.getInt("id"));
 			dtoSelect.setName(rs.getString("admin_name"));
-			
+
 			if (rs.next()) {
 
 				rscountSelect = ps.executeUpdate();
@@ -71,6 +65,7 @@ public class AdminLoginDAO {
 
 	/**
 	 * ログイン情報をtrueに編集するメソッド
+	 * 
 	 * @param dtoSelect
 	 * @param id
 	 * @return rscountUpdate 編集結果を取得した回数
@@ -87,9 +82,9 @@ public class AdminLoginDAO {
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1,id);
+			ps.setInt(1, id);
 			rscountUpdate = ps.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

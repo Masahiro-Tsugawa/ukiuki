@@ -23,24 +23,17 @@ public class AdminUserUpdateDAO {
 	/***
 	 * 実行結果
 	 */
-	int rscount = 0;
+	private int rscount = 0;
 
 	/**
 	 * 選択したユーザー情報を編集するメソッド
 	 * 
 	 * @param purposeEmail
 	 * @param updateEmail
-	 * @param updatePassword
-	 * @param updateName
-	 * @param updateTelNum
-	 * @param updatePostalCode
-	 * @param updateAddress
-	 * @param updateRenewDate
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
-	public int updateEmail(String purposeEmail, String updateEmail)
-					throws Exception {
+	public int updateEmail(String purposeEmail, String updateEmail) throws Exception {
 
 		con = DBConnector.getConnection();
 
@@ -73,7 +66,7 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updatePassword
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updatePassword(String purposeEmail, String updatePassword) throws Exception {
@@ -107,7 +100,7 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updateName
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateName(String purposeEmail, String updateName) throws Exception {
@@ -142,7 +135,7 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updateTelNum
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateTelNum(String purposeEmail, String updateTelNum) throws Exception {
@@ -178,7 +171,7 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updatePostalCode
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updatePostalCode(String purposeEmail, String updatePostalCode) throws Exception {
@@ -213,7 +206,7 @@ public class AdminUserUpdateDAO {
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updateAddress
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateAddress(String purposeEmail, String updateAddress) throws Exception {
@@ -239,18 +232,18 @@ public class AdminUserUpdateDAO {
 			e.printStackTrace();
 		} finally {
 			con.close();
-		} 
+		}
 		return rscount;
 
 	}
-	
+
 	/**
 	 * 選択したユーザーの更新日を編集するメソッド
 	 * 
 	 * @param purposeEmail
 	 * @param updateEmail
 	 * @param updateRenewDate
-	 * @return rscount>0:編集成功
+	 * @return 編集の可否
 	 * @throws Exception
 	 */
 	public int updateRenewDate(String purposeEmail, String updateRenewDate) throws Exception {
@@ -268,7 +261,7 @@ public class AdminUserUpdateDAO {
 				ps.setString(2, purposeEmail);
 
 				rscount = ps.executeUpdate();
-			
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

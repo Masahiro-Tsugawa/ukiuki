@@ -20,6 +20,7 @@ import com.mongodb.DBObject;
 
 /**
  * DBから全チケット情報の取得を実行する為のクラス
+ * 
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
@@ -32,7 +33,7 @@ public class AdminTicketSelectDAO {
 	/***
 	 * 実行結果
 	 */
-	boolean result=false;
+	boolean result = false;
 	/***
 	 * DBから取得した全チケット情報を格納するリスト
 	 */
@@ -40,8 +41,9 @@ public class AdminTicketSelectDAO {
 
 	/**
 	 * 全チケット情報を検索するメソッド
-	 * @return true
-	 * @throws Exception 
+	 * 
+	 * @return 全チケット情報取得の可否
+	 * @throws Exception
 	 */
 	public boolean select() throws Exception {
 		// MySQLと接続
@@ -55,13 +57,13 @@ public class AdminTicketSelectDAO {
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				AdminTicketSelectDTO dto = new AdminTicketSelectDTO();
 				BasicDBObject query = new BasicDBObject("ticket_id", rs.getInt(1));
 				DBCursor cursor = coll.find(query);
 				DBObject doc = cursor.next();
-				
+
 				dto.setId(rs.getInt(1));
 				dto.setName(rs.getString(2));
 				dto.setPrice(rs.getFloat(3));
@@ -70,11 +72,11 @@ public class AdminTicketSelectDAO {
 				dto.setRenewDate(rs.getString(6));
 				dto.setTicketInfo((String) doc.get("ticket_info"));
 
-				ticketList.add(dto); 
-				
+				ticketList.add(dto);
+
 				result = true;
-		}
-		}catch (Exception e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
@@ -84,11 +86,11 @@ public class AdminTicketSelectDAO {
 
 	/**
 	 * 全チケット情報を取得するメソッド
+	 * 
 	 * @return boughtList
 	 */
 	public List<AdminTicketSelectDTO> getTicketList() {
 		return ticketList;
 	}
-
 
 }
