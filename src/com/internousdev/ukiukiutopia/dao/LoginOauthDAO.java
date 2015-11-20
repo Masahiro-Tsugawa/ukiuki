@@ -4,17 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import com.internousdev.ukiukiutopia.dto.LoginOauthDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
+ * Oauthでログインに必要な情報を取得する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- *　取得した情報を格納、照合、insertする為のクラス
  */
 public class LoginOauthDAO {
 
@@ -29,7 +26,7 @@ public class LoginOauthDAO {
 	 * @param userUniqueId OAuthから取得したユニークID
 	 * @param oauthName OAuthから取得した名前
 	 * @param oauthEmail OAuthから取得したEmail
-	 * @param NETWORK_NAME SNS名
+	 * @param NETWORK_NAME OAuthで使用するSNS名
 	 * @return result　データベースの検索結果
 	 */
 	public boolean select(String userUniqueId, String NETWORK_NAME) {
@@ -64,8 +61,7 @@ public class LoginOauthDAO {
 	/**
 	 * DTO取得メソッド
 	 * 
-	 * @return dto
-	 * 　　　　　　　　　　ログイン顧客情報
+	 * @return dto　ログイン顧客情報
 	 */
 	public LoginOauthDTO getLoginOauthDTO() {
 		return dto;
@@ -74,8 +70,7 @@ public class LoginOauthDAO {
 	/**
 	 * DTO格納メソッド
 	 * 
-	 * @param dto
-	 *            ログイン顧客情報
+	 * @param dto ログイン顧客情報
 	 */
 	public void setLoginOauthDTO(LoginOauthDTO dto) {
 		this.dto = dto;

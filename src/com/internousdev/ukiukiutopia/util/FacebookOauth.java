@@ -49,7 +49,7 @@ public class FacebookOauth extends ActionSupport {
 	private static final String CALLBACK_PATH = "/login-facebook-action";
 
 	/**
-	 *　認証用 リクエストトークンの取得メソッド
+	 * ユーザー情報を取得するメソッド
 	 * @param request リクエスト情報
 	 * @param response レスポンス情報
 	 * @throws ServletException　サーブレットの例外
@@ -106,7 +106,10 @@ public class FacebookOauth extends ActionSupport {
 		Map<String, String> userMap = (Map<String, String>) JSONValue.parse(apiResult);
 		return userMap;
 	}
-
+	/**
+	 * リクエスト用メソッド
+	 * @throws IOException 例外
+	 */
 	private String httpRequest(URL url) throws IOException {
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setDoOutput(true);

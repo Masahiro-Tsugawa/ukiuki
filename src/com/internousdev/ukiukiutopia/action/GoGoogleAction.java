@@ -13,10 +13,11 @@ import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
+ *  GoGoogleAction Googleでログインする為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
- *　googleの認証画面へ遷移する為のクラス
+ *
  */
 public class GoGoogleAction extends ActionSupport implements ServletResponseAware, ServletRequestAware, SessionAware {
 
@@ -39,7 +40,11 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	 * リクエスト情報
 	 */
 	private HttpServletRequest request;
-
+	/**
+	 * GoogleからリクエストTokenを取得メソッド
+	 * @throws Exception 例外処理
+	 * @return String
+	 */
 	public String execute() throws Exception {
 		GoogleOauth googleOauth = new GoogleOauth();
 		if (!googleOauth.getRequestToken(request, response)) {
@@ -71,7 +76,7 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	}
 	/**
 	 * リクエスト格納メソッド
-	 * @param request リクエスト情報
+	 * @param request リクエスト情報　
 	 */
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;

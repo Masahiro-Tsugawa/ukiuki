@@ -51,6 +51,10 @@ public class LoginFacebookAction extends ActionSupport
 	 */
 	private Map<String, Object> session;
 
+	/**
+	 * Facebook認証の実行メソッド
+	 * @return String
+	 */
 	public String execute() throws Exception {
 		String rtn = ERROR;
 		FacebookOauth oauth = new FacebookOauth();

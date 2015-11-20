@@ -13,7 +13,7 @@ import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * FaceBookから情報を取得し、sessionに格納する為のクラス
+ *  LoginGoogleAction Googleでログインする為のクラス
  * @author A.Masui
  * @version 1.1
  * @since 1.0 
@@ -39,7 +39,10 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 	 * リクエスト情報
 	 */
 	private HttpServletRequest request;
-
+	/**
+	 * Google認証の実行メソッド
+     * @return String
+	 */
 	public String execute() throws Exception {
 		String rtn = ERROR;
 

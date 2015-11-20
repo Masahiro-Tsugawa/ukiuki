@@ -19,7 +19,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * Googleでログインするためのメソッド
+ *　GoogleOAuth Googleでログインする為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
@@ -48,7 +48,7 @@ public class GoogleOauth extends ActionSupport {
 	private static final Token EMPTY_TOKEN = null;
 	
 	/**
-	 * 認証用リクエストトークン取得メソッド
+	 * ユーザー情報を取得するメソッド
 	 * @param request リクエスト
 	 * @param response レスポンス
 	 * @return result　結果
@@ -81,9 +81,9 @@ public class GoogleOauth extends ActionSupport {
 	}
 
 	/**
-	 * リクエスト用メソッド
-	 * @param request レスポンス
-	 * @return　result　結果
+	 * ユーザー情報のMAPを取得するメソッド
+	 * @param request リクエスト
+	 * @return　result　map　結果
 	 */
 	public Map<String,String> getAccessToken(HttpServletRequest request){
 		Map<String,String> map;

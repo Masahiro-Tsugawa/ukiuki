@@ -54,10 +54,10 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 	public String userLoginId = null;
 
 
+
 	/**
-	 * 実行メソッド
-	 * @return result
-	 * @see TwitterAccessToken
+	 * Twitter認証の実行メソッド
+	 * @return String
 	 */
 	public String execute() {
 		TwitterAccessToken twitter = new TwitterAccessToken();
@@ -142,7 +142,7 @@ public class LoginTwitterAction extends ActionSupport implements ServletResponse
 
 	/**
 	 * セッション取得メソッド
-	 * @return Session
+	 * @return Session セッション
 	 */
 	public Map<String, Object> getSession() {
 		return session;

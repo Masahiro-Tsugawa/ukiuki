@@ -1,7 +1,7 @@
 package com.internousdev.ukiukiutopia.dto;
 
 /**
- *　Oauthでログインするための情報を取得、格納する為のクラス
+ *　Oauthで顧客情報を取得、格納する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　
@@ -19,7 +19,7 @@ public class LoginOauthDTO {
 	 */
 	private String userId;
 	/**
-	 * OAuthから取得した名前
+	 * OAuthから取得した顧客名
 	 * 
 	 */
 	private String userEmail;
@@ -65,8 +65,7 @@ public class LoginOauthDTO {
 	/**
 	 * 顧客ID取得メソッド
 	 * 
-	 * @return userId
-	 * 				顧客ID
+	 * @return userId　顧客ID
 	 */
 	public String getUserId() {
 		return userId;
@@ -74,9 +73,7 @@ public class LoginOauthDTO {
 
 	/**
 	 * 顧客ID格納メソッド
-	 * 
-	 * @param userId
-	 *            顧客ID
+	 * @param userId 顧客ID
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
