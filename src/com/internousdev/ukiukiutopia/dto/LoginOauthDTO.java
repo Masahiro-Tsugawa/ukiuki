@@ -55,8 +55,6 @@ public class LoginOauthDTO {
 	/**
 	 * OAUthから取得したEmailの格納メソッド
 	 * @param userEmail 
-	 * 
-	 *
 	 */
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;

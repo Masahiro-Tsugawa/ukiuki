@@ -61,7 +61,7 @@ public class LoginOauthDAO {
 	 * 
 	 * @return dto　ログイン顧客情報
 	 */
-	public LoginOauthDTO getLoginOauthDTO() {
+	public LoginOauthDTO getDTO() {
 		return dto;
 	}
 
@@ -70,7 +70,7 @@ public class LoginOauthDAO {
 	 * 
 	 * @param dto ログイン顧客情報
 	 */
-	public void setLoginOauthDTO(LoginOauthDTO dto) {
+	public void setDTO(LoginOauthDTO dto) {
 		this.dto = dto;
 	}
 

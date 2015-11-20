@@ -55,7 +55,7 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 
 		userMap.get("id");
 		LoginOauthDAO dao = new LoginOauthDAO();
-		LoginOauthDTO dto = dao.getLoginOauthDTO();
+		LoginOauthDTO dto = dao.getDTO();
 		session.put("OAuthId", dto.getUserId());
 		session.put("OAuthName", "google");
 		rtn = SUCCESS;

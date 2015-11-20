@@ -62,7 +62,7 @@ public class LoginFacebookAction extends ActionSupport
 		String uniqueId = userMap.get("id");
 		LoginOauthDAO dao = new LoginOauthDAO();
 		if (dao.select(uniqueId, NETWORK_NAME)) {
-			LoginOauthDTO dto = dao.getLoginOauthDTO();
+			LoginOauthDTO dto = dao.getDTO();
 			session.put("OAuthId", dto.getUserId());
 			session.put("OAuthName", dto.getUserName());
 			session.put("OAuthEmail", dto.getUserEmail());
