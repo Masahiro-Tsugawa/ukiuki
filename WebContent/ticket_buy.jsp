@@ -48,6 +48,9 @@
 				total = total + parseInt($("#subTotal9").text());
 			$("#total").text(total);
 		}
+		$('s:radio[name=payInfo]').change(function(){
+			$("#creditRadio").toggle();
+		});
 	});
 </script>
 </head>
@@ -135,29 +138,27 @@
 				</tr>
 				
 				<tr>
-					<td align="right" colspan="2"><label><s:radio name="payInfo" list="payInfoList"
+					<td id="creditRadio" align="right" colspan="2"><label><s:radio name="payInfo" list="payInfoList"
 								value="radio" /></label></td>
 				</tr>
 				
-                <div id = creditCardInfo>
                 <tr>
-					<td align="right" colspan="1"><s:text name="ticketBuy.creditNumber" /></td>
-					<td align="right" class="data"><s:textfield name="creditNum" /></td>
+					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.creditNumber" /></td>
+					<td id="creditRadio" align="right" class="data"><s:textfield name="creditNum" /></td>
 				</tr>
 				
 				<tr>
-					<td align="right" colspan="1"><s:text name="ticketBuy.expirationDate" /></td>
-					<td align="right" class="data">
+					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.expirationDate" /></td>
+					<td id="creditRadio" align="right" class="data">
 					 <s:text name="ticketBuy.month" /><s:select id="month" list="monthList" name="creditMonth" />
 				     <s:text name="ticketBuy.year" /><s:select id="year" list="yearList" name="creditYear" />
 					</td>
 				</tr>
 				
 				<tr>
-					<td align="right" colspan="1"><s:text name="ticketBuy.securityCode" /></td>
-					<td align="right" class="data"><s:textfield name="secureCode" /></td>
+					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.securityCode" /></td>
+					<td id="creditRadio" align="right" class="data" class="credit"><s:textfield name="secureCode" /></td>
 				</tr>
-				</div>
 				
 			</table>
 			
