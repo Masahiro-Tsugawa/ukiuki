@@ -55,7 +55,7 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 	 * @param response レスポンス情報
 	 * @throws ServletException　実装されているインターフェイス
 	 * @throws IOException　FaceBookのID、シークレットIDの照合失敗した場合の例外
-	　 * @param　setServletRequest
+	　* @param　setServletRequest　
 	 * 
 	 */
 	public void getToken(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {

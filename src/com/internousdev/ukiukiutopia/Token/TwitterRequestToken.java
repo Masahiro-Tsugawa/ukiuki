@@ -37,7 +37,7 @@ public class TwitterRequestToken {
 
 	/**
 	* 認証用トークン取得メソッド
-	* @return result
+	* @return result　結果
 	* @param response レスポンス
 	* @param request リクエスト
 	* @throws TwitterException 例外処理
