@@ -137,7 +137,7 @@ public class AdminUserSelectDTO {
 	}
 
 	/**
-	 * 変更更新日格納メソッド
+	 * 更新日格納メソッド
 	 * 
 	 * @param renewDate
 	 */
@@ -145,8 +145,8 @@ public class AdminUserSelectDTO {
 		this.renewDate = renewDate;
 	}
 	/**
-	 * 変更更新日取得メソッド
-	 * @return 変更更新日
+	 * 更新日取得メソッド
+	 * @return 更新日
 	 */
 	public String getRenewDate(){
 		return renewDate;

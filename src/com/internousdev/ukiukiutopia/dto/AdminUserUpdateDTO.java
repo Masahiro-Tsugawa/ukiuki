@@ -63,7 +63,6 @@ public class AdminUserUpdateDTO {
 	 * @return 変更パスワード
 	 */
 	public String getUpdatePassword(){
-		System.out.println(updatePassword);
 		return updatePassword;
 	}
 	/**
@@ -144,15 +143,15 @@ public class AdminUserUpdateDTO {
 	}
 
 	/**
-	 * 変更更新日取得メソッド
+	 * 更新日取得メソッド
 	 * 
-	 * @return 変更更新日
+	 * @return 更新日
 	 */
 	public String getUpdateRenewDate(){
 		return updateRenewDate;
 	}
 	/**
-	 * 変更更新日格納メソッド
+	 * 更新日格納メソッド
 	 * 
 	 * @param updateRenewDate
 	 */
