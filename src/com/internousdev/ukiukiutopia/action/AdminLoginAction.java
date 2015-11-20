@@ -98,7 +98,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	/**
 	 * ID格納メソッド
 	 * 
-	 * @param id
+	 * @param id ユーザーID
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -113,7 +113,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 	/**
 	 * 管理者名格納するメソッド
-	 * @param name
+	 * @param name 管理者名
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -128,7 +128,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 	/**
 	 * 管理者パスワード格納するメソッド
-	 * @param password
+	 * @param password 管理者パスワード
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -144,7 +144,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * セッション格納するメソッド
-	 * @param session
+	 * @param session 管理者名を格納する
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -152,7 +152,7 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * ログイン状態取得するメソッド
-	 * @return isLogin
+	 * @return isLogin ログイン状態
 	 */
 	public boolean getIsLogin() {
 		return isLogin;

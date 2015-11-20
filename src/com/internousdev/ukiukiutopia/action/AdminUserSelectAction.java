@@ -79,7 +79,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * 
-	 * @return errorUserSelect
+	 * @return errorUserSelect エラーメッセージ
 	 */
 	public String getErrorUserSelect() {
 		return errorUserSelect;
@@ -99,7 +99,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	 * セッションに格納するメソッド
 	 * 
 	 * @param session
-	 *            セッション
+	 *            検索したいユーザーのメールアドレスをセッションに格納
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -108,7 +108,7 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	/**
 	 * 編集したいユーザーのメールアドレスを取得するメソッド
 	 * 
-	 * @return selectEmail
+	 * @return selectEmail 編集したいユーザーのメールアドレス
 	 */
 	public String getSelectEmail() {
 		return selectEmail;

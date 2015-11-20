@@ -74,7 +74,7 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	/**
 	 * 管理者ID取得メソッド
 	 * 
-	 * @return id
+	 * @return id 管理者ID
 	 */
 	public int getId() {
 		return id;
@@ -90,7 +90,7 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	}
 	/**
 	 * エラーメッセージを取得するメソッド
-	 * @return errorLogout
+	 * @return errorLogout エラーメッセージ
 	 */
 	public String getErrorLogout(){
 		return errorLogout;
@@ -105,14 +105,14 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	
 	/**
 	 * セッション取得するメソッド
-	 * @return session
+	 * @return session 管理者IDをセッションに取得
 	 */
 	public Map<String, Object> getSession() {
 		return session;
 	}
 	/**
 	 * セッション格納するメソッド
-	 * @param session セッション
+	 * @param session 管理者IDをセッションに格納
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

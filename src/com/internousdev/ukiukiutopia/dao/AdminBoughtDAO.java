@@ -36,9 +36,9 @@ public class AdminBoughtDAO {
 	/**
 	 * 購入情報を検索するメソッド
 	 * 
-	 * @param startDate
-	 * @param endDate
-	 * @param dto
+	 * @param startDate 検索開始年月日
+	 * @param endDate 検索終了年月日
+	 * @param dto DBからチケット購入情報を取得・格納する為のクラス
 	 * @return result true:DBから購入情報取得成功
 	 * @throws Exception
 	 */

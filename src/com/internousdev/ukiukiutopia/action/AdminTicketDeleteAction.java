@@ -65,7 +65,7 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * 
-	 * @return errorTicketDelete
+	 * @return errorTicketDelete エラーメッセージ
 	 */
 	public String getErrorTicketDelete() {
 		return errorTicketDelete;
@@ -84,7 +84,7 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	/**
 	 * 削除したいチケットのID取得するメソッド
 	 * 
-	 * @return deleteId
+	 * @return deleteId 削除したいチケット
 	 */
 	public int getDeleteId() {
 		return deleteId;

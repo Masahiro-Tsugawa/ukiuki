@@ -66,7 +66,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * 
-	 * @return errorUserDelete
+	 * @return errorUserDelete エラーメッセージ
 	 */
 	public String getErrorUserDelete() {
 		return errorUserDelete;
@@ -85,7 +85,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/**
 	 * 削除したいユーザーのメールアドレス取得するメソッド
 	 * 
-	 * @return deleteMail
+	 * @return deleteMail 削除したいユーザーのメールアドレス
 	 */
 	public String getDeleteMail() {
 		return deleteMail;
@@ -104,7 +104,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/**
 	 * セッション取得するメソッド
 	 * 
-	 * @return session
+	 * @return session 削除したいユーザーのメールアドレスをセッションに取得
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -113,8 +113,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/**
 	 * セッション格納するメソッド
 	 * 
-	 * @param session
-	 *            セッション
+	 * @param session 削除したいユーザーのメールアドレスをセッションに格納
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

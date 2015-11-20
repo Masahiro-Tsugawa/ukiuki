@@ -62,7 +62,7 @@ public class AdminTicketSelectAction extends ActionSupport {
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * 
-	 * @return errorTicketSelect
+	 * @return errorTicketSelect エラーメッセージ
 	 */
 	public String getErrorTicketSelect() {
 		return errorTicketSelect;

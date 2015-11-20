@@ -43,7 +43,7 @@ public class AdminTicketSelectDAO {
 	 * 全チケット情報を検索するメソッド
 	 * 
 	 * @return 全チケット情報取得の可否
-	 * @throws Exception
+	 * @throws Exception 全チケット情報を取得できませんでした
 	 */
 	public boolean select() throws Exception {
 		// MySQLと接続
@@ -87,7 +87,7 @@ public class AdminTicketSelectDAO {
 	/**
 	 * 全チケット情報を取得するメソッド
 	 * 
-	 * @return boughtList
+	 * @return boughtList 全チケット情報を格納するリスト
 	 */
 	public List<AdminTicketSelectDTO> getTicketList() {
 		return ticketList;

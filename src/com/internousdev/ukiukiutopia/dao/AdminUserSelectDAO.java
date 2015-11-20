@@ -34,12 +34,12 @@ public class AdminUserSelectDAO {
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 
 	/**
-	 * 購入情報を検索するメソッド
+	 * ユーザー情報を検索するメソッド
 	 * 
 	 * @param selectEmail
-	 * @param dto
+	 * @param dto ユーザー情報を取得・格納するクラス
 	 * @return action true：検索結果を取得成功
-	 * @throws Exception
+	 * @throws Exception ユーザー情報を取得できませんでした
 	 */
 	public boolean select(String selectEmail) throws Exception {
 

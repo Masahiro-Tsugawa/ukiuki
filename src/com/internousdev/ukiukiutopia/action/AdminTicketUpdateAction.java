@@ -120,7 +120,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * 
-	 * @return errorTicketUpdate
+	 * @return errorTicketUpdate エラーメッセージ
 	 */
 	public String getErrorTicketUpdate() {
 		return errorTicketUpdate;
@@ -139,7 +139,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットのID取得するメソッド
 	 * 
-	 * @return updateId
+	 * @return updateId 編集したいチケット
 	 */
 	public int getUpdateId() {
 		return id;
@@ -158,7 +158,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケット名取得するメソッド
 	 * 
-	 * @return updateName
+	 * @return updateName 編集したいチケット名
 	 */
 	public String getUpdateName() {
 		return name;
@@ -177,7 +177,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットの値段取得するメソッド
 	 * 
-	 * @return updatePrice
+	 * @return updatePrice 編集したいチケット
 	 */
 	public float getUpdatePrice() {
 		return price;
@@ -196,7 +196,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットの種類取得するメソッド
 	 * 
-	 * @return updateTicketType
+	 * @return updateTicketType 編集したいチケットの種類
 	 */
 	public String getUpdateTicketType() {
 		return ticketType;
@@ -215,7 +215,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットの販売状態取得するメソッド
 	 * 
-	 * @return updateIsSale
+	 * @return updateIsSale 編集したいチケットの販売状態
 	 */
 	public boolean getUpdateIsSale() {
 		return isSale;
@@ -235,7 +235,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットの詳細取得するメソッド
 	 * 
-	 * @return ticketInformation
+	 * @return ticketInformation 編集したいチケットの詳細
 	 */
 	public String getTicketInformation() {
 		return ticketInformation;
@@ -254,7 +254,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/**
 	 * 編集したいチケットの詳細取得するメソッド
 	 * 
-	 * @return updateRenewDate
+	 * @return updateRenewDate 編集したいチケットの詳細
 	 */
 	public String getUpdateRenewDate() {
 		return renewDate;

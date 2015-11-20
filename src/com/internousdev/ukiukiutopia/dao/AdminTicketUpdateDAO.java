@@ -32,10 +32,10 @@ public class AdminTicketUpdateDAO {
 	/**
 	 * チケット名を変更するメソッド
 	 * 
-	 * @param id
-	 * @param name
+	 * @param id チケットID
+	 * @param name チケット名
 	 * @return 編集の可否
-	 * @throws Exception
+	 * @throws Exception チケットの編集ができませんでした
 	 */
 	public int updateName(int id, String name) throws Exception {
 

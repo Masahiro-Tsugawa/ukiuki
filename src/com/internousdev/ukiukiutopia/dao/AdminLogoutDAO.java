@@ -20,7 +20,7 @@ public class AdminLogoutDAO {
 	/**
 	 * ログイン情報をfalseに編集するメソッド
 	 * 
-	 * @param id
+	 * @param id 管理者ID
 	 * @return 編集結果を取得した回数
 	 */
 	public int update(int id) {

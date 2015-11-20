@@ -28,10 +28,9 @@ public class AdminUserDeleteDAO {
 	/**
 	 * 指定したユーザーの個人情報を削除するメソッド
 	 * 
-	 * @param deleteMail
-	 * @param dto
+	 * @param deleteMail 削除したいユーザーのメールアドレス
 	 * @return 削除成功の可否
-	 * @throws Exception
+	 * @throws Exception ユーザー情報を削除できませんでした
 	 */
 	public int delete(String deleteMail) throws Exception {
 

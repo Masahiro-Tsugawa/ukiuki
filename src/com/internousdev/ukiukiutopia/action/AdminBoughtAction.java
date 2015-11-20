@@ -141,7 +141,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始年情報格納メソッド
 	 * 
-	 * @param fromYear
+	 * @param fromYear 検索開始年
 	 */
 	public void setFromYear(int fromYear) {
 		this.fromYear = fromYear;
@@ -159,7 +159,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始月情報格納メソッド
 	 * 
-	 * @param fromMonth
+	 * @param fromMonth 検索開始月
 	 */
 	public void setFromMonth(int fromMonth) {
 		this.fromMonth = fromMonth;
@@ -177,7 +177,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始日情報格納メソッド
 	 * 
-	 * @param fromDate
+	 * @param fromDate 検索開始日
 	 */
 	public void setFromDate(int fromDate) {
 		this.fromDate = fromDate;
@@ -195,7 +195,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了年情報格納メソッド
 	 * 
-	 * @param toYear
+	 * @param toYear 検索終了年
 	 */
 	public void setToYear(int toYear) {
 		this.toYear = toYear;
@@ -212,7 +212,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了月情報格納メソッド
 	 * 
-	 * @param toMonth
+	 * @param toMonth 検索終了月
 	 */
 	public void setToMonth(int toMonth) {
 		this.toMonth = toMonth;
@@ -230,7 +230,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了日情報格納メソッド
 	 * 
-	 * @param toDate
+	 * @param toDate 検索終了日
 	 */
 	public void settoDate(int toDate) {
 		this.toDate = toDate;
@@ -258,7 +258,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了年月日情報取得メソッド
 	 * 
-	 * @return endDate
+	 * @return endDate 検索終了年月日
 	 */
 	public String getEndDate() {
 		return endDate;

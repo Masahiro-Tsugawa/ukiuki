@@ -28,9 +28,9 @@ public class AdminTicketDeleteDAO {
 	/**
 	 * 管理者画面から任意のチケット情報を販売中止に変更するメソッド
 	 * 
-	 * @param deleteId
+	 * @param deleteId 販売中止したいチケットのID
 	 * @return rsIsSale 1以上なら販売中止に変更成功
-	 * @throws Exception
+	 * @throws Exception 変更ができませんでした
 	 */
 	public int updateIsSale(int deleteId) throws Exception {
 
@@ -56,8 +56,8 @@ public class AdminTicketDeleteDAO {
 	/**
 	 * 管理者画面から任意のチケット情報を非表示に変更するメソッド
 	 * 
-	 * @param deleteId
-	 * @return true
+	 * @param deleteId 販売中止したいチケットのID
+	 * @return 非表示への変更の可否
 	 * @throws Exception
 	 */
 	public int updateIsShow(int deleteId) throws Exception {
