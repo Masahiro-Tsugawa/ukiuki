@@ -73,7 +73,7 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	/***
 	 * チケット実行成功
 	 */
-	int countTicketInformationrmation=0;
+	int countTicketInformation=0;
 	/***
 	 * DAOの実行成功数
 	 */
@@ -118,13 +118,13 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		   }
 		 
 		 if(("".equals(ticketInformation)) == false){
-			 countTicketInformationrmation = dao.updateTicketInformation(id,ticketInformation);
+			 countTicketInformation = dao.updateTicketInformation(id,ticketInformation);
 		   }
 		 
 		 
 		 countRenewDate = dao.updateRenewDate(id,renewDate);
 		 
-		 count = countName + countPrice + countIsSale + countTicketType + countTicketInformationrmation + countRenewDate;
+		 count = countName + countPrice + countIsSale + countTicketType + countTicketInformation + countRenewDate;
 		
 		 if(count<1){
 			 setErrorTicketUpdate("チケット情報の編集に失敗しました");
