@@ -1,7 +1,7 @@
 package com.internousdev.ukiukiutopia.dto;
 
 /**
- * 購入するチケットの情報を格納する為のクラス
+ * 購入するチケットの情報を取得、格納する為のクラス
  * @author  N.Minami
  * @version 1.1
  * @since 1.0

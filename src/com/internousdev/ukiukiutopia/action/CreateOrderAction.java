@@ -74,7 +74,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 	private String secureCode;
 
 	/**
-	 * チケット購入画面で入力された値をセッションに格納する
+	 * チケット購入画面で入力された値をセッションに格納するメソッド
 	 * @return result すべての処理が完了したか否か
 	 */
 	public String execute() throws Exception {
