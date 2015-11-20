@@ -14,7 +14,7 @@ import com.internousdev.ukiukiutopia.dto.AdminBoughtDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * 管理ページにて購入情報を表示する為のクラス
+ * 管理ページにてチケット注文情報を表示する為のクラス
  * @author S.Mizukoshi
  * @version 1.1
  * @since 1.0
@@ -59,7 +59,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 */
 	private String endDate;
 	/**
-	 * MongoDBから取得した購入情報を入れるリスト
+	 * MongoDBからチケット注文情報を入れるリスト
 	 */
 	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
 	/**
@@ -72,9 +72,9 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	/**
-	 * 購入情報を検索するメソッド
+	 * チケット注文情報を検索するメソッド
 	 * 
-	 * @return SUCCESS
+	 * @return チケット注文情報の有無
 	 */
 	public String execute() throws Exception {
 
@@ -114,7 +114,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * セッション取得メソッド
 	 * 
-	 * @return session
+	 * @return 検索した販売期間の開始年月日と終了年月日
 	 */
 	public Map<String, Object> getSession() {
 		return session;
@@ -123,8 +123,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * セッション格納メソッド
 	 * 
-	 * @param session
-	 *            セッション
+	 * @param 検索した販売期間の開始年月日と終了年月日
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -133,7 +132,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始年情報取得メソッド
 	 * 
-	 * @return fromYear
+	 * @return 検索した販売期間の開始年
 	 */
 	public int getFromYear() {
 		return fromYear;
@@ -143,7 +142,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索開始年情報格納メソッド
 	 * 
 	 * @param fromYear
-	 *            検索開始年
 	 */
 	public void setFromYear(int fromYear) {
 		this.fromYear = fromYear;
@@ -152,7 +150,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始月情報取得メソッド
 	 * 
-	 * @return fromMonth
+	 * @return 検索した販売期間の開始月
 	 */
 	public int getFromMonth() {
 		return fromMonth;
@@ -162,7 +160,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索開始月情報格納メソッド
 	 * 
 	 * @param fromMonth
-	 *            検索開始月
 	 */
 	public void setFromMonth(int fromMonth) {
 		this.fromMonth = fromMonth;
@@ -171,7 +168,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索開始日情報取得メソッド
 	 * 
-	 * @return fromDate
+	 * @return 検索した販売期間の開始日
 	 */
 	public int getFromDate() {
 		return fromDate;
@@ -181,7 +178,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索開始日情報格納メソッド
 	 * 
 	 * @param fromDate
-	 *            検索開始日
 	 */
 	public void setFromDate(int fromDate) {
 		this.fromDate = fromDate;
@@ -190,7 +186,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了年情報取得メソッド
 	 * 
-	 * @return toYear
+	 * @return 検索した販売期間の終了年
 	 */
 	public int getToYear() {
 		return toYear;
@@ -199,7 +195,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了年情報格納メソッド
 	 * 
-	 * @param toYear 検索終了年
+	 * @param toYear
 	 */
 	public void setToYear(int toYear) {
 		this.toYear = toYear;
@@ -207,7 +203,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 検索終了月情報取得メソッド
-	 * @return toMonth
+	 * @return 検索した販売期間の終了月
 	 */
 	public int getToMonth() {
 		return toMonth;
@@ -217,7 +213,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索終了月情報格納メソッド
 	 * 
 	 * @param toMonth
-	 *            検索終了月
 	 */
 	public void setToMonth(int toMonth) {
 		this.toMonth = toMonth;
@@ -226,7 +221,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	/**
 	 * 検索終了日情報取得メソッド
 	 * 
-	 * @return toDate
+	 * @return 検索した販売期間の終了日
 	 */
 	public int gettoDate() {
 		return toDate;
@@ -236,7 +231,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索終了日情報格納メソッド
 	 * 
 	 * @param toDate
-	 *            検索終了日
 	 */
 	public void settoDate(int toDate) {
 		this.toDate = toDate;

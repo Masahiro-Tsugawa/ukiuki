@@ -50,7 +50,7 @@ public class AdminTicketSelectDAO {
 		DBCollection coll = db.getCollection("ticket_detail");
 
 		try {
-			String sql = "select * from ticket where is_show=true";
+			String sql = "select id,name,price,ticket_type,is_sale,renew_date from ticket where is_show=true";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class AdminTicketSelectDAO {
 				dto.setPrice(rs.getFloat(3));
 				dto.setTicketType(rs.getString(4));
 				dto.setIsSale(rs.getBoolean(5));
-				dto.setRenewDate(rs.getString(8));
+				dto.setRenewDate(rs.getString(6));
 				dto.setTicketInfo((String) doc.get("ticket_info"));
 
 				ticketList.add(dto); 
