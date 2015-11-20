@@ -17,6 +17,11 @@ public class LoginOauthDTO {
 	 * ユーザーID
 	 */
 	private int userId;
+	/**
+	 * OAuthから取得した名前
+	 * 
+	 */
+	private String userEmail;
 
 	/**
 	 * 顧客名取得メソッド
@@ -35,6 +40,25 @@ public class LoginOauthDTO {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	
+	/**
+	 * OAUthからEmailを取得するメソッド
+	 * 
+	 * @return userEmail
+	 */
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	/**
+	 * OAUthから取得したEmailの格納メソッド
+	 * @param userEmail 
+	 * 
+	 *
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
 	/**

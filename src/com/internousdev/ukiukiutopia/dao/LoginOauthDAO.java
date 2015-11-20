@@ -28,16 +28,19 @@ public class LoginOauthDAO {
 	 * 取得したユニークIDの照合メソッド
 	 * @param userUniqueId 取得したユニークID
 	 * @param oauthName 取得した名前
+	 * @param oauthEmail 
+	 * @param NETWORK_NAME 
 	 * @return result　結果
 	 */
-	public boolean select(String userUniqueId, String oauthName) {
+	public boolean select(String userUniqueId, String oauthName, String oauthEmail, String NETWORK_NAME) {
 		boolean result = false;
 		con = DBConnector.getConnection();
 		try {
-			String sql = "SELECT id, name FROM user WHERE unique_id = ? AND oauth_name = ?";
+			String sql = "SELECT id, name, email FROM user WHERE unique_id = ? AND oauth_name = ? AND email ";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, userUniqueId);
 			stmt.setString(2, oauthName);
+			stmt.setString(2, oauthEmail);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
