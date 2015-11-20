@@ -33,10 +33,13 @@ public class BuyInformationAction extends ActionSupport implements SessionAware 
 	private List<TicketDataDTO> option = new ArrayList<TicketDataDTO>();
     
 
-	
+	/**
+	 * セッションに格納された購入情報を取得するメソッド
+	 * @return セッションに格納された購入情報を取得できたか否か
+	 */
 	public String execute() {
-		use = (List<TicketDataDTO>) session.get("buyUseTicket");
-		option = (List<TicketDataDTO>) session.get("buyOptionTicket");
+		use.add((TicketDataDTO) session.get("buyUseTicket"));
+		option.add((TicketDataDTO) session.get("buyOptionTicket"));
 		
 		return SUCCESS;
 	}

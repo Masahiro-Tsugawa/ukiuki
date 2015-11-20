@@ -64,7 +64,10 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	 */
 	private String registeredDate;
 	
-	
+	/**
+	 * チケット注文情報をデータベースに格納するメソッド
+	 * @return チケット注文情報がデータベースに格納できたか否か
+	 */
 	public String execute() throws Exception {
 
 		BuyCompleteDAO dao = new BuyCompleteDAO();
@@ -82,9 +85,11 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		orderId = dao.selectOrderId(userId, registeredDate);
 
-		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
-		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
-
+		List<TicketDataDTO> useList = new ArrayList<TicketDataDTO>();
+		useList.add((TicketDataDTO) session.get("buyUseTicket"));
+		List<TicketDataDTO> optionList = new ArrayList<TicketDataDTO>();
+		useList.add((TicketDataDTO) session.get("buyOptionTicket"));
+		
 		for (int i = 0; i < useList.size(); i++) {
 			TicketDataDTO dto = useList.get(i);
 			ticketId = dto.getId();
@@ -107,6 +112,10 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 	}
 
+	/**
+     * セッションの設定メソッド
+     * @param session  
+     */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 

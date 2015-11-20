@@ -40,13 +40,13 @@ public class BuyCompleteDAO {
 	/**
 	 * ユーザーIDを取得するメソッド
 	 * @param email ユーザーメールアドレス
-	 * @return　rs.getInt(1)　DB検索の1列目を取得する
+	 * @return　rs.getInt(1)　ユーザーID
 	 * @throws Exception
 	 */
 	public int selectUserId(String email) throws Exception {
 		Connection con = DBConnector.getConnection();
 
-		String sql = "select * from user where email=?;";
+		String sql = "select id from user where email=?;";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, email);
@@ -61,13 +61,13 @@ public class BuyCompleteDAO {
 	 * 注文IDをDBから取得するメソッド
 	 * @param userId ユーザーID
 	 * @param date 購入を確定した日時
-	 * @return rs.getInt(1)　DB検索の1列目を取得する
+	 * @return rs.getInt(1)　注文ID
 	 * @throws Exception
 	 */
 	public int selectOrderId(int userId, String date) throws Exception {
 		Connection con = DBConnector.getConnection();
 
-		String sql = "select * from `order` where user_id=? and registered_date=?;";
+		String sql = "select id from `order` where user_id=? and registered_date=?;";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, userId);
@@ -83,7 +83,7 @@ public class BuyCompleteDAO {
 	 * 注文情報をDBへ登録するメソッド
 	 * @param userId ユーザーID
 	 * @param date 購入を確定した日時
-	 * @return　rscount アップデート数を返す
+	 * @return　rscount アップデート数
 	 * @throws Exception
 	 */
 	public int insertToOrder(int userId, String date) throws Exception {
@@ -109,7 +109,7 @@ public class BuyCompleteDAO {
 	 * @param sheets 枚数
 	 * @param buyTotal チケット毎の小計
 	 * @param date 購入を確定した日時
-	 * @return　rscount アップデート数を返す
+	 * @return　rscount アップデート数
 	 * @throws Exception
 	 */
 	public int insertToOrderTicket(int orderId, int ticketId, int sheets, int buyTotal, String date) throws Exception {

@@ -2,6 +2,5 @@ com.internousdev.ukiukiutopia.Token
 com.internousdev.ukiukiutopia.action
 com.internousdev.ukiukiutopia.dao
 com.internousdev.ukiukiutopia.dto
-com.internousdev.ukiukiutopia.dto.test
 com.internousdev.ukiukiutopia.mongosetup
 com.internousdev.ukiukiutopia.util
