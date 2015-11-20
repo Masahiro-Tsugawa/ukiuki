@@ -26,8 +26,7 @@ public class CreateUserDAO {
 		boolean result = true;
 		try {
 			conn = (Connection) DBConnector.getConnection();
-			String sql = "SELECT email FROM user WHERE";
-			sql += " email = ?";
+			String sql = "SELECT email FROM user WHERE email = ?";
 			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, userEmail);
 			ResultSet rs = ps.executeQuery();

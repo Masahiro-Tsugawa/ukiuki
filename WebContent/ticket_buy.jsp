@@ -139,6 +139,7 @@
 								value="radio" /></label></td>
 				</tr>
 				
+                <div id = creditCardInfo>
                 <tr>
 					<td align="right" colspan="1"><s:text name="ticketBuy.creditNumber" /></td>
 					<td align="right" class="data"><s:textfield name="creditNum" /></td>
@@ -156,6 +157,7 @@
 					<td align="right" colspan="1"><s:text name="ticketBuy.securityCode" /></td>
 					<td align="right" class="data"><s:textfield name="secureCode" /></td>
 				</tr>
+				</div>
 				
 			</table>
 			
