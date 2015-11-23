@@ -71,8 +71,8 @@
 					</tr>
 					<tr>
 						<td colspan="1" align="center"><s:text name="ticketBuy.id" /></td>
-						<td colspan="2" align="center"><s:text name="ticketBuy.info" /></td>
 						<td colspan="1" align="center"><s:text name="ticketName" /></td>
+						<td colspan="2" align="center"><s:text name="ticketBuy.info" /></td>
 						<td colspan="1" align="center"><s:text name="ticketBuy.price" /></td>
 						<td colspan="1" align="center"><s:text name="number" /></td>
 						<td colspan="1" align="center"><s:text name="total" /></td>
@@ -81,8 +81,8 @@
 						<tr>
 							<td colspan="1" align="center"><s:property value="id" />
 								<s:hidden value="%{id}" name="useId"></s:hidden></td>
-							<td colspan="2" align="center"><s:property value="name" /></td>
-							<td colspan="1" align="left"><s:property value="info" /></td>
+							<td colspan="1" align="center"><s:property value="name" /></td>
+							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
 										value="price" /></span><s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
@@ -98,8 +98,8 @@
 					</tr>
 					<tr>
 						<td colspan="1" align="center"><s:text name="ticketBuy.id" /></td>
-						<td colspan="2" align="center"><s:text name="ticketBuy.info" /></td>
 						<td colspan="1" align="center"><s:text name="ticketName" /></td>
+						<td colspan="2" align="center"><s:text name="ticketBuy.info" /></td>
 						<td colspan="1" align="center"><s:text name="ticketBuy.price" /></td>
 						<td colspan="1" align="center"><s:text name="number" /></td>
 						<td colspan="1" align="center"><s:text name="total" /></td>
@@ -108,8 +108,8 @@
 						<tr>
 							<td colspan="1" align="center"><s:property value="id" />
 								<s:hidden value="%{id}" name="optionId"></s:hidden></td>
-							<td colspan="2" align="center"><s:property value="name" /></td>
-							<td colspan="1" align="left"><s:property value="info" /></td>
+							<td colspan="1" align="center"><s:property value="name" /></td>
+							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
 										value="price" /></span><s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
