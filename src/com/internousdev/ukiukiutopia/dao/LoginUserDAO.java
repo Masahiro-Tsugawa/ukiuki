@@ -9,7 +9,7 @@ import com.internousdev.ukiukiutopia.dto.HomeDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
 /**
- *  @author A.Masui
+ * @author A.Masui
  * @version 1.1　
  * @since 1.0　
  *
@@ -19,27 +19,25 @@ public class LoginUserDAO{
 	/**
 	 * 取得した情報を格納する為のDTO
 	 */
-	private HomeDTO dto=new HomeDTO();
+	private HomeDTO dto = new HomeDTO();
 
 	/**
-	 * selectByUserLoginId
 	 * 入力されたログインIDとパスワードをDBと照合するメソッド
 	 * @param loginId ログインID
 	 * @param password パスワード
 	 * @return result　データベース照合結果
 	 */
 	public boolean selectByUserLoginId(String loginId, String password){
-		boolean result=false;
-		Connection con=DBConnector.getConnection();
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 		try{
 			String sql="select userName,userId,loginId,password,eMail,telNumber,postal,address,uniqueId from userInfo where loginId=? and password=?";
-			PreparedStatement ps =con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,loginId);
 			ps.setString(2, password);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-
 				dto.setUserName(rs.getString(1));
 				dto.setUserId(rs.getInt(2));
 				dto.setLoginId(rs.getString(3));
@@ -49,7 +47,6 @@ public class LoginUserDAO{
 				dto.setPostal(rs.getString(7));
 				dto.setAddress(rs.getString(8));
 				dto.setUniqueId(rs.getString(9));
-
 
 				result=true;
 			}
@@ -65,7 +62,6 @@ public class LoginUserDAO{
 			}
 		}
 		return result;
-
 	}
 
 	/**
@@ -74,16 +70,15 @@ public class LoginUserDAO{
 	 * @return result　データベース照合結果
 	 */
 	public boolean selectByUserUniqueId(String userUniqueId){
-		boolean result=false;
-		Connection con=DBConnector.getConnection();
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 		try{
 			String sql="select userName,userId,loginId,password,eMail,telNumber,postal,address,uniqueId from userInfo where uniqueId = ?";
-			PreparedStatement ps =con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,userUniqueId);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-
 				dto.setUserName(rs.getString(1));
 				dto.setUserId(rs.getInt(2));
 				dto.setLoginId(rs.getString(3));
@@ -93,7 +88,6 @@ public class LoginUserDAO{
 				dto.setPostal(rs.getString(7));
 				dto.setAddress(rs.getString(8));
 				dto.setUniqueId(rs.getString(9));
-
 
 				result=true;
 			}
@@ -109,7 +103,6 @@ public class LoginUserDAO{
 			}
 		}
 		return result;
-
 	}
 
 	/**

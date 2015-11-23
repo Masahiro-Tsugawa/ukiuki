@@ -19,7 +19,6 @@ public class LoginOauthDAO {
 	 * 取得した情報を格納する為のDTO
 	 */
 	private LoginOauthDTO dto = new LoginOauthDTO();
-	Connection con = null;
 	
 	/**
 	 * 取得したユニークIDの照合メソッド
@@ -29,7 +28,7 @@ public class LoginOauthDAO {
 	 */
 	public boolean select(String userUniqueId, String NETWORK_NAME) {
 		boolean result = false;
-		con = DBConnector.getConnection();
+		Connection con = DBConnector.getConnection();
 		try {
 			String sql = "SELECT id, name, email FROM user WHERE unique_id = ? AND oauth_name = ? ";
 			PreparedStatement stmt = con.prepareStatement(sql);

@@ -77,7 +77,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 	 * チケット購入画面で入力された値をセッションに格納するメソッド
 	 * @return result すべての処理が完了したか否か
 	 */
-	public String execute() throws Exception {
+	public String execute(){
 
 		String result = ERROR;
 		boolean resultDAO = false;

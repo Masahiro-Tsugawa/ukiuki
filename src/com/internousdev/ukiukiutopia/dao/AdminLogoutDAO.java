@@ -31,7 +31,7 @@ public class AdminLogoutDAO {
 		try {
 
 			String sql = "update admin set is_login=false where id=?";
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);

@@ -18,16 +18,15 @@ public class CreateUserDAO {
     /**
      * 新規登録メールアドレスが既にDBに登録されてないか確かめるメソッド
      * @param userEmail 登録されているメールアドレス
-     * @return 既存アドレスがあるかの有無
+     * @return result 既存アドレスがあるかの有無
      */
 	public boolean select(String userEmail) {
 
-		Connection conn = null;
+		Connection conn = DBConnector.getConnection();
 		boolean result = true;
 		try {
-			conn = (Connection) DBConnector.getConnection();
 			String sql = "SELECT email FROM user WHERE email = ?";
-			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, userEmail);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
@@ -50,7 +49,7 @@ public class CreateUserDAO {
 	
 	/**
 	 * 新規登録メールアドレスを取得するメソッド
-	 * @return 新規登録メールアドレス
+	 * @return email 新規登録メールアドレス
 	 */
 	public String getEmail() {
 		return email;

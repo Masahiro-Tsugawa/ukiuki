@@ -30,7 +30,7 @@ public class LoginFacebookAction extends ActionSupport
 	/**
 	 * ネットワークネーム
 	 */
-	static final String NETWORK_NAME = "Facebook";
+	static final String NETWORK_NAME = "FaceBook";
 
 	/**
 	 * レスポンス情報
@@ -48,16 +48,16 @@ public class LoginFacebookAction extends ActionSupport
 	private Map<String, Object> session;
 
 	/**
-	 * Facebook認証の実行メソッド
-	 * @return rtn
+	 * FaceBook認証の実行メソッド
+	 * @return result FaceBook認証ができたか否か
 	 */
 	public String execute() throws Exception {
-		String rtn = ERROR;
+		String result = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
 
 		if (userMap == null) {
-			return rtn;
+			return result;
 		}
 		String uniqueId = userMap.get("id");
 		LoginOauthDAO dao = new LoginOauthDAO();
@@ -66,14 +66,14 @@ public class LoginFacebookAction extends ActionSupport
 			session.put("OAuthId", dto.getUserId());
 			session.put("OAuthName", dto.getUserName());
 			session.put("OAuthEmail", dto.getUserEmail());
-			rtn = SUCCESS;
-			return rtn;
+			result = SUCCESS;
+			return result;
 		}
 
 		session.put("OAuthId", userMap.get("id"));
-		session.put("OAuthName", "Facebook");
-		rtn = SUCCESS;
-		return rtn;
+		session.put("OAuthName", NETWORK_NAME);
+		result = SUCCESS;
+		return result;
 	}
 
 	/**
@@ -93,15 +93,6 @@ public class LoginFacebookAction extends ActionSupport
 	 */
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
-	}
-
-	/**
-	 * セッション取得メソッド
-	 * 
-	 * @return session セッション
-	 */
-	public Map<String, Object> getSession() {
-		return session;
 	}
 
 	/**

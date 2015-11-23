@@ -26,11 +26,7 @@ public class AdminTicketSelectAction extends ActionSupport {
 	/***
 	 * チケットの一覧を格納するリスト
 	 */
-	public List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
-	/***
-	 * 実行結果
-	 */
-	public String result = ERROR;
+	private List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
 
 	/***
 	 * チケット一覧を取得できなかった際のエラーメッセージ
@@ -44,23 +40,18 @@ public class AdminTicketSelectAction extends ActionSupport {
 	 */
 	public String execute() {
 
+		String result = ERROR;
 		AdminTicketSelectDAO dao = new AdminTicketSelectDAO();
-		boolean resultDAO=false;
-		try {
-			resultDAO = dao.select();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		boolean resultDAO = dao.select();
 
 		if (resultDAO == false) {
 			setErrorTicketSelect("チケット一覧の取得に失敗しました");
-			result = ERROR;
+			return result;
 		}
 
-		if (resultDAO) {
-			ticketList = dao.getTicketList();
-			result = SUCCESS;
-		}
+		ticketList = dao.getTicketList();
+		result = SUCCESS;
+
 		return result;
 	}
 
@@ -80,6 +71,22 @@ public class AdminTicketSelectAction extends ActionSupport {
 	 */
 	public void setErrorTicketSelect(String errorTicketSelect) {
 		this.errorTicketSelect = errorTicketSelect;
+	}
+
+	/**
+	 * チケットの一覧を格納するリストを取得するメソッド
+	 * @return ticketList チケットの一覧を格納するリスト
+	 */
+	public List<AdminTicketSelectDTO> getTicketList() {
+		return ticketList;
+	}
+
+	/**
+	 * チケットの一覧を格納するリストを格納するメソッド
+	 * @param ticketList チケットの一覧を格納するリスト
+	 */
+	public void setTicketList(List<AdminTicketSelectDTO> ticketList) {
+		this.ticketList = ticketList;
 	}
 
 }

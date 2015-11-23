@@ -69,7 +69,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入画面に表示する情報をリストなどに格納するメソッド
 	 * @return result すべての処理が完了したか否か
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 
 		String result = ERROR;
 
@@ -190,7 +190,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 購入枚数選択用のリスト取得格納メソッド
-	 * @param sheetsList 購入枚数選択用のリスト取得
+	 * @param sheetsList 購入枚数選択用のリスト
 	 */
 	public void setSheetsList(HashMap<Integer, String> sheetsList) {
 		this.sheetsList = sheetsList;
@@ -206,7 +206,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * クレジットカードの有効期限の月選択用のリスト取得格納メソッド
-	 * @param monthList クレジットカードの有効期限の月選択用のリスト取得
+	 * @param monthList クレジットカードの有効期限の月選択用のリスト
 	 */
 	public void setMonthList(HashMap<String, String> monthList) {
 		this.monthList = monthList;

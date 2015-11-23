@@ -3,6 +3,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +33,11 @@ public class BuyTicketDataDAO {
 
 	/**
 	 * 購入する施設利用チケット情報のリストを作成するメソッド
-	 * 
 	 * @param id 購入する施設利用チケットのID
 	 * @param sheets 購入する施設利用チケットの枚数
-	 * @return result 購入する施設利用チケット情報のリスト
-	 * @throws Exception
+	 * @return result 購入する施設利用チケット情報のリストが作成できたか否か
 	 */
-	public boolean createBuyUseTicketList(int id, int sheets) throws Exception {
+	public boolean createBuyUseTicketList(int id, int sheets){
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
 		try {
@@ -66,7 +65,11 @@ public class BuyTicketDataDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;
@@ -76,10 +79,9 @@ public class BuyTicketDataDAO {
 	 * 購入するオプションチケット情報のリストを作成するメソッド
 	 * @param id 購入すオプションチケットのID
 	 * @param sheets 購入するオプションチケットの枚数
-	 * @return result 購入するオプションチケットの枚数
-	 * @throws Exception
+	 * @return result 購入するオプションチケット情報のリストが作成できたか否か
 	 */
-	public boolean createBuyOptionTicketList(int id, int sheets) throws Exception {
+	public boolean createBuyOptionTicketList(int id, int sheets){
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
 		try {
@@ -109,7 +111,11 @@ public class BuyTicketDataDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;

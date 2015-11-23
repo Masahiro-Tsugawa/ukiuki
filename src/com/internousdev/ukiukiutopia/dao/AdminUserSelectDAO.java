@@ -1,7 +1,4 @@
 package com.internousdev.ukiukiutopia.dao;
-/**
- * 
- */
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,11 +18,6 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminUserSelectDAO {
-
-	/***
-	 * 実行結果
-	 */
-	boolean result = false;
 	/***
 	 * DBから取得したユーザー情報を格納するリスト
 	 */
@@ -34,19 +26,18 @@ public class AdminUserSelectDAO {
 	/**
 	 * ユーザー情報を検索するメソッド
 	 * 
-	 * @param selectEmail
-	 * @param dto ユーザー情報を取得・格納するクラス
-	 * @return action true：検索結果を取得成功
+	 * @param selectEmail 編集したいユーザーのメールアドレス
+	 * @return result true：検索結果を取得成功
 	 */
 	public boolean select(String selectEmail) {
 
+		boolean result = false;
 		Connection con = DBConnector.getConnection();
 
 		try {
 			String sql = "select email,password,name,tel_num,postal_code,address,renew_date from user where email=?";
 
-			PreparedStatement ps;
-			ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, selectEmail);
 
 			ResultSet rs = ps.executeQuery();
@@ -81,7 +72,7 @@ public class AdminUserSelectDAO {
 	/**
 	 * 選択したユーザー情報を取得するメソッド
 	 * 
-	 * @return userList
+	 * @return userList 選択したユーザー情報のリスト
 	 */
 	public List<AdminUserSelectDTO> getUserList() {
 		return userList;

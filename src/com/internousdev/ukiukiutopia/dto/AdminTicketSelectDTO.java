@@ -42,7 +42,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケットID取得メソッド
 	 * 
-	 * @return チケットID
+	 * @return id チケットID
 	 */
 	public int getId() {
 		return id;
@@ -58,7 +58,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット名取得メソッド
 	 * 
-	 * @return チケット名
+	 * @return name チケット名
 	 */
 	public String getName() {
 		return name;
@@ -75,7 +75,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 値段取得メソッド
 	 * 
-	 * @return 値段
+	 * @return price 値段
 	 */
 	public float getPrice() {
 		return price;
@@ -92,7 +92,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット種類取得メソッド
 	 * 
-	 * @return チケット種類
+	 * @return ticketType チケット種類
 	 */
 	public String getTicketType() {
 		return ticketType;
@@ -109,7 +109,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 販売状態取得メソッド
 	 * 
-	 * @return 販売状態
+	 * @return isSale 販売状態
 	 */
 	public boolean getIsSale() {
 		return isSale;
@@ -126,7 +126,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * チケット詳細取得メソッド
 	 * 
-	 * @return チケット詳細
+	 * @return ticketInfo チケット詳細
 	 */
 	public String getTicketInfo() {
 		return ticketInfo;
@@ -143,7 +143,7 @@ public class AdminTicketSelectDTO {
 	/**
 	 * 更新日取得メソッド
 	 * 
-	 * @return 更新日
+	 * @return renewDate 更新日
 	 */
 	public String getRenewDate() {
 		return renewDate;

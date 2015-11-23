@@ -20,14 +20,6 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	 * 生成したシリアルID
 	 */
 	private static final long serialVersionUID = 6819911393806628609L;
-	/***
-	 * 削除したいユーザーのメールアドレス
-	 */
-	private String deleteMail;
-	/***
-	 * 実行結果
-	 */
-	public String result = ERROR;
 
 	/***
 	 * ユーザーを削除できなかった際のエラーメッセージ
@@ -42,29 +34,23 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	/**
 	 * 管理者ページからユーザーを削除するメソッド
 	 * 
-	 * @return ユーザー削除の可否
+	 * @return result ユーザー削除の可否
 	 */
 	public String execute() {
 
+		String result = ERROR;
 		AdminUserDeleteDAO dao = new AdminUserDeleteDAO();
 
-		deleteMail = (String) session.get("sessionEmail");
-		int count=0;
-		try {
-			count = dao.delete(deleteMail);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		String deleteMail = (String) session.get("sessionEmail");
+		int count = dao.delete(deleteMail);;
 
 		if (count < 1) {
 			setErrorUserDelete("ユーザーの削除に失敗しました");
 			return result;
 		}
-
-		if (count > 0) {
-			result = SUCCESS;
-		}
+		
 		session.remove("email");
+		result = SUCCESS;
 		return result;
 	}
 
@@ -85,34 +71,6 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 	 */
 	public void setErrorUserDelete(String errorUserDelete) {
 		this.errorUserDelete = errorUserDelete;
-	}
-
-	/**
-	 * 削除したいユーザーのメールアドレス取得するメソッド
-	 * 
-	 * @return deleteMail 削除したいユーザーのメールアドレス
-	 */
-	public String getDeleteMail() {
-		return deleteMail;
-	}
-
-	/**
-	 * 削除したいユーザーのメールアドレス格納するメソッド
-	 * 
-	 * @param deleteMail
-	 *            削除したいユーザーのメールアドレス
-	 */
-	public void setDeleteMail(String deleteMail) {
-		this.deleteMail = deleteMail;
-	}
-
-	/**
-	 * セッション取得するメソッド
-	 * 
-	 * @return session 削除したいユーザーのメールアドレスをセッションに取得
-	 */
-	public Map<String, Object> getSession() {
-		return session;
 	}
 
 	/**

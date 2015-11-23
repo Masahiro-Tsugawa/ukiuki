@@ -55,7 +55,7 @@ public class HomeDTO{
 
 	/**
 	 * 顧客名取得メソッド
-	 * @return userName
+	 * @return userName 顧客名
 	 */
 	public String getUserName() {
 		return userName;

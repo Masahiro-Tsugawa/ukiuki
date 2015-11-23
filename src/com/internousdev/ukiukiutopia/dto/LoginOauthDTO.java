@@ -1,7 +1,7 @@
 package com.internousdev.ukiukiutopia.dto;
 
 /**
- *　Oauthで顧客情報を取得、格納する為のクラス
+ * Oauthで顧客情報を取得、格納する為のクラス
  * @author A.Masui
  * @version 1.1　
  * @since 1.0　

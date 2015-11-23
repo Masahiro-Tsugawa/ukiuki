@@ -22,38 +22,34 @@ public class HomeDAO {
 	 * データベース検索メソッド
 	 * @param email データベース内のemail
 	 * @param password データベース内のpassword
-	 * @return　データベースでemail,passwordを検索した結果の成否
+	 * @return　result データベースでemail,passwordを検索した結果の成否
 	 */
 	
-	public String select(String email, String password) {
-		Connection conn = null;
-		String ret = "error";
+	public boolean select(String email, String password) {
+		Connection conn = DBConnector.getConnection();
+		boolean result = false;
 		try {
-			conn = (Connection) DBConnector.getConnection();
-			String sql = "SELECT * FROM user WHERE ";
-			sql += "email = ? AND password = ?";
-			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			String sql = "SELECT id,name FROM user WHERE email = ? AND password = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				ret = "success";
+				result = true;
 				name = rs.getString("name");
 				id = rs.getInt("id");
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
 		}
-		return ret;
+		
+		return result;
 	}
 	
 	/**

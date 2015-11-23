@@ -26,15 +26,6 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 * 管理者名を保持しているセッションを取得する
 	 */
 	private Map<String,Object >session;
-	/**
-	 * 管理者ID
-	 */
-	private int id;
-	/***
-	 * ログイン状態変更の結果
-	 */
-	private String result = ERROR;
-	
 	/***
 	 * ログアウトできなかった際のエラーメッセージ
 	 */
@@ -46,14 +37,11 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute() {
 		
+		String result = ERROR;
+		
 		AdminLogoutDAO dao = new AdminLogoutDAO();
 		int id = (int) session.get("id");
 		int rscount = dao.update(id);
-		
-		if(rscount<0){
-			setErrorLogout("ログアウトに失敗しました");
-			return result;
-		}
 		
 		session.clear();
 		
@@ -63,31 +51,12 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 		}
 		if (rscount<1) {
 			addActionError("ログアウトに失敗しました");
-			result = ERROR;
 			return result;
 		}
 		result = SUCCESS;
 		return result;
 	}
 
-
-	/**
-	 * 管理者ID取得メソッド
-	 * 
-	 * @return id 管理者ID
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * 管理者ID格納メソッド
-	 * 
-	 * @param id
-	 *         管理者ID
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
 	/**
 	 * エラーメッセージを取得するメソッド
 	 * @return errorLogout エラーメッセージ
@@ -101,14 +70,6 @@ public class AdminLogoutAction extends ActionSupport implements SessionAware{
 	 */
 	public void setErrorLogout(String errorLogout) {
 		this.errorLogout = errorLogout;
-	}
-	
-	/**
-	 * セッション取得するメソッド
-	 * @return session 管理者IDをセッションに取得
-	 */
-	public Map<String, Object> getSession() {
-		return session;
 	}
 	/**
 	 * セッション格納するメソッド

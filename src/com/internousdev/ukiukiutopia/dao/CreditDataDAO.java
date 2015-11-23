@@ -3,6 +3,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +27,8 @@ public class CreditDataDAO {
 	 * ログインしている会員のクレジットカード情報取得メソッド
 	 * @param email  ログインしている会員のメールアドレス
 	 * @return result ログインしている会員のクレジットカード情報の有無
-	 * @throws Exception データベースとの接続が終了しなかった際に起こるエラー
 	 */
-	public boolean select(String email) throws Exception {
+	public boolean select(String email){
 		
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
@@ -36,8 +36,7 @@ public class CreditDataDAO {
 		try {
 			String sql = "select credit_token,credit_num from user where email = ?";
 			
-			PreparedStatement ps;
-			ps = con.prepareStatement(sql);
+			 PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
@@ -53,7 +52,11 @@ public class CreditDataDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return result;

@@ -27,11 +27,6 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 	private static final long serialVersionUID = -6534378494906244828L;
 
 	/**
-	* 結果
-	*/
-	private String result= SUCCESS;
-
-	/**
 	* レスポンス
 	*/
 	private HttpServletResponse response;
@@ -43,9 +38,10 @@ public class GoTwitterAction extends ActionSupport implements ServletResponseAwa
 
 	/**
 	* 実行メソッド
-	* @return result
+	* @return result 処理が完了したか否か
 	*/
 	public String execute(){
+		String result= SUCCESS;
 		TwitterRequestToken a = new TwitterRequestToken();
 		try {
 			result=a.loginOAuth(response,request);

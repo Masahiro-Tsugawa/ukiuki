@@ -3,6 +3,7 @@ package com.internousdev.ukiukiutopia.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,6 @@ import com.mongodb.DBObject;
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
- *
  */
 public class TicketDataDAO {
 
@@ -36,9 +36,8 @@ public class TicketDataDAO {
 	/**
 	 * 購入可能なチケットのリストを作成する為のメソッド
 	 * @return　result 購入可能なチケットのリストを作成できたか否か
-	 * @throws Exception
 	 */
-	public boolean createTicketList() throws Exception {
+	public boolean createTicketList(){
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
 
@@ -95,7 +94,11 @@ public class TicketDataDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 

@@ -25,11 +25,6 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	private int deleteId;
 
 	/***
-	 * 実行結果
-	 */
-	public String result = ERROR;
-
-	/***
 	 * 削除できなかった際のエラーメッセージ
 	 */
 	private String errorTicketDelete;
@@ -40,36 +35,24 @@ public class AdminTicketDeleteAction extends ActionSupport {
 	 * @return result チケット削除の可否
 	 */
 	public String execute() {
+		String result = ERROR;
+		int count = 0;
 
 		AdminTicketDeleteDAO dao = new AdminTicketDeleteDAO();
-		deleteId = getDeleteId();
 		
-		int isSale = 0;
-		try {
-			isSale = dao.updateIsSale(deleteId);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		deleteId = getDeleteId();
-		
-		int isShow = 0;
-		try {
-			isShow = dao.updateIsShow(deleteId);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		int count = isSale + isShow;
-
+		count = dao.updateIsSale(deleteId);
 		if (count < 1) {
 			setErrorTicketDelete("削除に失敗しました");
-			result = ERROR;
+			return result;
+		}
+		
+		count += dao.updateIsShow(deleteId);
+		if (count < 2) {
+			setErrorTicketDelete("削除に失敗しました");
+			return result;
 		}
 
-		if (count > 0) {
-			result = SUCCESS;
-		}
+		result = SUCCESS;
 		return result;
 	}
 

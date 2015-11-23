@@ -1,6 +1,5 @@
 package com.internousdev.ukiukiutopia.action;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -74,50 +73,42 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 既存メールアドレスがDBにないかを確かめるメソッド
-	 * @return 既存登録アドレスの有無
+	 * @return ret 既存登録アドレスの有無
 	 */
-	public String execute() throws SQLException {
-		/**
-		 * DAOを参照
-		 */
-		CreateUserDAO dao = new CreateUserDAO();
-		/**
-		 * 結果を取得
-		 */
-		String ret = ERROR;
-		/**
-		 * DBにて既存メールアドレスの有無を取得
-		 */
-		boolean result = dao.select(userEmail);
-		if(result == true){
-		ret = SUCCESS;
-		}else if(result == false){
-			  setErrorMail(getText("signUp.errorMail"));
-			  ret = ERROR;
-			}
+	public String execute() {
 
-		/**
-		 * 姓名を表す。
-		 */
+		CreateUserDAO dao = new CreateUserDAO();
+		String ret = ERROR;
+		
+		if (dao.select(userEmail)) {
+			ret = SUCCESS;
+		} else {
+			setErrorMail(getText("signUp.errorMail"));
+		}
+
 		StringBuilder userName = new StringBuilder();
 		userName.append(userNameSurName);
 		userName.append(userNameFirstName);
 		session.put("signUpName", userName.toString());
+		
 		session.put("signUpPassword", userPassword);
 		session.put("signUpPostalCode", userPostalCode);
+		
 		StringBuilder userAddress = new StringBuilder();
 		userAddress.append(userAddressPrefecture);
 		userAddress.append(userAddressCity);
 		userAddress.append(userAddressOther);
 		session.put("signUpAddress", userAddress.toString());
+		
 		session.put("signUpEmail", userEmail);
 		session.put("signUpTelNum", userTelNum);
+		
 		return ret;
 	}
 
 	/**
 	 * 新規登録メールアドレスを取得するメソッド
-	 * @return 新規登録メールアドレス
+	 * @return userEmail 新規登録メールアドレス
 	 */
 	public String getUserEmail() {
 		return userEmail;
@@ -131,7 +122,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録電話番号を取得するメソッド
-     * @return 電話番号
+     * @return userTelNum 電話番号
      */
 	public String getUserTelNum() {
 		return userTelNum;
@@ -145,7 +136,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録郵便番号を取得するメソッド
-     * @return 新規登録郵便番号
+     * @return userPostalCode 新規登録郵便番号
      */
 	public String getUserPostalCode() {
 		return userPostalCode;
@@ -159,7 +150,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録パスワードを取得するメソッド
-     * @return 新規登録パスワード
+     * @return userPassword 新規登録パスワード
      */
 	public String getUserPassword() {
 		return userPassword;
@@ -173,7 +164,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 確認用パスワードを取得するメソッド
-     * @return 確認用パスワード
+     * @return confirmUserPassword 確認用パスワード
      */
 	public String getConfirmUserPassword() {
 		return confirmUserPassword;
@@ -187,7 +178,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 都道府県を取得するメソッド
-     * @return 都道府県
+     * @return userAddressPrefecture 都道府県
      */
 	public String getUserAddressPrefecture() {
 		return userAddressPrefecture;
@@ -201,7 +192,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 市町村区を取得するメソッド
-     * @return 市町村区
+     * @return userAddressCity 市町村区
      */
 	public String getUserAddressCity() {
 		return userAddressCity;
@@ -215,7 +206,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 市町村区以下の住所を取得するメソッド
-     * @return 市町村区以下の住所
+     * @return userAddressOther 市町村区以下の住所
      */
 	public String getUserAddressOther() {
 		return userAddressOther;
@@ -236,7 +227,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 確認用メールアドレスを取得するメソッド
-     * @return 確認用メールアドレス
+     * @return confirmUserEmail 確認用メールアドレス
      */
 	public String getConfirmUserEmail() {
 		return confirmUserEmail;
@@ -250,7 +241,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 既存メールアドレスがあった時のエラーメッセージを取得するメソッド
-     * @return エラーメッセージ
+     * @return errorMail エラーメッセージ
      */
 	public String getErrorMail() {
 		return errorMail;
@@ -264,7 +255,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録性を取得するメソッド
-     * @return 新規登録性
+     * @return userNameSurName 新規登録性
      */
 	public String getUserNameSurName() {
 		return userNameSurName;
@@ -278,7 +269,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録名を取得するメソッド
-     * @return 新規登録名
+     * @return userNameFirstName 新規登録名
      */
 	public String getUserNameFirstName() {
 		return userNameFirstName;

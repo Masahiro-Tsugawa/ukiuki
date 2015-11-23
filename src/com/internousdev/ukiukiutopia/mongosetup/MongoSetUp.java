@@ -14,7 +14,7 @@ import com.mongodb.DBCollection;
 public class MongoSetUp {
 
 	/**
-	 * @param args
+	 * @param args コマンドプロンプトでの初期値設定用のパラメータ
 	 */
 	public static void main(String[] args) {
 		

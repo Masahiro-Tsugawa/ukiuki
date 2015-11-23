@@ -21,14 +21,7 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminBoughtDAO {
-	/***
-	 * DBと接続
-	 */
-	Connection con;
-	/***
-	 * 実行結果
-	 */
-	boolean result = false;
+
 	/***
 	 * DBから取得した購入情報を格納するリスト
 	 */
@@ -44,10 +37,11 @@ public class AdminBoughtDAO {
 	 */
 	public boolean select(String startDate, String endDate, AdminBoughtDTO dto) {
 
-		con = DBConnector.getConnection();
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 
 		try {
-			String sql = "select order_id,ticket_id,sheets,total_amount,registered_date from order_ticket where registered_date between ? and ?";
+			String sql = "select order_id,ticket_id,sheets,total_amount from order_ticket where registered_date between ? and ?";
 
 			PreparedStatement ps;
 			ps = con.prepareStatement(sql);
@@ -81,7 +75,7 @@ public class AdminBoughtDAO {
 	/**
 	 * チケットの購入情報を取得するメソッド
 	 * 
-	 * @return boughtList
+	 * @return boughtList チケットの購入情報
 	 */
 	public List<AdminBoughtDTO> getBoughtList() {
 		return boughtList;

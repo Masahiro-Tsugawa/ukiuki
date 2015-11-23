@@ -29,21 +29,18 @@ import com.mongodb.DBObject;
 public class AdminTicketSelectDAO {
 
 	/***
-	 * 実行結果
-	 */
-	boolean result = false;
-	/***
 	 * DBから取得した全チケット情報を格納するリスト
 	 */
-	public List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
+	private List<AdminTicketSelectDTO> ticketList = new ArrayList<AdminTicketSelectDTO>();
 
 	/**
 	 * 全チケット情報を検索するメソッド
 	 * 
-	 * @return 全チケット情報取得の可否
+	 * @return result 全チケット情報取得の可否
 	 */
 	public boolean select() {
 		
+		boolean result = false;
 		Connection con = DBConnector.getConnection();
 		
 		DB db = MongoDBConnector.getConnection();
@@ -52,8 +49,7 @@ public class AdminTicketSelectDAO {
 		try {
 			String sql = "select id,name,price,ticket_type,is_sale,renew_date from ticket where is_show=true";
 
-			PreparedStatement ps;
-			ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {

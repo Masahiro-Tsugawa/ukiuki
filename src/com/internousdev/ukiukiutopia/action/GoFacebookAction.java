@@ -2,7 +2,6 @@ package com.internousdev.ukiukiutopia.action;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,9 +40,9 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 	private HttpServletResponse response;
 	/**
 	 * FaceBookからTokenを取得メソッド
-	 * @throws Exception 例外処理
+	 * @return SUCCESS 
 	 */
-	public String execute() throws Exception {
+	public String execute(){
 		FacebookOauth oauth = new com.internousdev.ukiukiutopia.util.FacebookOauth();
 		oauth.getRequestToken(request, response);
 		return SUCCESS;
@@ -53,12 +52,8 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 	 * FaceBookの情報の照合メソッド
 	 * @param request リクエスト情報
 	 * @param response レスポンス情報
-	 * @throws ServletException　実装されているインターフェイス
-	 * @throws IOException　FaceBookのID、シークレットIDの照合失敗した場合の例外
-	　* @param　setServletRequest　
-	 * 
 	 */
-	public void getToken(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	public void getToken(HttpServletRequest request, HttpServletResponse response){
 		Facebook facebook = new FacebookFactory().getInstance();
 		request.getSession().setAttribute("facebook", facebook);
 		facebook.setOAuthAppId("433419566868372", "e0b2de4f10d8f4ebcbeb69984a68452d");
@@ -68,7 +63,11 @@ public class GoFacebookAction extends ActionSupport implements ServletResponseAw
 		StringBuffer callbackURL = request.getRequestURL();
 		int index = callbackURL.lastIndexOf("/");
 		callbackURL.replace(index, callbackURL.length(), "").append("/login-facebook-action");
-		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+		try {
+			response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * リクエスト格納メソッド
