@@ -110,7 +110,7 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 				return result;
 			}
 			
-			session.remove(purposeEmail);
+			session.remove("sessionEmail");
 			result = SUCCESS;
 		}
 		return result;

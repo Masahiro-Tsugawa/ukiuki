@@ -49,7 +49,7 @@ public class AdminUserDeleteAction extends ActionSupport implements SessionAware
 			return result;
 		}
 		
-		session.remove("email");
+		session.remove("sessionEmail");
 		result = SUCCESS;
 		return result;
 	}
