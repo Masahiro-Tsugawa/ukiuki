@@ -25,7 +25,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	/**
 	 * 性を表します。
 	 */
-	private String userNameSurName;
+	private String userNameSurname;
 	/**
 	 * 名を表します。
 	 */
@@ -87,7 +87,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		}
 
 		StringBuilder userName = new StringBuilder();
-		userName.append(userNameSurName);
+		userName.append(userNameSurname);
 		userName.append(userNameFirstName);
 		session.put("signUpName", userName.toString());
 		
@@ -255,17 +255,17 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	}
     /**
      * 新規登録性を取得するメソッド
-     * @return userNameSurName 新規登録性
+     * @return userNameSurname 新規登録性
      */
-	public String getUserNameSurName() {
-		return userNameSurName;
+	public String getUserNameSurname() {
+		return userNameSurname;
 	}
     /**
      * 新規登録性を設定するメソッド
-     * @param userNameSurName 新規登録性
+     * @param userNameSurname 新規登録性
      */
-	public void setUserNameSurName(String userNameSurName) {
-		this.userNameSurName = userNameSurName;
+	public void setUserNameSurname(String userNameSurname) {
+		this.userNameSurname = userNameSurname;
 	}
     /**
      * 新規登録名を取得するメソッド

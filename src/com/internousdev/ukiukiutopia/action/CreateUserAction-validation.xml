@@ -7,9 +7,9 @@
 
 <validators>
 	<!-- 氏名 -->
-	<field name="userNameSurName">
+	<field name="userNameSurname">
 		<field-validator type="requiredstring">
-			<message>%{getText('signUp.validSurNameRS')}</message>
+			<message>%{getText('signUp.validSurnameRS')}</message>
 		</field-validator>
 	</field>
 

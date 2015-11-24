@@ -17,7 +17,7 @@ public class CreateUserDAO {
 	/**
 	 * DBに登録されたメールアドレス
 	 */
-	private String email;
+	
     /**
      * 新規登録メールアドレスが既にDBに登録されてないか確かめるメソッド
      * @param userEmail 登録されているメールアドレス
@@ -34,7 +34,6 @@ public class CreateUserDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				result = false;
-				setEmail(rs.getString("email"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,14 +53,4 @@ public class CreateUserDAO {
 	 * 新規登録メールアドレスを取得するメソッド
 	 * @return email 新規登録メールアドレス
 	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * 新規登録メールアドレスを設定するメソッド
-	 * @param email 新規登録メールアドレス
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }
