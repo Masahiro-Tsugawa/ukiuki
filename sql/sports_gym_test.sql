@@ -74,22 +74,23 @@ create table if not exists ticket(
   primary key (id)
 );
 
+insert into ticket values(1,"フルセット",1600.0,"use",true,true,
+"2015/01/01 09:00:00","2015/07/07 15:00:00");
+insert into ticket values(2,"マシンジム",700.0,"use",true,true,
+"2015/02/02 10:00:00","2015/08/08 16:00:00");
+insert into ticket values(3,"プール",700.0,"use",true,true,
+"2015/03/03 11:00:00","2015/09/09 17:00:00");
+insert into ticket values(4,"ジャグジー",700.0,"use",true,true,
+"2015/04/04 12:00:00","2015/10/10 18:00:00");
+insert into ticket values(5,"レンタル",500.0,"option",true,true,
+"2015/05/05 13:00:00","2015/11/11 19:00:00");
+insert into ticket values(6,"パーソナルトレーナー(1H)",5000.0,"option",true,true,
+"2015/06/06 14:00:00","2015/12/12 20:00:00");
+
 insert into ticket(id,name,price,ticket_type,is_sale,is_show,
   registered_date,renew_date)
-  values(1,"test",100.0,"test",false,false,
-    "0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(2,"フル",1600.0,"use",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(3,"マシン",700.0,"use",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(4,"プール",700.0,"use",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(5,"風呂",700.0,"use",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(6,"レンタル",500.0,"option",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
-insert into ticket values(7,"パーソナルトレーナー",5000.0,"option",true,true,
-"0000/01/01 00:00:00","0001/01/01 00:00:00");
+  values(7,"test",100.0,"test",false,false,
+    "2015/01/01 00:00:00","0001/01/01 00:00:00");
 
 /* order */
 drop table if exists `order`;
@@ -103,8 +104,40 @@ create table if not exists `order`(
   primary key (id)
 );
 
+INSERT INTO `order` VALUES (1, 5, "2015/10/03 11:00:00");
+INSERT INTO `order` VALUES (2, 1, "2015/10/04 12:00:00");
+INSERT INTO `order` VALUES (3, 30, "2015/10/04 13:00:00");
+INSERT INTO `order` VALUES (4, 24, "2015/10/05 14:00:00");
+INSERT INTO `order` VALUES (5, 4, "2015/10/08 15:00:00");
+INSERT INTO `order` VALUES (6, 8, "2015/10/16 16:00:00");
+INSERT INTO `order` VALUES (7, 9, "2015/10/17 15:00:00");
+INSERT INTO `order` VALUES (8, 13, "2015/10/17 14:00:00");
+INSERT INTO `order` VALUES (9, 18, "2015/10/18 22:00:00");
+INSERT INTO `order` VALUES (10, 20, "2015/10/18 14:00:00");
+INSERT INTO `order` VALUES (11, 22, "2015/10/18 18:00:00");
+INSERT INTO `order` VALUES (12, 7, "2015/10/19 19:00:00");
+INSERT INTO `order` VALUES (13, 9, "2015/10/19 17:00:00");
+INSERT INTO `order` VALUES (14, 13, "2015/10/21 22:00:00");
+INSERT INTO `order` VALUES (15, 16, "2015/10/23 09:00:00");
+INSERT INTO `order` VALUES (16, 23, "2015/10/23 07:00:00");
+INSERT INTO `order` VALUES (17, 2, "2015/10/23 01:00:00");
+INSERT INTO `order` VALUES (18, 3, "2015/10/24 03:00:00");
+INSERT INTO `order` VALUES (19, 19, "2015/10/28 22:00:00");
+INSERT INTO `order` VALUES (20, 27, "2015/10/29 13:00:00");
+INSERT INTO `order` VALUES (21, 29, "2015/11/01 11:00:00");
+INSERT INTO `order` VALUES (22, 6, "2015/11/03 16:00:00");
+INSERT INTO `order` VALUES (23, 6, "2015/11/04 18:00:00");
+INSERT INTO `order` VALUES (24, 3, "2015/11/06 17:00:00");
+INSERT INTO `order` VALUES (25, 27, "2015/11/11 23:00:00");
+INSERT INTO `order` VALUES (26, 2, "2015/11/14 19:00:00");
+INSERT INTO `order` VALUES (27, 11, "2015/11/14 19:00:00");
+INSERT INTO `order` VALUES (28, 25, "2015/11/14 14:00:00");
+INSERT INTO `order` VALUES (29, 30, "2015/11/15 20:00:00");
+INSERT INTO `order` VALUES (30, 12, "2015/11/21 10:00:00");
+INSERT INTO `order` VALUES (31, 14, "2015/11/23 06:00:00");
+
 insert into `order`(id,user_id,registered_date)
-  values(1,31,"0000/01/01 00:00:00");
+  values(32,31,"0000/01/01 00:00:00");
 
 /* order_ticket */
 drop table if exists order_ticket;
@@ -121,8 +154,62 @@ create table if not exists order_ticket(
   registered_date datetime not null
 );
 
+INSERT INTO order_ticket VALUES (1, 1, 4, 6400, "2015/10/03 11:00:00");
+INSERT INTO order_ticket VALUES (1, 5, 4, 2000, "2015/10/03 11:00:00");
+INSERT INTO order_ticket VALUES (1, 6, 2, 10000, "2015/10/03 11:00:00");
+INSERT INTO order_ticket VALUES (2, 1, 5, 8000, "2015/10/04 12:00:00");
+INSERT INTO order_ticket VALUES (2, 5, 5, 2500, "2015/10/04 12:00:00");
+INSERT INTO order_ticket VALUES (3, 2, 2, 1400, "2015/10/04 13:00:00");
+INSERT INTO order_ticket VALUES (4, 1, 15, 22400, "2015/10/05 14:00:00");
+INSERT INTO order_ticket VALUES (5, 4, 12, 8400, "2015/10/08 15:00:00");
+INSERT INTO order_ticket VALUES (6, 1, 2, 3200, "2015/10/16 16:00:00");
+INSERT INTO order_ticket VALUES (6, 6, 2, 10000, "2015/10/16 16:00:00");
+INSERT INTO order_ticket VALUES (7, 1, 4, 6400, "2015/10/17 15:00:00");
+INSERT INTO order_ticket VALUES (7, 5, 4, 2500, "2015/10/17 15:00:00");
+INSERT INTO order_ticket VALUES (8, 2, 7, 4900, "2015/10/17 14:00:00");
+INSERT INTO order_ticket VALUES (8, 4, 7, 4900, "2015/10/17 14:00:00");
+INSERT INTO order_ticket VALUES (9, 2, 19, 13300, "2015/10/18 22:00:00");
+INSERT INTO order_ticket VALUES (9, 3, 19, 13300, "2015/10/18 22:00:00");
+INSERT INTO order_ticket VALUES (10, 1, 8, 12800, "2015/10/18 14:00:00");
+INSERT INTO order_ticket VALUES (11, 1, 12, 19200, "2015/10/18 18:00:00");
+INSERT INTO order_ticket VALUES (11, 5, 12, 6000, "2015/10/18 18:00:00");
+INSERT INTO order_ticket VALUES (12, 3, 4, 2800, "2015/10/19 19:00:00");
+INSERT INTO order_ticket VALUES (12, 4, 4, 2800, "2015/10/19 19:00:00");
+INSERT INTO order_ticket VALUES (13, 2, 8, 5600, "2015/10/19 17:00:00");
+INSERT INTO order_ticket VALUES (13, 3, 4, 2800, "2015/10/19 17:00:00");
+INSERT INTO order_ticket VALUES (13, 4, 4, 2800, "2015/10/19 17:00:00");
+INSERT INTO order_ticket VALUES (14, 1, 1, 1600, "2015/10/21 22:00:00");
+INSERT INTO order_ticket VALUES (14, 6, 1, 5000, "2015/10/21 22:00:00");
+INSERT INTO order_ticket VALUES (15, 2, 10, 7000, "2015/10/23 09:00:00");
+INSERT INTO order_ticket VALUES (16, 4, 3, 2100, "2015/10/23 07:00:00");
+INSERT INTO order_ticket VALUES (17, 1, 3, 4800, "2015/10/23 01:00:00");
+INSERT INTO order_ticket VALUES (17, 5, 3, 1500, "2015/10/23 01:00:00");
+INSERT INTO order_ticket VALUES (18, 1, 7, 11200, "2015/10/24 03:00:00");
+INSERT INTO order_ticket VALUES (18, 6, 7, 35000, "2015/10/24 03:00:00");
+INSERT INTO order_ticket VALUES (19, 2, 5, 3500, "2015/10/28 22:00:00");
+INSERT INTO order_ticket VALUES (19, 3, 5, 3500, "2015/10/28 22:00:00");
+INSERT INTO order_ticket VALUES (20, 1, 8, 12800, "2015/10/29 13:00:00");
+INSERT INTO order_ticket VALUES (21, 1, 3, 4800, "2015/11/01 11:00:00");
+INSERT INTO order_ticket VALUES (21, 6, 3, 15000, "2015/11/01 11:00:00");
+INSERT INTO order_ticket VALUES (22, 4, 7, 4900, "2015/11/03 16:00:00");
+INSERT INTO order_ticket VALUES (23, 2, 7, 4900, "2015/11/04 18:00:00");
+INSERT INTO order_ticket VALUES (23, 5, 7, 3500, "2015/11/04 18:00:00");
+INSERT INTO order_ticket VALUES (23, 6, 7, 35000, "2015/11/04 18:00:00");
+INSERT INTO order_ticket VALUES (24, 1, 2, 3200, "2015/11/06 17:00:00");
+INSERT INTO order_ticket VALUES (24, 6, 2, 10000, "2015/11/06 17:00:00");
+INSERT INTO order_ticket VALUES (25, 3, 8, 5600, "2015/11/11 23:00:00");
+INSERT INTO order_ticket VALUES (26, 1, 5, 8000, "2015/11/14 19:00:00");
+INSERT INTO order_ticket VALUES (26, 6, 1, 5000, "2015/11/14 19:00:00");
+INSERT INTO order_ticket VALUES (27, 3, 3, 4800, "2015/11/14 19:00:00");
+INSERT INTO order_ticket VALUES (28, 1, 6, 9600, "2015/11/14 14:00:00");
+INSERT INTO order_ticket VALUES (29, 1, 1, 1600, "2015/11/15 20:00:00");
+INSERT INTO order_ticket VALUES (30, 2, 3, 4800, "2015/11/21 10:00:00");
+INSERT INTO order_ticket VALUES (31, 1, 7, 11200, "2015/11/23 06:00:00");
+INSERT INTO order_ticket VALUES (31, 5, 7, 3500, "2015/11/23 06:00:00");
+INSERT INTO order_ticket VALUES (31, 6, 1, 5000, "2015/11/23 06:00:00");
+
 insert into order_ticket(order_id,ticket_id,sheets,total_amount,registered_date)
-  values(1,1,10,1000.0,"0000/01/01 00:00:00");
+  values(32,7,10,1000.0,"0000/01/01 00:00:00");
 
 /* admin */
 drop table if exists admin;

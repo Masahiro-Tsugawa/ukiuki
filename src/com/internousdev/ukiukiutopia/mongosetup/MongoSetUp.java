@@ -25,25 +25,25 @@ public class MongoSetUp {
 
 			BasicDBObject doc;
 			doc = new BasicDBObject("ticket_id", 1)
-					.append("ticket_info", "testtesttest");
+					.append("ticket_info", "全ての設備をご利用いただけます。");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 2)
-					.append("ticket_info", "フルセットチケット");
+				 	.append("ticket_info", "2Fフロアのマシンジム全てをご利用いただけます。");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 3)
-				 	.append("ticket_info", "マシンチケット");
+					.append("ticket_info", "3Fプールをご利用いただけます。");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 4)
-					.append("ticket_info", "プールチケット");
+					.append("ticket_info", "当ジム3Fのジャグジーをご利用いただけます。");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 5)
-					.append("ticket_info", "風呂チケット");
+					.append("ticket_info", "ウエア、タオル2種、シューズをレンタルいただけます。");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 6)
-					.append("ticket_info", "レンタルチケット");
+					.append("ticket_info", "専門知識を持つトレーナーがあなたのトレーニングをサポートします。※要予約");
 			coll.insert(doc);
 			doc = new BasicDBObject("ticket_id", 7)
-					.append("ticket_info", "パーソナルトレーナーチケット");
+					.append("ticket_info", "test");
 			coll.insert(doc);
 			
 		} catch (Exception e) {
