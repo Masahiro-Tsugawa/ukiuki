@@ -24,7 +24,7 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 
 	/**
-	 *セッションをクリアしヘッダーからホーム画面へ遷移する
+	 *セッションをクリアするメソッド
 	 * @return SUCCESS 必ずSUCCESSを返す
 	 */
 	public String execute() {
