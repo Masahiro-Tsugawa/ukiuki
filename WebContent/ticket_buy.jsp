@@ -13,6 +13,11 @@
 <title>TicketBuy</title>
 
 <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function Change1(){
+	document.buyForm.creditRadio.style.visibility = "visible";
+}
+</script>
 
 <script type="text/javascript">
 	$(function() {
@@ -49,6 +54,10 @@
 				total = total + parseInt($("#subTotal9").text());
 			$("#total").text(total);
 		}
+		
+		$("input[styleId='payInfo']:radio").change(function(){
+			$("#creditInfo").toggle();
+		});
 	});
 </script>
 </head>
@@ -57,7 +66,7 @@
 	<jsp:include page="base/main_header.jsp" flush="true" />
 
 	<div class="container">
-		<s:form action="create_order">
+		<s:form name="buyForm" action="create_order">
 			<s:if test="%{#session.errorMessege!=null}">
 				<s:property value="#session.errorMessege" />
 			</s:if>
@@ -136,26 +145,31 @@
 				</tr>
 				
 				<tr>
-					<td id="creditRadio" align="right" colspan="2"><label><s:radio  id="payInfo" name="payInfo" list="payInfoList"
-								value="radio" /></label></td>
+					<td align="right" colspan="2"><s:radio  styleId="payInfo" id="payInfo" name="payInfo" list="payInfoList"
+								value="radio" /></td>
 				</tr>
+				</table>
 				
+				<table align="center" id="creditInfo" class="table-test4">
+				<tr>
+					<th colspan="2"><div class="form-titel">クレジット情報</div></th>
+				</tr>
                 <tr>
-					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.creditNumber" /></td>
-					<td id="creditRadio" align="right" class="data"><s:textfield name="creditNum" /></td>
+					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.creditNumber" /></td>
+					<td align="right" class="data"><s:textfield property="creditRadio" name="creditNum" /></td>
 				</tr>
 				
 				<tr>
-					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.expirationDate" /></td>
-					<td id="creditRadio" align="right" class="data">
+					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.expirationDate" /></td>
+					<td align="right" class="data">
 					 <s:text name="ticketBuy.month" /><s:select id="month" list="monthList" name="creditMonth" />
 				     <s:text name="ticketBuy.year" /><s:select id="year" list="yearList" name="creditYear" />
 					</td>
 				</tr>
 				
 				<tr>
-					<td id="creditRadio" align="right" colspan="1" class="credit"><s:text name="ticketBuy.securityCode" /></td>
-					<td id="creditRadio" align="right" class="data" class="credit"><s:textfield name="secureCode" /></td>
+					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.securityCode" /></td>
+					<td align="right" class="data" class="credit"><s:textfield name="secureCode" /></td>
 				</tr>
 				
 			</table>
