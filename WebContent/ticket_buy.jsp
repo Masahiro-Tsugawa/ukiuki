@@ -137,7 +137,6 @@
 			</div>
 
 			<br>
-			<s:property value="getUserCreditNum()" />
 			<table align="center" class="table-test3">
 				<tr>
 					<th><div class="form-titel">
@@ -165,8 +164,11 @@
 				</tr>
 			</table>
 
+
+
+			<table align="center" id="creditInfo" class="table-test4">
 				<tr>
-					<th colspan="2"><div class="form-titel">クレジット情報</div></th>
+					<th colspan="2"><div class="form-titel"><s:text name="ticketBuy.creditInfo" /></div></th>
 				</tr>
 				<s:if test="%{getUserCreditNum() = null}">
 					<tr>
