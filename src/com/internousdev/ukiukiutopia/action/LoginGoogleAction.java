@@ -52,12 +52,19 @@ public class LoginGoogleAction extends ActionSupport implements ServletRequestAw
 		if (userMap == null) {
 			return result;
 		}
-
-		userMap.get("id");
+		
+		String uniqueId = userMap.get("id");
 		LoginOauthDAO dao = new LoginOauthDAO();
-		LoginOauthDTO dto = dao.getDTO();
-		session.put("OAuthId", dto.getUserId());
-		session.put("OAuthName", "google");
+		if (dao.select(uniqueId, NETWORK_NAME)) {
+			LoginOauthDTO dto = dao.getDTO();
+			session.put("userId", dto.getUserId());
+			session.put("loginName", dto.getUserName());
+			session.put("userEmail", dto.getUserEmail());
+			result = SUCCESS;
+			return result;
+		}
+		session.put("OAuthId", userMap.get("id"));
+		session.put("OAuthName", NETWORK_NAME);
 		result = SUCCESS;
 		return result;
 	}
