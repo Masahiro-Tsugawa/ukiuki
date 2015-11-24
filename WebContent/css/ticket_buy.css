@@ -68,6 +68,8 @@
 
 .table-test4{
 	display : none;
+	width: 40%;
+	border-collapse: collapse;
 }
 .table-test4 th {
 	width: 25%;
@@ -78,9 +80,11 @@
 	border: 1px solid #FFD700;
 }
 .table-test4 td {
+	width: 25%;
 	padding: 6px;
 	background-color: #fff;
 	border: 1px solid #66FF99;
+}
 
 .table-add {
 	width: 100%;

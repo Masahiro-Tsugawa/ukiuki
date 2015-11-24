@@ -94,12 +94,11 @@
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
-										value="price" /></span>
-							<s:text name="ticketBuy.yen" /></td>
+										value="price" /></span> <s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
 									list="sheetsList" name="useSheets" /></td>
 							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
-							<s:text name="ticketBuy.yen" /></td>
+								<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
 				</table>
@@ -125,12 +124,11 @@
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
-										value="price" /></span>
-							<s:text name="ticketBuy.yen" /></td>
+										value="price" /></span> <s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
 									list="sheetsList" name="optionSheets" /></td>
 							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
-							<s:text name="ticketBuy.yen" /></td>
+								<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
 				</table>
@@ -144,8 +142,8 @@
 						</div></th>
 				</tr>
 				<tr>
-					<td align="right"><span id="total">0</span>
-					<s:text name="ticketBuy.yen" /></td>
+					<td align="right"><span id="total">0</span> <s:text
+							name="ticketBuy.yen" /></td>
 				</tr>
 
 			</table>
@@ -165,12 +163,13 @@
 			</table>
 
 
-
-			<table align="center" id="creditInfo" class="table-test4">
-				<tr>
-					<th colspan="2"><div class="form-titel"><s:text name="ticketBuy.creditInfo" /></div></th>
-				</tr>
-				<s:if test="%{getUserCreditNum() = null}">
+			<s:if test="%{getUserCreditNum() = null}">
+				<table align="center" id="creditInfo" class="table-test4">
+					<tr>
+						<th colspan="2"><div class="form-titel">
+								<s:text name="ticketBuy.creditInfo" />
+							</div></th>
+					</tr>
 					<tr>
 						<td align="right" colspan="1"><s:text
 								name="ticketBuy.creditNumber" /></td>
@@ -183,8 +182,8 @@
 								name="ticketBuy.expirationDate" /></td>
 						<td align="right" class="data"><s:text name="ticketBuy.month" />
 							<s:select id="month" list="monthList" name="creditMonth" /> <s:text
-								name="ticketBuy.year" />
-							<s:select id="year" list="yearList" name="creditYear" /></td>
+								name="ticketBuy.year" /> <s:select id="year" list="yearList"
+								name="creditYear" /></td>
 					</tr>
 
 					<tr>
@@ -193,13 +192,23 @@
 						<td align="right" class="data" class="credit"><s:textfield
 								name="secureCode" /></td>
 					</tr>
-						</s:if>
+				</table>
+			</s:if>
+
 			<s:else>
-                <tr>
-                <td align="right" colspan="1"><s:property value="getUserCreditNum()" /></td>
+				<table align="center" id="creditInfo" class="table-test4">
+					<tr>
+						<th colspan="2"><div class="form-titel">
+								<s:text name="ticketBuy.creditInfo" />
+							</div></th>
+					</tr>
+					<tr>
+						<td align="right" colspan="1"><s:property
+								value="getUserCreditNum()" /><br> <s:text
+								name="ticketBuy.checkCreditNum" />
+					</tr>
+				</table>
 			</s:else>
-			</table>
-		
 
 
 			<div class="form-titel">
