@@ -20,10 +20,10 @@ public class AdminLoginDAO {
 	 * 管理者情報を検索するメソッド
 	 * @param name 管理者名
 	 * @param password パスワード
-	 * @param dtoSelect ログインしようとしている管理者の情報を取得・格納するクラス
+	 * @param dto ログインしようとしている管理者の情報を取得・格納するクラス
 	 * @return count 検索結果を取得した回数
 	 */
-	public int select(String name, String password, AdminLoginDTO dtoSelect) {
+	public int select(String name, String password, AdminLoginDTO dto) {
 
 		Connection con = DBConnector.getConnection();
 		int count = 0;
@@ -39,8 +39,8 @@ public class AdminLoginDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-				dtoSelect.setId(rs.getInt("id"));
-				dtoSelect.setName(rs.getString("admin_name"));
+				dto.setId(rs.getInt("id"));
+				dto.setName(rs.getString("admin_name"));
 				count = 1;
 			}
 		} catch (SQLException e) {

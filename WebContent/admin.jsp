@@ -120,11 +120,7 @@
 				<div class="user_info">
 
 					<s:form action="AdminUserSelectAction">
-					<s:actionerror />
-							     <s:fielderror>
-							 	  <s:param value="%{'errorUserSelect'}" />
-							 	  <s:param value="%{'errorTicketUpdate'}" />
-							      </s:fielderror>
+				
 						<p>
 							<s:textfield name="selectEmail" placeholder="ユーザーのメールアドレス" />
 							<s:submit value=" 検索 " />
@@ -194,8 +190,8 @@
 								<th>チケット名</th>
 								<th>値段</th>
 								<th>チケット種類</th>
-								<th>チケット詳細</th>
 								<th>販売確認</th>
+								<th>チケット詳細</th>
 								<th>更新日</th>
 							</tr>
 						</thead>
@@ -211,8 +207,8 @@
 										<td><s:property value="name" /></td>
 										<td><s:property value="price" /></td>
 										<td><s:property value="ticketType" /></td>
-										<td><s:property value="ticketInfo" /></td>
 										<td><s:if test="isSale==true">販売中</s:if> <s:else>停止中</s:else></td>
+										<td><s:property value="ticketInfo" /></td>
 										<td><s:property value="renewDate" /></td>
 									</tr>
 								</s:iterator>
@@ -225,10 +221,6 @@
 					<s:div class="row">
 						<s:div class="col-md-6">
 							<s:form action="AdminTicketUpdateAction">
-							 <s:actionerror />
-							     <s:fielderror>
-							 	  <s:param value="%{'errorTicketUpdate'}" />
-							      </s:fielderror>
 								<table>
 									<tr>
 										<th colspan="2">チケット情報の編集</th>
@@ -272,11 +264,6 @@
 						<s:div class="col-md-6">
 							<s:form action="AdminTicketDeleteAction">
 								<h4>削除したいチケットのIDを入力してください</h4>
-								<s:actionerror />
-							     <s:fielderror>
-							 	  <s:param value="%{'errorTicketDelete'}" />
-							 	  <s:param value="%{'deleteTicket'}" />
-							      </s:fielderror>
 								<s:textfield id="deleteId" type="text" class="form-control"
 									name="deleteId" placeholder="チケットID" />
 								<s:submit value=" 削除  "></s:submit>
@@ -342,10 +329,6 @@
 							<s:div class="userdelete">
 								<h5 class="userdeletebutton">ユーザーの削除</h5>
 								<s:form action="AdminUserDeleteAction">
-								 <s:actionerror />
-							     <s:fielderror>
-							 	  <s:param value="%{'errorUserDelete'}" />
-							      </s:fielderror>
 									<s:submit value="ユーザーを削除 "></s:submit>
 								</s:form>
 							</s:div>
@@ -354,10 +337,6 @@
 
 						<s:div class="col-md-8">
 							<s:form action="AdminUserUpdateAction">
-							<s:actionerror />
-							     <s:fielderror>
-							 	  <s:param value="%{'errorUserUpdate'}" />
-							      </s:fielderror>
 								<table class="table">
 									<thead>
 										<tr>
