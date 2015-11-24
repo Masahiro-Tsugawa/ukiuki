@@ -50,7 +50,9 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		int orderId = dao.selectOrderId(userId, registeredDate);
 
+		@SuppressWarnings("unchecked")
 		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
+		@SuppressWarnings("unchecked")
 		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
 		
 		for (int i = 0; i < useList.size(); i++) {

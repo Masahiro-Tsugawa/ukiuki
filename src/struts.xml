@@ -8,6 +8,10 @@
     <constant name="struts.custom.i18n.resources" value="Login,SignUpUser,MyPage,ticket_buy_end,TicketBuy" />
     <package name="com.internousdev.ukiukiutopia.action" extends="struts-default">
       
+      	<!-- ホーム画面への遷移 -->
+    	<action name="home" class="com.internousdev.ukiukiutopia.action.GoHomeAction" method="execute">
+            <result name="success">home.jsp</result>
+        </action>
     
         <!-- ホーム画面 -->
         <action name="GoCreateUser" class="com.internousdev.ukiukiutopia.action.GoSignUpAction" method="execute">
