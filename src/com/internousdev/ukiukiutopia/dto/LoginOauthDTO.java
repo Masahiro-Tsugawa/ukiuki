@@ -16,7 +16,7 @@ public class LoginOauthDTO {
 	/**
 	 * 顧客ID
 	 */
-	private String userId;
+	private int userId;
 	/**
 	 * OAuthから取得した顧客名
 	 */
@@ -62,7 +62,7 @@ public class LoginOauthDTO {
 	 * 
 	 * @return userId　顧客ID
 	 */
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
@@ -70,7 +70,7 @@ public class LoginOauthDTO {
 	 * 顧客ID格納メソッド
 	 * @param userId 顧客ID
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 }

@@ -37,7 +37,7 @@ public class LoginOauthDAO {
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
-				dto.setUserId(rs.getString(1));
+				dto.setUserId(rs.getInt(1));
 				dto.setUserName(rs.getString(2));
 				dto.setUserEmail(rs.getString(3));
 				result = true;

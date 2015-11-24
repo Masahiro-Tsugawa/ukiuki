@@ -51,7 +51,7 @@ public class LoginFacebookAction extends ActionSupport
 	 * FaceBook認証の実行メソッド
 	 * @return result FaceBook認証ができたか否か
 	 */
-	public String execute() throws Exception {
+	public String execute() {
 		String result = ERROR;
 		FacebookOauth oauth = new FacebookOauth();
 		Map<String, String> userMap = oauth.getAccessToken(request, response);
@@ -63,9 +63,12 @@ public class LoginFacebookAction extends ActionSupport
 		LoginOauthDAO dao = new LoginOauthDAO();
 		if (dao.select(uniqueId, NETWORK_NAME)) {
 			LoginOauthDTO dto = dao.getDTO();
-			session.put("OAuthId", dto.getUserId());
-			session.put("OAuthName", dto.getUserName());
-			session.put("OAuthEmail", dto.getUserEmail());
+			session.put("userId", dto.getUserId());
+			session.put("loginName", dto.getUserName());
+			session.put("userEmail", dto.getUserEmail());
+			System.out.println(session.get("userId"));
+			System.out.println(session.get("loginName"));
+			System.out.println(session.get("userEmail"));
 			result = SUCCESS;
 			return result;
 		}

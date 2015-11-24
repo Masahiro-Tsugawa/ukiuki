@@ -281,50 +281,30 @@ public class LoginOauthDTOTest {
 	@Test
 	public void testGetUserId1() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringNull;
+		int expected = testInt0;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
 	}
 	@Test
 	public void testGetUserId2() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringKara;
+		int expected = testIntMax;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
 	}
 	@Test
 	public void testGetUserId3() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringSpace;
+		int expected = testIntMin;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
-		
-		assertEquals(expected, actual);
-	}
-	@Test
-	public void testGetUserId4() {
-		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringHankaku;
-		
-		test.setUserId(expected);
-		String actual = test.getUserId();
-		
-		assertEquals(expected, actual);
-	}
-	@Test
-	public void testGetUserId5() {
-		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringZenkaku;
-		
-		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
 	}
@@ -336,52 +316,32 @@ public class LoginOauthDTOTest {
 	@Test
 	public void testSetUserId1() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringNull;
+		int expected = testInt0;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
 	}
 	@Test
 	public void testSetUserId2() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringKara;
+		int expected = testIntMax;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
 	}
 	@Test
 	public void testSetUserId3() {
 		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringSpace;
+		int expected = testIntMin;
 		
 		test.setUserId(expected);
-		String actual = test.getUserId();
+		int actual = test.getUserId();
 		
 		assertEquals(expected, actual);
-	}
-	@Test
-	public void testSetUserId4() {
-		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringHankaku;
-		
-		test.setUserId(expected);
-		String actual = test.getUserId();
-		
-		assertEquals(expected, actual);
-	}
-	@Test
-	public void testSetUserId5() {
-		LoginOauthDTO test = new LoginOauthDTO();
-		String expected = testStringZenkaku;
-		
-		test.setUserId(expected);
-		String actual = test.getUserId();
-		
-		assertEquals(expected, actual);
-	}
 
+}
 }
