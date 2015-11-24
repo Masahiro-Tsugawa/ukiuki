@@ -127,6 +127,7 @@
 
 			</div>
 		</div>
+	</div>
 </body>
-<jsp:include page="base/main_footer.jsp" flush="true" />
+	<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
