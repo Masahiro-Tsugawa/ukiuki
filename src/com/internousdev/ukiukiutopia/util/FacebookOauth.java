@@ -3,12 +3,13 @@ package com.internousdev.ukiukiutopia.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONValue;
@@ -75,20 +76,31 @@ public class FacebookOauth extends ActionSupport {
 	 * @param request リクエスト情報
 	 * @param response レスポンス情報
 	 * @return　response レスポンス情報
-	 * @throws ServletException　サーブレットの例外
-	 * @throws Exception　例外
 	 */
-	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, Exception {
+	public Map<String, String> getAccessToken(HttpServletRequest request, HttpServletResponse response) {
 		final String callbackURL = request.getRequestURL().toString();
 		final String code = request.getParameter("code");
 		if (code == null) {
-			response.sendRedirect(request.getContextPath() + "/login");
+			try {
+				response.sendRedirect(request.getContextPath() + "/login");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		final String accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id=" + APP_ID
-				+ "&redirect_uri=" + URLEncoder.encode(callbackURL, "UTF-8") + "&client_secret=" + APP_SECRET + "&code="
-				+ URLEncoder.encode(code, "UTF-8");
-		final String accessTokenResult = httpRequest(new URL(accessTokenURL));
+		String accessTokenURL = null;
+		try {
+			accessTokenURL = "https://graph.facebook.com/oauth/access_token?client_id=" + APP_ID + "&redirect_uri="
+					+ URLEncoder.encode(callbackURL, "UTF-8") + "&client_secret=" + APP_SECRET + "&code="
+					+ URLEncoder.encode(code, "UTF-8");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String accessTokenResult = null;
+		try {
+			accessTokenResult = httpRequest(new URL(accessTokenURL));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		String accessToken = null;
 		String[] pairs = accessTokenResult.split("&");
 		for (String pair : pairs) {
@@ -101,8 +113,18 @@ public class FacebookOauth extends ActionSupport {
 				}
 			}
 		}
-		final String apiURL = "https://graph.facebook.com/me?access_token=" + URLEncoder.encode(accessToken, "UTF-8");
-		final String apiResult = httpRequest(new URL(apiURL));
+		String apiURL = null;
+		try {
+			apiURL = "https://graph.facebook.com/me?access_token=" + URLEncoder.encode(accessToken, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		String apiResult = null;
+		try {
+			apiResult = httpRequest(new URL(apiURL));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		@SuppressWarnings("unchecked")
 		Map<String, String> userMap = (Map<String, String>) JSONValue.parse(apiResult);
 		return userMap;
