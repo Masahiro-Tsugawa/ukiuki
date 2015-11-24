@@ -9,7 +9,7 @@ package com.internousdev.ukiukiutopia.dto;
 public class LoginOauthDTO {
 
 	/**
-	 * 名前
+	 * 顧客名
 	 */
 	private String userName;
 
@@ -25,7 +25,7 @@ public class LoginOauthDTO {
 	/**
 	 * 顧客名取得メソッド
 	 * 
-	 * @return userName
+	 * @return userName 顧客名
 	 */
 	public String getUserName() {
 		return userName;
