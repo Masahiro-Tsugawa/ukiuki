@@ -26,6 +26,10 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	 * 初回のOAuth認証後に入力するメールアドレス
 	 */
 	private String OAuthEmail;
+	/**
+	 * エラーメッセージ
+	 */
+	private String emailError;
 	
 	/**
 	 * OAuth認証で取得したIDをデータベースに格納するメソッド
@@ -40,12 +44,12 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		
 		RegisterUserDAO dao = new RegisterUserDAO();
 		if(!dao.update(OAuthId, OAuthName, OAuthEmail)){
+			setEmailError(getText("home.emailError"));
 			result = ERROR;
 			return result;
 		}
 		
 		if(!dao.select(OAuthEmail)){
-			System.out.println("違うよ");
 			result = ERROR;
 			return result;
 		}
@@ -82,6 +86,22 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	 */
 	public void setOAuthEmail(String OAuthEmail) {
 		this.OAuthEmail = OAuthEmail;
+	}
+
+	/**
+	 * エラーメッセージ取得メソッド
+	 * @return emailError エラーメッセージ
+	 */
+	public String getEmailError() {
+		return emailError;
+	}
+
+	/**
+	 * エラーメッセージ格納メソッド
+	 * @param emailError エラーメッセージ
+	 */
+	public void setEmailError(String emailError) {
+		this.emailError = emailError;
 	}
 
 }

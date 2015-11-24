@@ -96,11 +96,13 @@
 						<s:form action="UpdateOAuthInfoAction">
 							<s:if test="#session.OAuthName != null">
 								<tr>
-									<td><label for="emailInput">メールアドレスを入力してください</label><br>
+									<td><label for="emailInput"><s:text name="home.aouthEmail" /></label><br>
 									<s:textfield label="email" name="OAuthEmail" /></td>
 									<s:submit value="%{getText('home.login')}" />
 								</tr>
 							</s:if>
+							<br>
+							<s:property value="getEmailError()" />
 						</s:form>
 						<br>
 					</div>

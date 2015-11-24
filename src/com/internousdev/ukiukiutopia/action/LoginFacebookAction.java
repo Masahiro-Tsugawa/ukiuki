@@ -46,6 +46,11 @@ public class LoginFacebookAction extends ActionSupport
 	 * セッション情報
 	 */
 	private Map<String, Object> session;
+	
+	/**
+	 * エラーメッセージ
+	 */
+	private String emailError;
 
 	/**
 	 * FaceBook認証の実行メソッド
@@ -72,6 +77,7 @@ public class LoginFacebookAction extends ActionSupport
 
 		session.put("OAuthId", userMap.get("id"));
 		session.put("OAuthName", NETWORK_NAME);
+		setEmailError(getText("home.emailError"));
 		result = SUCCESS;
 		return result;
 	}
@@ -103,5 +109,20 @@ public class LoginFacebookAction extends ActionSupport
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+	/**
+	 * エラーメッセージ取得メソッド
+	 * @return emailError エラーメッセージ
+	 */
+	public String getEmailError() {
+		return emailError;
+	}
+
+	/**
+	 * エラーメッセージ格納メソッド
+	 * @param emailError エラーメッセージ
+	 */
+	public void setEmailError(String emailError) {
+		this.emailError = emailError;
 	}
 }
