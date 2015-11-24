@@ -31,7 +31,6 @@ public class AdminTicketSelectDTOTest {
 	private String testStringHankaku;
 	private String testStringZenkaku;
 
-	private boolean testBooleanNull;
 	private boolean testBooleanTrue;
 	private boolean testBooleanFalse;
 	/**
@@ -49,7 +48,6 @@ public class AdminTicketSelectDTOTest {
 		testStringHankaku = "abc123";
 		testStringZenkaku = "ａｂｃ１２３あいう漢字";
 
-		testBooleanNull = null != null;
 		testBooleanTrue = true;
 		testBooleanFalse = false;
 	}
@@ -509,17 +507,8 @@ public class AdminTicketSelectDTOTest {
 	/**
 	 * {@link com.internousdev.ukiukiutopia.dto.AdminTicketSelectDTO#getIsSale()} のためのテスト・メソッド。
 	 */
-	@Test
+
 	public void testGetIsSale1() {
-		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
-		boolean expected = testBooleanNull;
-		test.setIsSale(expected);
-		 boolean actual = test.getIsSale();
-
-		assertEquals(expected, actual);
-	}
-
-	public void testGetIsSale2() {
 		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
 		boolean expected = testBooleanTrue;
 		test.setIsSale(expected);
@@ -528,7 +517,7 @@ public class AdminTicketSelectDTOTest {
 		assertEquals(expected, actual);
 	}
 
-	public void testGetIsSale3() {
+	public void testGetIsSale2() {
 		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
 		boolean expected = testBooleanFalse;
 		test.setIsSale(expected);
@@ -540,17 +529,7 @@ public class AdminTicketSelectDTOTest {
 	/**
 	 * {@link com.internousdev.ukiukiutopia.dto.AdminTicketSelectDTO#setIsSale(boolean)} のためのテスト・メソッド。
 	 */
-	@Test
 	public void testSetIsSale1() {
-		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
-		boolean expected = testBooleanNull;
-		test.setIsSale(expected);
-		 boolean actual = test.getIsSale();
-
-		assertEquals(expected, actual);
-	}
-
-	public void testSetIsSale2() {
 		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
 		boolean expected = testBooleanTrue;
 		test.setIsSale(expected);
@@ -559,7 +538,7 @@ public class AdminTicketSelectDTOTest {
 		assertEquals(expected, actual);
 	}
 
-	public void testSetIsSale3() {
+	public void testSetIsSale2() {
 		AdminTicketSelectDTO test = new AdminTicketSelectDTO();
 		boolean expected = testBooleanFalse;
 		test.setIsSale(expected);
