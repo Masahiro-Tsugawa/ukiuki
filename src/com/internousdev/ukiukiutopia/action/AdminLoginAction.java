@@ -21,10 +21,6 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 * 生成したシリアルID
 	 */
 	private static final long serialVersionUID = 3147941456730448070L;
-	/**
-	 * 管理者ID
-	 */
-	private int id;
 	/***
 	 * 管理者名
 	 */
@@ -34,73 +30,46 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	 */
 	private String password;
 	/***
-	 * ログイン状態
-	 */
-	private boolean isLogin;
-	/***
 	 * 管理者名を保持してブラウザに表示するためにセッションを用意
 	 */
 	private Map<String, Object> session;
-	
-	/***
-	 * 実行結果
-	 */
-	private String result;
 	
 	/**
 	 * 管理者ページにログインするメソッド
 	 * @return result SUCCESS：ユーザー名とパスワード合致＆ログイン状態を変更成功
 	 */
 	public String execute() {
+
+		String result = ERROR;
+
 		if (name.equals("")) {
 			addActionError("ユーザー名を入力してください");
-			return ERROR;
+			return result;
 		}
 		if (password.equals("")) {
 			addActionError("パスワードを入力してください");
-			return ERROR;
+			return result;
 		}
 
 		AdminLoginDAO dao = new AdminLoginDAO();
 		AdminLoginDTO dto = new AdminLoginDTO();
-		int rscountSelect = dao.select(name, password, dto);
-		id=dto.getId();
-		session.put("id", id);
+		int count = dao.select(name, password, dto);
+		int id = dto.getId();
 
-		int rscountUpdate = dao.update(id);
+		count += dao.update(id);
 
-		int rscount = rscountSelect + rscountUpdate;
-				
-		if (rscount<1) {
+		if (count < 2) {
 			addActionError("ユーザー名もしくはパスワードが違います");
-			result = ERROR;
 			return result;
 		}
-		
-			session.put("name_key", dto.getName());
-			
-			result=SUCCESS;
 
-		
+		session.put("id", id);
+		session.put("name_key", dto.getName());
+
+		result = SUCCESS;
+
 		return result;
 
-	}
-
-	/**
-	 * ID取得メソッド
-	 * 
-	 * @return id ユーザーID
-	 */
-	public int getId() {
-		return id;
-	}
-	/**
-	 * ID格納メソッド
-	 * 
-	 * @param id ユーザーID
-	 */
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	/**
@@ -134,14 +103,6 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * セッション取得するメソッド
-	 * @return session 管理者名
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	/**
 	 * セッション格納するメソッド
 	 * @param session 管理者名を格納する
 	 */
@@ -149,18 +110,4 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
-	/**
-	 * ログイン状態取得するメソッド
-	 * @return isLogin ログイン状態
-	 */
-	public boolean getIsLogin() {
-		return isLogin;
-	}
-	/**
-	 * ログイン状態格納するメソッド
-	 * @param isLogin ログイン状態
-	 */
-	public void setIsLogin(boolean isLogin) {
-		this.isLogin = isLogin;
-	}
 }

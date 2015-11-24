@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author internous
+ * @author minamiyasuyuki
  *
  */
 public class AdminLoginDTOTest {
@@ -22,67 +22,35 @@ public class AdminLoginDTOTest {
 	}
 
 	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getName()} のためのテスト・メソッド。
+	 * Test method for {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getName()}.
 	 */
 	@Test
 	public void testGetName() {
-		fail("まだ実装されていません");
+		fail("Not yet implemented");
 	}
 
 	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setName(java.lang.String)} のためのテスト・メソッド。
+	 * Test method for {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setName(java.lang.String)}.
 	 */
 	@Test
 	public void testSetName() {
-		fail("まだ実装されていません");
+		fail("Not yet implemented");
 	}
 
 	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getPassword()} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testGetPassword() {
-		fail("まだ実装されていません");
-	}
-
-	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setPassword(java.lang.String)} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testSetPassword() {
-		fail("まだ実装されていません");
-	}
-
-	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getIsLogin()} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testGetIsLogin() {
-		fail("まだ実装されていません");
-	}
-
-	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setIsLogin(boolean)} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testSetIsLogin() {
-		fail("まだ実装されていません");
-	}
-
-	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getId()} のためのテスト・メソッド。
+	 * Test method for {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#getId()}.
 	 */
 	@Test
 	public void testGetId() {
-		fail("まだ実装されていません");
+		fail("Not yet implemented");
 	}
 
 	/**
-	 * {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setId(int)} のためのテスト・メソッド。
+	 * Test method for {@link com.internousdev.ukiukiutopia.dto.AdminLoginDTO#setId(int)}.
 	 */
 	@Test
 	public void testSetId() {
-		fail("まだ実装されていません");
+		fail("Not yet implemented");
 	}
 
 }

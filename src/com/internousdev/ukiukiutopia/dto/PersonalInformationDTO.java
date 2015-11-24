@@ -9,126 +9,126 @@ package com.internousdev.ukiukiutopia.dto;
 public class PersonalInformationDTO {
     
 	/**
-	 * IDの表示
+	 * ID
 	 */
 	private int id;
 	
 	/**
-	 * ユーザーの表示
+	 * ユーザー名
 	 */
 	private String name;
 	
 	/**
-	 * 電話番号の表示
+	 * 電話番号
 	 */
     private String telNum;
     
     /**
-     * メールアドレスの表示
+     * メールアドレス
      */
     private String email;
     
     /**
-     * 郵便番号の表示
+     * 郵便番号
      */
     private String postalCode;
     
     /**
-     * 住所の表示
+     * 住所
      */
     private String address;
     
     
 	/**
-	 * IDを設定するメソッド
-	 * @param id
+	 * IDを格納するメソッド
+	 * @param id ID
 	 */
 	public void setId(int id){
 		this.id = id;
 	}
     
 	/**
-	 * IDを格納するメソッド
-	 * @return　id
+	 * IDを取得するメソッド
+	 * @return id ID
 	 */
 	public int getId(){
 		return id;
 	}
 
 	/**
-	 * ユーザーの名前を設定するメソッド
-	 * @param name
+	 * ユーザーの名前を格納するメソッド
+	 * @param name ユーザーの名前
 	 */
 	public void setName(String name){
 		this.name=name;
 	}
 	
 	/**
-	 * ユーザーの名前を格納するメソッド
-	 * @return name
+	 * ユーザーの名前を取得するメソッド
+	 * @return name ユーザーの名前
 	 */
 	public String getName(){
 		return name;
 	}
 	
 	/**
-	 * 電話番号を設定するメソッド
-	 * @param telNum
+	 * 電話番号を格納するメソッド
+	 * @param telNum 電話番号
 	 */
 	public void setTelNum(String telNum){
 		this.telNum=telNum;
 	}
     /**
-     * 電話番号を格納するメソッド
-     * @return　telNum
+     * 電話番号を取得するメソッド
+     * @return telNum 電話番号
      */
 	public String getTelNum(){
 		return telNum;
 	}
 	
 	/**
-	 * メールアドレスを設定するメソッド
-	 * @param email
+	 * メールアドレスを格納するメソッド
+	 * @param email メールアドレス
 	 */
 	public void setEmail(String email){
 		this.email=email;
 	}
 	
 	/**
-	 * メールアドレスを格納するメソッド
-	 * @return email
+	 * メールアドレスを取得するメソッド
+	 * @return email メールアドレス
 	 */
 	public String getEmail(){
 		return email;
 	}
 	
 	/**
-	 * 郵便番号を設定するメソッド
-	 * @param postalCode
+	 * 郵便番号を格納するメソッド
+	 * @param postalCode 郵便番号
 	 */
 	public void setPostalCode(String postalCode){
 		this.postalCode=postalCode;
 	}
 	
 	/**
-	 * 郵便番号を格納するメソッド
-	 * @return postalCode
+	 * 郵便番号を取得するメソッド
+	 * @return postalCode 郵便番号
 	 */
 	public String getPostalCode(){
 		return postalCode;
 	}
 	
 	/**
-	 * 住所を設定するメソッド
-	 * @param address
+	 * 住所を格納するメソッド
+	 * @param address 住所
 	 */
 	public void setAddress(String address){
 		this.address = address;
 	}
 	
 	/**
-	 * 住所を格納するメソッド
-	 * @return address
+	 * 住所を取得するメソッド
+	 * @return address 住所
 	 */
 	public String getAddress(){
 		return address;

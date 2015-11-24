@@ -31,10 +31,6 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	 */
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
 	/***
-	 * 実行結果
-	 */
-	public String result = ERROR;
-	/***
 	 * ユーザー情報を取得できなかった際のエラーメッセージ
 	 */
 	private String errorUserSelect;
@@ -49,36 +45,31 @@ public class AdminUserSelectAction extends ActionSupport implements SessionAware
 	private String selectEmail;
 
 	/**
-	 * 編集したいユーザーの情報を検索するメソッド @return ユーザー情報取得の可否
+	 * 編集したいユーザーの情報を検索するメソッド 
+	 * @return result ユーザー情報取得の可否
 	 */
 	public String execute() {
+
+		String result = ERROR;
 
 		if (selectEmail.equals("")) {
 			addActionError("ユーザーIDを入力してください");
 			return result;
+		}
 
-		} else {
+		AdminUserSelectDAO dao = new AdminUserSelectDAO();
+		boolean resultDAO = dao.select(selectEmail);
 
-			AdminUserSelectDAO dao = new AdminUserSelectDAO();
-			boolean resultDAO=false;
-			try {
-				resultDAO = dao.select(selectEmail);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			if (resultDAO == false) {
-				setErrorUserSelect("ユーザー情報の取得に失敗しました");
-				return result;
-			}
-
-			if (resultDAO) {
-				userList = dao.getUserList();
-				session.put("sessionEmail", selectEmail);
-				result = SUCCESS;
-			}
+		if (resultDAO == false) {
+			setErrorUserSelect("ユーザー情報の取得に失敗しました");
 			return result;
 		}
+
+		userList = dao.getUserList();
+		session.put("sessionEmail", selectEmail);
+		result = SUCCESS;
+
+		return result;
 	}
 
 	/**

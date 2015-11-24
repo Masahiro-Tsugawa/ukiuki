@@ -6,57 +6,48 @@ import com.internousdev.ukiukiutopia.dao.RegisterUserDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * ユーザーの個人情報を取得するクラス
+ * 新規登録画面で入力されたユーザーの個人情報をデータベースに格納する為のクラス
  * @author  N.Minami
  * @version 1.1
  * @since 1.0
  */
 public class RegisterUserAction extends ActionSupport implements SessionAware {
-
-	private static final long serialVersionUID = 1L;
-    
 	/**
-	 * 個人情報の表示
-	 * メールアドレスの表示
-	 * パスワードの表示
-	 * ユーザー名の表示
-	 * 電話番号の表示
-	 * 郵便番号の表示
-	 * 住所の表示
+	 * シリアルID
+	 */
+	private static final long serialVersionUID = 1L;  
+	/**
+	 * セッション
 	 */
 	private Map<String, Object> session;
-	private String email;
-	private String password;
-	private String name;
-	private String telNum;
-	private String posCode;
-	private String address;
-    
-	
-	/**
-	 * 個人情報を取得しデータベースにインサートするメソッド
-	 * @return result　個人情報
-	 */
-	public String execute() throws Exception {
-		String result = ERROR;
-		int count;
 
-		email = (String) session.get("signUpEmail");
-		password = (String) session.get("signUpPassword");
-		name = (String) session.get("signUpName");
-		telNum = (String) session.get("signUpTelNum");
-		posCode = (String) session.get("signUpPostalCode");
-		address = (String) session.get("signUpAddress");
+	/**
+	 * 新規登録画面で入力されたユーザーの個人情報をデータベースに格納するメソッド
+	 * @return result　データベースに格納できたか否か
+	 */
+	public String execute(){
+		String result = ERROR;
+		
+		System.out.println((String) session.get("signUpEmail"));
+
+		String email = (String) session.get("signUpEmail");
+		String password = (String) session.get("signUpPassword");
+		String name = (String) session.get("signUpName");
+		String telNum = (String) session.get("signUpTelNum");
+		String posCode = (String) session.get("signUpPostalCode");
+		String address = (String) session.get("signUpAddress");
+		
+		session.clear();
 
 		RegisterUserDAO dao = new RegisterUserDAO();
 
-		count = dao.insert(email, password, name, telNum, posCode, address);
-
-		session.clear();
-
-		session.put("userName",name);
+		int count = dao.insert(email, password, name, telNum, posCode, address);
 
 		if (count > 0) {
+			dao.select(email);
+			session.put("userId", dao.getId());
+			session.put("loginName", name);
+			session.put("userEmail", email);
 			result = SUCCESS;
 		}
 
@@ -66,8 +57,8 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
     
 	
 	/**
-	 * 個人情報を設定するメソッド
-	 * @param session 個人情報の格納
+	 * セッション格納メソッド
+	 * @param session セッション
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

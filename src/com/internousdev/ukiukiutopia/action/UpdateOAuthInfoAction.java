@@ -1,6 +1,5 @@
 package com.internousdev.ukiukiutopia.action;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -24,7 +23,7 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	 */
 	private Map<String, Object> session;
 	/**
-	 * OAuth認証後に入力するメールアドレス
+	 * 初回のOAuth認証後に入力するメールアドレス
 	 */
 	private String OAuthEmail;
 	
@@ -32,7 +31,7 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 	 * OAuth認証で取得したIDをデータベースに格納するメソッド
 	 * @return result すべての処理が完了したか否か
 	 */
-	public String execute() throws SQLException{
+	public String execute(){
 		
 		String result = SUCCESS;
 		

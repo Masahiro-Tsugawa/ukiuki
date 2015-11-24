@@ -1,11 +1,9 @@
 package com.internousdev.ukiukiutopia.dao;
-/**
- * 
- */
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +19,6 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  */
 public class AdminUserSelectDAO {
 	/***
-	 * DBと接続
-	 */
-	Connection con;
-	/***
-	 * 実行結果
-	 */
-	boolean result = false;
-	/***
 	 * DBから取得したユーザー情報を格納するリスト
 	 */
 	public List<AdminUserSelectDTO> userList = new ArrayList<AdminUserSelectDTO>();
@@ -36,20 +26,18 @@ public class AdminUserSelectDAO {
 	/**
 	 * ユーザー情報を検索するメソッド
 	 * 
-	 * @param selectEmail
-	 * @param dto ユーザー情報を取得・格納するクラス
-	 * @return action true：検索結果を取得成功
-	 * @throws Exception ユーザー情報を取得できませんでした
+	 * @param selectEmail 編集したいユーザーのメールアドレス
+	 * @return result true：検索結果を取得成功
 	 */
-	public boolean select(String selectEmail) throws Exception {
+	public boolean select(String selectEmail) {
 
-		con = DBConnector.getConnection();
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
 
 		try {
 			String sql = "select email,password,name,tel_num,postal_code,address,renew_date from user where email=?";
 
-			PreparedStatement ps;
-			ps = con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, selectEmail);
 
 			ResultSet rs = ps.executeQuery();
@@ -72,7 +60,11 @@ public class AdminUserSelectDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			con.close();
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -80,7 +72,7 @@ public class AdminUserSelectDAO {
 	/**
 	 * 選択したユーザー情報を取得するメソッド
 	 * 
-	 * @return userList
+	 * @return userList 選択したユーザー情報のリスト
 	 */
 	public List<AdminUserSelectDTO> getUserList() {
 		return userList;

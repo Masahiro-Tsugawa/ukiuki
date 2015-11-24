@@ -1,13 +1,10 @@
 package com.internousdev.ukiukiutopia.action;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.util.GoogleOauth;
 import com.opensymphony.xwork2.ActionSupport;
@@ -19,17 +16,12 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0　
  *
  */
-public class GoGoogleAction extends ActionSupport implements ServletResponseAware, ServletRequestAware, SessionAware {
+public class GoGoogleAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
 
 	/**
 	 * シリアルID
 	 */
 	private static final long serialVersionUID = 1524555947613444860L;
-
-	/**
-	 * セッション情報
-	 */
-	private Map<String, Object> session;
 
 	/**
 	 * レスポンス情報
@@ -42,30 +34,17 @@ public class GoGoogleAction extends ActionSupport implements ServletResponseAwar
 	private HttpServletRequest request;
 	/**
 	 * GoogleからリクエストTokenを取得メソッド
-	 * @throws Exception 例外処理
+	 * @return result GoogleからリクエストTokenを取得できたか否か
 	 */
-	public String execute() throws Exception {
+	public String execute() {
+		String result = SUCCESS;
 		GoogleOauth googleOauth = new GoogleOauth();
 		if (!googleOauth.getRequestToken(request, response)) {
-			return ERROR;
+			result = ERROR;
 		}
-		return SUCCESS;
-	}
-	/**
-	 * セッション格納メソッド
-	 * @param session セッション
-	 */
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
+		return result;
 	}
 
-	/**
-	 * セッション取得メソッド
-	 * @return session　セッション
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
 	/**
 	 * レスポンス格納メソッド
 	 * @param response レスポンス情報

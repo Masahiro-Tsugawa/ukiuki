@@ -52,11 +52,8 @@ public class FacebookOauth extends ActionSupport {
 	 * ユーザー情報を取得するメソッド
 	 * @param request リクエスト情報
 	 * @param response レスポンス情報
-	 * @throws ServletException　サーブレットの例外
-	 * @throws IOException　AppID,シークレットIDの入力間違いによる例外　
 	 */
-	public void getRequestToken(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void getRequestToken(HttpServletRequest request, HttpServletResponse response) {
 		Facebook facebook = new FacebookFactory().getInstance();
 		request.getSession().setAttribute("facebook", facebook);
 		facebook.setOAuthAppId(APP_ID, APP_SECRET);
@@ -66,7 +63,11 @@ public class FacebookOauth extends ActionSupport {
 		StringBuffer callbackURL = request.getRequestURL();
 		int index = callbackURL.lastIndexOf("/");
 		callbackURL.replace(index, callbackURL.length(), "").append(CALLBACK_PATH);
-		response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+		try {
+			response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -108,21 +109,27 @@ public class FacebookOauth extends ActionSupport {
 	}
 	/**
 	 * リクエスト用メソッド
-	 * @throws IOException 例外
+	 * @param url URL
+	 * @return response レスポンス
 	 */
-	private String httpRequest(URL url) throws IOException {
+	private String httpRequest(URL url) {
+		String response = "";
+		try{
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setDoOutput(true);
 		conn.setUseCaches(false);
 		conn.setRequestMethod("GET");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String line = null;
-		String response = "";
+		
 		while ((line = reader.readLine()) != null) {
 			response += line;
 		}
 		reader.close();
 		conn.disconnect();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return response;
 	}
 

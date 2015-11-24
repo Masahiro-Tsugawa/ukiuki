@@ -37,10 +37,6 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索開始日
 	 */
 	private int fromDate;
-	/***
-	 * 検索開始年月日
-	 */
-	private String startDate;
 
 	/***
 	 * 検索終了年
@@ -54,18 +50,12 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 検索終了日
 	 */
 	private int toDate;
-	/***
-	 * 検索終了年月日
-	 */
-	private String endDate;
+
 	/**
 	 * MongoDBからチケット注文情報を入れるリスト
 	 */
 	public List<AdminBoughtDTO> boughtList = new ArrayList<AdminBoughtDTO>();
-	/**
-	 * 実行結果
-	 */
-	public String result = ERROR;
+
 	/**
 	 * 検索日を入れるためにセッションを用意
 	 */
@@ -77,6 +67,8 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * @return result チケット注文情報の有無
 	 */
 	public String execute() {
+		
+		String result = ERROR;
 
 		StringBuffer sbStartDate = new StringBuffer("");
 		sbStartDate.append(fromYear);
@@ -85,7 +77,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 		sbStartDate.append("/");
 		sbStartDate.append(fromDate);
 
-		startDate = sbStartDate.toString();
+		String startDate = sbStartDate.toString();
 
 		StringBuffer sbEndDate = new StringBuffer("");
 		sbEndDate.append(toYear);
@@ -94,7 +86,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 		sbEndDate.append("/");
 		sbEndDate.append(toDate);
 
-		endDate = sbEndDate.toString();
+		String endDate = sbEndDate.toString();
 
 		AdminBoughtDAO dao = new AdminBoughtDAO();
 		AdminBoughtDTO dto = new AdminBoughtDTO();
@@ -112,18 +104,9 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	}
 
 	/**
-	 * セッション取得メソッド
-	 * 
-	 * @return session 検索した販売期間の開始年月日と終了年月日
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	/**
 	 * セッション格納メソッド
 	 * 
-	 * @param 検索した販売期間の開始年月日と終了年月日
+	 * @param session 検索した販売期間の開始年月日と終了年月日
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -223,7 +206,7 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 
 	 * @return toDate 検索した販売期間の終了日
 	 */
-	public int gettoDate() {
+	public int getToDate() {
 		return toDate;
 	}
 
@@ -232,46 +215,8 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 	 * 
 	 * @param toDate 検索終了日
 	 */
-	public void settoDate(int toDate) {
+	public void setToDate(int toDate) {
 		this.toDate = toDate;
-	}
-
-	/**
-	 * 検索開始年月日情報取得メソッド
-	 * 
-	 * @return startDate 検索開始年月日
-	 */
-	public String getStartDate() {
-		return startDate;
-	}
-
-	/**
-	 * 検索開始年月日情報格納メソッド
-	 * 
-	 * @param startDate
-	 *            検索開始年月日
-	 */
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	/**
-	 * 検索終了年月日情報取得メソッド
-	 * 
-	 * @return endDate 検索終了年月日
-	 */
-	public String getEndDate() {
-		return endDate;
-	}
-
-	/**
-	 * 検索終了年月日情報格納メソッド
-	 * 
-	 * @param endDate
-	 *            検索終了年月日
-	 */
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
 	}
 
 }

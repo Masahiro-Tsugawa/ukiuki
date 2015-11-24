@@ -18,84 +18,75 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
 public class AdminLoginDAO {
 	/**
 	 * 管理者情報を検索するメソッド
-	 * 
 	 * @param name 管理者名
 	 * @param password パスワード
 	 * @param dtoSelect ログインしようとしている管理者の情報を取得・格納するクラス
-	 * @return rscountSelect 検索結果を取得した回数
+	 * @return count 検索結果を取得した回数
 	 */
 	public int select(String name, String password, AdminLoginDTO dtoSelect) {
 
-		Connection conn = null;
-		int rscountSelect = 0;
+		Connection con = DBConnector.getConnection();
+		int count = 0;
 
 		try {
-			conn = DBConnector.getConnection();
-			String sql = "select id,admin_password,admin_name,is_login from admin where ";
+			String sql = "select id,admin_name from admin where ";
 			sql += "admin_name = ? and admin_password = ?";
-			PreparedStatement ps;
 
-			ps = conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, password);
 
 			ResultSet rs = ps.executeQuery();
-			rs.next();
-			dtoSelect.setId(rs.getInt("id"));
-			dtoSelect.setName(rs.getString("admin_name"));
 
 			if (rs.next()) {
-
-				rscountSelect = ps.executeUpdate();
-
+				dtoSelect.setId(rs.getInt("id"));
+				dtoSelect.setName(rs.getString("admin_name"));
+				count = 1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (con != null) {
 				try {
-					conn.close();
+					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		return rscountSelect;
+		return count;
 	}
 
 	/**
 	 * ログイン情報をtrueに編集するメソッド
-	 * 
-	 * @param dtoSelect 管理者の情報を格納・取得するクラス
 	 * @param id 管理者ID
-	 * @return rscountUpdate 編集結果を取得した回数
+	 * @return count 編集結果を取得した回数
 	 */
 	public int update(int id) {
 
-		Connection conn = null;
-		int rscountUpdate = 0;
+		Connection con = DBConnector.getConnection();
+		int count = 0;
 
 		try {
-			conn = (Connection) DBConnector.getConnection();
 
 			String sql = "update admin set is_login=true where id=?";
-			PreparedStatement ps = (PreparedStatement) conn.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
-			rscountUpdate = ps.executeUpdate();
+			count = ps.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (conn != null) {
+			if (con != null) {
 				try {
-					conn.close();
+					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		return rscountUpdate;
+		return count;
 	}
 }
