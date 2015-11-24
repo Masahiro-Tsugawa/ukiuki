@@ -29,12 +29,12 @@
 
 					<tbody>
 						<tr>
-							<td><label for="userNameSurName"><s:text
-										name="signUp.surName" /> ：</label></td>
+							<td><label for="userNameSurname"><s:text
+										name="signUp.surname" /> ：</label></td>
 							<td><s:fielderror>
-									<s:param value="%{'userNameSurName'}" />
-								</s:fielderror> <s:textfield name="userNameSurName"
-									placeholder="%{getText('signUp.surNamePH')}" maxlength="50" /></td>
+									<s:param value="%{'userNameSurname'}" />
+								</s:fielderror> <s:textfield name="userNameSurname"
+									placeholder="%{getText('signUp.surnamePH')}" maxlength="50" /></td>
 						</tr>
 						<tr>
 							<td><label for="userNameFirstName"><s:text
