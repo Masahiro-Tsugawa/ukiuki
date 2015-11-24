@@ -13,11 +13,6 @@
 <title>TicketBuy</title>
 
 <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-function Change1(){
-	document.buyForm.creditRadio.style.visibility = "visible";
-}
-</script>
 
 <script type="text/javascript">
 	$(function() {
@@ -54,9 +49,15 @@ function Change1(){
 				total = total + parseInt($("#subTotal9").text());
 			$("#total").text(total);
 		}
-		
-		$("input[styleId='payInfo']:radio").change(function(){
-			$("#creditInfo").toggle();
+
+		$("input[styleId='payInfo']:radio").change(function() {
+			if ($("input[styleId='payInfo']:checked").val() == "クレジットカード払い") {
+				// 表示
+				$('#creditInfo').show();
+			} else {
+				// 非表示
+				$('#creditInfo').hide();
+			}
 		});
 	});
 </script>
@@ -74,7 +75,9 @@ function Change1(){
 				<%!int i = 0;%>
 				<table class="table-test">
 					<tr>
-						<th colspan="7"><div class="form-titel"><s:text name="ticketBuy.gymTicket" /></div></th>
+						<th colspan="7"><div class="form-titel">
+								<s:text name="ticketBuy.gymTicket" />
+							</div></th>
 					</tr>
 					<tr>
 						<td colspan="1" align="center"><s:text name="ticketBuy.id" /></td>
@@ -86,22 +89,26 @@ function Change1(){
 					</tr>
 					<s:iterator value="useList">
 						<tr>
-							<td colspan="1" align="center"><s:property value="id" />
-								<s:hidden value="%{id}" name="useId"></s:hidden></td>
+							<td colspan="1" align="center"><s:property value="id" /> <s:hidden
+									value="%{id}" name="useId"></s:hidden></td>
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
-										value="price" /></span><s:text name="ticketBuy.yen" /></td>
+										value="price" /></span>
+							<s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
 									list="sheetsList" name="useSheets" /></td>
-							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span><s:text name="ticketBuy.yen" /></td>
+							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
+							<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
 				</table>
 				<br>
 				<table class="table-test">
 					<tr>
-						<th colspan="7"><div class="form-titel"><s:text name="ticketBuy.option" /></div></th>
+						<th colspan="7"><div class="form-titel">
+								<s:text name="ticketBuy.option" />
+							</div></th>
 					</tr>
 					<tr>
 						<td colspan="1" align="center"><s:text name="ticketBuy.id" /></td>
@@ -113,15 +120,17 @@ function Change1(){
 					</tr>
 					<s:iterator value="optionList">
 						<tr>
-							<td colspan="1" align="center"><s:property value="id" />
-								<s:hidden value="%{id}" name="optionId"></s:hidden></td>
+							<td colspan="1" align="center"><s:property value="id" /> <s:hidden
+									value="%{id}" name="optionId"></s:hidden></td>
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
 							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
-										value="price" /></span><s:text name="ticketBuy.yen" /></td>
+										value="price" /></span>
+							<s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
 									list="sheetsList" name="optionSheets" /></td>
-							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span><s:text name="ticketBuy.yen" /></td>
+							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
+							<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
 				</table>
@@ -130,10 +139,13 @@ function Change1(){
 			<br>
 			<table align="center" class="table-test3">
 				<tr>
-					<th><div class="form-titel"><s:text name="ticketBuy.totalAmount" /></div></th>
+					<th><div class="form-titel">
+							<s:text name="ticketBuy.totalAmount" />
+						</div></th>
 				</tr>
 				<tr>
-					<td align="right"><span id="total">0</span><s:text name="ticketBuy.yen" /></td>
+					<td align="right"><span id="total">0</span>
+					<s:text name="ticketBuy.yen" /></td>
 				</tr>
 
 			</table>
@@ -141,42 +153,63 @@ function Change1(){
 
 			<table align="center" class="table-test3">
 				<tr>
-					<th colspan="2"><div class="form-titel"><s:text name="payInfo" /></div></th>
+					<th colspan="2"><div class="form-titel">
+							<s:text name="payInfo" />
+						</div></th>
 				</tr>
-				
+
 				<tr>
-					<td align="right" colspan="2"><s:radio  styleId="payInfo" id="payInfo" name="payInfo" list="payInfoList"
-								value="radio" /></td>
+					<td align="right" colspan="2"><s:radio styleId="payInfo"
+							id="payInfo" name="payInfo" list="payInfoList" value="radio" /></td>
 				</tr>
-				</table>
-				
-				<table align="center" id="creditInfo" class="table-test4">
+			</table>
+
+
+
+			<table align="center" id="creditInfo" class="table-test4">
 				<tr>
 					<th colspan="2"><div class="form-titel">クレジット情報</div></th>
 				</tr>
+				<s:if test="%{getUserCreditNum() !=null}">
+					<tr>
+						<td align="right" colspan="1"><s:text
+								name="ticketBuy.creditNumber" /></td>
+						<td align="right" class="data"><s:textfield
+								property="creditRadio" name="creditNum" /></td>
+					</tr>
+
+					<tr>
+						<td align="right" colspan="1"><s:text
+								name="ticketBuy.expirationDate" /></td>
+						<td align="right" class="data"><s:text name="ticketBuy.month" />
+							<s:select id="month" list="monthList" name="creditMonth" /> <s:text
+								name="ticketBuy.year" />
+							<s:select id="year" list="yearList" name="creditYear" /></td>
+					</tr>
+
+					<tr>
+						<td align="right" colspan="1"><s:text
+								name="ticketBuy.securityCode" /></td>
+						<td align="right" class="data" class="credit"><s:textfield
+								name="secureCode" /></td>
+					</tr>
+						</s:if>
+			<s:else>
                 <tr>
-					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.creditNumber" /></td>
-					<td align="right" class="data"><s:textfield property="creditRadio" name="creditNum" /></td>
-				</tr>
-				
-				<tr>
-					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.expirationDate" /></td>
-					<td align="right" class="data">
-					 <s:text name="ticketBuy.month" /><s:select id="month" list="monthList" name="creditMonth" />
-				     <s:text name="ticketBuy.year" /><s:select id="year" list="yearList" name="creditYear" />
-					</td>
-				</tr>
-				
-				<tr>
-					<td align="right" colspan="1" class="credit"><s:text name="ticketBuy.securityCode" /></td>
-					<td align="right" class="data" class="credit"><s:textfield name="secureCode" /></td>
-				</tr>
-				
+                <td align="right" colspan="1"><s:property value="getUserCreditNum()" /></td>
+			</s:else>
 			</table>
-			
-			<div class="form-titel"><s:submit value="%{getText('ticketBuy.check')}" /></div>
+		
+
+
+			<div class="form-titel">
+				<s:submit value="%{getText('ticketBuy.check')}" />
+			</div>
 		</s:form>
-		<div class="form-titel"><input type="button" value=<s:text name="ticketBuy.back" /> onClick="history.back()"></div>
+		<div class="form-titel">
+			<input type="button" value=<s:text name="ticketBuy.back" />
+				onClick="history.back()">
+		</div>
 	</div>
 </body>
 <jsp:include page="base/main_footer.jsp" flush="true" />
