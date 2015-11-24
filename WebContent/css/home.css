@@ -128,6 +128,21 @@ a.new:hover {
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
+  
+  .emailError
+  {
+  color:red;
+  }
+  
+  .IdError
+  {
+  color:red;
+  }
+  
+  .aouthEmail
+  {
+  color:red;
+  }
 
 /*カーソルが上に来た際の色変化*/
 a.login:hover {

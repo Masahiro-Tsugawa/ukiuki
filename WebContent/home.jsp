@@ -49,18 +49,19 @@
 							<s:text name="home.login" />
 						</h3>
 						<s:form action="HomeAction">
+						<div class = IdError>
 							<s:property value="getIdError()" />
+							</div>
 							<br>
 							<table>
 								<tr>
-									<td><label for="email">ID：</label><br>
-									<s:textfield label="ID" name="email"
-											placeholder="%{getText('home.id')}" /></td>
+									<td><label for="email">ID：</label><br> <s:textfield
+											label="ID" name="email" placeholder="%{getText('home.id')}" /></td>
 								</tr>
 								<tr>
 
-									<td><label for="password">PASSWORD：</label><br>
-									<s:password label="パスワード" name="password"
+									<td><label for="password">PASSWORD：</label><br> <s:password
+											label="パスワード" name="password"
 											placeholder="%{getText('home.pass')}" /></td>
 								</tr>
 								<tr>
@@ -96,13 +97,15 @@
 						<s:form action="UpdateOAuthInfoAction">
 							<s:if test="#session.OAuthName != null">
 								<tr>
-									<td><label for="emailInput"><s:text name="home.aouthEmail" /></label><br>
-									<s:textfield label="email" name="OAuthEmail" /></td>
+									<td class = aouthEmail><label for="emailInput"><s:text 
+												name="home.aouthEmail" /></label><br> <s:textfield
+											label="email" name="OAuthEmail" /></td>
 									<s:submit value="%{getText('home.login')}" />
 								</tr>
 							</s:if>
-							<br>
+							<div class = emailError>
 							<s:property value="getEmailError()" />
+							</div>
 						</s:form>
 						<br>
 					</div>
