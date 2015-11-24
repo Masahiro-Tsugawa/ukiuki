@@ -88,6 +88,8 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 			List<String> creditList = creditDao.getCreditData();
 			userCreditToken = creditList.get(0);
 			userCreditNum = creditList.get(1);
+			session.put("userCreditToken", userCreditToken);
+			session.put("userCreditNum", userCreditNum);
 		}
 
 		for (int i = 0; i < 31; i++) {

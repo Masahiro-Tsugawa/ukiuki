@@ -111,16 +111,25 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 		session.put("buyPayInfo", payInfo);
 		
 		if (payInfo.equals("クレジットカード払い")) {
-			CreditCard credit = new CreditCard();
-			if (credit.isExists(creditNum)) {
-				String creditDate = creditMonth + "/" + creditYear;
-				credit.insert(creditNum, creditDate, secureCode, (int) session.get("userId"));
-				session.put("buyCardToken", credit.getToken());
-				session.put("buyCardNumber", credit.getCardNumber());
+			if ("".equals((String)session.get("userCreditNum"))) {
+				session.remove("userCreditToken");
+				session.remove("userCreditNum");
+				CreditCard credit = new CreditCard();
+				if (credit.isExists(creditNum)) {
+					String creditDate = creditMonth + "/" + creditYear;
+					credit.insert(creditNum, creditDate, secureCode, (int) session.get("userId"));
+					session.put("buyCardToken", credit.getToken());
+					session.put("buyCardNumber", credit.getCardNumber());
+				} else {
+					result = ERROR;
+					session.put("errorMessege", "クレジットカードの入力情報に誤りがあります");
+					return result;
+				}
 			}else{
-				result = ERROR;
-				session.put("errorMessege", "クレジットカードの入力情報に誤りがあります");
-				return result;
+				session.put("buyCardToken", (String)session.get("userCreditToken"));
+				session.put("buyCardNumber", (String)session.get("userCreditNum"));
+				session.remove("userCreditToken");
+				session.remove("userCreditNum");
 			}
 		}
 		
