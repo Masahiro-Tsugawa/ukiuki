@@ -38,8 +38,11 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 		BuyCompleteDAO dao = new BuyCompleteDAO();
 
 		String email = (String) session.get("userEmail");
-		String token = (String) session.get("buyCordToken");
-		String number = (String) session.get("buyCordNumber");
+		session.remove("userEmail");
+		String token = (String) session.get("buyCardToken");
+		session.remove("buyCardToken");
+		String number = (String) session.get("buyCardNumber");
+		session.remove("buyCardNumber");
 		dao.updateToUser(token, number, email);
 
 		int userId = dao.selectUserId(email);
@@ -52,8 +55,10 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		@SuppressWarnings("unchecked")
 		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
+		session.remove("buyUseTicket");
 		@SuppressWarnings("unchecked")
 		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
+		session.remove("buyOptionTicket");
 		
 		for (int i = 0; i < useList.size(); i++) {
 			TicketDataDTO dto = useList.get(i);
@@ -71,6 +76,7 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 			dao.insertToOrderTicket(orderId, ticketId, sheets, buySubTotal, registeredDate);
 		}
 
+		session.remove("buyPayInfo");
 		result = SUCCESS;
 		return result;
 

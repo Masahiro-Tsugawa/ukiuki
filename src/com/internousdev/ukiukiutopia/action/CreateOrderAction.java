@@ -111,9 +111,11 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 		session.put("buyPayInfo", payInfo);
 		
 		if (payInfo.equals("クレジットカード払い")) {
-			if ("".equals((String)session.get("userCreditNum"))) {
+			
+			if ((String)session.get("userCreditNum") == null) {
 				session.remove("userCreditToken");
 				session.remove("userCreditNum");
+				
 				CreditCard credit = new CreditCard();
 				if (credit.isExists(creditNum)) {
 					String creditDate = creditMonth + "/" + creditYear;
@@ -125,7 +127,9 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 					session.put("errorMessege", "クレジットカードの入力情報に誤りがあります");
 					return result;
 				}
+				
 			}else{
+				
 				session.put("buyCardToken", (String)session.get("userCreditToken"));
 				session.put("buyCardNumber", (String)session.get("userCreditNum"));
 				session.remove("userCreditToken");
