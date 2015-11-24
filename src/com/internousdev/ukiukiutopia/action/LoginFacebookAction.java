@@ -66,9 +66,6 @@ public class LoginFacebookAction extends ActionSupport
 			session.put("userId", dto.getUserId());
 			session.put("loginName", dto.getUserName());
 			session.put("userEmail", dto.getUserEmail());
-			System.out.println(session.get("userId"));
-			System.out.println(session.get("loginName"));
-			System.out.println(session.get("userEmail"));
 			result = SUCCESS;
 			return result;
 		}
