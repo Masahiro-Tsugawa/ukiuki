@@ -45,6 +45,7 @@ public class UpdateOAuthInfoAction extends ActionSupport implements SessionAware
 		}
 		
 		if(!dao.select(OAuthEmail)){
+			System.out.println("違うよ");
 			result = ERROR;
 			return result;
 		}

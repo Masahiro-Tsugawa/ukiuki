@@ -15,7 +15,11 @@
 	src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/gmaps.js"></script>
-<script>window.jQuery|| document.write('<script src="js/jquery-1.11.3.min.js"><\/script>')</script>
+<script>
+	window.jQuery
+			|| document
+					.write('<script src="js/jquery-1.11.3.min.js"><\/script>')
+</script>
 <script type="text/javascript" src="js/googleMapButton.js"></script>
 
 
@@ -31,7 +35,7 @@
 							<s:text name="home.newSign" />
 						</h3>
 						<s:form action="GoCreateUser">
-						<s:submit  class= "signUpButton"   value="%{getText('home.sign')}" />
+							<s:submit class="signUpButton" value="%{getText('home.sign')}" />
 						</s:form>
 						<p class="new-comment">
 						<h4>
@@ -49,18 +53,21 @@
 							<br>
 							<table>
 								<tr>
-									<td><label for="email">ID：</label><br><s:textfield label="ID" name="email" placeholder="%{getText('home.id')}" /></td>
+									<td><label for="email">ID：</label><br>
+									<s:textfield label="ID" name="email"
+											placeholder="%{getText('home.id')}" /></td>
 								</tr>
 								<tr>
-									
-									<td><label for="password">PASSWORD：</label><br><s:password label="パスワード" name="password" placeholder="%{getText('home.pass')}" /></td>
+
+									<td><label for="password">PASSWORD：</label><br>
+									<s:password label="パスワード" name="password"
+											placeholder="%{getText('home.pass')}" /></td>
 								</tr>
 								<tr>
-									<td>
-										<s:submit class = "loginButton" value="%{getText('home.login')}" />
-									</td>
+									<td><s:submit class="loginButton"
+											value="%{getText('home.login')}" /></td>
 								</tr>
-								
+
 							</table>
 						</s:form>
 						<p class="login-comment">
@@ -68,7 +75,7 @@
 							<s:text name="home.already.member" />
 						</h4>
 						<br>
-						
+
 
 					</div>
 				</div>
@@ -87,13 +94,14 @@
 							<s:text name="home.aikon" />
 						</h4>
 						<s:form action="UpdateOAuthInfoAction">
-								<s:if test = "#session.OAuthName != null" > 
-								 <tr>
-									<td><label for="emailInput">メールアドレスを入力してください</label><br><s:textfield label="email" name="OAuthEmail" /></td>
+							<s:if test="#session.OAuthName != null">
+								<tr>
+									<td><label for="emailInput">メールアドレスを入力してください</label><br>
+									<s:textfield label="email" name="OAuthEmail" /></td>
 									<s:submit value="%{getText('home.login')}" />
 								</tr>
-								</s:if>
-								</s:form>
+							</s:if>
+						</s:form>
 						<br>
 					</div>
 				</div>
@@ -122,12 +130,13 @@
 						<br>
 					</p>
 				</h4>
-				<input class = "googleMapButton" id="button01" type="button" value="MAP" />
+				<input class="googleMapButton" id="button01" type="button"
+					value="MAP" />
 				<div id="googleMap"></div>
 
 			</div>
 		</div>
 	</div>
 </body>
-	<jsp:include page="base/main_footer.jsp" flush="true" />
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
