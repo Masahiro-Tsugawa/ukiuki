@@ -64,7 +64,8 @@
 				    <td align="center"><s:text name="MyPage.totalAmount" /></td>
 				    
 				</tr>
-				<s:if test="%{historylList!=null}">
+					<s:if test="%{historylList.get(0).sheets !=0}">
+
 					<s:iterator value="historylList">
 				<tr>
 					    <td align="center"><s:property value="name" /></td>
@@ -77,6 +78,8 @@
 				    <td align="center" colspan="4"><s:text name="MyPage.noHistory" /></td>
 				</s:else>
 				</tr>
+				    
+				
 			</table>
 			　　　　<s:form action="ticket_buy">
 					<td colspan="2"><s:submit value="%{getText('MyPage.newPurchaseScreen')}" /></td>
