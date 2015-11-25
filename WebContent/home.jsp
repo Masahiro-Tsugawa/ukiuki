@@ -65,7 +65,7 @@
 											placeholder="%{getText('home.pass')}" /></td>
 								</tr>
 								<tr>
-									<td><s:submit CssClass="loginButton"
+									<td><s:submit cssClass="loginButton"
 											value="%{getText('home.login')}" /></td>
 								</tr>
 
