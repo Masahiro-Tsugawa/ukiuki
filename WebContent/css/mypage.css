@@ -40,7 +40,7 @@ border: 1px solid #66FF99;
 
 /*header‚Ì‚‚³‚ğw’è*/
 .header{
- width: 85%;
+ width: 100%;
  background-color: #000;
  margin-left: auto;
  margin-right: auto;
@@ -71,7 +71,7 @@ border: 1px solid #66FF99;
 
 /*footer‚ÌF‚ğw’è‚·‚é*/
 .footer{
-  width:85%;
+  width:100%;
   margin:0px auto;
   margin-right: auto;
   margin-left: auto;
