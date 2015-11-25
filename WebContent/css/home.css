@@ -67,21 +67,21 @@
 
 /*新規登録ボタン*/
 .signUpButton{
-  width:180px;
+  width:150px;
   color:#ffffff;
   background:#F38605;
-  font-size:28px;
+  font-size:25px;
   font-weight:bold;
   text-align:center;
   display:block;
   text-decoration:none;
   border:1px solid #D2691E;
-  padding:12px 0 8px 0;
-  border-radius:5px;　
+  padding:;
+  border-radius:15px;　
   }
   /*googlemap ボタン*/
   .googleMapButton{
-  width:60px;
+  width:40px;
   color:#ffffff;
   background:#F38605;
   font-size:14px;
@@ -91,22 +91,22 @@
   text-decoration:none;
   border:1px solid #D2691E;
   padding:12px 0 8px 0;
-  border-radius:5px;　
+  border-radius:15px;　
   }
 
 /*login ボタン*/
   .loginButton{
-  width:120px;
+  width:80px;
+  height:30px;
   color:#ffffff;
   background:#F38605;
-  font-size:28px;
+  font-size:15px;
   font-weight:bold;
   text-align:center;
   display:block;
   text-decoration:none;
   border:1px solid #D2691E;
-  padding:12px 0 8px 0;
-  border-radius:5px;　
+  border-radius:15px;
   }
 /*カーソルが上に来た際の色変化*/
 a.new:hover {
