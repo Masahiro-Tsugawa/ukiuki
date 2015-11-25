@@ -1,3 +1,8 @@
+drop database if exists sports_gym;
+
+create database if not exists sports_gym;
+use sports_gym;
+
 -- MySQL dump 10.13  Distrib 5.6.26, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sports_gym
