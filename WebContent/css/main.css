@@ -54,3 +54,29 @@ body, html {
 	margin-right: 30px;
 
 }
+
+.logout
+{
+  height:300px;
+  font-weight:bold;
+  border:3px solid #333;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-right: 20px;
+  border-radius:20px;
+  padding: 10px; 
+  color:#333;
+}
+
+.loginName
+{
+  height:300px;
+  font-weight:bold;
+  border:3px solid #333;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-right: 5px;
+  border-radius:20px;
+  padding: 10px;
+  color:#333;
+}
