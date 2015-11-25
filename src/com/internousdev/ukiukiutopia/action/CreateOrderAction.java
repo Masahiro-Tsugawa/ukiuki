@@ -104,7 +104,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 			session.put("buyTotal", dao.getTotalAmount());
 			result = SUCCESS;
 		}else{
-			session.put("errorMessege", "すべてのチケットの購入枚数が0枚になっています");
+			session.put("errorMessage", getText("ticketBuy.errorBuyMessage"));
 			return result;
 		}
 
@@ -124,7 +124,7 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 					session.put("buyCardNumber", credit.getCardNumber());
 				} else {
 					result = ERROR;
-					session.put("errorMessege", "クレジットカードの入力情報に誤りがあります");
+					session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
 					return result;
 				}
 				
@@ -137,7 +137,8 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 			}
 		}
 		
-		session.remove("errorMessege");
+		session.remove("errorMessage");
+		session.remove("errorCardMessage");
 
 		return result;
 	}

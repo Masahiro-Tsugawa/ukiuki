@@ -68,9 +68,7 @@
 
 	<div class="container">
 		<s:form name="buyForm" action="create_order">
-			<s:if test="%{#session.errorMessege!=null}">
-				<s:property value="#session.errorMessege" />
-			</s:if>
+
 			<div id="ticket">
 				<%!int i = 0;%>
 				<table class="table-test">
@@ -133,7 +131,9 @@
 					</s:iterator>
 				</table>
 			</div>
-
+			<s:if test="%{#session.errorMessage!=null}">
+				<div class="errorMessage"><s:property value="#session.errorMessage" /></div>
+			</s:if>
 			<br>
 			<table align="center" class="table-test3">
 				<tr>
@@ -161,9 +161,14 @@
 							id="payInfo" name="payInfo" list="payInfoList" value="radio" /></td>
 				</tr>
 			</table>
+			<s:if test="%{#session.errorCardMessage!=null}">
+			<div class="errorMessage">
+				<s:property value="#session.errorCardMessage" />
+				</div>
+			</s:if>
 
-
-			<s:if test="%{getUserCreditNum() = null}">
+			<s:if test="%{getUserCreditNum() == null}">
+				<br>
 				<table align="center" id="creditInfo" class="table-test4">
 					<tr>
 						<th colspan="2"><div class="form-titel">
@@ -173,8 +178,11 @@
 					<tr>
 						<td align="right" colspan="1"><s:text
 								name="ticketBuy.creditNumber" /></td>
-						<td align="right" class="data"><s:textfield
-								property="creditRadio" name="creditNum" /></td>
+						<td align="right" class="data">
+						<s:fielderror>
+									<s:param value="%{'creditNum'}" />
+								</s:fielderror>
+						<s:textfield property="creditRadio" name="creditNum" /></td>
 					</tr>
 
 					<tr>
@@ -189,13 +197,19 @@
 					<tr>
 						<td align="right" colspan="1"><s:text
 								name="ticketBuy.securityCode" /></td>
-						<td align="right" class="data" class="credit"><s:textfield
+						<td align="right" class="data" class="credit">
+						<s:fielderror>
+									<s:param value="%{'secureCode'}" />
+								</s:fielderror>
+						<s:textfield
 								name="secureCode" /></td>
 					</tr>
 				</table>
+				<br>
 			</s:if>
 
 			<s:else>
+				<br>
 				<table align="center" id="creditInfo" class="table-test4">
 					<tr>
 						<th colspan="2"><div class="form-titel">
@@ -208,12 +222,14 @@
 								name="ticketBuy.checkCreditNum" />
 					</tr>
 				</table>
+				<br>
 			</s:else>
 
 
 			<div class="form-titel">
 				<s:submit value="%{getText('ticketBuy.check')}" />
 			</div>
+			<br>
 		</s:form>
 		<div class="form-titel">
 			<input type="button" value=<s:text name="ticketBuy.back" />

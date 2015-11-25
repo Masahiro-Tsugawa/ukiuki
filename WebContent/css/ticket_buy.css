@@ -144,3 +144,8 @@
 	padding: 20px;
 	margin: 30px;
 }
+
+.errorMessage{
+	color : red;
+	text-align: center;
+}
