@@ -118,8 +118,41 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 				
 				CreditCard credit = new CreditCard();
 				if (credit.isExists(creditNum)) {
-					String creditDate = creditMonth + "/" + creditYear;
-					credit.insert(creditNum, creditDate, secureCode, (int) session.get("userId"));
+					
+					if((creditNum.length()<11) || (creditNum.length()>20)){
+						result = ERROR;
+						session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
+						return result;
+					}
+					for(int i = 0; i < creditNum.length();i++){
+						char check = creditNum.charAt(i);
+						if(check < '0' || check > '9'){
+							result = ERROR;
+							session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
+							return result;
+						}
+					}
+					if((secureCode.length()<3) || (secureCode.length()>4)){
+						result = ERROR;
+						session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
+						return result;
+					}
+					for(int i = 0; i < secureCode.length();i++){
+						char check = secureCode.charAt(i);
+						if(check < '0' || check > '9'){
+							result = ERROR;
+							session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
+							return result;
+						}
+					}
+										
+					String creditDate = creditMonth + "/" + creditYear;				
+					boolean insertCheck = credit.insert(creditNum, creditDate, secureCode, (int) session.get("userId"));
+					if(!insertCheck){
+						result = ERROR;
+						session.put("errorCardMessage", getText("ticketBuy.errorCardMessage"));
+						return result;
+					}
 					session.put("buyCardToken", credit.getToken());
 					session.put("buyCardNumber", credit.getCardNumber());
 				} else {

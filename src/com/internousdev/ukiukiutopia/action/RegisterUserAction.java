@@ -27,8 +27,6 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute(){
 		String result = ERROR;
-		
-		System.out.println((String) session.get("signUpEmail"));
 
 		String email = (String) session.get("signUpEmail");
 		String password = (String) session.get("signUpPassword");

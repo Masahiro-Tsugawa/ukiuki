@@ -92,7 +92,9 @@
 		</div>
 	
 		 <div align="center">
-			<input type="button" value=<s:text name="cancel" /> onClick="history.back()">
+		 	<s:form action="ticket_buy">
+				<s:submit value="%{getText('cancel')}" />
+			</s:form>
 			<s:form action="check_end">
 				<s:submit value="%{getText('completion')}" />
 			</s:form>
