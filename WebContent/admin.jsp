@@ -24,14 +24,14 @@
 			<s:if test="#session.name_key == null">
 				<div class="loginName">
 
-					<s:form id="signin" class="navbar-form navbar-right" role="form"
+					<s:form id="signin" cssClass="navbar-form navbar-right" role="form"
 						action="AdminLoginAction" method="post">
 						<div class="input-group">
 							<s:actionerror />
 							<s:fielderror>
 								<s:param value="%{'name'}" />
 							</s:fielderror>
-							<s:textfield id="name" type="text" class="form-control"
+							<s:textfield id="name" type="text" cssClass="form-control"
 								name="name" placeholder="ユーザー名" />
 						</div>
 
@@ -40,11 +40,11 @@
 							<s:fielderror>
 								<s:param value="%{'password'}" />
 							</s:fielderror>
-							<s:textfield id="password" type="password" class="form-control"
+							<s:textfield id="password" type="password" cssClass="form-control"
 								name="password" placeholder="パスワード" />
 						</div>
 
-						<s:submit class="btn btn-primary" value=" ログイン " />
+						<s:submit cssClass="btn btn-primary" value=" ログイン " />
 
 					</s:form>
 
@@ -54,9 +54,9 @@
 		</div>
 
 	</div>
-	<s:div class="container">
+	<s:div cssClass="container">
 		<s:else>
-			<s:div class="logout">
+			<s:div cssClass="logout">
 				<p>
 					管理者：
 					<s:property value="#session.name_key" />
@@ -71,7 +71,7 @@
 			</s:div>
 
 			<!--情報入力のダイアログボックスを作る-->
-			<s:div class="well well-lg">
+			<s:div cssClass="well well-lg">
 				<h4>チケット購入情報検索</h4>
 
 				<s:form action="AdminBoughtAction">
@@ -98,7 +98,7 @@
 				</s:form>
 			</s:div>
 
-			<s:div class="well well-lg">
+			<s:div cssClass="well well-lg">
 				<h4>販売チケット一覧表示</h4>
 				<p>
 					まずボタンを押して下のスペースに表示される一覧を確認してください<br>チケットの一覧の下部に入力フォームも表示されます
@@ -114,7 +114,7 @@
 				</div>
 			</s:div>
 
-			<s:div class="well well-lg">
+			<s:div CssClass="well well-lg">
 				<h4>ユーザー検索</h4>
 				<p>編集したいユーザーのメールアドレスを入力して下さい</p>
 				<div class="user_info">
@@ -217,9 +217,9 @@
 					</table>
 				</div>
 
-				<s:div class="container-fluid">
-					<s:div class="row">
-						<s:div class="col-md-6">
+				<s:div cssClass="container-fluid">
+					<s:div cssClass="row">
+						<s:div cssClass="col-md-6">
 							<s:form action="AdminTicketUpdateAction">
 								<table>
 									<tr>
@@ -227,20 +227,20 @@
 									</tr>
 									<tr>
 										<td><s:textfield id="updateid" type="text"
-												class="form-control" name="updateId"
+												cssClass="form-control" name="updateId"
 												placeholder="変更したいIDを入力して下さい" /></td>
 									</tr>
 									<tr>
 										<td colspan="2"><s:textfield id="updateName" type="text"
-												class="form-control" name="updateName" placeholder="チケット名" /></td>
+												cssClass="form-control" name="updateName" placeholder="チケット名" /></td>
 									</tr>
 									<tr>
 										<td colspan="2"><s:textfield id="updateprice" type="text"
-												class="form-control" name="updatePrice" placeholder="値段" /></td>
+												cssClass="form-control" name="updatePrice" placeholder="値段" /></td>
 									</tr>
 									<tr>
 										<td colspan="2"><s:textfield id="updatetickettype"
-												type="text" class="form-control" name="updateTicketType"
+												type="text" cssClass="form-control" name="updateTicketType"
 												placeholder="チケット種類" /></td>
 									</tr>
 									<tr>
@@ -250,7 +250,7 @@
 									</tr>
 									<tr>
 										<td colspan="2"><s:textfield id="updateticketinfomation"
-												type="text" class="form-control" name="ticketInformation"
+												type="text" cssClass="form-control" name="ticketInformation"
 												placeholder="チケット詳細" style="width:400px;height:200px;" /></td>
 									</tr>
 									<tr>
@@ -264,7 +264,7 @@
 						<s:div class="col-md-6">
 							<s:form action="AdminTicketDeleteAction">
 								<h4>削除したいチケットのIDを入力してください</h4>
-								<s:textfield id="deleteId" type="text" class="form-control"
+								<s:textfield id="deleteId" type="text" cssClass="form-control"
 									name="deleteId" placeholder="チケットID" />
 								<s:submit value=" 削除  "></s:submit>
 							</s:form>
@@ -282,9 +282,9 @@
 			<s:if test="userList == null">
 			</s:if>
 			<s:else>
-				<s:div class="container-fluid">
-					<s:div class="row">
-						<s:div class="col-md-4">
+				<s:div cssClass="container-fluid">
+					<s:div cssClass="row">
+						<s:div cssClass="col-md-4">
 							<s:form action="AdminUserSelectAction">
 								<s:iterator value="userList">
 									<table class="table table-striped">
@@ -326,7 +326,7 @@
 								</s:iterator>
 							</s:form>
 
-							<s:div class="userdelete">
+							<s:div cssClass="userdelete">
 								<h5 class="userdeletebutton">ユーザーの削除</h5>
 								<s:form action="AdminUserDeleteAction">
 									<s:submit value="ユーザーを削除 "></s:submit>
@@ -335,7 +335,7 @@
 
 						</s:div>
 
-						<s:div class="col-md-8">
+						<s:div cssClass="col-md-8">
 							<s:form action="AdminUserUpdateAction">
 								<table class="table">
 									<thead>
@@ -344,30 +344,30 @@
 										</tr>
 										<tr>
 											<td><s:textfield id="updateEmail" type="text"
-													class="form-control" name="updateEmail"
+													cssClass="form-control" name="updateEmail"
 													placeholder="メールアドレス" /></td>
 										</tr>
 										<tr>
 											<td><s:textfield id="updatePassword" type="text"
-													class="form-control" name="updatePassword"
+													cssClass="form-control" name="updatePassword"
 													placeholder="パスワード" /></td>
 										</tr>
 										<tr>
 											<td><s:textfield id="updateName" type="text"
-													class="form-control" name="updateName" placeholder="ユーザー名" /></td>
+													cssClass="form-control" name="updateName" placeholder="ユーザー名" /></td>
 										</tr>
 										<tr>
 											<td><s:textfield id="updateTelNum" type="text"
-													class="form-control" name="updateTelNum" placeholder="電話番号" /></td>
+													cssClass="form-control" name="updateTelNum" placeholder="電話番号" /></td>
 										</tr>
 										<tr>
 											<td><s:textfield id="updatepostalcode" type="text"
-													class="form-control" name="updatePostalCode"
+													cssClass="form-control" name="updatePostalCode"
 													placeholder="郵便番号" /></td>
 										</tr>
 										<tr>
 											<td><s:textfield id="updateaddress" type="text"
-													class="form-control" name="updateAddress" placeholder="住所" /></td>
+													cssClass="form-control" name="updateAddress" placeholder="住所" /></td>
 										</tr>
 										<tr>
 											<td><s:submit value="編集 "></s:submit></td>
