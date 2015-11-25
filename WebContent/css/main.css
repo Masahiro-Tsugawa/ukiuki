@@ -66,6 +66,7 @@ body, html {
   border-radius:20px;
   padding: 10px; 
   color:#333;
+  text-decoration:none;
 }
 
 .loginName
@@ -77,6 +78,7 @@ body, html {
   margin-left: 8px;
   margin-right: 5px;
   border-radius:20px;
-  padding: 10px;
+  padding: 10px 25px;
   color:#333;
+  
 }
