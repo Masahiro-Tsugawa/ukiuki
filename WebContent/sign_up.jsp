@@ -80,7 +80,7 @@
 										name="signUp.confirmPassword" /> ：</label></td>
 							<td><s:fielderror>
 									<s:param value="%{'confirmUserPassword'}" />
-								</s:fielderror> <s:password name="confirmUserPassword" maxlength="16" /></td>
+								</s:fielderror> <s:password name="confirmUserPassword" maxlength="32" /></td>
 						</tr>
 
 						<tr>
