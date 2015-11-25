@@ -35,7 +35,7 @@
 							<s:text name="home.newSign" />
 						</h3>
 						<s:form action="GoCreateUser">
-							<s:submit class="signUpButton" value="%{getText('home.sign')}" />
+							<s:submit cssClass="signUpButton" value="%{getText('home.sign')}" />
 						</s:form>
 						<p class="new-comment">
 						<h4>
@@ -65,7 +65,7 @@
 											placeholder="%{getText('home.pass')}" /></td>
 								</tr>
 								<tr>
-									<td><s:submit class="loginButton"
+									<td><s:submit CssClass="loginButton"
 											value="%{getText('home.login')}" /></td>
 								</tr>
 
@@ -85,7 +85,6 @@
 						<h3>
 							<s:text name="home.snsAcount" />
 						</h3>
-						<!-- <a href="TwitterLogin" target="_self "><img src="img/Twitter.png" alt="twitterアカウントでログイン" class="tw"></a> -->
 						<a href="FacebookLogin" target="_self "><img src="img/FB.png"
 							alt="facebookアカウントでログイン" class="fb"></a> <a
 							href="GoGoogleAction" target="_self "><img

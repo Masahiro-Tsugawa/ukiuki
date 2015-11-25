@@ -3,8 +3,8 @@
  padding: 0;
  margin: 0;
  background-color: #FFA07A;
- display: table;　/*ナビをtable形式で表示*/
- text-align: center; /*文字を中央に表示*/
+ display: table;/*ナビをtable形式で表示*/
+ text-align:center; /*文字を中央に表示*/
  width: 100%;　/*contenorと大きさを合わせて表示*/
 }
 /*セルの右側にボーダーを表示させる*/
@@ -75,7 +75,7 @@
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #D2691E;　
+  border:1px solid #D2691E;
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
@@ -89,14 +89,14 @@
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #D2691E;　
+  border:1px solid #D2691E;
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
 
 /*login ボタン*/
   .loginButton{
-  width:100px;
+  width:120px;
   color:#ffffff;
   background:#F38605;
   font-size:28px;
@@ -104,7 +104,7 @@
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #D2691E;　
+  border:1px solid #D2691E;
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
@@ -124,7 +124,7 @@ a.new:hover {
   text-align:center;
   display:block;
   text-decoration:none;
-  border:1px solid #228B22;　
+  border:1px solid #228B22;
   padding:12px 0 8px 0;
   border-radius:5px;　
   }
