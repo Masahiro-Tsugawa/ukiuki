@@ -10,7 +10,7 @@
 		<div align="right">
 			<span class = "loginName" ><s:property value="#session.loginName" />様 </span>
 			<s:url id="home" action="home" />
-			<s:a class = "logout" href="%{home}">ログアウト>></s:a>
+			<s:a cssClass = "logout" href="%{home}">ログアウト>></s:a>
 		</div>
 	</s:if>
 </div>
