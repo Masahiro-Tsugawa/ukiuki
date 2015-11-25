@@ -1,9 +1,9 @@
 package com.internousdev.ukiukiutopia.mongosetup;
 
-import com.internousdev.ukiukiutopia.util.MongoDBConnector;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
 
 /**
  * MongoDBにコレクションを作成する為のクラス
@@ -19,7 +19,9 @@ public class MongoSetUp {
 	public static void main(String[] args) {
 		
 		try {
-			DB db = MongoDBConnector.getConnection();
+			
+			MongoClient client = new MongoClient("localhost", 27017);
+			DB db = client.getDB("sports_gym");
 			DBCollection coll = db.getCollection("ticket_detail");
 			coll.drop();
 

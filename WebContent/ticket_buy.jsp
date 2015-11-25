@@ -85,17 +85,17 @@
 						<td colspan="1" align="center"><s:text name="number" /></td>
 						<td colspan="1" align="center"><s:text name="total" /></td>
 					</tr>
-					<s:iterator value="useList">
+					<s:iterator value="useList" status="st">
 						<tr>
 							<td colspan="1" align="center"><s:property value="id" /> <s:hidden
 									value="%{id}" name="useId"></s:hidden></td>
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
-							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
+							<td colspan="1" align="right"><span id="price<s:property value="#st.count" />"><s:property
 										value="price" /></span> <s:text name="ticketBuy.yen" /></td>
-							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
+							<td colspan="1" align="right"><s:select id="sheets%{#st.count}"
 									list="sheetsList" name="useSheets" /></td>
-							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
+							<td colspan="1" align="right"><span id="subTotal<s:property value="#st.count" />">0</span>
 								<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
@@ -115,17 +115,17 @@
 						<td colspan="1" align="center"><s:text name="number" /></td>
 						<td colspan="1" align="center"><s:text name="total" /></td>
 					</tr>
-					<s:iterator value="optionList">
+					<s:iterator value="optionList" status="st">
 						<tr>
 							<td colspan="1" align="center"><s:property value="id" /> <s:hidden
 									value="%{id}" name="optionId"></s:hidden></td>
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
-							<td colspan="1" align="right"><span id="price<%=i%>"><s:property
+							<td colspan="1" align="right"><span id="price10<%=i%>"><s:property
 										value="price" /></span> <s:text name="ticketBuy.yen" /></td>
 							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
 									list="sheetsList" name="optionSheets" /></td>
-							<td colspan="1" align="right"><span id="subTotal<%=i++%>">0</span>
+							<td colspan="1" align="right"><span id="subTotal10<%=i++%>">0</span>
 								<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
