@@ -261,7 +261,7 @@
 							</s:form>
 						</s:div>
 
-						<s:div class="col-md-6">
+						<s:div cssClass="col-md-6">
 							<s:form action="AdminTicketDeleteAction">
 								<h4>削除したいチケットのIDを入力してください</h4>
 								<s:textfield id="deleteId" type="text" cssClass="form-control"
