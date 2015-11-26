@@ -170,7 +170,7 @@
 				</div>
 			</div>
 		</div>
-
+<s:debug/>
 	</div>
 </body>
 <jsp:include page="base/main_footer.jsp" flush="true" />
