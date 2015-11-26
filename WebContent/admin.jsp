@@ -143,7 +143,9 @@
 
 			<%--チケット売り上げ --%>
 			<s:else>
-				
+				<s:form action="AdminBoughtAction">
+				 <h4><s:property value="#session.startDate" />～<s:property value="#session.endDate" />に購入されたチケットを以下に表示します</h4>
+				</s:form>
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<thead>
