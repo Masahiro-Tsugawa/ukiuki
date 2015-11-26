@@ -54,7 +54,10 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 		session.remove("buyCardToken");
 		String number = (String) session.get("buyCardNumber");
 		session.remove("buyCardNumber");
-		dao.updateToUser(token, number, email);
+		
+		if(token != null && number != null){
+			dao.updateToUser(token, number, email);
+		}
 
 		int userId = dao.selectUserId(email);
 
