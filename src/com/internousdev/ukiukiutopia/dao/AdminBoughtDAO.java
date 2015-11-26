@@ -35,7 +35,7 @@ public class AdminBoughtDAO {
 	 * @param dto DBからチケット購入情報を取得・格納する為のクラス
 	 * @return result true:DBから購入情報取得成功
 	 */
-	public boolean select(String startDate, String endDate, AdminBoughtDTO dto) {
+	public boolean select(String startDate, String endDate) {
 
 		boolean result = false;
 		Connection con = DBConnector.getConnection();
@@ -52,6 +52,7 @@ public class AdminBoughtDAO {
 
 			while (rs.next()) {
 				result = true;
+				AdminBoughtDTO dto = new AdminBoughtDTO();
 
 				dto.setOrderId(rs.getInt(1));
 				dto.setTicketId(rs.getInt(2));

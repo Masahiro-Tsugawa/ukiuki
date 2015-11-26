@@ -89,8 +89,8 @@ public class AdminBoughtAction extends ActionSupport implements SessionAware {
 		String endDate = sbEndDate.toString();
 
 		AdminBoughtDAO dao = new AdminBoughtDAO();
-		AdminBoughtDTO dto = new AdminBoughtDTO();
-		boolean resultDAO = dao.select(startDate, endDate, dto);
+
+		boolean resultDAO = dao.select(startDate, endDate);
 
 		if (resultDAO) {
 			boughtList = dao.getBoughtList();

@@ -143,7 +143,7 @@
 
 			<%--チケット売り上げ --%>
 			<s:else>
-				<s:form action="AdminBoughtAction">
+				
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<thead>
@@ -153,27 +153,26 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>期間</td>
 									<td>注文ID</td>
 									<td>チケットID</td>
 									<td>枚数</td>
 									<td>合計金額</td>
 								</tr>
+							  <s:form action="AdminBoughtAction">
 								<s:iterator value="boughtList">
 									<tr>
-										<td><s:property value="#session.startDate" />～<s:property
-												value="#session.endDate" /></td>
 										<td><s:property value="orderId" /></td>
 										<td><s:property value="ticketId" /></td>
 										<td><s:property value="sheets" /> 枚</td>
 										<td><s:property value="totalAmount" /> 円</td>
 									</tr>
 								</s:iterator>
+							  </s:form>
 							</tbody>
 						</table>
 					</div>
 
-				</s:form>
+			
 
 			</s:else>
 
