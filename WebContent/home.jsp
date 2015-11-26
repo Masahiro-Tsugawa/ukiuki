@@ -153,10 +153,10 @@
 
 				<div class="col-md-6">
 				<s:text name="home.click.map" />
-				<td>
+				<div claass = map.button>
 						<input class="googleMapButton" id="button01" type="button" value="MAP" onclick="hyoji1(0)" />
 						<input class="googleMapButton" id="button01" type="button" value="Ext" onclick="hyoji1(1)" />
-				</td>
+				</div>		
 					<script>
 						function hyoji1(num) {
 							if (num == 0) {
