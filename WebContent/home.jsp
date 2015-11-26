@@ -20,7 +20,15 @@
 			|| document.write(
 					'<script src="js/jquery-1.11.3.min.js"><\/script>')
 </script>
-
+	<script>
+						function hyoji1(num) {
+							if (num == 0) {
+								document.getElementById("googleMap").style.display = "block";
+							} else {
+								document.getElementById("googleMap").style.display = "none";
+							}
+						}
+					</script>
 <script type="text/javascript" src="js/googleMapButton.js"></script>
 
 
@@ -157,20 +165,11 @@
 						<input class="googleMapButton" id="button01" type="button" value="MAP" onclick="hyoji1(0)" />
 						<input class="googleMapButton" id="button01" type="button" value="Ext" onclick="hyoji1(1)" />
 				</div>		
-					<script>
-						function hyoji1(num) {
-							if (num == 0) {
-								document.getElementById("googleMap").style.display = "block";
-							} else {
-								document.getElementById("googleMap").style.display = "none";
-							}
-						}
-					</script>
+				
 					<div id="googleMap"></div>
 				</div>
 			</div>
 		</div>
-<s:debug/>
 	</div>
 </body>
 <jsp:include page="base/main_footer.jsp" flush="true" />
