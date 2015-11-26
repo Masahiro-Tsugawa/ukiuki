@@ -9,10 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/ticket_buy.css" type="text/css">
-<script src="js/creditInfoRadio.js" type="text/javascript"></script>
+
 <title>TicketBuy</title>
 
 <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="js/creditInfoRadio.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -27,8 +28,6 @@
 
 		function totalAmount() {
 			var total = 0;
-			if ($("#subTotal0").text())
-				total = total + parseInt($("#subTotal0").text());
 			if ($("#subTotal1").text())
 				total = total + parseInt($("#subTotal1").text());
 			if ($("#subTotal2").text())
@@ -41,12 +40,14 @@
 				total = total + parseInt($("#subTotal5").text());
 			if ($("#subTotal6").text())
 				total = total + parseInt($("#subTotal6").text());
-			if ($("#subTotal7").text())
-				total = total + parseInt($("#subTotal7").text());
-			if ($("#subTotal8").text())
-				total = total + parseInt($("#subTotal8").text());
-			if ($("#subTotal9").text())
-				total = total + parseInt($("#subTotal9").text());
+			if ($("#subTotal101").text())
+				total = total + parseInt($("#subTotal101").text());
+			if ($("#subTotal102").text())
+				total = total + parseInt($("#subTotal102").text());
+			if ($("#subTotal103").text())
+				total = total + parseInt($("#subTotal103").text());
+			if ($("#subTotal104").text())
+				total = total + parseInt($("#subTotal104").text());
 			$("#total").text(total);
 		}
 
@@ -70,7 +71,6 @@
 		<s:form name="buyForm" action="create_order">
 
 			<div id="ticket">
-				<%!int i = 0;%>
 				<table class="table-test">
 					<tr>
 						<th colspan="7"><div class="form-titel">
@@ -121,11 +121,11 @@
 									value="%{id}" name="optionId"></s:hidden></td>
 							<td colspan="1" align="center"><s:property value="name" /></td>
 							<td colspan="2" align="left"><s:property value="info" /></td>
-							<td colspan="1" align="right"><span id="price10<%=i%>"><s:property
+							<td colspan="1" align="right"><span id="price10<s:property value="#st.count" />"><s:property
 										value="price" /></span> <s:text name="ticketBuy.yen" /></td>
-							<td colspan="1" align="right"><s:select id="sheets<%=i%>"
+							<td colspan="1" align="right"><s:select id="sheets10%{#st.count}"
 									list="sheetsList" name="optionSheets" /></td>
-							<td colspan="1" align="right"><span id="subTotal10<%=i++%>">0</span>
+							<td colspan="1" align="right"><span id="subTotal10<s:property value="#st.count" />">0</span>
 								<s:text name="ticketBuy.yen" /></td>
 						</tr>
 					</s:iterator>
