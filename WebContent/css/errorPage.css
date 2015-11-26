@@ -1,0 +1,9 @@
+.table-test {
+	width: 50%;
+	border-collapse: collapse;
+}
+.table-test td {
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #66FF99;
+}
