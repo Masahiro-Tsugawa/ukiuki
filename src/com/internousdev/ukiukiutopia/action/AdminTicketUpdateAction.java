@@ -3,8 +3,8 @@
  */
 package com.internousdev.ukiukiutopia.action;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import com.internousdev.ukiukiutopia.dao.AdminTicketUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -59,8 +59,9 @@ public class AdminTicketUpdateAction extends ActionSupport {
 	public String execute() {
 
 		String result = ERROR;
-		DateTime dt = new DateTime();
-		String renewDate = dt.toString(DateTimeFormat.mediumDateTime());
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String renewDate = sdf.format(c.getTime());
 
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 

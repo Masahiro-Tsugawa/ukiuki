@@ -4,9 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import com.internousdev.ukiukiutopia.util.DBConnector;
 
@@ -41,7 +40,9 @@ public class RegisterUserDAO {
 
 		int count = 0;
 		Connection con = DBConnector.getConnection();
-		DateTime dt = new DateTime();
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String dt = sdf.format(c.getTime());
 
 		String sql = "insert into user(email,password,name,tel_num,postal_code,address,"
 				+ "registered_date,renew_date) value(?,?,?,?,?,?,?,?)";
@@ -53,8 +54,8 @@ public class RegisterUserDAO {
 			ps.setString(4, telNum);
 			ps.setString(5, posCode);
 			ps.setString(6, address);
-			ps.setString(7, dt.toString(DateTimeFormat.mediumDateTime()));
-			ps.setString(8, dt.toString(DateTimeFormat.mediumDateTime()));
+			ps.setString(7, dt);
+			ps.setString(8, dt);
 
 			count = ps.executeUpdate();
 		} catch (SQLException e) {
@@ -83,14 +84,16 @@ public class RegisterUserDAO {
 		boolean result = false;
 
 		Connection con = DBConnector.getConnection();
-		DateTime dt = new DateTime();
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String dt = sdf.format(c.getTime());
 
 		String sql = "update user set unique_id=?,oauth_name=?,renew_date=? where email=?;";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, OAuthId);
 			ps.setString(2, OAuthName);
-			ps.setString(3, dt.toString(DateTimeFormat.mediumDateTime()));
+			ps.setString(3, dt);
 			ps.setString(4, email);
 
 			if (ps.executeUpdate() > 0) {

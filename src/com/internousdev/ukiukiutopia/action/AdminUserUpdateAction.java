@@ -3,11 +3,11 @@ package com.internousdev.ukiukiutopia.action;
  * 
  */
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 
 import com.internousdev.ukiukiutopia.dao.AdminUserUpdateDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -69,8 +69,9 @@ public class AdminUserUpdateAction extends ActionSupport implements SessionAware
 		String result = ERROR;
 		String purposeEmail = (String) session.get("sessionEmail");
 
-		DateTime dt = new DateTime();
-		String updateRenewDate = dt.toString(DateTimeFormat.mediumDateTime());
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String updateRenewDate = sdf.format(c.getTime());
 
 		AdminUserUpdateDAO dao = new AdminUserUpdateDAO();
 

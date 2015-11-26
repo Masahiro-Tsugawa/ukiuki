@@ -1,11 +1,11 @@
 package com.internousdev.ukiukiutopia.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 import com.internousdev.ukiukiutopia.dao.BuyCompleteDAO;
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -46,8 +46,9 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 
 		int userId = dao.selectUserId(email);
 
-		DateTime dt = new DateTime();
-		String registeredDate = dt.toString(DateTimeFormat.mediumDateTime());
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String registeredDate = sdf.format(c.getTime());
 		dao.insertToOrder(userId, registeredDate);
 
 		int orderId = dao.selectOrderId(userId, registeredDate);
