@@ -35,6 +35,18 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		String result = ERROR;
+		
+		@SuppressWarnings("unchecked")
+		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
+		session.remove("buyUseTicket");
+		@SuppressWarnings("unchecked")
+		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
+		session.remove("buyOptionTicket");
+		
+		if(useList==null && optionList==null){
+			return result;
+		}
+		
 		BuyCompleteDAO dao = new BuyCompleteDAO();
 
 		String email = (String) session.get("userEmail");
@@ -52,13 +64,6 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 		dao.insertToOrder(userId, registeredDate);
 
 		int orderId = dao.selectOrderId(userId, registeredDate);
-
-		@SuppressWarnings("unchecked")
-		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");
-		session.remove("buyUseTicket");
-		@SuppressWarnings("unchecked")
-		List<TicketDataDTO> optionList = (ArrayList<TicketDataDTO>) session.get("buyOptionTicket");
-		session.remove("buyOptionTicket");
 		
 		for (int i = 0; i < useList.size(); i++) {
 			TicketDataDTO dto = useList.get(i);
