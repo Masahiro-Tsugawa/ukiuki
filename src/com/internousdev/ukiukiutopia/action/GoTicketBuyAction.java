@@ -1,9 +1,9 @@
 package com.internousdev.ukiukiutopia.action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -39,15 +39,15 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	/**
 	 * 購入枚数選択用のリスト
 	 */
-	private HashMap<Integer, String> sheetsList = new HashMap<Integer, String>();
+	private TreeMap<Integer, String> sheetsList = new TreeMap<Integer, String>();
 	/**
 	 * クレジットカードの有効期限の月選択用のリスト
 	 */
-	private HashMap<String, String> monthList = new HashMap<String, String>();
+	private TreeMap<String, String> monthList = new TreeMap<String, String>();
 	/**
 	 * クレジットカードの有効期限の年選択用のリスト
 	 */
-	private HashMap<String, String> yearList = new HashMap<String, String>();
+	private TreeMap<String, String> yearList = new TreeMap<String, String>();
 	/**
 	 * 支払い方法選択用のリスト
 	 */
@@ -186,7 +186,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入枚数選択用のリスト取得メソッド
 	 * @return sheetsList 購入枚数選択用のリスト
 	 */
-	public HashMap<Integer, String> getSheetsList() {
+	public TreeMap<Integer, String> getSheetsList() {
 		return sheetsList;
 	}
 
@@ -194,7 +194,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * 購入枚数選択用のリスト取得格納メソッド
 	 * @param sheetsList 購入枚数選択用のリスト
 	 */
-	public void setSheetsList(HashMap<Integer, String> sheetsList) {
+	public void setSheetsList(TreeMap<Integer, String> sheetsList) {
 		this.sheetsList = sheetsList;
 	}
 
@@ -202,7 +202,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * クレジットカードの有効期限の月選択用のリスト取得メソッド
 	 * @return monthList クレジットカードの有効期限の月選択用のリスト
 	 */
-	public HashMap<String, String> getMonthList() {
+	public TreeMap<String, String> getMonthList() {
 		return monthList;
 	}
 
@@ -210,7 +210,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * クレジットカードの有効期限の月選択用のリスト取得格納メソッド
 	 * @param monthList クレジットカードの有効期限の月選択用のリスト
 	 */
-	public void setMonthList(HashMap<String, String> monthList) {
+	public void setMonthList(TreeMap<String, String> monthList) {
 		this.monthList = monthList;
 	}
 
@@ -218,7 +218,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * クレジットカードの有効期限の年選択用のリスト取得メソッド
 	 * @return yearList クレジットカードの有効期限の年選択用のリスト
 	 */
-	public HashMap<String, String> getYearList() {
+	public TreeMap<String, String> getYearList() {
 		return yearList;
 	}
 
@@ -226,7 +226,7 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	 * クレジットカードの有効期限の年選択用のリスト格納メソッド
 	 * @param yearList クレジットカードの有効期限の年選択用のリスト
 	 */
-	public void setYearList(HashMap<String, String> yearList) {
+	public void setYearList(TreeMap<String, String> yearList) {
 		this.yearList = yearList;
 	}
 
