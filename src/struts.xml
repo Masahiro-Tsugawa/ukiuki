@@ -85,6 +85,7 @@
         <!-- チケット確認画面から完了画面へ -->   
 	    <action name="check_end" class="com.internousdev.ukiukiutopia.action.BuyInsertAction" method="execute" >
 	       <result name="success">ticket_buy_end.jsp</result>
+	       <result name="error">ticket_buy_check.jsp</result>
 	    </action>
 	    
         <!-- 管理者ログイン -->
@@ -169,6 +170,7 @@
          <!-- ユーザー情報登録 -->
         <action name="register_user" class="com.internousdev.ukiukiutopia.action.RegisterUserAction" method="execute">
             <result name="success">sign_up_end.jsp</result>
+            <result name="error">sign_up.jsp</result>
         </action>
         
         <!-- 購入情報の生成 -->
