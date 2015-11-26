@@ -19,56 +19,44 @@
 
 			<table>
 				<tr>
-					<th colspan="2"><s:text name="signUpCheck.registrationContents" /></th>
+					<th colspan="2"><s:text
+							name="signUpCheck.registrationContents" /></th>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.name" />：</td>
-					<td>
-						<s:property value="#session.signUpName"/>
-					</td>
+					<td><s:property value="#session.signUpName" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.email" />：</td>
-					<td>
-						<s:property value="#session.signUpEmail"/>
-					</td>
+					<td><s:property value="#session.signUpEmail" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.password" />：</td>
-					<td>
-						<s:property value="#session.signUpPassword"/>
-					</td>
+					<td><s:property value="#session.signUpPassword" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.posCode" />：</td>
-					<td>
-						<s:property value="#session.signUpPostalCode"/>
-					</td>
+					<td><s:property value="#session.signUpPostalCode" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.address" />：</td>
-					<td>
-						<s:property value="#session.signUpAddress"/>
-					</td>
+					<td><s:property value="#session.signUpAddress" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.phoneNumber" />：</td>
-					<td>
-						<s:property value="#session.signUpTelNum"/>
-					</td>
+					<td><s:property value="#session.signUpTelNum" /></td>
 				</tr>
 
 				<tr class="button">
-					<td colspan="2"><input type="button" value=<s:text name="signUpCheck.correction" />
-						onClick="history.back()"> 
-						<s:form action="register_user">
-  							<s:submit value="%{getText('signUpCheck.completion')}" />
-						</s:form>
-					</td>
+					<td colspan="2"><s:form action="GoCreateUser">
+							<s:submit value="%{getText('signUpCheck.correction')}" />
+						</s:form> <s:form action="register_user">
+							<s:submit value="%{getText('signUpCheck.completion')}" />
+						</s:form></td>
 				</tr>
 			</table>
 		</div>
 	</div>
 </body>
-	<jsp:include page="base/main_footer.jsp" flush="true" />
+<jsp:include page="base/main_footer.jsp" flush="true" />
 </html>
