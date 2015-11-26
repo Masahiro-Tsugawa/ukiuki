@@ -17,9 +17,10 @@
 <script type="text/javascript" src="js/gmaps.js"></script>
 <script>
 	window.jQuery
-			|| document
-					.write('<script src="js/jquery-1.11.3.min.js"><\/script>')
+			|| document.write(
+					'<script src="js/jquery-1.11.3.min.js"><\/script>')
 </script>
+
 <script type="text/javascript" src="js/googleMapButton.js"></script>
 
 
@@ -32,7 +33,9 @@
 				<div class="col-md-4">
 					<div class="createUser">
 						<h3>
-						<p class="menuTabDoubleLight"><s:text name="home.newSign" /></p>
+							<p class="menuTabDoubleLight">
+								<s:text name="home.newSign" />
+							</p>
 						</h3>
 						<s:form action="GoCreateUser">
 							<s:submit cssClass="signUpButton" value="%{getText('home.sign')}" />
@@ -46,7 +49,9 @@
 				<div class="col-md-4">
 					<div class="loginUser">
 						<h3>
-							<p class="menuTabDoubleLight"><s:text name="home.login" /></p>
+							<p class="menuTabDoubleLight">
+								<s:text name="home.login" />
+							</p>
 						</h3>
 						<s:form action="HomeAction">
 							<div class=IdError>
@@ -83,7 +88,9 @@
 				<div class="col-md-4">
 					<div class="oauthUser">
 						<h3>
-							<p class="menuTabDoubleLight"><s:text name="home.snsAcount" /></p>
+							<p class="menuTabDoubleLight">
+								<s:text name="home.snsAcount" />
+							</p>
 						</h3>
 						<a href="FacebookLogin" target="_self "><img src="img/FB.png"
 							alt="facebookアカウントでログイン" class="fb"></a> <a
@@ -111,43 +118,59 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			</div>
+		</div>
 
-			<div class="howto">
-				<h3>
-					<p class="menuTabDoubleLight"><s:text name="home.howTo" /></p>
-				</h3>
-				<h4>
-					<p>
-						<s:text name="home.howToUse" />
-					</p>
-				</h4>
-			</div>
-			
-				<div class="access">
+		<div class="howto">
+			<h3>
+				<p class="menuTabDoubleLight">
+					<s:text name="home.howTo" />
+				</p>
+			</h3>
+			<h4>
+				<p>
+					<s:text name="home.howToUse" />
+				</p>
+			</h4>
+		</div>
+
+		<div class="access">
 			<div class="row">
-			
-					<div class="col-md-6">
 
-						<h3>
-							<p class="menuTabDoubleLight"><s:text name="home.address" /></p>
-						</h3>
-						<h4>
-							<p>
-								<s:text name="home.adress.description" />
-								<br>
-							</p>
-						</h4>
-					</div>
+				<div class="col-md-6">
 
-					<div class="col-md-6">
-						<input class="googleMapButton" id="button01" type="button"
-							value="MAP" /><s:text name="home.click.map" />
-						<div id="googleMap"></div>
-					</div>
+					<h3>
+						<p class="menuTabDoubleLight">
+							<s:text name="home.address" />
+						</p>
+					</h3>
+					<h4>
+						<p>
+							<s:text name="home.adress.description" />
+							<br>
+						</p>
+					</h4>
+				</div>
+
+				<div class="col-md-6">
+				<s:text name="home.click.map" />
+				<td>
+						<input class="googleMapButton" id="button01" type="button" value="MAP" onclick="hyoji1(0)" />
+						<input class="googleMapButton" id="button01" type="button" value="Ext" onclick="hyoji1(1)" />
+				</td>
+					<script>
+						function hyoji1(num) {
+							if (num == 0) {
+								document.getElementById("googleMap").style.display = "block";
+							} else {
+								document.getElementById("googleMap").style.display = "none";
+							}
+						}
+					</script>
+					<div id="googleMap"></div>
 				</div>
 			</div>
-		
+		</div>
+
 	</div>
 </body>
 <jsp:include page="base/main_footer.jsp" flush="true" />
