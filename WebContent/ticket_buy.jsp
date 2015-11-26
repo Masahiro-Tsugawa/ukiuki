@@ -189,7 +189,7 @@
 						<td align="right" colspan="1"><s:text
 								name="ticketBuy.expirationDate" /></td>
 						<td align="right" class="data"><s:text name="ticketBuy.month" />
-							<s:select id="month" list="monthList" name="creditMonth" /> <s:text
+							<s:select id="month" list="monthList" name="creditMonth" /> <br><s:text
 								name="ticketBuy.year" /> <s:select id="year" list="yearList"
 								name="creditYear" /></td>
 					</tr>
@@ -218,7 +218,7 @@
 					</tr>
 					<tr>
 						<td align="right" colspan="1"><s:property
-								value="getUserCreditNum()" /><br> <s:text
+								value="getUserCreditNum()" /> <s:text
 								name="ticketBuy.checkCreditNum" />
 					</tr>
 				</table>
@@ -232,8 +232,9 @@
 			<br>
 		</s:form>
 		<div class="form-titel">
-			<input type="button" value=<s:text name="ticketBuy.back" />
-				onClick="history.back()">
+		<s:form action="personal">
+				<s:submit value="%{getText('ticketBuy.back')}" />
+			</s:form>
 		</div>
 	</div>
 </body>
