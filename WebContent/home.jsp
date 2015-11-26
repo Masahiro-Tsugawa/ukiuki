@@ -141,9 +141,8 @@
 					</div>
 
 					<div class="col-md-6">
-					<s:text name="home.click.map" />
 						<input class="googleMapButton" id="button01" type="button"
-							value="MAP" />
+							value="MAP" /><s:text name="home.click.map" />
 						<div id="googleMap"></div>
 					</div>
 				</div>
