@@ -87,10 +87,12 @@ public class GoMyPageAction extends ActionSupport implements SessionAware {
 		if (!dao.selectHistory(id)) {
 			return result;
 		}
-
+		session.remove("errorMessage");
+		session.remove("errorCardMessage");
 		historylList.addAll(dao.getHistorylList());
 		result = SUCCESS;
 		return result;
+	
 	}
 
 	/**
