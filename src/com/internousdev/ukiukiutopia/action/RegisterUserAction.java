@@ -34,19 +34,19 @@ public class RegisterUserAction extends ActionSupport implements SessionAware {
 		String telNum = (String) session.get("signUpTelNum");
 		String posCode = (String) session.get("signUpPostalCode");
 		String address = (String) session.get("signUpAddress");
-		
-		session.clear();
 
 		RegisterUserDAO dao = new RegisterUserDAO();
 
 		int count = dao.insert(email, password, name, telNum, posCode, address);
 
 		if (count > 0) {
-			dao.select(email);
-			session.put("userId", dao.getId());
-			session.put("loginName", name);
-			session.put("userEmail", email);
-			result = SUCCESS;
+			if (dao.select(email)) {
+				session.clear();
+				session.put("userId", dao.getId());
+				session.put("loginName", name);
+				session.put("userEmail", email);
+				result = SUCCESS;
+			}
 		}
 
 		return result;
