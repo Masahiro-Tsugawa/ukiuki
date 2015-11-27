@@ -114,7 +114,7 @@
 				</div>
 			</s:div>
 
-			<s:div CssClass="well well-lg">
+			<s:div cssClass="well well-lg">
 				<h4>ユーザー検索</h4>
 				<p>編集したいユーザーのメールアドレスを入力して下さい</p>
 				<div class="user_info">
@@ -131,6 +131,22 @@
 						</s:fielderror>
 					</s:form>
 
+				</div>
+			</s:div>
+			
+			<s:div cssClass="well well-lg">
+				<h4>全ての管理者をログアウト</h4>
+				<p>
+					下のボタンを押すと現在ログインしている管理者を全てログアウト状態にできます<br>※他に作業している方がいないか注意してください<br>
+				</p>
+				<div class="ticket_info">
+
+					<s:form action="admin_reset">
+						<p>
+							<s:submit value=" 全ログアウト　 " />
+						</p>
+
+					</s:form>
 				</div>
 			</s:div>
 
