@@ -27,19 +27,13 @@
 					<s:form id="signin" cssClass="navbar-form navbar-right" role="form"
 						action="AdminLoginAction" method="post">
 						<div class="input-group">
-							<s:actionerror />
-							<s:fielderror>
-								<s:param value="%{'name'}" />
-							</s:fielderror>
+							
 							<s:textfield id="name" type="text" cssClass="form-control"
 								name="name" placeholder="ユーザー名" />
 						</div>
 
 						<div class="input-group">
-						<s:actionerror />
-							<s:fielderror>
-								<s:param value="%{'password'}" />
-							</s:fielderror>
+					
 							<s:textfield id="password" type="password" cssClass="form-control"
 								name="password" placeholder="パスワード" />
 						</div>
@@ -47,7 +41,16 @@
 						<s:submit cssClass="btn btn-primary" value=" ログイン " />
 
 					</s:form>
+					<p>
 
+				 <s:actionerror />
+							<s:fielderror>
+								<s:param value="%{'name'}" />
+							</s:fielderror>
+							<s:fielderror>
+								<s:param value="%{'password'}" />
+							</s:fielderror>
+				    </p>
 				</div>
 
 			</s:if>
