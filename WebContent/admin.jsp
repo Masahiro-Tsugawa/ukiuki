@@ -36,7 +36,7 @@
 						</div>
 
 						<div class="input-group">
-						　<s:actionerror />
+						<s:actionerror />
 							<s:fielderror>
 								<s:param value="%{'password'}" />
 							</s:fielderror>

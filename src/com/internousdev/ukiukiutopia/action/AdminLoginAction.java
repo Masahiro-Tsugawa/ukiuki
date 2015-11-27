@@ -54,6 +54,12 @@ public class AdminLoginAction extends ActionSupport implements SessionAware {
 		AdminLoginDAO dao = new AdminLoginDAO();
 		AdminLoginDTO dto = new AdminLoginDTO();
 		int count = dao.select(name, password, dto);
+		
+		if (dao.getIsLogin()) {
+			addActionError("既にログインしているユーザーです");
+			return result;
+		}
+		
 		int id = dto.getId();
 
 		count += dao.update(id);
