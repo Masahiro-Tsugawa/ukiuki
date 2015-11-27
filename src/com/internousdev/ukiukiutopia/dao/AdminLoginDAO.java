@@ -16,6 +16,12 @@ import com.internousdev.ukiukiutopia.util.DBConnector;
  * @since 1.0
  */
 public class AdminLoginDAO {
+	
+	/***
+	 * 管理者のログイン状態
+	 */
+	private boolean isLogin;
+	
 	/**
 	 * 管理者情報を検索するメソッド
 	 * @param name 管理者名
@@ -29,7 +35,7 @@ public class AdminLoginDAO {
 		int count = 0;
 
 		try {
-			String sql = "select id,admin_name from admin where ";
+			String sql = "select id,admin_name,is_login from admin where ";
 			sql += "admin_name = ? and admin_password = ?";
 
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -41,6 +47,7 @@ public class AdminLoginDAO {
 			if (rs.next()) {
 				dto.setId(rs.getInt("id"));
 				dto.setName(rs.getString("admin_name"));
+				setIsLogin((rs.getBoolean("is_login")));
 				count = 1;
 			}
 		} catch (SQLException e) {
@@ -88,5 +95,22 @@ public class AdminLoginDAO {
 			}
 		}
 		return count;
+	}
+
+	
+	/**
+	 * 管理者のログイン状態格納メソッド
+	 * @return isLogin 管理者のログイン状態
+	 */
+	public boolean getIsLogin() {
+		return isLogin;
+	}
+
+	/**
+	 * 管理者のログイン状態取得メソッド
+	 * @param isLogin 管理者のログイン状態
+	 */
+	public void setIsLogin(boolean isLogin) {
+		this.isLogin = isLogin;
 	}
 }
