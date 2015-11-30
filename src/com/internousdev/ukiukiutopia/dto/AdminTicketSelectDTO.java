@@ -31,6 +31,10 @@ public class AdminTicketSelectDTO {
 	 */
 	private boolean isSale;
 	/***
+	 * 表示状態
+	 */
+	private boolean isShow;
+	/***
 	 * チケット詳細
 	 */
 	private String ticketInfo;
@@ -123,6 +127,22 @@ public class AdminTicketSelectDTO {
 		this.isSale = isSale;
 	}
 
+	/**
+	 * 表示状態取得メソッド
+	 * 
+	 * @return isShow 表示状態
+	 */
+	public boolean getIsShow() {
+		return isShow;
+	}
+	/**
+	 * 表示状態格納メソッド
+	 * 
+	 * @param isShow 表示状態
+	 */
+	public void setIsShow(boolean isShow) {
+		this.isShow = isShow;
+	}
 	/**
 	 * チケット詳細取得メソッド
 	 * 

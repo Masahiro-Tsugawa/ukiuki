@@ -5,13 +5,16 @@ package com.internousdev.ukiukiutopia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.ukiukiutopia.dto.AdminTicketSelectDTO;
 import com.internousdev.ukiukiutopia.util.DBConnector;
 import com.internousdev.ukiukiutopia.util.MongoDBConnector;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+
 
 /**
  * DBのチケット情報の変更を実行する為のクラス
@@ -21,6 +24,44 @@ import com.mongodb.DBCollection;
  * @since 1.0
  */
 public class AdminTicketUpdateDAO {
+	
+	/**
+	 * チケットを編集する前にIsShowがtrueになっているか確認するメソッド
+	 * @param id チケットID
+	 * @return result IsShowの真偽
+	 */
+	public boolean selectIsShow(int id){
+		boolean result = false;
+		Connection con = DBConnector.getConnection();
+
+		try {
+			String sql = "select is_show from ticket where id=?";
+
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				AdminTicketSelectDTO dto = new AdminTicketSelectDTO();
+
+				dto.setIsShow(rs.getBoolean(1));
+				result = dto.getIsShow();
+					
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 
 	/**
 	 * チケット名を変更するメソッド

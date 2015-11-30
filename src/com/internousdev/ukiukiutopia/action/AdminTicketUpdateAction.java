@@ -66,10 +66,12 @@ public class AdminTicketUpdateAction extends ActionSupport {
 		AdminTicketUpdateDAO dao = new AdminTicketUpdateDAO();
 
 		int count = 0;
-		if (updateId > 0) {
+		boolean isShow = dao.selectIsShow(updateId);
+		
+		if (isShow) {
 			
 			if (("".equals(updateName)) == false) {
-				count = dao.updateName(updateId, updateName);
+				count += dao.updateName(updateId, updateName);
 			}
 
 			if (updatePrice > 0) {
