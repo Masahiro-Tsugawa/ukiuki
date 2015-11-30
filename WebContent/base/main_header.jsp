@@ -4,8 +4,8 @@
 
 <link rel="stylesheet" href="css/main.css" />
 <div class="header">
-	<s:url id="home" action="home" />
-	<s:a href="%{home}"><img src="img/ukiukilogo.png" alt="ukiukiUTOPIA"></s:a>
+	<s:url id="myPage" action="personal" />
+	<s:a href="%{myPage}"><img src="img/ukiukilogo.png" alt="ukiukiUTOPIA"></s:a>
 	<s:if test="#session.loginName != null">
 		<div align="right">
 			<span class = "loginName" ><s:property value="#session.loginName" />様 </span>
