@@ -70,6 +70,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 	 * メールアドレス重複登録のエラーメッセージを表します。
 	 */
 	private String errorMail;
+	/**
+	 * 確認画面でのメールアドレス表示用
+	 */
+	private String hiddenPassword = "";
 
 	/**
 	 * 既存メールアドレスがDBにないかを確かめるメソッド
@@ -102,6 +106,10 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		
 		session.put("signUpEmail", userEmail);
 		session.put("signUpTelNum", userTelNum);
+		
+		for(int i = 0;i < userPassword.length();i++){
+			hiddenPassword += "●";	
+		}
 		
 		return ret;
 	}
@@ -280,6 +288,22 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
      */
 	public void setUserNameFirstName(String userNameFirstName) {
 		this.userNameFirstName = userNameFirstName;
+	}
+
+	/**
+     *確認画面でのメールアドレス表示を取得するメソッド
+     * @return hiddenPassword 確認画面でのメールアドレス表示
+     */
+	public String getHiddenPassword() {
+		return hiddenPassword;
+	}
+
+	/**
+     * 確認画面でのメールアドレス表示を設定するメソッド
+     * @param hiddenPassword 確認画面でのメールアドレス表示用
+     */
+	public void setHiddenPassword(String hiddenPassword) {
+		this.hiddenPassword = hiddenPassword;
 	}
 
 

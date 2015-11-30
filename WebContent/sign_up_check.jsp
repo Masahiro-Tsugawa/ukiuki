@@ -32,7 +32,7 @@
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.password" />：</td>
-					<td><s:property value="#session.signUpPassword" /></td>
+					<td><s:property value="%{getHiddenPassword()}" /></td>
 				</tr>
 				<tr>
 					<td><s:text name="signUpCheck.posCode" />：</td>
