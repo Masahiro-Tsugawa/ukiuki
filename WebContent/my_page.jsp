@@ -87,7 +87,7 @@ response.setDateHeader("Expires", 0);
 				
 			</table>
 			　　　　<s:form action="ticket_buy">
-					<td colspan="2"><s:submit value="%{getText('MyPage.newPurchaseScreen')}" /></td>
+					<s:submit cssClass="button01" value="%{getText('MyPage.newPurchaseScreen')}" />
 				</s:form>
 		</div>
 	</div>

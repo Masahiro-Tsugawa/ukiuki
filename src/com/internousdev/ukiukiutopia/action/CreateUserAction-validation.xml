@@ -11,11 +11,21 @@
 		<field-validator type="requiredstring">
 			<message>%{getText('signUp.validSurnameRS')}</message>
 		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">15</param>
+			<param name="trim">true</param>
+			<message>15字以内で入力してください</message>
+		</field-validator>
 	</field>
 
 	<field name="userNameFirstName">
 		<field-validator type="requiredstring">
 			<message>%{getText('signUp.validFirstNameRS')}</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">15</param>
+			<param name="trim">true</param>
+			<message>15字以内で入力してください</message>
 		</field-validator>
 	</field>
 
