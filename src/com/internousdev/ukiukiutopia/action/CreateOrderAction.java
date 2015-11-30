@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.internousdev.ukiukiutopia.dao.BuyTicketDataDAO;
+import com.internousdev.ukiukiutopia.dao.PersonalInformationDAO;
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.internousdev.util.CreditCard;
 
@@ -81,6 +82,18 @@ public class CreateOrderAction extends ActionSupport implements SessionAware {
 
 		String result = ERROR;
 		boolean resultDAO = false;
+		
+		String emailAddress = (String) session.get("userEmail");
+		if (emailAddress == null) {
+			result="notLogin";
+			return result;
+		}
+
+		PersonalInformationDAO pIDao = new PersonalInformationDAO();
+		if (!pIDao.select(emailAddress)) {
+			result="notLogin";
+			return result;
+		}
 
 		BuyTicketDataDAO dao = new BuyTicketDataDAO();
 

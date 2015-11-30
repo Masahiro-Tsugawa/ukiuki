@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.ukiukiutopia.dao.BuyCompleteDAO;
+import com.internousdev.ukiukiutopia.dao.PersonalInformationDAO;
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -35,6 +36,16 @@ public class BuyInsertAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		String result = ERROR;
+		
+		String emailAddress = (String) session.get("userEmail");
+		if (emailAddress == null) {
+			return result;
+		}
+
+		PersonalInformationDAO pIDao = new PersonalInformationDAO();
+		if (!pIDao.select(emailAddress)) {
+			return result;
+		}
 		
 		@SuppressWarnings("unchecked")
 		List<TicketDataDTO> useList = (ArrayList<TicketDataDTO>) session.get("buyUseTicket");

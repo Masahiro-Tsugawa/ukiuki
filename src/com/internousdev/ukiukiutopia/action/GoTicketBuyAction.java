@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ukiukiutopia.dao.CreditDataDAO;
+import com.internousdev.ukiukiutopia.dao.PersonalInformationDAO;
 import com.internousdev.ukiukiutopia.dao.TicketDataDAO;
 import com.internousdev.ukiukiutopia.dto.TicketDataDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -72,6 +73,18 @@ public class GoTicketBuyAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		String result = ERROR;
+		
+		String emailAddress = (String) session.get("userEmail");
+		if (emailAddress == null) {
+			result="notLogin";
+			return result;
+		}
+
+		PersonalInformationDAO pIDao = new PersonalInformationDAO();
+		if (!pIDao.select(emailAddress)) {
+			result="notLogin";
+			return result;
+		}
 
 		TicketDataDAO dao = new TicketDataDAO();
 		boolean resultDAO = dao.createTicketList();
