@@ -58,7 +58,7 @@ public class GoogleOauth extends ActionSupport {
 		try{
 			String apiKey = "42056507966-0pf52q6nrt5l30eqijjm30h1jm8l19vh.apps.googleusercontent.com";
 			String apiSecret = "IcSSbPEavOsH8H2WcACPpNeB";
-			String callbackUrl = "http://internousdev-a.com/ukiukiutopia/login-google-action";
+			String callbackUrl = "http://internousdev-b.com/ukiukiutopia/login-google-action";
 
 			OAuthService service = new ServiceBuilder()
 			.provider(GoogleApi.class)

@@ -17,18 +17,18 @@
 <script type="text/javascript" src="js/gmaps.js"></script>
 <script>
 	window.jQuery
-			|| document.write(
-					'<script src="js/jquery-1.11.3.min.js"><\/script>')
+			|| document
+					.write('<script src="js/jquery-1.11.3.min.js"><\/script>')
 </script>
-	<script>
-						function hyoji1(num) {
-							if (num == 0) {
-								document.getElementById("googleMap").style.display = "block";
-							} else {
-								document.getElementById("googleMap").style.display = "none";
-							}
-						}
-					</script>
+<script>
+	function hyoji1(num) {
+		if (num == 0) {
+			document.getElementById("googleMap").style.display = "block";
+		} else {
+			document.getElementById("googleMap").style.display = "none";
+		}
+	}
+</script>
 <script type="text/javascript" src="js/googleMapButton.js"></script>
 
 
@@ -160,12 +160,14 @@
 				</div>
 
 				<div class="col-md-6">
-				<s:text name="home.click.map" />
-				<div claass = map.button>
-						<input class="googleMapButton" id="button01" type="button" value="MAP" onclick="hyoji1(0)" />
-						<input class="googleMapButton" id="button01" type="button" value="Ext" onclick="hyoji1(1)" />
-				</div>		
-				
+					<s:text name="home.click.map" />
+					<div claass=map.button>
+						<input class="googleMapButton" id="button01" type="button"
+							value="MAP" onclick="hyoji1(0)" /> <input
+							class="googleMapButton" id="button01" type="button" value="Ext"
+							onclick="hyoji1(1)" />
+					</div>
+
 					<div id="googleMap"></div>
 				</div>
 			</div>
