@@ -243,7 +243,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNan;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -253,7 +253,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatMax;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -263,7 +263,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatPInf;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -273,7 +273,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNInf;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -283,7 +283,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatDelta;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -297,7 +297,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNan;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -307,7 +307,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatMax;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -317,7 +317,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatPInf;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -327,7 +327,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNInf;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -337,7 +337,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatDelta;
 
-		test.setPrice(expected);
+		test.setPrice((int) expected);
 		float actual = test.getPrice();
 
 		assertEquals(expected, actual,0.0F);
@@ -351,7 +351,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNan;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -361,7 +361,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatMax;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -371,7 +371,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatPInf;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -381,7 +381,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNInf;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -391,7 +391,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatDelta;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -405,7 +405,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNan;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -415,7 +415,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatMax;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -425,7 +425,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatPInf;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -435,7 +435,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatNInf;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);
@@ -445,7 +445,7 @@ public class PurchaseHistoryDTOTest {
 		PurchaseHistoryDTO test = new PurchaseHistoryDTO();
 		float expected = testFloatDelta;
 
-		test.setTotalAmount(expected);
+		test.setTotalAmount((int) expected);
 		float actual = test.getTotalAmount();
 
 		assertEquals(expected, actual,0.0F);

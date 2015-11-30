@@ -21,12 +21,12 @@ public class PurchaseHistoryDTO {
 	/**
 	 * 単価
 	 */
-    private float price;
+    private int price;
     
     /**
      * 合計金額
      */
-    private float totalAmount;
+    private int totalAmount;
     
     
     /**
@@ -65,14 +65,14 @@ public class PurchaseHistoryDTO {
 	 * 単価を格納するメソッド
 	 * @param price 単価
 	 */
-	public void setPrice(float price){
+	public void setPrice(int price){
 		this.price = price;
 	}
     /**
      * 単価を取得するメソッド
      * @return price 単価
      */
-	public float getPrice(){
+	public int getPrice(){
 		return price;
 	}
 	
@@ -80,7 +80,7 @@ public class PurchaseHistoryDTO {
 	 * 合計金額を格納するメソッド
 	 * @param totalAmount 合計金額
 	 */
-	public void setTotalAmount(float totalAmount){
+	public void setTotalAmount(int totalAmount){
 		this.totalAmount = totalAmount;
 	}
     
@@ -88,7 +88,7 @@ public class PurchaseHistoryDTO {
 	 * 合計金額を取得するメソッド
 	 * @return totalAmount 合計金額
 	 */
-	public float getTotalAmount(){
+	public int getTotalAmount(){
 		return totalAmount;
 	}
 

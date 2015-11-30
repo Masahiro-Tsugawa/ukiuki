@@ -99,10 +99,10 @@ public class PersonalInformationDAO {
 			while (rs.next()) {
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
 				
-				dto.setTotalAmount(rs.getFloat(4));
+				dto.setTotalAmount(rs.getInt(4));
 				dto.setName(rs.getString(1));
 				dto.setSheets(rs.getInt(3));
-				dto.setPrice(rs.getFloat(2));
+				dto.setPrice(rs.getInt(2));
 
 				historylList.add(dto);
 				result = true;
